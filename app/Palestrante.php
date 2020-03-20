@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class palestrante extends Model
+class Palestrante extends Model
 {
     protected $fillable = [
         'nm_palestrante', 'id_tp_nacionalidade', 'ds_foto', 'id_residencia', 'ds_ativo', 'ds_visivel_chat',

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class dados_contratuais extends Model
+class Dados_contratuais extends Model
 {
 
     protected $fillable = [
