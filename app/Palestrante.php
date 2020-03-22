@@ -14,6 +14,15 @@ class Palestrante extends Model
         'ds_forma_pagamento', 'ds_equipamento_necessario',
     ];
 
+    public function categorias(){
+        return $this->belongsToMany(
+            'App\Categoria',
+            'palestrante_categoria',
+            'palestrante_id',
+            'categoria_id'
+        )
+    }
+
     public function contatosPalestrante()
     {
 
