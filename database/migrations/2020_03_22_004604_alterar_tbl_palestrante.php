@@ -18,7 +18,6 @@ class AlterarTblPalestrante extends Migration
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('mgm_tbl_usuario');
 
-
         });
     }
 
@@ -29,6 +28,9 @@ class AlterarTblPalestrante extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mgm_tbl_palestrante');
-    }
+        Schema::dropIfExists('mgm_tbl_palestrante', function (Blueprint $table) {
+            $table->foreign('id')
+                ->references('id')->on('mgm_tbl_usuario')
+                ->onDelete('cascade');
+        });}
 }
