@@ -14,6 +14,7 @@ class Palestrante extends Model
         'ds_forma_pagamento', 'ds_equipamento_necessario',
     ];
 
+    //Relacionamento Muitos para muitos
     public function categorias(){
         return $this->belongsToMany(
             'App\Categoria',
