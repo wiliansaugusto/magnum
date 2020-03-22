@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Dados_contratuais extends Model
+class DadosContratuais extends Model
 {
     protected $table = 'mgm_tbl_dados_contratuais';
 

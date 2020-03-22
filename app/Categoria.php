@@ -6,17 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
+    protected $table = 'mgm_tbl_categoria';
+
     protected $fillable = [
         'nm_categoria',
     ];
-    protected $table = 'mgm_tbl_categoria';
 
-    public function palestrantes(){
+    public function palestrantes()
+    {
         return $this->belongsToMany(
             'App\Palestrante',
-            'palestrante_categoria',
+            'mgm_tbl_palestrante_categoria',
             'categoria_id',
             'palestrante_id'
-        )
+        );
     }
+
+
 }
