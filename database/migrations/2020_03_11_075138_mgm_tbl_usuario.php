@@ -15,10 +15,11 @@ class MgmTblUsuario extends Migration
     {
         Schema::create('mgm_tbl_usuario', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nm_usuario', 60);
+            $table->string('nm_usuario', 60);//remover
             $table->string('ds_nickname', 15);
-            $table->string('email', 255);
-            $table->string('password', 32);
+            $table->string('email', 255);//remover
+            $table->string('password', 32);//remover
+            //$table->integer('perfil_id');//tem relacionamento com a tabela perfil( id, nm_perfil);
             $table->timestamps();
         });
     }
