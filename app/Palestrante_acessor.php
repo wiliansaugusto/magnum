@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Palestrante_acessor extends Model
 {
-   protected $fillable=[
-       'id_palestrante', 'id_acessor'
-   ];
-   protected $table='mgm_tbl_palestrante_acessor';
+    protected $table = 'mgm_tbl_palestrante_acessor';
+
+    protected $fillable = [
+        'id_palestrante', 'id_acessor',
+    ];
+    public function acessorPalestrante()
+    {
+        return $this->belongsTo('App\Palestrante');
+    }
 }
