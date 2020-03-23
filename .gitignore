@@ -8,6 +8,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.env
 .idea/
 .idea/gerenciamento_magnum.iml
 .idea/laravel-plugin.xml
@@ -15,4 +16,4 @@ yarn-error.log
 .idea/modules.xml
 .idea/php.xml
 .idea/workspace.xml
-.env
+
