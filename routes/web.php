@@ -12,12 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect::to('/login');
 });
 
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/', 'PalestranteController');
 //Route::resource('/dashboard/palestrante/', 'PalestranteController');
+
+Route::prefix('dashboard')->group(function () {
+    Route::resource('/', 'HomeController');
+    Route::resource('palestrante/', 'PalestranteController');
+});
