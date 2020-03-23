@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <div class="form-check form-check-inline">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#frmPalestranteModal">Adicionar Contato
+                                data-target="#frmPalestranteModal">Adicionar Palestrante
                         </button>
                     </div>
                 </div>
@@ -41,8 +41,16 @@
                                            aria-selected="false">Dados Contratuais</a>
 
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                           href="#nav-acessor" role="tab" aria-controls="nav-contact"
-                                           aria-selected="false">Acessor</a>
+                                           href="#nav-banco" role="tab" aria-controls="nav-contact"
+                                           aria-selected="false">Dados Bancários</a>
+
+                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                                           href="#nav-endereco" role="tab" aria-controls="nav-contact"
+                                           aria-selected="false">Endereços</a>
+
+                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                                           href="#nav-assessor" role="tab" aria-controls="nav-contact"
+                                           aria-selected="false">Assessor</a>
 
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
                                            href="#nav-descricao" role="tab" aria-controls="nav-contact"
@@ -291,8 +299,23 @@
                                         </div>
 
                                         <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-12">
+                                                <label for="Nome">Nome Completo</label>
+                                                <input id="nome" type="text"
+                                                       class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                       name="nome" value="" required autofocus>
+
+                                                @if ($errors->has('nome'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('nome') }}</strong>
+                                            </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-4">
-                                                <label for="Nome">CNPJ</label>
+                                                <label for="Nome">CPF</label>
                                                 <input id="nome" type="text"
                                                        class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
                                                        name="nome" value="" required autofocus>
@@ -304,7 +327,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="Nome">Inscrição Estadual</label>
+                                                <label for="Nome">RG</label>
                                                 <input id="nome" type="text"
                                                        class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
                                                        name="nome" value="" required autofocus>
@@ -316,7 +339,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="Nome">Inscrição Municipal</label>
+                                                <label for="Nome">Data de Nascimento</label>
                                                 <input id="nome" type="text"
                                                        class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
                                                        name="nome" value="" required autofocus>
@@ -329,11 +352,283 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-12">
+                                                <label for="Nome">Obsevações</label>
+                                                <textarea id="nome" type="text"
+                                                          class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                          name="nome" value="" required autofocus></textarea>
+
+                                                @if ($errors->has('nome'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('nome') }}</strong>
+                                            </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                         aria-labelledby="nav-contact-tab">...
+                                    <div class="tab-pane fade" id="nav-banco" role="tabpanel"
+                                         aria-labelledby="nav-contact-tab">
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#frmContatoModal">
+                                                        Adicionar Banco
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table class="table table-sm table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Banco</th>
+                                                        <th scope="col">Agencia</th>
+                                                        <th scope="col">Conta</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>Thornton</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry the Bird</td>
+                                                        <td>@twitter</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
                                     </div>
+
+                                    <div class="tab-pane fade" id="nav-endereco" role="tabpanel"
+                                         aria-labelledby="nav-contact-tab">
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#frmContatoModal">
+                                                        Adicionar Endereço
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table class="table table-sm table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Tipo de Endereço</th>
+                                                        <th scope="col">Endereço</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry the Bird</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-pane fade" id="nav-assessor" role="tabpanel"
+                                         aria-labelledby="nav-contact-tab">
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#frmContatoModal">
+                                                        Adicionar Assessor
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table class="table table-sm table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Nome do Assessor</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry the Bird</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-pane fade" id="nav-descricao" role="tabpanel"
+                                         aria-labelledby="nav-contact-tab">
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#frmContatoModal">
+                                                        Adicionar Descrição
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table class="table table-sm table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Descrição</th>
+                                                        <th scope="col">Conteúdo</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Mark</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Jacob</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry the Bird</td>
+                                                        <td>Larry the Bird</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-pane fade" id="nav-categoria" role="tabpanel"
+                                         aria-labelledby="nav-contact-tab">
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#frmContatoModal">
+                                                        Adicionar Categoria
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table class="table table-sm table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Categoria</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry the Bird</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-pane fade" id="nav-video" role="tabpanel"
+                                         aria-labelledby="nav-contact-tab">
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-6">
+                                                <label for="Nome">Titulo</label>
+                                                <input id="nome" type="text"
+                                                       class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                       name="nome" value="" required autofocus>
+
+                                                @if ($errors->has('nome'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('nome') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="Nome">URL</label>
+                                                <input id="nome" type="text"
+                                                       class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                       name="nome" value="" required autofocus>
+
+                                                @if ($errors->has('nome'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('nome') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="Nome">Descrição</label>
+                                                <textarea id="nome" type="text"
+                                                          class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                          name="nome" value="" required autofocus></textarea>
+
+                                                @if ($errors->has('nome'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('nome') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
