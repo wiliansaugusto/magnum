@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NomePalestranteRequest;
 use Illuminate\Http\Request;
 
 class PalestranteController extends Controller
@@ -19,6 +20,10 @@ class PalestranteController extends Controller
     public function index()
     {
         return view('dashboard.palestrante.create');
+    }
+
+    public function salvarNome(NomePalestranteRequest $request){
+
     }
 
     /**

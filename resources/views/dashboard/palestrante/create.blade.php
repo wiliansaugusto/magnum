@@ -71,14 +71,14 @@
                                          aria-labelledby="nav-pessoais-tab">
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12">
-                                                <label for="Nome">Nome do Palestrante</label>
-                                                <input id="nome" type="text"
-                                                       class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                       name="nome" value="" required autofocus>
+                                                <label for="nome_palestrante">Nome do Palestrante</label>
+                                                <input id="nome_palestrante" type="text"
+                                                       class="form-control form-control-sm{{ $errors->has('nome_palestrante') ? ' is-invalid' : '' }}"
+                                                       name="nome_palestrante" value="" required autofocus>
 
-                                                @if ($errors->has('nome'))
+                                                @if ($errors->has('nome_palestrante'))
                                                     <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
+                                                <strong>{{ $errors->first('nome_palestrante') }}</strong>
                                             </span>
                                                 @endif
                                             </div>
