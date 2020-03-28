@@ -74,7 +74,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/palestrante">
+                        <a class="nav-link" href="/dashboard/categoria">
                             <span data-feather="shopping-cart"></span>
                             Categorias
                         </a>

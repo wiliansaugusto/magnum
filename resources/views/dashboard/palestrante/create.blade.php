@@ -180,7 +180,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <label for="Nome">Rancking do Palestrante</label><br>
+                                                <label for="Nome">Ranking do Palestrante</label><br>
                                                 <div class="rate">
                                                     <input type="radio" id="star5" name="rate" value="5"/>
                                                     <label for="star5" title="text">5 stars</label>
