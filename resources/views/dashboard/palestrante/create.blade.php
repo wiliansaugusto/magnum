@@ -15,10 +15,10 @@
         </div>
     </div>
 
-    <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog"
-         aria-labelledby="frmPalestranteModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
-            <div class="modal-content">
+        <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog"
+            aria-labelledby="frmPalestranteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
+                <div class="modal-content">
                 <form method="POST" action="/palestrante" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">

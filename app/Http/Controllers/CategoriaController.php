@@ -21,7 +21,7 @@ class CategoriaController extends Controller
     public function index(Request $request)
     {
 
-        $categoria = Categoria::query()->orderBy('nm_categoria')->get();
+        $categoria = Categoria::query()->orderBy('id',"desc")->get();
         $mensagem = $request->session()->get('mensagem');
 
         return view('dashboard.categoria.create', compact('categoria', 'mensagem'));
