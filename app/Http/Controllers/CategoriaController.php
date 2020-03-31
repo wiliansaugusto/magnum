@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
 use App\Http\Requests\NomeCategoriaRequest;
 use Illuminate\Http\Request;
 
@@ -17,12 +18,18 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard.categoria.create');
+
+        $categoria = Categoria::query()->orderBy('nm_categoria')->get();
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('dashboard.categoria.create', compact('categoria', 'mensagem'));
+
     }
 
-    public function salvarNome(NomeCategoriaRequest $request){
+    public function salvarNome(NomeCategoriaRequest $request)
+    {
 
     }
 
@@ -44,7 +51,14 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nome = $request->nm_categoria;
+        $categoria = new Categoria();
+        $categoria->nm_categoria = $nome;
+        $categoria->save();
+        $request->session()->flash('mensagem',
+            "Categoria {$categoria->nm_categoria} criada com sucesso ");
+
+        return redirect('dashboard/categoria');
     }
 
     /**

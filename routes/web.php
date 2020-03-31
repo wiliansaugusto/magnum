@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\CategoriaController;
+
 Route::get('/', function () {
     return Redirect::to('/login');
 });
@@ -25,4 +27,9 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
     Route::resource('palestrante/', 'PalestranteController');
     Route::resource('categoria/', 'CategoriaController');
+    Route::post('categoria/', 'CategoriaController@store');
+
+
 });
+
+
