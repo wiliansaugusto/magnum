@@ -23,11 +23,12 @@ class CategoriaController extends Controller
     {
 
         $categoria = Categoria::query()->orderBy('id', "desc")->get();
-        $sub = new SubCategoria();
-        $sub->subCategorias()->where('id_categoria', $columns = ['*']);
         $mensagem = $request->session()->get('mensagem');
 
-        return view('dashboard.categoria.create', compact('categoria', 'mensagem','sub'));
+        $sub = new Categoria();
+        $sub->subCategorias()->get();
+
+        return view('dashboard.categoria.create', compact('categoria', 'mensagem'));
 
     }
 
@@ -84,7 +85,8 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+        $sub = new Categoria();
+        $sub->subCategorias()->find($id);
     }
 
     /**

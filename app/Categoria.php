@@ -9,6 +9,7 @@ class Categoria extends Model
     protected $table = 'mgm_tbl_categoria';
 
     protected $fillable = [
+        'id',
         'nm_categoria',
     ];
 
@@ -23,11 +24,8 @@ class Categoria extends Model
     }
     public function subCategorias()
     {
-        return $this->belongsTo(
-            'App\SubCategoria',
 
-
-        );
+        return $this->hasMany(SubCategoria::class, 'id_categoria');
 
     }
 
