@@ -21,6 +21,12 @@ class Categoria extends Model
             'palestrante_id'
         );
     }
+    public function subCategorias()
+    {
+        return $this->belongsTo(
+            'App\SubCategoria', 'categoria_id', 'id'
+        );
 
+    }
 
 }

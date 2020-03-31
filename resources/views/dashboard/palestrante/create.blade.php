@@ -47,6 +47,7 @@
                                 </div>
                             </div>
 
+<<<<<<< HEAD
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -63,6 +64,12 @@
          aria-labelledby="frmPalestranteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
             <div class="modal-content">
+=======
+        <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog"
+            aria-labelledby="frmPalestranteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
+                <div class="modal-content">
+>>>>>>> 9ac69976d21448123c995119d962d1c3e8a1ddff
                 <form method="POST" action="/palestrante" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
@@ -224,7 +231,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <label for="Nome">Rancking do Palestrante</label><br>
+                                                <label for="Nome">Ranking do Palestrante</label><br>
                                                 <div class="rate">
                                                     <input type="radio" id="star5" name="rate" value="5"/>
                                                     <label for="star5" title="text">5 stars</label>
