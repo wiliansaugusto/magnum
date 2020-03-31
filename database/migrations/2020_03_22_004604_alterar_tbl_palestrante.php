@@ -16,7 +16,7 @@ class AlterarTblPalestrante extends Migration
         Schema::table('mgm_tbl_palestrante', function (Blueprint $table) {
             $table->integer('rank_palestrante');
             $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('mgm_tbl_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
 
         });
     }

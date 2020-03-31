@@ -11,7 +11,7 @@ class Palestrante extends Model
     protected $fillable = [
         'nm_palestrante', 'id_tp_nacionalidade', 'ds_foto', 'id_residencia', 'ds_ativo', 'ds_visivel_chat',
         'ds_chamada', 'ds_curriculo', 'ds_curriculo_tecnico', 'ds_observacao', 'ds_investimento',
-        'ds_forma_pagamento', 'ds_equipamento_necessario',
+        'ds_forma_pagamento', 'ds_equipamento_necessario',"id_usuario",
     ];
 
     //Relacionamento Muitos para muitos
@@ -35,7 +35,6 @@ class Palestrante extends Model
 
     public function dadosContratuais()
     {
-
         return $this->hasMany('App\DadosContratuais');
     }
     public function palestranteAcessor()
@@ -61,5 +60,10 @@ class Palestrante extends Model
 
     public function palestranteValor(){
         return $this->belongsToMany('App\Valor') ;
+    }
+
+    public function useuario()
+    {
+        return $this->hasMany(User::class);
     }
 }
