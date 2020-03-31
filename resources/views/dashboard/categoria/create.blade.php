@@ -10,6 +10,10 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal"
                         data-target="#frmCategoriaModal">Adicionar Categoria
                     </button>
+                    <div class="form-check form-check-inline">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#frmSubCategoriaModal">Adicionar Sub-Categoria
+                        </button>
                 </div>
             </div>
         </div>
@@ -51,6 +55,51 @@
     </div>
 </div>
 
+<div class="modal fade" id="frmSubCategoriaModal" tabindex="-1" role="dialog" aria-labelledby="frmSubCategoriaModalLabel"
+    aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <form  method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-header">
+
+                            <h5 class="modal-title text-center" id="frmCategoriaLabel">Cadastrar Sub - Categoria</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Categoria Principal</label>
+                                <select name="id_categoria" class="form-control" id="exampleFormControlSelect1">
+                                  @foreach ($categoria as $item)
+                                <option value="{{$item->id}}">{{$item->nm_categoria}}</option>
+
+                                  @endforeach
+                                </select>
+                              </div>
+                            <label for="nm_sub_cat">Sub - Categoria</label>
+                            <input id="nm_sub_cat" type="text" placeholder="Informe a Sub - categoria"
+                                class="form-control form-control-sm{{ $errors->has('nm_sub_cat') ? ' is-invalid' : '' }}"
+                                name="nm_sub_cat" value="" required autofocus> <br>
+                        </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">
+                    Salvar
+                </button>
+                <button type="reset" class="btn btn-warning">
+                    Limpar
+                </button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -65,10 +114,13 @@
             @endif
             <ul class="list-group">
 
-                @foreach ($categoria as $item)
-                <li class="list-group-item"> {{$item->nm_categoria}}</li>
+                @foreach ($sub as $item)
+                <li class="list-group-item"> {{$item->nm_sub_cat}}</li>
+
                 @endforeach
             </ul>
+
+
         </div>
     </div>
 </div>

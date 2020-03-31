@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use App\Http\Requests\NomeCategoriaRequest;
+use App\SubCategoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -21,10 +22,12 @@ class CategoriaController extends Controller
     public function index(Request $request)
     {
 
-        $categoria = Categoria::query()->orderBy('id',"desc")->get();
+        $categoria = Categoria::query()->orderBy('id', "desc")->get();
+        $sub = new SubCategoria();
+        $sub->subCategorias()->where('id_categoria', $columns = ['*']);
         $mensagem = $request->session()->get('mensagem');
 
-        return view('dashboard.categoria.create', compact('categoria', 'mensagem'));
+        return view('dashboard.categoria.create', compact('categoria', 'mensagem','sub'));
 
     }
 
@@ -51,14 +54,26 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $nome = $request->nm_categoria;
-        $categoria = new Categoria();
-        $categoria->nm_categoria = $nome;
-        $categoria->save();
-        $request->session()->flash('mensagem',
-            "Categoria {$categoria->nm_categoria} criada com sucesso ");
+        if (isset($request->id_categoria)) {
 
-        return redirect('dashboard/categoria');
+            $sub = new SubCategoria();
+            $sub->id_categoria = $request->id_categoria;
+            $sub->nm_sub_cat = $request->nm_sub_cat;
+            $sub->save();
+            $request->session()->flash('mensagem',
+                "Sub - Categoria {$sub->nm_sub_cat} criada com sucesso ");
+            return redirect('dashboard/categoria');
+
+        } else {
+            $nome = $request->nm_categoria;
+            $categoria = new Categoria();
+            $categoria->nm_categoria = $nome;
+            $categoria->save();
+            $request->session()->flash('mensagem',
+                "Categoria {$categoria->nm_categoria} criada com sucesso ");
+
+            return redirect('dashboard/categoria');
+        }
     }
 
     /**
