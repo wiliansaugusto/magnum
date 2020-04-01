@@ -150,3 +150,11 @@ label {
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
   font-weight: bold;
 }
+
+.table-no-mb {
+   margin-bottom: 0px !important;
+}
+
+.card-header-custom-p {
+  padding: 0.25rem 0.25rem !important;
+}
