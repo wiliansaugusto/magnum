@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NomePalestranteRequest;
+use App\Palestrante;
 use Illuminate\Http\Request;
 
-class PalestranteController extends Controller
+class FragmentosPalestranteController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +15,7 @@ class PalestranteController extends Controller
      */
     public function index()
     {
-        return view('dashboard.palestrante.create');
+        //
     }
 
     /**
@@ -35,18 +31,24 @@ class PalestranteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PalestranteRequest $request)
+    public function store(Request $request)
     {
-        //
+
+    }
+
+    public function salvarNome(NomePalestranteRequest $request)
+    {
+        Palestrante::create( $request->all() );
+         return Palestrante::las;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -57,7 +59,7 @@ class PalestranteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -68,8 +70,8 @@ class PalestranteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -80,7 +82,7 @@ class PalestranteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

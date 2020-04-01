@@ -24,9 +24,7 @@ class Categoria extends Model
     }
     public function subCategorias()
     {
-
         return $this->hasMany(SubCategoria::class, 'id_categoria');
-
     }
 
 }

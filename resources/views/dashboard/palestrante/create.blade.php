@@ -7,18 +7,69 @@
                 <div class="col-md-12">
                     <div class="form-check form-check-inline">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#frmPalestranteModal">Adicionar Palestrante
+                                data-target="#frmNomePalestranteModal">Adicionar Palestrante
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="frmNomePalestranteModal" tabindex="-1" role="dialog"
+         aria-labelledby="frmNomePalestranteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form id="frmNomePalestrante" method="POST">
+                    <input type="hidden" name="ds_ativo" value="n" />
+                    <input type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Palestrante</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="form-group row d-flex justify-content-center">
+                                    <div class="col-md-12">
+                                        <label for="nome_palestrante">Nome do Palestrante</label>
+                                        <input id="nome_palestrante" type="text"
+                                               class="form-control form-control-sm{{ $errors->has('nm_palestrante') ? ' is-invalid' : '' }}"
+                                               name="nm_palestrante" value="" required autofocus>
 
+                                        @if ($errors->has('nm_palestrante'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('nm_palestrante') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+<<<<<<< HEAD
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">
+                            Prosseguir
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog"
+         aria-labelledby="frmPalestranteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
+            <div class="modal-content">
+=======
         <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog"
             aria-labelledby="frmPalestranteModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
                 <div class="modal-content">
+>>>>>>> 9ac69976d21448123c995119d962d1c3e8a1ddff
                 <form method="POST" action="/palestrante" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">

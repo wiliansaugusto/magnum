@@ -24,7 +24,7 @@ class NomePalestranteRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome_palestrante' => 'required'
+            'nm_palestrante' => 'required'
         ];
     }
 }

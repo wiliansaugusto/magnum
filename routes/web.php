@@ -26,12 +26,14 @@ Auth::routes();
 Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
     Route::resource('palestrante/', 'PalestranteController');
+    Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
     Route::resource('categoria/', 'CategoriaController');
     Route::post('categoria/', 'CategoriaController@store');
+<<<<<<< HEAD
+=======
     Route::delete('categoria/{id}', 'CategoriaController@destroy');
     Route::post('categoria/update/{id}', 'CategoriaController@update');
 
 
+>>>>>>> c562804048bb04184e1f7414d867c1be22be840d
 });
-
-
