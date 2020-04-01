@@ -26,15 +26,7 @@ Auth::routes();
 Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
     Route::resource('palestrante/', 'PalestranteController');
-<<<<<<< HEAD
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
-});
-=======
     Route::resource('categoria/', 'CategoriaController');
     Route::post('categoria/', 'CategoriaController@store');
-
-
 });
-
-
->>>>>>> 9ac69976d21448123c995119d962d1c3e8a1ddff
