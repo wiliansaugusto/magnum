@@ -9,13 +9,13 @@ class SubCategoria extends Model
     protected $table = 'mgm_tbl_sub_categoria';
 
     protected $fillable = [
-        'nm_sub_cat',
         'id_categoria',
+        'nm_sub_cat',
     ];
 
-    public function subCategorias()
+    public function categorias()
     {
-        return $this->hasMany('App\Categoria','id_categoria');
+        return $this->belongsTo(Categoria::class,'id_categoria','id');
     }
 
 }
