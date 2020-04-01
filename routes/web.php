@@ -28,6 +28,8 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('palestrante/', 'PalestranteController');
     Route::resource('categoria/', 'CategoriaController');
     Route::post('categoria/', 'CategoriaController@store');
+    Route::delete('categoria/{id}', 'CategoriaController@destroy');
+    Route::post('categoria/update/{id}', 'CategoriaController@update');
 
 
 });

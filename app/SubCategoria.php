@@ -13,9 +13,9 @@ class SubCategoria extends Model
         'nm_sub_cat',
     ];
 
-    public function Categoria()
+    public function categorias()
     {
-        return $this->belongsToMany(Categoria::class,'id_categoria');
+        return $this->belongsTo(Categoria::class,'id_categoria','id');
 
     }
 

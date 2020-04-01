@@ -22,13 +22,10 @@ class CategoriaController extends Controller
     public function index(Request $request)
     {
 
-        $categoria = Categoria::query()->orderBy('id', "desc")->get();
+        $categorias = Categoria::all()->sortByDesc('id');
         $mensagem = $request->session()->get('mensagem');
 
-        $sub = new Categoria();
-        $sub->subCategorias()->get();
-
-        return view('dashboard.categoria.create', compact('categoria', 'mensagem'));
+        return view('dashboard.categoria.create', compact('categorias', 'mensagem'));
 
     }
 
@@ -109,7 +106,24 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (isset($request->nm_categoria)) {
+            $params = $request->all();
+            $subcat = Categoria::find($id);
+            $subcat->update($params);
+            $request->session()->flash('mensagem',
+                "Categoria ". $request->nm_categoria." Alterada com sucesso ");
+
+            return redirect('dashboard/categoria');
+        } else {
+            $params = $request->all();
+            $subcat = SubCategoria::find($id);
+            $subcat->update($params);
+            $request->session()->flash('mensagem',
+            "Categoria ". $request->nm_sub_cat." Alterada com sucesso ");
+
+
+            return redirect('dashboard/categoria');
+        }
     }
 
     /**
@@ -118,8 +132,19 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        if (isset($request->sub) == 1) {
+            SubCategoria::destroy($request->id);
+            $request->session()->flash('mensagem',
+                "Sub Categoria removida com sucesso ");
+            return redirect('dashboard/categoria');
+        } else {
+
+            Categoria::destroy($request->id);
+            $request->session()->flash('mensagem',
+                "Categoria removida com sucesso ");
+            return redirect('dashboard/categoria');
+        }
     }
 }
