@@ -76,7 +76,7 @@
                         <td colspan="2" class="text-right">
                             <div class="form-check form-check-inline">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#modal{{$categoria->id}}"><i class="fas fa-plus-circle"></i> Adicionar Sub-Categoria
+                                    data-target="#modal{{$categoria->id}}"><i class="fas fa-plus-circle"></i>
                                 </button>
                                 <div class="modal fade" id="modal{{$categoria->id}}" tabindex="-1" role="dialog"
                                     aria-labelledby="Label{{$categoria->id}}" aria-hidden="true">
@@ -127,7 +127,7 @@
                             </div>
 
                             <button type="button" class="btn btn-success" data-toggle="modal"
-                                data-target="#modalAlt{{$categoria->id}}"> <i class="fas fa-exclamation"></i> Alterar Categoria Principal
+                                data-target="#modalAlt{{$categoria->id}}"> <i class="fas fa-edit"></i></i>
                             </button>
                             <div class="modal fade" id="modalAlt{{$categoria->id}}" tabindex="-1" role="dialog"
                                 aria-labelledby="LabelAlt{{$categoria->id}}" aria-hidden="true">
@@ -182,7 +182,7 @@
                                 onsubmit="return confirm('Você deseja excluir a Categoria {{addslashes($categoria->nm_categoria)}} ?')">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger" type="submit"><i class="fas fa-times"></i> Remover Categoria</button>
+                                <button class="btn btn-danger" type="submit"><i class="fas fa-times"></i> </button>
                             </form>
                         </td>
                     </tr>
@@ -206,7 +206,7 @@
 
                         <td colspan="2" class="text-right">
                             <button type="button" class="btn btn-success" data-toggle="modal"
-                                data-target="#modal{{$subItem->id}}"><i class="fas fa-exclamation"></i> Alterar Sub Categoria
+                                data-target="#modal{{$subItem->id}}"><i class="fas fa-edit"></i>
                             </button>
                             <div class="modal fade" id="modal{{$subItem->id}}" tabindex="-1" role="dialog"
                                 aria-labelledby="Label{{$subItem->id}}" aria-hidden="true">
@@ -262,7 +262,7 @@
                                 onsubmit="return confirm('Você deseja excluir {{addslashes($subItem->nm_sub_cat)}}?')">
                                 @csrf
                                 @method('DELETE')
-                                <button name="sub" value="1" class="btn btn-danger" type="submit"><i class="fas fa-times"></i> Remover Sub - Categoria</button>
+                                <button name="sub" value="1" class="btn btn-danger" type="submit"><i class="fas fa-times"></i> </button>
                             </form>
                         </td>
                     </tr>
