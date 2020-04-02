@@ -52,6 +52,15 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+        $params = $request->all();
+        foreach ($params as $value) {
+            if (empty($value)) {
+                $request->session()->flash('mensagem',
+                    "Texto digitado invalido!");
+
+                return redirect('dashboard/categoria');
+            }
+        }
         if (isset($request->id_categoria)) {
 
             $sub = new SubCategoria();
@@ -106,32 +115,32 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo $request->nm_sub_cat;
-        echo $request->nm_categoria;
+        $params = $request->all();
+        foreach ($params as $value) {
+            if (empty($value)) {
+                $request->session()->flash('mensagem',
+                    "Texto digitado invalido!");
 
-        if((empty($request->nm_sub_cat)) || (empty($request->nm_categoria))){
-            $request->session()->flash('mensagem',
-            "Texto digitado invalido");
+                return redirect('dashboard/categoria');
+            }
+        }
 
-       return redirect('dashboard/categoria');        }
         if (isset($request->nm_categoria)) {
-            $params = $request->all();
             $subcat = Categoria::find($id);
             $subcat->update($params);
             $request->session()->flash('mensagem',
-                "Categoria ". $request->nm_categoria." Alterada com sucesso ");
+                "Categoria " . $request->nm_categoria . " Alterada com sucesso ");
 
-           return redirect('dashboard/categoria');
+            return redirect('dashboard/categoria');
         } else {
-            $params = $request->all();
             $subcat = SubCategoria::find($id);
             $subcat->update($params);
             $request->session()->flash('mensagem',
-            "Categoria ". $request->nm_sub_cat." Alterada com sucesso ");
+                "Categoria " . $request->nm_sub_cat . " Alterada com sucesso ");
 
-
-          return redirect('dashboard/categoria');
+            return redirect('dashboard/categoria');
         }
+
     }
 
     /**
@@ -154,5 +163,9 @@ class CategoriaController extends Controller
                 "Categoria removida com sucesso ");
             return redirect('dashboard/categoria');
         }
+    }
+    public function verificarVazio($params)
+    {
+
     }
 }
