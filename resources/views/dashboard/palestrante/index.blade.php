@@ -10,7 +10,7 @@
                 <div class="col-md-6 sm-12 text-right">
                     <div class="form-check form-check-inline">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#frmNomePalestranteModal"><i class="fas fa-plus "></i> Adicionar
+                                data-target="#frmPalestranteModal"><i class="fas fa-plus "></i> Adicionar
                             Palestrante
                         </button>
                     </div>
@@ -26,5 +26,11 @@
     </div>
     @include('dashboard.palestrante.create')
     @include('dashboard.contato.create')
+    @include('dashboard.banco.create')
+    @include('dashboard.endereco.create')
+    @include('dashboard.descricao.create')
+    @include('dashboard.assessor.create')
+    @include('dashboard.categoria.create')
+
 @endsection
 

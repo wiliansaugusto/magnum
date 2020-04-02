@@ -41,7 +41,7 @@
         <div class="card-body">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <h5 class="card-title text-center">FAQ - Palestrantes e Categorias</h5>
+                    <h5 class="card-title text-center">Informções importantes</h5>
                     <p class="card-text text-justify">No menu ao lado você encontrará 2 links conforme imagem abaixo
                         neles será possivel, você cadastrar os palestrantes e as categorias e sub-categorias.</p>
                     <p class="card-text text-justify">É importante lembrar que as categorias e sub-categorias
