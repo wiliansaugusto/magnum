@@ -433,7 +433,7 @@
                                                 <button type="button"
                                                         class="btn btn-primary"
                                                         data-toggle="modal"
-                                                        data-target="#frmContatoModal">
+                                                        data-target="#frmBancoModal">
                                                     Adicionar Banco
                                                 </button>
                                             </div>
@@ -483,7 +483,7 @@
                                                 <button type="button"
                                                         class="btn btn-primary"
                                                         data-toggle="modal"
-                                                        data-target="#frmContatoModal">
+                                                        data-target="#frmEnderecoModal">
                                                     Adicionar Endereço
                                                 </button>
                                             </div>
@@ -529,7 +529,7 @@
                                                 <button type="button"
                                                         class="btn btn-primary"
                                                         data-toggle="modal"
-                                                        data-target="#frmContatoModal">
+                                                        data-target="#frmAssessorModal">
                                                     Adicionar Assessor
                                                 </button>
                                             </div>
@@ -572,7 +572,7 @@
                                                 <button type="button"
                                                         class="btn btn-primary"
                                                         data-toggle="modal"
-                                                        data-target="#frmContatoModal">
+                                                        data-target="#frmDescricaoModal">
                                                     Adicionar Descrição
                                                 </button>
                                             </div>
@@ -619,7 +619,7 @@
                                                 <button type="button"
                                                         class="btn btn-primary"
                                                         data-toggle="modal"
-                                                        data-target="#frmContatoModal">
+                                                        data-target="#frmCategoriaModal">
                                                     Adicionar Categoria
                                                 </button>
                                             </div>
