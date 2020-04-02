@@ -106,6 +106,14 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        echo $request->nm_sub_cat;
+        echo $request->nm_categoria;
+
+        if((empty($request->nm_sub_cat)) || (empty($request->nm_categoria))){
+            $request->session()->flash('mensagem',
+            "Texto digitado invalido");
+
+       return redirect('dashboard/categoria');        }
         if (isset($request->nm_categoria)) {
             $params = $request->all();
             $subcat = Categoria::find($id);
@@ -113,7 +121,7 @@ class CategoriaController extends Controller
             $request->session()->flash('mensagem',
                 "Categoria ". $request->nm_categoria." Alterada com sucesso ");
 
-            return redirect('dashboard/categoria');
+           return redirect('dashboard/categoria');
         } else {
             $params = $request->all();
             $subcat = SubCategoria::find($id);
@@ -122,7 +130,7 @@ class CategoriaController extends Controller
             "Categoria ". $request->nm_sub_cat." Alterada com sucesso ");
 
 
-            return redirect('dashboard/categoria');
+          return redirect('dashboard/categoria');
         }
     }
 

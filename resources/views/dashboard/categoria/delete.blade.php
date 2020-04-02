@@ -16,6 +16,8 @@
                         <div class="modal-body text-center">
                             <h5>Tem certeza que você quer excluir a categoria:</h5>
                             <h2 class="text-uppercase">{{$categoria->nm_categoria}}</h2>
+                            <h5>Todas as Subcategorias vinculadas serão excluidas</h5>
+
                         </div>
                     </div>
                     <div class="modal-footer">

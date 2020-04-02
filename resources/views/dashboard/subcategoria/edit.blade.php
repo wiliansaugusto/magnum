@@ -1,13 +1,8 @@
-<div class="modal fade" id="modal{{$subItem->id}}" tabindex="-1"
-     role="dialog"
-     aria-labelledby="Label{{$subItem->id}}" aria-hidden="true">
-    <div class=" modal-dialog modal-dialog-centered modal-lg"
-         role="document">
+<div class="modal fade" id="modal{{$subItem->id}}" tabindex="-1" role="dialog" aria-labelledby="Label{{$subItem->id}}"
+    aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="POST"
-                  action="categoria/update/{{$subItem->id}}"
-                  enctype="multipart/form-data"
-                  onsubmit="return confirm('Você deseja Editar a Subcategoria {{addslashes($subItem->nm_sub_cat)}} ?')">
+            <form method="POST" action="categoria/update/{{$subItem->id}}" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -18,14 +13,11 @@
                         </div>
                         <div class="modal-body text-left">
                             <div class="form-group">
-                                <input type="hidden" name="id"
-                                       value="{{$subItem->id}}"><br>
+                                <input type="hidden" name="id" value="{{$subItem->id}}"><br>
                                 <label for="nm_sub_cat">Subcategoria</label>
-                                <input id="nm_sub_cat" type="text"
-                                       placeholder="Informe a Subcategoria"
-                                       class="form-control form-control-sm{{ $errors->has('nm_sub_cat') ? ' is-invalid' : '' }}"
-                                       name="nm_sub_cat" value="{{$subItem->nm_sub_cat}}" required
-                                       autofocus>
+                                <input id="nm_sub_cat" type="text" placeholder="Informe a Subcategoria"
+                                    class="form-control form-control-sm{{ $errors->has('nm_sub_cat') ? ' is-invalid' : '' }}"
+                                    name="nm_sub_cat" value="{{$subItem->nm_sub_cat}}" required autofocus>
                             </div>
                         </div>
                     </div>
@@ -36,8 +28,7 @@
                         <button type="reset" class="btn btn-warning">
                             Limpar
                         </button>
-                        <button type="button" class="btn btn-danger"
-                                data-dismiss="modal">Cancelar
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar
                         </button>
 
                     </div>

@@ -4,8 +4,7 @@
         <div class="modal-content">
             <form method="POST"
                   action="categoria/update/{{$categoria->id}}"
-                  enctype="multipart/form-data"
-                  onsubmit="return confirm('Você deseja Alterar a Categoria {{addslashes($categoria->nm_categoria)}} ?')">
+                  enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body text-left">
                     <div class="form-group">

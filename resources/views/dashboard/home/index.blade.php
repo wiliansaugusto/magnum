@@ -6,7 +6,7 @@
         <div class="card-header bg-info">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <h2 class="text-light">Gerenciamento Magnum</h2>
+                    <h2 class="text-light text-center">Gerenciamento Magnum</h2>
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <h5 class="card-title text-center">Olá seja bem vindo!</h5>
-                    <p class="card-text text-justify">Estamos em trabalhando para desenvolver a ferramenta que
+                    <p class="card-text text-justify">Estamos trabalhando para desenvolver a ferramenta que
                         atenda os requisitos importantes para o seu negocio, agradecemos a sua paciência e
                         desejamos que a nossa parceria seja duradoura e a sua ferramenta seja eficiênte e eficaz no
                         seu dia a dia</p>
