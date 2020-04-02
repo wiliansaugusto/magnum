@@ -25,7 +25,7 @@ class CategoriaController extends Controller
         $categorias = Categoria::all()->sortByDesc('id');
         $mensagem = $request->session()->get('mensagem');
 
-        return view('dashboard.categoria.new', compact('categorias', 'mensagem'));
+        return view('dashboard.categoria.index', compact('categorias', 'mensagem'));
 
     }
 

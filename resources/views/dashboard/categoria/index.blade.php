@@ -22,60 +22,81 @@
         <div class="card-body">
             <div class="row ">
                 <div class="col-md-12">
-                    <table class="table table-hover table-sm">
+                    <div id="accordion">
                         @foreach ($categorias as $categoria)
-                            <thead class="">
-                            <th colspan="4"> Categoria</th>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>{{$categoria->nm_categoria}}</td>
-                                <td colspan="3" class="text-right">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#modal{{$categoria->id}}"><i class="fas fa-plus-circle"></i>
-                                        Subcategoria
-                                    </button>
-                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                            data-target="#modalAlt{{$categoria->id}}"><i class="fas fa-exclamation"></i>
-                                        Editar
-                                    </button>
-                                    <button class="btn btn-danger" type="submit"><i class="fas fa-times"></i>
-                                        Excluir
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                            @if(!empty($categoria->subCategorias))
-                                <thead>
-                                <th colspan="3">Subcategorias {{$categoria->nm_categoria}}</th>
-                                </thead>
-                                <tbody>
-                                @foreach ($categoria->subCategorias as $subItem)
-                                    <tr>
-                                        <td>
-                                            {{$categoria->nm_categoria}} -
-                                            {{$subItem->nm_sub_cat}}
-
-                                        </td>
-                                        <td class="text-right">
-                                            <button type="button" class="btn btn-success" data-toggle="modal"
-                                                    data-target="#modal{{$subItem->id}}"><i
-                                                        class="fas fa-exclamation"></i>
+                            <div class="card">
+                                <div class="card-header card-header-custom-p" id="headingOne">
+                                    <div class="row ">
+                                        <div class="col-md-6 d-flex align-items-center">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                        data-target="#collapse{{$categoria->id}}"
+                                                        aria-expanded="false" aria-controls="collapseOne">
+                                                    {{$categoria->nm_categoria}}
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div class="col-md-6 text-right d-flex justify-content-end align-items-center">
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                    data-target="#modal{{$categoria->id}}"><i
+                                                        class="fas fa-plus-circle"></i>
+                                                Subcategoria
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm ml-1"
+                                                    data-toggle="modal"
+                                                    data-target="#modalAlt{{$categoria->id}}"><i
+                                                        class="fas fa-edit"></i>
                                                 Editar
                                             </button>
-                                            <button name="sub" value="1" class="btn btn-danger" type="submit"><i
-                                                        class="fas fa-times"></i> Excluir
+                                            <button class="btn btn-danger btn-sm ml-1" type="button"
+                                                    data-toggle="modal"
+                                                    data-target="#modalDel{{$categoria->id}}">
+                                                <i class="fas fa-times"></i> Excluir
                                             </button>
-                                        </td>
-                                    </tr>
-                                    @include('dashboard.subcategoria.edit', ['subItem'=>$subItem])
-                                @endforeach
-                                </tbody>
-                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="collapse{{$categoria->id}}" class="collapse" aria-labelledby="headingOne"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <table class="table table-no-mb table-hover table-sm">
+                                            <tbody>
+                                            @foreach ($categoria->subCategorias as $subItem)
+                                                <tr>
+                                                    <td>
+                                                        {{$categoria->nm_categoria}} -
+                                                        {{$subItem->nm_sub_cat}}
+
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <button type="button" class="btn btn-success btn-sm"
+                                                                data-toggle="modal"
+                                                                data-target="#modal{{$subItem->id}}"><i
+                                                                    class="fas fa-edit"></i>
+                                                            Editar
+                                                        </button>
+                                                        <button name="sub" value="1" class="btn btn-danger btn-sm"
+                                                                type="button"
+                                                                data-toggle="modal"
+                                                                data-target="#modalDelSub{{$subItem->id}}"><i
+                                                                    class="fas fa-times"></i> Excluir
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                @include('dashboard.subcategoria.edit', ['subItem'=>$subItem])
+                                                @include('dashboard.subcategoria.delete', ['subItem'=>$subItem])
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                             @include('dashboard.categoria.edit', ['categoria' => $categoria])
+                            @include('dashboard.categoria.delete', ['categoria' => $categoria])
                             @include('dashboard.subcategoria.create', ['categoria' => $categoria])
                         @endforeach
-                    </table>
+                    </div>
                 </div>
             </div>
         </div>

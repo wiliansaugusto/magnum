@@ -79,7 +79,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard/categoria">
                             <span data-feather="shopping-cart"></span>
-                            <i class="fas fa-briefcase"></i> Categorias
+                            <i class="fas fa-stream"></i> Categorias
                         </a>
                     </li>
                 </ul>
