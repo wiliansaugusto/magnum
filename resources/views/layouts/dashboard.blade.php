@@ -26,8 +26,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel sticky-top flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2" href="{{ url('/dashboard') }}">
-        <i class="fas fa-home"></i> Magnum
+    <a class="navbar-brand col-sm-3 col-md-2 text-uppercase" href="{{ url('/dashboard') }}">
+        <h3>Magnum</h3>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -67,7 +67,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">
                             <span data-feather="home"></span>
-                            Dashboard
+                            <i class="fas fa-home"></i>  Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
