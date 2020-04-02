@@ -79,7 +79,7 @@
                                                         <button name="sub" value="1" class="btn btn-danger btn-sm"
                                                                 type="button"
                                                                 data-toggle="modal"
-                                                                data-target="#modalDelSub{{$subItem->id}}"><i
+                                                                data-target="#modalSubDel{{$subItem->id}}"><i
                                                                     class="fas fa-times"></i> Excluir
                                                         </button>
                                                     </td>

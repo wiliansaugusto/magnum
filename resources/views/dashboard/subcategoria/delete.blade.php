@@ -1,25 +1,25 @@
-<div class="modal fade" id="modalSubDel{{$categoria->id}}" tabindex="-1" role="dialog"
-     aria-labelledby="LabelAlt{{$categoria->id}}" aria-hidden="true">
+<div class="modal fade" id="modalSubDel{{$subItem->id}}" tabindex="-1" role="dialog"
+     aria-labelledby="LabelAlt{{$subItem->id}}" aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <form method="post"
-                  action="categoria/{{$categoria->id}}">
+                  action="categoria/{{$subItem->id}}">
                 @csrf
                 @method('DELETE')
                 <div class="modal-body text-left">
                     <div class="form-group">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="LabelAlt{{$categoria->id}}">
+                            <h5 class="modal-title" id="LabelAlt{{$subItem->id}}">
                                 Excluir Categoria
                             </h5>
                         </div>
                         <div class="modal-body text-center">
                             <h5>Tem certeza que você quer excluir a categoria:</h5>
-                            <h2 class="text-uppercase">{{$categoria->nm_categoria}}</h2>
+                            <h2 class="text-uppercase">{{$subItem->nm_sub_cat}}</h2>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">
+                        <button name="sub" value="1" type="submit" class="btn btn-primary">
                             Excluir
                         </button>
                         <button type="button" class="btn btn-danger"
