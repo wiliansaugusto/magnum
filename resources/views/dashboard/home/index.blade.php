@@ -61,7 +61,7 @@
                         lá será possivel cadastrar o tipo e valor(numero de telefone, email, skype) dependendo do seu
                         tipo.</p>
                      <hr style="height:4px; background-color:black;">
-                    <h5><i class="fas fa-briefcase"></i> Categorias</h5>
+                    <h5><i class="fas fa-stream"></i> Categorias</h5>
                     <p class="card-text text-justify">As categorias e sub-categorias devem ser cadastradas antes dos
                         palestrantes.</p>
                     <p class="card-text text-justify">Na topo da aplicação, está situado o botão para cadastrar
