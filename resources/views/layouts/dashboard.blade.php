@@ -63,11 +63,11 @@
     <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
-                <ul class="nav flex-column">
+                <ul class="nav flex-column mt-3">
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">
                             <span data-feather="home"></span>
-                            <i class="fas fa-home"></i>  Dashboard
+                            <i class="fas fa-home"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
@@ -90,9 +90,10 @@
         </main>
     </div>
 </div>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/jquery-3.4.1.js') }}" defer></script>
-    <script src="{{ asset('js/core.js') }}" defer></script>
+<!-- Scripts -->
+<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/core.js') }}"></script>
 </body>
 </html>

@@ -31,6 +31,5 @@
     @include('dashboard.descricao.create')
     @include('dashboard.assessor.create')
     @include('dashboard.categoria.create')
-
 @endsection
 

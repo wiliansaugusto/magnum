@@ -41,8 +41,12 @@ class FragmentosPalestranteController extends Controller
 
     public function salvarNome(NomePalestranteRequest $request)
     {
-        Palestrante::create( $request->all() );
-         return Palestrante::las;
+//        $palestrante = new Palestrante();
+////        $palestrante->nm_palestrante = "Teste";
+////        $palestrante->save();
+        $data = Palestrante::create($request->all());
+        return response(json_encode($data), 200)
+            ->header('Content-Type', 'application/json');;
     }
 
     /**

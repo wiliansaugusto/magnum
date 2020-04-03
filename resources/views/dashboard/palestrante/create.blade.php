@@ -13,24 +13,29 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row justify-content-center">
+                    <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
-                            <div class="form-group row d-flex justify-content-center">
-                                <div class="col-md-12">
-                                    <label for="nome_palestrante">Nome do Palestrante</label>
-                                    <input id="nome_palestrante" type="text"
-                                           class="form-control form-control-sm{{ $errors->has('nm_palestrante') ? ' is-invalid' : '' }}"
-                                           name="nm_palestrante" value="" required autofocus>
+                            <label for="nome_palestrante">Nome do Palestrante</label>
+                            <input id="nome_palestrante" type="text"
+                                   class="form-control form-control-sm{{ $errors->has('nm_palestrante') ? ' is-invalid' : '' }}"
+                                   name="nm_palestrante" value="" required autofocus>
 
-                                    @if ($errors->has('nm_palestrante'))
-                                        <span class="invalid-feedback" role="alert">
+                            @if ($errors->has('nm_palestrante'))
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('nm_palestrante') }}</strong>
                                     </span>
-                                    @endif
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Salvar
+                    </button>
+                    <button type="reset" class="btn btn-warning">
+                        Limpar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
             </form>
         </div>
@@ -42,6 +47,7 @@
         <div class="modal-content">
             <form method="POST" action="/palestrante" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id_palestrante" value=""/>
                 <div class="modal-header">
                     <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar
                         Palestrante</h5>
@@ -716,4 +722,9 @@
         </div>
     </div>
 </div>
-
+@include('dashboard.contato.create')
+@include('dashboard.banco.create')
+@include('dashboard.endereco.create')
+@include('dashboard.descricao.create')
+@include('dashboard.assessor.create')
+@include('dashboard.categoria.create')
