@@ -16,15 +16,22 @@ class Contato extends Model
     {
         return $this->belongsTo('App\TipoContato');
     }
+
     public function contatosPalestrante()
     {
 
-        return $this->hasMany('App\Palestrante_contato');
+        return $this->hasMany(Palestrante::class,'id_palestrante');
     }
 
     public function palestranteAcessorContato()
     {
         return $this->hasManyThrough('App\Palestrante', 'App\Acessor');
     }
+    public function contatoAssesor(){
+        return $this->belongsTo(Acessor::class, 'id_acessor', 'id');
+    }
 
+    public function palestranteBanco(){
+        return $this->hasMany(Banco::class, 'id_palestrante');
+    }
 }

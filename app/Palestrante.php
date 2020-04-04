@@ -9,13 +9,16 @@ class Palestrante extends Model
     protected $table = 'mgm_tbl_palestrante';
 
     protected $fillable = [
-        'nm_palestrante', 'id_tp_nacionalidade', 'ds_foto', 'id_residencia', 'ds_ativo', 'ds_visivel_chat',
-        'ds_chamada', 'ds_curriculo', 'ds_curriculo_tecnico', 'ds_observacao', 'ds_investimento',
-        'ds_forma_pagamento', 'ds_equipamento_necessario',"id_usuario",
+        'nm_palestrante', 'id_tp_nacionalidade', 'ds_foto',
+        'id_residencia', 'ds_ativo', 'ds_visivel_chat',
+        'ds_chamada', 'ds_curriculo', 'ds_curriculo_tecnico',
+        'ds_observacao', 'ds_investimento',
+        'ds_forma_pagamento', 'ds_equipamento_necessario', "id_usuario",
     ];
 
     //Relacionamento Muitos para muitos
-    public function categorias(){
+    public function categorias()
+    {
         return $this->belongsToMany(
             'App\Categoria',
             'mgm_tbl_palestrante_categoria',
@@ -23,15 +26,11 @@ class Palestrante extends Model
             'id_categoria'
         );
     }
-    public function contatos(){
-        return $this->belongsToMany(
-            'App\Contato',
-            'mgm_tbl_palestrante_contato',
-            'id_palestrante',
-            'id_contato'
-        );
+    public function contatos()
+    {
+        return $this->belongsTo(
+            Contato::class, 'id_palestrante', 'id');
     }
-
 
     public function dadosContratuais()
     {
@@ -46,7 +45,8 @@ class Palestrante extends Model
             'id_acessor'
         );
     }
-    public function palestranteAcessorContato(){
+    public function palestranteAcessorContato()
+    {
         return $this->hasManyThrough(
             'App\Acessor',
             'App\Contato',
@@ -58,12 +58,16 @@ class Palestrante extends Model
         );
     }
 
-    public function palestranteValor(){
-        return $this->belongsToMany('App\Valor') ;
+    public function palestranteValor()
+    {
+        return $this->belongsToMany('App\Valor');
     }
 
-    public function useuario()
+    public function usuario()
     {
         return $this->hasMany(User::class);
     }
+   public function palestranteBancos(){
+            return $this->belongsToMany(PalestranteBanco::class, 'id_palestrante');
+   }
 }
