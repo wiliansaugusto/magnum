@@ -6,8 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Banco extends Model
 {
-    public function bancoPalestrante(){
-        return $this->belongsTo(Palestrante::class, 'id_palestrante', 'id');
+    protected $table = 'mgm_tbl_banco';
+
+    protected $fillable = [
+        'id',
+        'nr_conta',
+        'nr_agencia',
+        'id_nm_banco',
+    ];
+    public function bancoPalestrante()
+    {
+        return $this->belongsToMany(Palestrante::class, 'mgm_tbl_palestrante_banco', 'id_palestrante', 'id_banco', 'id');
 
     }
 }

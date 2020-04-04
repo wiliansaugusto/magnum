@@ -52,8 +52,25 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+
+        //usada para remover a acentuação grafica
+        $comAcentos = array('à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ü', 'ú', 'ÿ', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'O', 'Ù', 'Ü', 'Ú');
+        $semAcentos = array('a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'n', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'y', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'N', 'O', 'O', 'O', 'O', 'O', '0', 'U', 'U', 'U');
+        $retorno = (Subcategoria::where('nm_sub_cat', strtoupper(str_replace($comAcentos, $semAcentos, $request->nm_sub_cat)))->first());
+        $retornoCat = (Categoria::where('nm_categoria',
+        strtoupper(str_replace($comAcentos, $semAcentos, $request->nm_categoria)))->first());
+
+        if (($retorno != null)||($retornoCat != null)) {
+        $request->session()->flash('mensagem',
+            "Categoria {$request->nm_categoria} já está cadastrada ! ");
+        return redirect('dashboard/categoria');
+
+    }
+        //verifica se ha valor digitado nulo
         $params = $request->all();
+
         foreach ($params as $value) {
+
             if (empty($value)) {
                 $request->session()->flash('mensagem',
                     "Texto digitado invalido!");
@@ -63,15 +80,20 @@ class CategoriaController extends Controller
         }
         if (isset($request->id_categoria)) {
 
+            //verfica se valor digitado não está duplicado e remove a acentuação grafica
+
             $sub = new SubCategoria();
             $sub->id_categoria = $request->id_categoria;
             $sub->nm_sub_cat = $request->nm_sub_cat;
+
             $sub->save();
             $request->session()->flash('mensagem',
                 "Sub - Categoria {$sub->nm_sub_cat} criada com sucesso ");
             return redirect('dashboard/categoria');
 
         } else {
+
+
             $nome = $request->nm_categoria;
             $categoria = new Categoria();
             $categoria->nm_categoria = $nome;

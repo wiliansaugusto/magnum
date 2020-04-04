@@ -18,8 +18,8 @@ class Categoria extends Model
         return $this->belongsToMany(
             'App\Palestrante',
             'mgm_tbl_palestrante_categoria',
-            'categoria_id',
-            'palestrante_id'
+            'id_categoria',
+            'id_palestrante'
         );
     }
     public function subCategorias()
