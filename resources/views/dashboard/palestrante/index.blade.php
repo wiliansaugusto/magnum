@@ -25,11 +25,11 @@
         </div>
     </div>
     @include('dashboard.palestrante.create')
-    @include('dashboard.contato.create')
     @include('dashboard.banco.create')
     @include('dashboard.endereco.create')
     @include('dashboard.descricao.create')
     @include('dashboard.assessor.create')
     @include('dashboard.categoria.create')
+    @include('dashboard.contato.create')
 @endsection
 

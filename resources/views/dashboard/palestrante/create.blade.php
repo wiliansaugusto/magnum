@@ -18,7 +18,7 @@
                             <label for="nome_palestrante">Nome do Palestrante</label>
                             <input id="nome_palestrante" type="text"
                                    class="form-control form-control-sm{{ $errors->has('nm_palestrante') ? ' is-invalid' : '' }}"
-                                   name="nm_palestrante" value="" required autofocus>
+                                   name="nm_palestrante" value="" autofocus>
 
                             @if ($errors->has('nm_palestrante'))
                                 <span class="invalid-feedback" role="alert">
