@@ -12,11 +12,11 @@ class Valor extends Model
         'valor_decimal', 'id_cidade', 'ds_observacao',
     ];
 
-    public function palestranteValor()
+    public function valorPalestrante()
     {
-        return $this->belongsToMany(
-            'App\Palestrante',
-            'mgm_tbl_palestrante',
+        return $this->hasManyThrough(
+            Palestrante::class,
+            'mgm_tbl_paestrante_valor',
             'id_palestrante',
             'id_valor'
         );
