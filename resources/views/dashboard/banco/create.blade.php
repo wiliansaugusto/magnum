@@ -1,5 +1,5 @@
 <div class="modal fade" id="frmBancoModal" tabindex="-1" role="dialog" aria-labelledby="frmContatoModalLabel"
-     aria-hidden="true">
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,40 +9,55 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-group row d-flex justify-content-center">
-                    <div class="col-md-4">
-                        <label for="tipo_contato">Banco</label>
-                        <select id="tipo_contato" name="id_tp_contato" class="form-control form-control-sm">
-                            <option selected disabled>Selecione Tipo de Contato</option>
-                            <option value="1">Santander</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="nome_palestrante">Agencia</label>
-                        <input id="nome_palestrante" type="text"
-                               class="form-control form-control-sm{{ $errors->has('nome_palestrante') ? ' is-invalid' : '' }}"
-                               name="nome_palestrante" value="" required
-                               autofocus>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="nome_palestrante">Conta</label>
-                        <input id="nome_palestrante" type="text"
-                               class="form-control form-control-sm{{ $errors->has('nome_palestrante') ? ' is-invalid' : '' }}"
-                               name="nome_palestrante" value="" required
-                               autofocus>
+
+            <form id="frmBanco" method="POST">
+
+                @csrf
+                <input id="id_palestrante" type="text" name="id_palestrante" value=""/>
+                <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}" />
+                <div class="modal-body">
+                    <div class="form-group row d-flex justify-content-center">
+                        <div class="col-md-4">
+
+                            <label for="nm_banco">Banco</label>
+                            @php
+                            $bancos = App\NomeBanco::all()->sortBy('nm_banco');
+                            @endphp
+
+                            <select id="id_nm_banco" name="id_nm_banco" class="form-control form-control-sm">
+                                <option selected disabled>Selecione Banco</option>
+                                @foreach ($bancos as $item)
+                                <option
+                                    class="form-control form-control-sm{{ $errors->has('id_nm_banco') ? ' is-invalid' : '' }}"
+                                    name="id_nm_banco" value="{{$item->id}}">{{$item->nm_banco}}</option>
+
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="nr_agencia">Agencia</label>
+                            <input id="nr_agencia" type="text"
+                                class="form-control form-control-sm{{ $errors->has('nr_agencia') ? ' is-invalid' : '' }}"
+                                name="nr_agencia" value="" required autofocus>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="nr_conta">Conta</label>
+                            <input id="nr_conta" type="text"
+                                class="form-control form-control-sm{{ $errors->has('nr_conta') ? ' is-invalid' : '' }}"
+                                name="nr_conta" value="" required autofocus>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">
-                    Salvar
-                </button>
-                <button type="reset" class="btn btn-warning">
-                    Limpar
-                </button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Salvar
+                    </button>
+                    <button type="reset" class="btn btn-warning">
+                        Limpar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

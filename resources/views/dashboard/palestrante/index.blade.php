@@ -24,6 +24,7 @@
             <p>falta o include de contato na create</p>
         </div>
     </div>
+
     @include('dashboard.palestrante.create')
     @include('dashboard.banco.create')
     @include('dashboard.endereco.create')

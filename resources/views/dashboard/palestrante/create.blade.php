@@ -45,7 +45,7 @@
         <div class="modal-content">
             <form method="POST" action="/palestrante" enctype="multipart/form-data">
                 @csrf
-                <input id="id_palestrante" type="hidden" name="id_palestrante" value=""/>
+                <input id="id_palestrante" type="text" name="id_palestrante" value=""/>
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                 <div class="modal-header">
                     <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar

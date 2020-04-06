@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\NomePalestranteRequest;
-use App\Palestrante;
 use Illuminate\Http\Request;
+use App\Banco;
 
-class FragmentosPalestranteController extends Controller
+use App\Http\Requests\BancoRequest;
+
+class BancoController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -31,29 +32,24 @@ class FragmentosPalestranteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $data = Banco::create($request->all());
+        var_dump($data);
+        foreach ($data as  $value) {
+            echo($value);
+        }
 
-    }
-
-    public function salvarNome(NomePalestranteRequest $request)
-    {
-//        $palestrante = new Palestrante();
-////        $palestrante->nm_palestrante = "Teste";
-////        $palestrante->save();
-        $data = Palestrante::create($request->all());
-
-        return response(json_encode($data), 200)
-            ->header('Content-Type', 'application/json');
+        return view('dashboard.palestrante.create');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -64,7 +60,7 @@ class FragmentosPalestranteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -75,8 +71,8 @@ class FragmentosPalestranteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -87,11 +83,10 @@ class FragmentosPalestranteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-    }
-}
+    }}

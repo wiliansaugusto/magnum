@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BancoCategoriaRequest extends FormRequest
+class BancoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class BancoCategoriaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nm_banco' => 'required'
+            'id_nm_banco' => 'required'
         ];
     }
 }
