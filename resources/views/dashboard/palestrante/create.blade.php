@@ -20,7 +20,7 @@
                                     <label for="nome_palestrante">Nome do Palestrante</label>
                                     <input id="nome_palestrante" type="text"
                                            class="form-control form-control-sm"
-                                           name="nm_palestrante" value=""  autofocus>
+                                           name="nm_palestrante" value="" autofocus>
                                 </div>
                             </div>
                         </div>
@@ -238,30 +238,15 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table class="table table-sm table-striped">
+                                            <table id="tblContato" class="table table-sm table-striped" style="visibility: hidden">
                                                 <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Tipo de Contato</th>
-                                                    <th scope="col">Contato</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th scope="col">Tipo de Contato</th>
+                                                        <th scope="col">Contato</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>

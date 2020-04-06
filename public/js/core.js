@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    var url = "http://localhost:8000/dashboard"
     $('#frmNomePalestrante').submit(function (event) {
         event.preventDefault();
         var data = $('#frmNomePalestrante').serialize();
@@ -15,8 +14,33 @@ $(document).ready(function () {
             $("#frmNomePalestrante")[0].reset();
             $('#frmPalestranteModal').modal('show');
         });
-
-
     });
 
+    $('#frmContatoPalestrante').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/contato",
+            data: data
+        }).done(function (data) {
+            tabelaContato(data);
+            $("#frmContatoPalestrante")[0].reset();
+            $('#frmContatoModal').modal('toggle');
+        });
+    });
+
+
+
+    //Preencimento das tabelas
+    function tabelaContato(fields) {
+        $("#tblContato").css( "visibility", "visible" );
+
+        var linha = "<tr>";
+                linha +="<td>"+fields.id_tp_contato+"</td>";
+                linha +="<td>"+fields.ds_contato+"</td>";
+            linha +="</tr>";
+
+        $("#tblContato tbody").append(linha);
+    }
 });

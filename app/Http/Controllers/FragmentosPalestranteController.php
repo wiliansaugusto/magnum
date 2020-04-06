@@ -46,7 +46,7 @@ class FragmentosPalestranteController extends Controller
 ////        $palestrante->save();
         $data = Palestrante::create($request->all());
         return response(json_encode($data), 200)
-            ->header('Content-Type', 'application/json');;
+            ->header('Content-Type', 'application/json');
     }
 
     /**
