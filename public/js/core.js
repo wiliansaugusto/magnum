@@ -50,8 +50,9 @@ $(document).ready(function () {
         $("#tblContato").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha += "<td>" + fields.id_tp_contato + "</td>";
-        linha += "<td>" + fields.ds_contato + "</td>";
+        linha += "<td>" + fields.id_nm_banco + "</td>";
+        linha += "<td>" + fields.nr_agencia + "</td>";
+        linha += "<td>" + fields.nr_conta + "</td>";
         linha += "</tr>";
 
         $("#tblContato tbody").append(linha);
