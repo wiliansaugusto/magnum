@@ -39,7 +39,7 @@ $(document).ready(function () {
             url: "/dashboard/banco/",
             data: data
         }).done(function (data) {
-
+            tabelaBanco(data);
             $("#frmBanco")[0].reset();
             $('#frmBancoModal').modal('toggle');
         });
@@ -57,6 +57,7 @@ $(document).ready(function () {
 
         $("#tblContato tbody").append(linha);
     }
+
     function tabelaBanco(fields) {
         $("#tblBanco").css("visibility", "visible");
 

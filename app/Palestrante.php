@@ -67,5 +67,7 @@ class Palestrante extends Model
     {
         return $this->hasMany(User::class);
     }
-
+    public function palestranteBancos(){
+        return $this->hasMany(Banco::class, 'id_palestrante');
+    }
 }
