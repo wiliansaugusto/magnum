@@ -14,17 +14,60 @@ class NomesBancosTableSeeder extends Seeder
         //TODO efetuar o seeder da lista de bancos
         //001 – Banco do Brasil S.A.
         //341 – Banco Itaú S.A.
-        //033 – Banco Santander (Brasil) S.A.
-        //356 – Banco Real S.A. (antigo)
-        //652 – Itaú Unibanco Holding S.A.
-        //237 – Banco Bradesco S.A.
-        //745 – Banco Citibank S.A.
-        //399 – HSBC Bank Brasil S.A. – Banco Múltiplo
-        //104 – Caixa Econômica Federal
-        //389 – Banco Mercantil do Brasil S.A.
-        //453 – Banco Rural S.A.
-        //422 – Banco Safra S.A.
-        //633 – Banco Rendimento S.A.
 
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco do Brasil S.A.",
+            'cd_banco'=> "001",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Itaú S.A.",
+            'cd_banco'=> "341",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Santander (Brasil) S.A.",
+            'cd_banco'=> "033",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Itaú Unibanco Holding S.A.",
+            'cd_banco'=> "652",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Bradesco S.A.",
+            'cd_banco'=> "237",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Citibank S.A.",
+            'cd_banco'=> "745",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Caixa Econômica Federal",
+            'cd_banco'=> "104",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Mercantil do Brasil S.A.",
+            'cd_banco'=> "389",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Rural S.A.",
+            'cd_banco'=> "453",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Safra S.A.",
+            'cd_banco'=> "422",
+        ]);
+        \App\NomeBanco::create([
+            'nm_banco'=> "Banco Rendimento S.A.",
+            'cd_banco'=> "633",
+        ]);
     }
 }
