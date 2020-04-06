@@ -19,4 +19,13 @@ class Banco extends Model
         return $this->belongsToMany(Palestrante::class, 'mgm_tbl_palestrante_banco', 'id_palestrante', 'id_banco', 'id');
 
     }
+
+    public function nomeBancos()
+    {
+        return $this->belongsTo(
+            NomeBanco::class,
+            'id_nm_banco',
+            'id'
+        );
+    }
 }
