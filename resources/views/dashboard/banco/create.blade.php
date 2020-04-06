@@ -11,10 +11,7 @@
             </div>
 
             <form id="frmBanco" method="POST">
-
                 @csrf
-                <input id="id_palestrante" type="text" name="id_palestrante" value=""/>
-                <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}" />
                 <div class="modal-body">
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-4">
@@ -28,7 +25,7 @@
                                 <option selected disabled>Selecione Banco</option>
                                 @foreach ($bancos as $item)
                                 <option
-                                    class="form-control form-control-sm{{ $errors->has('id_nm_banco') ? ' is-invalid' : '' }}"
+                                    class="form-control form-control-sm"
                                     name="id_nm_banco" value="{{$item->id}}">{{$item->nm_banco}}</option>
 
                                 @endforeach
@@ -37,13 +34,13 @@
                         <div class="col-md-4">
                             <label for="nr_agencia">Agencia</label>
                             <input id="nr_agencia" type="text"
-                                class="form-control form-control-sm{{ $errors->has('nr_agencia') ? ' is-invalid' : '' }}"
+                                class="form-control form-control-sm"
                                 name="nr_agencia" value="" required autofocus>
                         </div>
                         <div class="col-md-4">
                             <label for="nr_conta">Conta</label>
                             <input id="nr_conta" type="text"
-                                class="form-control form-control-sm{{ $errors->has('nr_conta') ? ' is-invalid' : '' }}"
+                                class="form-control form-control-sm"
                                 name="nr_conta" value="" required autofocus>
                         </div>
                     </div>

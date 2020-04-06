@@ -32,5 +32,5 @@ Route::prefix('dashboard')->group(function () {
     Route::post('categoria/', 'CategoriaController@store');
     Route::delete('categoria/{id}', 'CategoriaController@destroy');
     Route::post('categoria/update/{id}', 'CategoriaController@update');
-    Route::post('salvarbanco/', 'BancoController@store');
+    Route::resource('banco/', 'BancoController');
 });

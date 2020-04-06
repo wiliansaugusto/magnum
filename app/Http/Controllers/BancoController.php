@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Palestrante;
 use Illuminate\Http\Request;
 use App\Banco;
 
@@ -37,13 +38,10 @@ class BancoController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Banco::create($request->all());
-        var_dump($data);
-        foreach ($data as  $value) {
-            echo($value);
-        }
+        $banco = Banco::create($request->all());
 
-        return view('dashboard.palestrante.create');
+        return response(json_encode($banco), 200)
+            ->header('Content-Type', 'application/json');
     }
 
     /**

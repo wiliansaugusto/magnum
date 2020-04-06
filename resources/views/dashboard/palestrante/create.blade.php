@@ -394,34 +394,16 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table class="table table-sm table-striped">
+                                            <table id="tblBanco" class="table table-sm table-striped" style="visibility: hidden">
                                                 <thead>
                                                 <tr>
-                                                    <th scope="col">#</th>
                                                     <th scope="col">Banco</th>
                                                     <th scope="col">Agencia</th>
                                                     <th scope="col">Conta</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>Otto</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>Thornton</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                    <td>@twitter</td>
-                                                </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
