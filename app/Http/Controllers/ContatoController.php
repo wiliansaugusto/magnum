@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Palestrante;
+use App\Contato;
 use Illuminate\Http\Request;
 
 class ContatoController extends Controller
@@ -34,7 +36,10 @@ class ContatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contato = Contato::create($request->all());
+
+        return response(json_encode($contato), 200)
+            ->header('Content-Type', 'application/json');
     }
 
     /**

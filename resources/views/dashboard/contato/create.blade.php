@@ -2,7 +2,7 @@
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="POST" action="/contato" enctype="multipart/form-data">
+            <form id="frmContatoPalestrante" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Contato</h5>
@@ -14,9 +14,9 @@
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-8">
                             <label for="nome_palestrante">Contato</label>
-                            <input id="nome_palestrante" type="text"
-                                   class="form-control form-control-sm{{ $errors->has('nome_palestrante') ? ' is-invalid' : '' }}"
-                                   name="nome_palestrante" value="" required
+                            <input id="contatoPalestrante" type="text"
+                                   class="form-control form-control-sm"
+                                   name="ds_contato" value="" required
                                    autofocus>
                         </div>
                         <div class="col-md-4">
