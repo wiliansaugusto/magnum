@@ -2,7 +2,7 @@
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="POST" action="/palestrante" enctype="multipart/form-data">
+            <form method="POST" action="/contato" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Contato</h5>

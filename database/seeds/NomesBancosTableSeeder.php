@@ -11,20 +11,6 @@ class NomesBancosTableSeeder extends Seeder
      */
     public function run()
     {
-        //TODO efetuar o seeder da lista de bancos
-        //001 – Banco do Brasil S.A.
-        //341 – Banco Itaú S.A.
-
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
         \App\NomeBanco::create([
             'nm_banco'=> "Banco do Brasil S.A.",
             'cd_banco'=> "001",

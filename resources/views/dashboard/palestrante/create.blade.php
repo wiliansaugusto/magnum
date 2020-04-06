@@ -3,8 +3,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <form id="frmNomePalestrante" method="POST">
-                <input type="hidden" name="ds_ativo" value="n"/>
-                <input type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
+                <input id="ds_ativo" type="hidden" name="ds_ativo" value="n"/>
+                <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Palestrante</h5>
@@ -19,14 +19,8 @@
                                 <div class="col-md-12">
                                     <label for="nome_palestrante">Nome do Palestrante</label>
                                     <input id="nome_palestrante" type="text"
-                                           class="form-control form-control-sm{{ $errors->has('nm_palestrante') ? ' is-invalid' : '' }}"
+                                           class="form-control form-control-sm"
                                            name="nm_palestrante" value=""  autofocus>
-
-                                    @if ($errors->has('nm_palestrante'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('nm_palestrante') }}</strong>
-                                    </span>
-                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -51,7 +45,8 @@
         <div class="modal-content">
             <form method="POST" action="/palestrante" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id_palestrante" value=""/>
+                <input id="id_palestrante" type="hidden" name="id_palestrante" value=""/>
+                <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                 <div class="modal-header">
                     <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar
                         Palestrante</h5>
@@ -108,15 +103,9 @@
                                         <div class="col-md-12">
                                             <label for="nome_palestrante">Nome do
                                                 Palestrante</label>
-                                            <input id="nome_palestrante" type="text"
-                                                   class="form-control form-control-sm{{ $errors->has('nome_palestrante') ? ' is-invalid' : '' }}"
-                                                   name="nome_palestrante" value="" required autofocus>
-
-                                            @if ($errors->has('nome_palestrante'))
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome_palestrante') }}</strong>
-                                            </span>
-                                            @endif
+                                            <input id="nm_palestrante" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="nm_palestrante" value="" autofocus readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
