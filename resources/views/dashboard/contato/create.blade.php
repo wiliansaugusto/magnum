@@ -23,7 +23,13 @@
                             <label for="tipo_contato">Tipo Contato</label>
                             <select id="tipo_contato" name="id_tp_contato" class="form-control form-control-sm">
                                 <option selected disabled>Selecione Tipo de Contato</option>
-                                <option value="1">Telefone</option>
+                                @php
+                                    $tipoContato = new App\TipoContato();
+                                    $result = $tipoContato::all();
+                                @endphp
+                                @foreach ( $result as $tipo)
+                                    <option value="{{$tipo->id}}">{{$tipo->nm_tipo_contato}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

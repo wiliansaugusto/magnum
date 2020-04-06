@@ -25,5 +25,6 @@ class NomesBancosTableSeeder extends Seeder
         //453 – Banco Rural S.A.
         //422 – Banco Safra S.A.
         //633 – Banco Rendimento S.A.
+
     }
 }

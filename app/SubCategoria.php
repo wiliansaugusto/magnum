@@ -17,5 +17,14 @@ class SubCategoria extends Model
     {
         return $this->belongsTo(Categoria::class,'id_categoria','id');
     }
-
+    public function palestranteSubCategoria()
+    {
+        return $this->hasManyThrough(
+            Palestrante::class,
+            'mgm_tbl_palestrante_categoria',
+            'id_subcategoria',
+            'id_palestrante',
+            'id'
+        );
+    }
 }

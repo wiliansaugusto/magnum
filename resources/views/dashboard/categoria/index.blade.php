@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="col-md-6 text-right d-flex justify-content-end align-items-center">
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                    data-target="#modal{{$categoria->id}}"><i
+                                                    data-target="#modalSub{{$categoria->id}}"><i
                                                         class="fas fa-plus-circle"></i>
                                                 Subcategoria
                                             </button>

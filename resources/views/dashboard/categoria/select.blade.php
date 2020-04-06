@@ -2,22 +2,15 @@
      aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="POST" enctype="multipart/form-data" action="categoria/">
+            <form method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="frmCategoriaLabel">Cadastrar Categoria</h5>
+                            <h5 class="modal-title" id="frmCategoriaLabel"></h5>
                         </div>
                         <div class="modal-body text-left">
-                            <div class="form-group row d-flex justify-content-center">
-                                <div class="col-md-12">
-                                    <label for="nm_categoria">Categoria</label>
-                                    <input id="nm_categoria" type="text" placeholder="Informe a categoria"
-                                           class="form-control form-control-sm{{ $errors->has('nm_categoria') ? ' is-invalid' : '' }}"
-                                           name="nm_categoria" value="" required autofocus>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -66,19 +66,16 @@
                 <ul class="nav flex-column mt-3">
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">
-                            <span data-feather="home"></span>
                             <i class="fas fa-home"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard/palestrante">
-                            <span data-feather="file"></span>
                             <i class="far fa-grin-beam"></i> Palestrantes
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard/categoria">
-                            <span data-feather="shopping-cart"></span>
                             <i class="fas fa-stream"></i> Categorias
                         </a>
                     </li>

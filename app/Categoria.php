@@ -13,15 +13,17 @@ class Categoria extends Model
         'nm_categoria',
     ];
 
-    public function palestrantes()
+    public function palestranteCategorias()
     {
-        return $this->belongsToMany(
-            'App\Palestrante',
+        return $this->hasManyThrough(
+            Palestrante::class,
             'mgm_tbl_palestrante_categoria',
-            'categoria_id',
-            'palestrante_id'
+            'id_categoria',
+            'id_palestrante',
+            'id'
         );
     }
+
     public function subCategorias()
     {
         return $this->hasMany(SubCategoria::class, 'id_categoria');

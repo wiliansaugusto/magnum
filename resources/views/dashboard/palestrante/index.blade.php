@@ -29,7 +29,7 @@
     @include('dashboard.endereco.create')
     @include('dashboard.descricao.create')
     @include('dashboard.assessor.create')
-    @include('dashboard.categoria.create')
+    @include('dashboard.categoria.select')
     @include('dashboard.contato.create')
 @endsection
 

@@ -14,7 +14,6 @@ class TipoContato extends Model
 
     public function tiposContato()
     {
-
         return $this->hasMany('App\Contatos');
     }
 }

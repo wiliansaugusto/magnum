@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal{{$categoria->id}}" tabindex="-1" role="dialog"
+<div class="modal fade" id="modalSub{{$categoria->id}}" tabindex="-1" role="dialog"
      aria-labelledby="Label{{$categoria->id}}" aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
