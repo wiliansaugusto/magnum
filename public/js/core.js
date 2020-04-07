@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('#frmNomePalestrante').submit(function (event) {
         event.preventDefault();
         var data = $('#frmNomePalestrante').serialize();
@@ -16,24 +17,44 @@ $(document).ready(function () {
         });
     });
 
-    $('#frmContatoPalestrante').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/contato",
-            data: data
-        }).done(function (data) {
-            tabelaContato(data);
-            $("#frmContatoPalestrante")[0].reset();
-            $('#frmContatoModal').modal('toggle');
+    $("#cttAssessor").on('click',function (event) {
+        $('#frmContatoPalestrante').submit(function (event) {
+            event.preventDefault();
+            var data = $('#frmContatoPalestrante').serialize() + "&id_acessor=" + $("#id_acessor").val();
+            $.ajax({
+                method: "POST",
+                url: "/dashboard/contato",
+                data: data
+            }).done(function (data) {
+                tabelaContatoAcessor(data);
+                $("#frmContatoPalestrante")[0].reset();
+                $('#frmContatoModal').modal('toggle');
+            });
+        });
+    });
+
+    $("#cttPalestrante").on("click",function (event) {
+        $('#frmContatoPalestrante').submit(function (event) {
+            event.preventDefault();
+            var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+            $.ajax({
+                method: "POST",
+                url: "/dashboard/contato",
+                data: data
+            }).done(function (data) {
+                tabelaContato(data);
+                $("#frmContatoPalestrante")[0].reset();
+                $('#frmContatoModal').modal('toggle');
+
+            });
         });
     });
 
     $('#frmBanco').submit(function (event) {
 
         event.preventDefault();
-        var data = $('#frmBanco').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        var data = $('#frmBanco').serialize() + "&id_palestrante=" + $("#id_palestrante").val()
+        + "&nm_banco=" + $("#nm_banco").val();
         $.ajax({
             method: "POST",
             url: "/dashboard/banco/",
@@ -45,28 +66,70 @@ $(document).ready(function () {
         });
     });
 
+
+
+    $('#frmAssessor').submit(function (event) {
+
+        event.preventDefault();
+        var data = $('#frmAssessor').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/assessor/",
+            data: data
+        }).done(function (data) {
+            tabelaAssessor(data);
+            $("#id_acessor").val(data.id);
+      //      $("#id_acessor").css("visibility", "visible");
+
+
+            $("#frmAssessor")[0].reset();
+            $('#frmAssessorModal').modal('toggle');
+        });
+    });
+
+
     //Preencimento das tabelas
+    function tabelaBanco(fields) {
+        $("#tblBanco").css("visibility", "visible");
+
+        var linha = "<tr>";
+        linha += "<td>" + fields.id_nm_banco + "</td>";
+        linha += "<td>" + fields.nr_agencia + "</td>";
+        linha += "<td>" + fields.nr_conta + "</td>";
+        linha += "</tr>";
+
+        $("#tblBanco tbody ").append(linha);
+    }
+
+        function tabelaContatoAcessor(fields) {
+        $("#tblContatoAcessor").css("visibility", "visible");
+
+        var linha = "<tr>";
+        linha += "<td>" + fields.id_tp_contato + "</td>";
+        linha += "<td>" + fields.ds_contato + "</td>";
+        linha += "</tr>";
+
+        $("#tblContatoAcessor tbody ").append(linha);
+    }
     function tabelaContato(fields) {
         $("#tblContato").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha += "<td>" + fields.nm_banco + "</td>";
-        linha += "<td>" + fields.nr_agencia + "</td>";
-        linha += "<td>" + fields.nr_conta + "</td>";
+        linha += "<td>" + fields.id_tp_contato + "</td>";
+        linha += "<td>" + fields.ds_contato + "</td>";
         linha += "</tr>";
 
         $("#tblContato tbody ").append(linha);
     }
 
-    function tabelaBanco(fields) {
-        $("#tblBanco").css("visibility", "visible");
+    function tabelaAssessor(fields) {
+        $("#tblAssessor").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha += "<td>" + fields.id_tp_contato + "</td>";
-        linha += "<td>" + fields.ds_contato + "</td>";
-        linha += "<td>" + fields.ds_contato + "</td>";
+        linha += "<td>" + fields.nm_acessor + "</td>";
         linha += "</tr>";
 
-        $("#tblBanco tbody").append(linha);
+        $("#tblAssessor tbody ").append(linha);
     }
+
 });

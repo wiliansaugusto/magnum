@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-use App\Banco;
+use App\Acessor;
 
 use App\Http\Requests\BancoRequest;
 
-class BancoController extends Controller
+class AcessorController extends Controller
 {
 /**
      * Display a listing of the resource.
@@ -37,9 +38,9 @@ class BancoController extends Controller
      */
     public function store(Request $request)
     {
-        $banco = Banco::create($request->all());
+        $assessor = Acessor::create($request->all());
 
-        return response(json_encode($banco), 200)
+        return response(json_encode($assessor), 200)
             ->header('Content-Type', 'application/json');
     }
 

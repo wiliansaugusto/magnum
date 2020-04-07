@@ -230,7 +230,7 @@
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#frmContatoModal">
+                                                    data-target="#frmContatoModal" id="cttPalestrante" value="1">
                                                     Adicionar Contato
                                                 </button>
                                             </div>
@@ -402,7 +402,7 @@
                                                         <th scope="col">Conta</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody >
+                                                <tbody>
 
                                                 </tbody>
                                             </table>
@@ -425,6 +425,8 @@
                                         </div>
                                         <div class="col-md-10">
                                             <table class="table table-sm table-striped">
+
+
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">#</th>
@@ -466,173 +468,182 @@
                                                     Adicionar Assessor
                                                 </button>
                                             </div>
+                                            <div class="form-check form-check-inline">
+
+                                                <button id="cttAssessor" value="1" type="button" class="btn btn-primary"
+                                                    data-toggle="modal" data-target="#frmContatoModal">
+                                                    Adicionar Contato
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div class="col-md-10">
-                                            <table class="table table-sm table-striped">
+
+                                        <div class="col-md-5">
+                                            <input type="text" id="id_acessor" name="id_acessor"
+                                                style="visibility: hidden" readonly>
+                                           <table class="table table-sm table-striped" id="tblAssessor"
+                                                style="visibility: hidden">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">#</th>
                                                         <th scope="col">Nome do Assessor</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry the Bird</td>
-                                                    </tr>
+                                                    <th scope="row"> </th>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="tab-pane fade" id="nav-descricao" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-
-                                    <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-2">
-                                            <div class="form-check form-check-inline">
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#frmDescricaoModal">
-                                                    Adicionar Descrição
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <table class="table table-sm table-striped">
+                                        <div class="col-md-5">
+                                            <table class="table table-sm table-striped" id="tblContatoAcessor"
+                                                style="visibility: hidden">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Descrição</th>
-                                                        <th scope="col">Conteúdo</th>
+                                                        <th scope="col">Contatos</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Mark</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Jacob</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry the Bird</td>
-                                                        <td>Larry the Bird</td>
-                                                    </tr>
+                                                    <th scope="row"> </th>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-
                                 </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-descricao" role="tabpanel" aria-labelledby="nav-contact-tab">
 
-                                <div class="tab-pane fade" id="nav-categoria" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-
-                                    <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-2">
-                                            <div class="form-check form-check-inline">
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#frmCategoriaModal">
-                                                    Adicionar Categoria
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <ul>
-                                                @php
-                                                $retorno = new App\Categoria();
-                                                $categorias = $retorno::all();
-                                                @endphp
-
-                                                @foreach ( $categorias as $categoria)
-                                                <li>{{$categoria->nm_categoria}}</li>
-                                                @foreach ($categoria->subCategorias as $subItem)
-                                                <li> {{$categoria->nm_categoria}} -
-                                                    {{$subItem->nm_sub_cat}}</li>
-                                                @endforeach
-                                                @endforeach
-                                            </ul>
-                                        </div>
-
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="col-md-2">
+                                    <div class="form-check form-check-inline">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#frmDescricaoModal">
+                                            Adicionar Descrição
+                                        </button>
                                     </div>
-
                                 </div>
+                                <div class="col-md-10">
+                                    <table class="table table-sm table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Descrição</th>
+                                                <th scope="col">Conteúdo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Mark</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Jacob</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry the Bird</td>
+                                                <td>Larry the Bird</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
 
-                                <div class="tab-pane fade" id="nav-video" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
+                        </div>
 
-                                    <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-6">
-                                            <label for="Nome">Titulo</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
+                        <div class="tab-pane fade" id="nav-categoria" role="tabpanel" aria-labelledby="nav-contact-tab">
 
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="Nome">URL</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label for="Nome">Descrição</label>
-                                            <textarea id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus></textarea>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
-                                        </div>
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="col-md-2">
+                                    <div class="form-check form-check-inline">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#frmCategoriaModal">
+                                            Adicionar Categoria
+                                        </button>
                                     </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <ul>
+                                        @php
+                                        $retorno = new App\Categoria();
+                                        $categorias = $retorno::all();
+                                        @endphp
 
+                                        @foreach ( $categorias as $categoria)
+                                        <li>{{$categoria->nm_categoria}}</li>
+                                        @foreach ($categoria->subCategorias as $subItem)
+                                        <li> {{$categoria->nm_categoria}} -
+                                            {{$subItem->nm_sub_cat}}</li>
+                                        @endforeach
+                                        @endforeach
+                                    </ul>
                                 </div>
 
                             </div>
+
                         </div>
+
+                        <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="col-md-6">
+                                    <label for="Nome">Titulo</label>
+                                    <input id="nome" type="text"
+                                        class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                        name="nome" value="" required autofocus>
+
+                                    @if ($errors->has('nome'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('nome') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Nome">URL</label>
+                                    <input id="nome" type="text"
+                                        class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                        name="nome" value="" required autofocus>
+
+                                    @if ($errors->has('nome'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('nome') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="Nome">Descrição</label>
+                                    <textarea id="nome" type="text"
+                                        class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                        name="nome" value="" required autofocus></textarea>
+
+                                    @if ($errors->has('nome'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('nome') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                        Salvar
-                    </button>
-                    <button type="reset" class="btn btn-warning">
-                        Limpar
-                    </button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+        <button type="reset" class="btn btn-warning">
+            Limpar
+        </button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar
+        </button>
+    </div>
+    </form>
+</div>
+</div>
 </div>
 {{--@include('dashboard.contato.create')--}}
 {{--@include('dashboard.banco.create')--}}
