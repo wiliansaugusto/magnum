@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Contato;
-use App\TipoContato;
 use Illuminate\Http\Request;
 
-class ContatoController extends Controller
+class EnderecoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,13 +34,16 @@ class ContatoController extends Controller
      */
     public function store(Request $request)
     {
-        $contato = Contato::create($request->all());
-        $contatoReturn = array(
-            'nm_tipo_contato' => TipoContato::find($contato->id_tp_contato)->nm_tipo_contato,
-            'ds_contato' => $contato->ds_contato
-        );
-        return response(json_encode($contatoReturn), 200)
-            ->header('Content-Type', 'application/json');
+//        $endereco = Endereco::create($request->all());
+//
+//        $enderecoReturn = array(
+//            'nr_conta' => $endereco->nr_conta,
+//            'nr_agencia' => $endereco->nr_agencia,
+//            'nm_banco' => NomeBanco::find($endereco->id_nm_banco)->nm_banco
+//        );
+//
+//        return response(json_encode($enderecoReturn), 200)
+//            ->header('Content-Type', 'application/json');
     }
 
     /**

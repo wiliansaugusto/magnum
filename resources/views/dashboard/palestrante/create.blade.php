@@ -259,53 +259,31 @@
                                         <div class="col-md-12">
                                             <label for="Nome">Razão Social</label>
                                             <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                class="form-control form-control-sm"
                                                 name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
                                         </div>
                                     </div>
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
                                             <label for="Nome">CNPJ</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                            <input id="cnpj" type="text"
+                                                class="form-control form-control-sm"
+                                                data-inputmask="'mask' : '00.000.000/0000-00'"
                                                 name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
                                         </div>
                                         <div class="col-md-4">
                                             <label for="Nome">Inscrição Estadual</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                            <input id="ins_estadual" type="text"
+                                                class="form-control form-control-sm"
                                                 name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
                                         </div>
                                         <div class="col-md-4">
                                             <label for="Nome">Inscrição Municipal</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                            <input id="ins_municipal" type="text"
+                                                class="form-control form-control-sm"
+                                                   data-mask=""
                                                 name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
                                         </div>
                                     </div>
 
@@ -313,14 +291,8 @@
                                         <div class="col-md-12">
                                             <label for="Nome">Nome Completo</label>
                                             <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                class="form-control form-control-sm"
                                                 name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
                                         </div>
                                     </div>
 
@@ -328,14 +300,8 @@
                                         <div class="col-md-4">
                                             <label for="Nome">CPF</label>
                                             <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                class="form-control form-control-sm"
                                                 name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
                                         </div>
                                         <div class="col-md-4">
                                             <label for="Nome">RG</label>
@@ -381,7 +347,7 @@
                                 </div>
 
                                 <div class="tab-pane fade" id="nav-banco" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
+                                    aria-labelledby="nav-banco-tab">
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-2">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Palestrante;
+use App\NomeBanco;
 use Illuminate\Http\Request;
 use App\Banco;
 
@@ -40,7 +40,13 @@ class BancoController extends Controller
     {
         $banco = Banco::create($request->all());
 
-        return response(json_encode($banco), 200)
+        $bancoReturn = array(
+            'nr_conta' => $banco->nr_conta,
+            'nr_agencia' => $banco->nr_agencia,
+            'nm_banco' => NomeBanco::find($banco->id_nm_banco)->nm_banco
+        );
+
+        return response(json_encode($bancoReturn), 200)
             ->header('Content-Type', 'application/json');
     }
 

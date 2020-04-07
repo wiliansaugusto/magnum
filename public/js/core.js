@@ -50,9 +50,8 @@ $(document).ready(function () {
         $("#tblContato").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha += "<td>" + fields.nm_banco + "</td>";
-        linha += "<td>" + fields.nr_agencia + "</td>";
-        linha += "<td>" + fields.nr_conta + "</td>";
+        linha += "<td>" + fields.nm_tipo_contato + "</td>";
+        linha += "<td>" + fields.ds_contato + "</td>";
         linha += "</tr>";
 
         $("#tblContato tbody ").append(linha);
@@ -62,11 +61,32 @@ $(document).ready(function () {
         $("#tblBanco").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha += "<td>" + fields.id_tp_contato + "</td>";
-        linha += "<td>" + fields.ds_contato + "</td>";
-        linha += "<td>" + fields.ds_contato + "</td>";
+        linha += "<td>" + fields.nm_banco + "</td>";
+        linha += "<td>" + fields.nr_agencia + "</td>";
+        linha += "<td>" + fields.nr_conta + "</td>";
         linha += "</tr>";
 
         $("#tblBanco tbody").append(linha);
     }
+
+
+    //validação de campos
+    $(document).on('keypress', '#ins_municipal', function(e) {
+        var key = (window.event)?event.keyCode:e.which;
+        if((key > 47 && key < 58)) {
+            return true;
+        } else {
+            return (key == 8 || key == 0)?true:false;
+
+        }
+    });
+    $(document).on('keypress', '#ins_estadual', function(e) {
+        var key = (window.event)?event.keyCode:e.which;
+        if((key > 47 && key < 58)) {
+            return true;
+        } else {
+            return (key == 8 || key == 0)?true:false;
+
+        }
+    });
 });
