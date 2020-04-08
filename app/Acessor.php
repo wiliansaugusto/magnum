@@ -13,11 +13,10 @@ class Acessor extends Model
         'id_palestrante',
         'id_palestrante'
     ];
-    public function acessorContato()
+    public function contatos()
     {
-        return $this->hasMany(
-            Contato::class, 'id_contato'
-        );
+        return $this->belongsTo(
+            Contato::class, 'id_acessor', 'id');
     }
 
 

@@ -38,6 +38,7 @@ class ContatoController extends Controller
     {
         $contato = Contato::create($request->all());
         $contatoReturn = array(
+            'id_contato' => $contato->id,
             'nm_tipo_contato' => TipoContato::find($contato->id_tp_contato)->nm_tipo_contato,
             'ds_contato' => $contato->ds_contato
         );

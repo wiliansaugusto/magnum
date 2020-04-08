@@ -71,8 +71,6 @@ $(document).ready(function () {
             data: data
         }).done(function (data) {
             tabelaAssessor(data);
-            $("#id_acessor").val(data.id);
-
             $("#frmAssessor")[0].reset();
             $('#frmAssessorModal').modal('toggle');
         });
@@ -98,6 +96,7 @@ $(document).ready(function () {
         var linha = "<tr>";
         linha += "<td>" + fields.nm_tipo_contato + "</td>";
         linha += "<td>" + fields.ds_contato + "</td>";
+        linha += "<input type='hidden' name='id_contato[]' value='" + fields.id_contato + "' />";
         linha += "</tr>";
 
         $("#tblContatoAssessor tbody ").append(linha);
@@ -115,6 +114,7 @@ $(document).ready(function () {
     }
 
     function tabelaAssessor(fields) {
+        $("#tblContatoAssessor tbody ").html("");
         $("#tblAssessor").css("visibility", "visible");
 
         var linha = "<tr>";

@@ -18,7 +18,7 @@
                                    value="" required autofocus>
                         </div>
                     </div>
-                    <div class="form-group row d-flex justify-content-center">
+                    <div id="tableAssessor" class="form-group row d-flex justify-content-center">
                         <div class="col-md-3">
                             <button type="button"
                                     class="btn btn-primary"

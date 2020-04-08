@@ -9,7 +9,7 @@ class Contato extends Model
     protected $table = 'mgm_tbl_contato';
 
     protected $fillable = [
-        'ds_contato', 'id_tp_contato', 'id_palestrante'
+        'ds_contato', 'id_tp_contato', 'id_palestrante', 'id_acessor'
     ];
 
     public function tiposContato()
@@ -19,7 +19,6 @@ class Contato extends Model
 
     public function contatosPalestrante()
     {
-
         return $this->hasMany(Palestrante::class,'id_palestrante');
     }
 
@@ -27,8 +26,9 @@ class Contato extends Model
     {
         return $this->hasManyThrough('App\Palestrante', 'App\Acessor');
     }
-    public function contatoAssesor(){
-        return $this->belongsTo(Acessor::class, 'id_acessor', 'id');
+
+    public function contatosAssesor(){
+        return $this->hasMany(Acessor::class,'id_acessor');
     }
 
     public function palestranteBanco(){

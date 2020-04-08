@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Contato;
 use Illuminate\Http\Request;
 use App\Acessor;
 
@@ -39,6 +40,12 @@ class AcessorController extends Controller
     public function store(Request $request)
     {
         $assessor = Acessor::create($request->all());
+
+        foreach ($request->all()['id_contato'] as $id_contato){
+            $contato = Contato::find($id_contato);
+            $contato->id_acessor = $assessor->id;
+            $contato->save();
+        }
 
         return response(json_encode($assessor), 200)
             ->header('Content-Type', 'application/json');

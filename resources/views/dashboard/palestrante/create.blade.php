@@ -38,6 +38,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog" aria-labelledby="frmPalestranteModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
@@ -95,7 +97,6 @@
                                 </div>
                             </nav>
                             <div class="tab-content p-2" id="nav-tabContent">
-
                                 <div class="tab-pane fade show active" id="nav-pessoais" role="tabpanel"
                                      aria-labelledby="nav-pessoais-tab">
                                     <div class="form-group row d-flex justify-content-center">
@@ -218,7 +219,7 @@
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#frmContatoModal" id="cttPalestrante" value="1">
+                                                        data-target="#frmContatoModal">
                                                     Adicionar Contato
                                                 </button>
                                             </div>
@@ -420,8 +421,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" id="id_acessor" name="id_acessor"
-                                                   style="visibility: hidden" readonly>
                                             <table class="table table-sm table-striped" id="tblAssessor"
                                                    style="visibility: hidden">
                                                 <thead>
@@ -436,6 +435,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane fade" id="nav-descricao" role="tabpanel"
                                      aria-labelledby="nav-contact-tab">
                                     <div class="form-group row d-flex justify-content-center">
@@ -448,7 +448,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table class="table table-sm table-striped">
+                                            <table class="table table-sm table-striped" id="tblAssessor"
+                                                   style="visibility: hidden">
                                                 <thead>
                                                 <tr>
                                                     <th scope="col">#</th>
@@ -516,57 +517,41 @@
                                             <input id="nome" type="text"
                                                    class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
                                                    name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('nome') }}</strong>
-                                    </span>
-                                            @endif
                                         </div>
                                         <div class="col-md-6">
                                             <label for="Nome">URL</label>
                                             <input id="nome" type="text"
                                                    class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
                                                    name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('nome') }}</strong>
-                                    </span>
-                                            @endif
                                         </div>
                                         <div class="col-md-12">
                                             <label for="Nome">Descrição</label>
                                             <textarea id="nome" type="text"
                                                       class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
                                                       name="nome" value="" required autofocus></textarea>
-
-                                            @if ($errors->has('nome'))
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('nome') }}</strong>
-                                    </span>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                        Salvar
-                    </button>
-                    <button type="reset" class="btn btn-warning">
-                        Limpar
-                    </button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar
-                    </button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">
+                            Salvar
+                        </button>
+                        <button type="reset" class="btn btn-warning">
+                            Limpar
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
-</div>
+
+
 {{--@include('dashboard.contato.create')--}}
 {{--@include('dashboard.banco.create')--}}
 {{--@include('dashboard.endereco.create')--}}
