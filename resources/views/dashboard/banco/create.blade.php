@@ -1,10 +1,9 @@
-<div class="modal fade" id="frmBancoModal" tabindex="-1" role="dialog" aria-labelledby="frmContatoModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="frmBancoModal" tabindex="-1" role="dialog"
+aria-labelledby="frmBancoModalLabel"    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="frmBancoModal
-                Label">Cadastrar Dados Bancários</h5>
+                <h5 class="modal-title" id="frmBancoModalLabel">Cadastrar Dados Bancários</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,7 +14,6 @@
                 <div class="modal-body">
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-4">
-
                             <label for="nm_banco">Banco</label>
                             @php
                             $bancos = App\NomeBanco::all()->sortBy('nm_banco');
@@ -26,7 +24,7 @@
                                 @foreach ($bancos as $item)
                                 <option
                                     class="form-control form-control-sm"
-                                    name="id_nm_banco" value="{{$item->id}}">{{$item->nm_banco}}</option>
+                                    name="id_nm_banco" value="{{$item->id}}"><span id="nm_banco" value="{{$item->nm_banco}}"> {{$item->nm_banco}}</span></option>
 
                                 @endforeach
                             </select>

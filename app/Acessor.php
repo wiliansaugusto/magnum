@@ -10,6 +10,8 @@ class Acessor extends Model
 
     protected $fillable = [
         'nm_acessor',
+        'id_palestrante',
+        'id_palestrante'
     ];
     public function acessorContato()
     {

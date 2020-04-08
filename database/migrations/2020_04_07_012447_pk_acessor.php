@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PkAcessorContato extends Migration
+class PkAcessor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class PkAcessorContato extends Migration
      */
     public function up()
     {
-        Schema::table('mgm_tbl_banco', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_palestrante')->nullable()->change();
+        Schema::table('mgm_tbl_acessor', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_palestrante');
             $table->foreign('id_palestrante')->references('id')->on('mgm_tbl_palestrante')->onDelete('cascade');
 
         });
-        Schema::table('mgm_tbl_contato', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_acessor')->nullable();
-            $table->foreign('id_acessor')->references('id')->on('mgm_tbl_acessor')->onDelete('cascade');});
+
     }
 
     /**
