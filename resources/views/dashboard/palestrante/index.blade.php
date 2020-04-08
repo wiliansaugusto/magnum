@@ -32,5 +32,7 @@
     @include('dashboard.assessor.create')
     @include('dashboard.categoria.select')
     @include('dashboard.contato.create')
+    @include('dashboard.chamada.create')
+
 @endsection
 
