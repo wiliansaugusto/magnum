@@ -1,20 +1,20 @@
-<div class="modal fade" id="frmObservacaoModal" tabindex="-1" role="dialog" aria-labelledby="frmChamadamodalLabel"
+<div class="modal fade" id="frmObservacaoModal" tabindex="-1" role="dialog" aria-labelledby="frmObservacaoModalLabel"
     aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="frmChamadamodalLabel">
+                <h5 class="modal-title" id="frmObservacaoModalLabel">
                     Cadastrar Observações
                 </h5>
             </div>
 
-            <form method="post" id="frmChamada">
+            <form method="post" id="frmObs">
                 @csrf
 
                 <div class="modal-body text-center">
                     <div class="form-group">
                         <label for="ds_observacao"> Observações</label>
-                        <textarea class="form-control" id="ds_observacao"  rows="4" required></textarea>
+                        <textarea class="form-control" id="ds_observacao" name="ds_observacao"  rows="4" required></textarea>
                     </div>
 
                 </div>
