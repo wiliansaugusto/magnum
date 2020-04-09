@@ -9,7 +9,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                Teste
+                <div class="form-group row d-flex justify-content-center">
+                    <div class="col-md-2">
+                        <label for="nr_cep">CEP</label>
+                        <input id="nr_cep" type="number" class="form-control form-control-sm" name="nr_cep"
+                               value="" required autofocus />
+                    </div>
+                    <div class="col-md-10">
+                        <label for="nm_logradouro">Logradouro</label>
+                        <input id="nm_logradouro" type="text" class="form-control form-control-sm" name="nm_logradouro"
+                               value="" required readonly />
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">
