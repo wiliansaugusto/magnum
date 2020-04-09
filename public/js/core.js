@@ -76,6 +76,86 @@ $(document).ready(function () {
         });
     });
 
+    $('#frmChamada').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmChamada').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/chamada",
+            data: data
+        }).done(function (data) {
+            $('#frmChamadaModal').modal('toggle');
+        });
+    });
+    $('#frmCurriculo').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmCurriculo').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/curriculo",
+            data: data
+        }).done(function (data) {
+            $('#frmCurriculoModal').modal('toggle');
+        });
+    });
+    $('#frmCurriculoTec').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmCurriculoTec').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/curriculoTec",
+            data: data
+        }).done(function (data) {
+            $('#frmCurriculoTecModal').modal('toggle');
+        });
+    });
+    $('#frmEquip').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmEquip').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/equip",
+            data: data
+        }).done(function (data) {
+            $('#frmEquipamentoModal').modal('toggle');
+        });
+    });
+    $('#frmFormaPagamento').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmFormaPagamento').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/formapgto",
+            data: data
+        }).done(function (data) {
+            $('#frmFormaPagamentoModal').modal('toggle');
+        });
+    });
+    $('#frmInvestimento').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmInvestimento').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/investimento",
+            data: data
+        }).done(function (data) {
+            $('#frmInvestimentoModal').modal('toggle');
+        });
+    });
+    $('#frmObs').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmObs').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/descobs",
+            data: data
+        }).done(function (data) {
+            $('#frmObservacaoModal').modal('toggle');
+        });
+    });
+
+
+
 
     //Preencimento das tabelas
     function tabelaBanco(fields) {
@@ -143,5 +223,6 @@ $(document).ready(function () {
 
         }
     });
+
 
 });

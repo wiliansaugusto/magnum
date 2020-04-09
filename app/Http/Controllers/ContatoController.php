@@ -79,6 +79,10 @@ class ContatoController extends Controller
     {
         //
     }
+    public function updateJquery(Request $request)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.

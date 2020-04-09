@@ -8,20 +8,18 @@
                 </h5>
             </div>
 
-            <form method="post" id="frmChamada">
+            <form method="post" id="frmEquip">
                 @csrf
 
                 <div class="modal-body text-center ">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="ds_equip_necessario"> Equipamentos Necessário</label>
-                                <textarea class="form-control" id="ds_equip_necessario" rows="4" required></textarea>
+                                <textarea class="form-control" id="ds_equip_necessario" name="ds_equip_necessario" rows="4" required></textarea>
                             </div>
                         </div>
-                        <div class="col-md-10">
-                            <span style="background-color: blueviolet;">dasdsa</span>
-                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">

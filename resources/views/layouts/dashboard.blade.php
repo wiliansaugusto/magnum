@@ -23,6 +23,9 @@
     <link href="{{asset('fontawesome/css/all.css')}}" rel="stylesheet"> <!--load all styles -->
     <script defer src="{{ asset('fontawesome/js/all.js')}}"></script> <!--load all styles -->
 
+
+
+
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel sticky-top flex-md-nowrap p-0">

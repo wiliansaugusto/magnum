@@ -1,4 +1,4 @@
-<div class="modal fade" id="frmDescricaoModal" tabindex="-1" role="dialog" aria-labelledby="frmAssessorModalLabel"
+<div class="modal fade" id="frmDescricaoModal" tabindex="-1" role="dialog" aria-labelledby="frmDescricaoModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -11,19 +11,19 @@
             <div class="modal-body">
                 <div class="form-group row d-flex justify-content-center  text-center">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-outline-dark" data-toggle="modal"
+                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                             data-target="#frmChamadaModal">
                             Chamada
                         </button>
-                        <button type="submit" class="btn btn-outline-dark" data-toggle="modal"
+                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                             data-target="#frmCurriculoModal">
                             Currículo
                         </button>
-                        <button type="submit" class="btn btn-outline-dark" data-toggle="modal"
+                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                         data-target="#frmCurriculoTecModal">
                             Currículo Técnico
                         </button>
-                        <button type="submit" class="btn btn-outline-dark" data-toggle="modal"
+                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                         data-target="#frmFormaPagamentoModal">
                             Forma de Pagamento
                         </button>
@@ -31,15 +31,15 @@
                 </div>
                 <div class="form-group row d-flex justify-content-center text-center">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-outline-dark" data-toggle="modal"
+                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                         data-target="#frmInvestimentoModal">
                             Investimento
                         </button>
-                        <button type="submit" class="btn btn-outline-dark" data-toggle="modal"
+                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                         data-target="#frmEquipamentoModal">
                             Equipamentos Necessários
                         </button>
-                        <button type="submit" class="btn btn-outline-dark"data-toggle="modal"
+                        <button type="submit" class="btn btn-primary"data-toggle="modal"
                         data-target="#frmObservacaoModal">
                             Observações
                         </button>

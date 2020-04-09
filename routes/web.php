@@ -34,4 +34,11 @@ Route::prefix('dashboard')->group(function () {
     Route::post('categoria/update/{id}', 'CategoriaController@update');
     Route::resource('banco/', 'BancoController');
     Route::resource('assessor/', 'AcessorController');
+    Route::post('chamada/', 'DescricaoController@chamada');
+    Route::post('curriculo/', 'DescricaoController@curriculo');
+    Route::post('curriculoTec/', 'DescricaoController@curriculoTec');
+    Route::post('equip/', 'DescricaoController@equip');
+    Route::post('formapgto/', 'DescricaoController@formaPgto');
+    Route::post('investimento/', 'DescricaoController@investimento');
+    Route::post('descobs/', 'DescricaoController@observacao');
 });

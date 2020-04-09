@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\NomePalestranteRequest;
 use Illuminate\Http\Request;
-
+use Illuminate\View\View;
+use App\Palestrante;
 class PalestranteController extends Controller
 {
     public function __construct()
@@ -74,8 +74,8 @@ class PalestranteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+
+       }
 
     /**
      * Remove the specified resource from storage.
@@ -87,4 +87,5 @@ class PalestranteController extends Controller
     {
         //
     }
+
 }
