@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Endereco;
+use App\TipoEndereco;
 use Illuminate\Http\Request;
 
 class EnderecoController extends Controller
@@ -34,16 +36,16 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
-//        $endereco = Endereco::create($request->all());
-//
-//        $enderecoReturn = array(
-//            'nr_conta' => $endereco->nr_conta,
-//            'nr_agencia' => $endereco->nr_agencia,
-//            'nm_banco' => NomeBanco::find($endereco->id_nm_banco)->nm_banco
-//        );
-//
-//        return response(json_encode($enderecoReturn), 200)
-//            ->header('Content-Type', 'application/json');
+
+        $endereco = Endereco::create($request->all());
+
+        $enderecoReturn = array(
+            'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep,
+            'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco
+        );
+
+        return response(json_encode($enderecoReturn), 200)
+            ->header('Content-Type', 'application/json');
     }
 
     /**

@@ -154,7 +154,57 @@ $(document).ready(function () {
         });
     });
 
+    $('#frmEnderecoPalestrante').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmEnderecoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/endereco",
+            data: data
+        }).done(function (data) {
+            tabelaEnderecoPalestrante(data);
+            $("#frmEnderecoPalestrante")[0].reset();
+            $('#frmEnderecoPalestranteModal').modal('toggle');
+        });
+    });
 
+    //Busca de CEP
+    $("#nr_cep").focusout(function(){
+        $.ajax({
+            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+            dataType: 'json',
+            success: function(resposta){
+                if (resposta.erro === true){
+                    $('#nr_cep').addClass('is-invalid');
+                    $("#nm_endereco").prop('readonly', false);
+                    $("#nm_bairro").prop('readonly', false);
+                    $("#nm_cidade").prop('readonly', false);
+                    $("#nm_estado").prop('readonly', false);
+                    $("#nr_cep").focus();
+
+                    $("#nm_endereco").val("");
+                    $("#ds_complemento").val("");
+                    $("#nm_bairro").val("");
+                    $("#nm_cidade").val("");
+                    $("#nm_estado").val("");
+
+                }else{
+
+                    $('#nr_cep').removeClass('is-invalid');
+                    $("#nm_endereco").prop('readonly', true);
+                    $("#nm_bairro").prop('readonly', true);
+                    $("#nm_cidade").prop('readonly', true);
+                    $("#nm_estado").prop('readonly', true);
+                    $("#nm_endereco").val(resposta.logradouro);
+                    $("#ds_complemento").val(resposta.complemento);
+                    $("#nm_bairro").val(resposta.bairro);
+                    $("#nm_cidade").val(resposta.localidade);
+                    $("#nm_estado").val(resposta.uf);
+                    $("#nr_endereco").focus();
+                }
+            }
+        });
+    });
 
 
     //Preencimento das tabelas
@@ -195,6 +245,7 @@ $(document).ready(function () {
 
     function tabelaAssessor(fields) {
         $("#tblContatoAssessor tbody ").html("");
+        $("#tblContatoAssessor ").css("visibility", "hidden");
         $("#tblAssessor").css("visibility", "visible");
 
         var linha = "<tr>";
@@ -202,6 +253,17 @@ $(document).ready(function () {
         linha += "</tr>";
 
         $("#tblAssessor tbody ").append(linha);
+    }
+
+    function tabelaEnderecoPalestrante(fields) {
+        $("#tblEnderecoPalestrante").css("visibility", "visible");
+
+        var linha = "<tr>";
+        linha += "<td>" + fields.tipo_endereco + "</td>";
+        linha += "<td>" + fields.endereco + "</td>";
+        linha += "</tr>";
+
+        $("#tblEnderecoPalestrante tbody ").append(linha);
     }
 
     //validação de campos

@@ -173,12 +173,6 @@
                                                        id="inlineRadio2" value="option2">
                                                 <label class="form-check-label" for="inlineRadio2">Não</label>
                                             </div>
-
-                                            @if ($errors->has('nome'))
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
                                         </div>
                                         <div class="col-md-4">
                                             <label for="Nome">Visivel no site</label><br>
@@ -373,36 +367,20 @@
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#frmEnderecoModal">
+                                                        data-target="#frmEnderecoPalestranteModal">
                                                     Adicionar Endereço
                                                 </button>
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table class="table table-sm table-striped">
+                                            <table id="tblEnderecoPalestrante" class="table table-sm table-striped">
                                                 <thead>
                                                 <tr>
-                                                    <th scope="col">#</th>
                                                     <th scope="col">Tipo de Endereço</th>
                                                     <th scope="col">Endereço</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
