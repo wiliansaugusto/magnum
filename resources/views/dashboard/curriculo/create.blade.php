@@ -13,8 +13,8 @@
 
                 <div class="modal-body text-center">
                     <div class="form-group">
-                        <label for="ds_curriculo">Cadastro do Curriculo Resumido</label>
-                        <textarea class="form-control" id="ds_curriculo" name="ds_curriculo"  rows="4" required></textarea>
+                        <label for="txtTinyMCE">Cadastro do Curriculo Resumido</label>
+                        <textarea class="form-control" id="txtTinyMCE" name="ds_curriculo"  rows="4" required></textarea>
                     </div>
 
                 </div>

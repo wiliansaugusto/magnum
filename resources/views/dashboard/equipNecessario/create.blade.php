@@ -31,9 +31,7 @@
                     </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
-
             </form>
         </div>
-
     </div>
 </div>
