@@ -19,7 +19,8 @@ $(document).ready(function () {
 
     $('#frmContatoPalestrante').submit(function (event) {
         event.preventDefault();
-        var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val()
+        +"&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
             url: "/dashboard/contato",
@@ -84,6 +85,7 @@ $(document).ready(function () {
             url: "/dashboard/chamada",
             data: data
         }).done(function (data) {
+            tabelDescricao(data);
             $('#frmChamadaModal').modal('toggle');
         });
     });
@@ -95,6 +97,7 @@ $(document).ready(function () {
             url: "/dashboard/curriculo",
             data: data
         }).done(function (data) {
+            tabelDescricaoCurriculo(data);
             $('#frmCurriculoModal').modal('toggle');
         });
     });
@@ -106,6 +109,8 @@ $(document).ready(function () {
             url: "/dashboard/curriculoTec",
             data: data
         }).done(function (data) {
+            tabelDescricaoCurriculoTec(data);
+
             $('#frmCurriculoTecModal').modal('toggle');
         });
     });
@@ -117,10 +122,12 @@ $(document).ready(function () {
             url: "/dashboard/equip",
             data: data
         }).done(function (data) {
+            tabelDescricaoEquip(data);
             $('#frmEquipamentoModal').modal('toggle');
         });
     });
     $('#frmFormaPagamento').submit(function (event) {
+
         event.preventDefault();
         var data = $('#frmFormaPagamento').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
@@ -128,6 +135,7 @@ $(document).ready(function () {
             url: "/dashboard/formapgto",
             data: data
         }).done(function (data) {
+            tabelDescricaoForma(data);
             $('#frmFormaPagamentoModal').modal('toggle');
         });
     });
@@ -139,6 +147,7 @@ $(document).ready(function () {
             url: "/dashboard/investimento",
             data: data
         }).done(function (data) {
+            tabelDescricaoInvest(data);
             $('#frmInvestimentoModal').modal('toggle');
         });
     });
@@ -150,6 +159,8 @@ $(document).ready(function () {
             url: "/dashboard/descobs",
             data: data
         }).done(function (data) {
+            tabelDescricaoObs(data);
+
             $('#frmObservacaoModal').modal('toggle');
         });
     });
@@ -162,7 +173,8 @@ $(document).ready(function () {
         $("#tblBanco").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha += "<td>" + fields.id_nm_banco + "</td>";
+        linha += "<input type='hidden' name='id_nm_banco' value='" + fields.id_nm_banco + "' />";
+        linha += "<td>" + fields.nm_banco + "</td>";
         linha += "<td>" + fields.nr_agencia + "</td>";
         linha += "<td>" + fields.nr_conta + "</td>";
         linha += "</tr>";
@@ -186,7 +198,8 @@ $(document).ready(function () {
         $("#tblContato").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha += "<td>" + fields.id_tp_contato + "</td>";
+        linha +=  "<td><input type='hidden' name='id_contato[]' value='" + fields.id_contato + "' />";
+        linha +=  fields.nm_tipo_contato + "</td>";
         linha += "<td>" + fields.ds_contato + "</td>";
         linha += "</tr>";
 
@@ -203,6 +216,72 @@ $(document).ready(function () {
 
         $("#tblAssessor tbody ").append(linha);
     }
+
+    function tabelDescricao(fields){
+        $("#tblDescricao").css("visibility", "visible");
+        var linha = "<tr>";
+        linha += "<td> Chamada</td>";
+        linha += "<td class='text-truncate'>" + fields.ds_chamada + "</td>";
+        linha += "</tr>";
+
+        $("#tblDescricao tbody ").append(linha);
+
+    }
+    function  tabelDescricaoCurriculo(fields){
+        $("#tblDescricao").css("visibility", "visible");
+        var linha = "<tr>";
+        linha += "<td> Curriculo</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_curriculo + "</td>";
+        linha += "</tr>";
+        $("#tblDescricao tbody ").append(linha);
+
+    }
+    function tabelDescricaoCurriculoTec(fields){
+        $("#tblDescricao").css("visibility", "visible");
+        var linha = "<tr>";
+        linha += "<td> Curriculo Técnico</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_curriculo_tecnico + "</td>";
+        linha += "</tr>";
+        $("#tblDescricao tbody ").append(linha);
+
+    }
+    function tabelDescricaoForma(fields){
+        $("#tblDescricao").css("visibility", "visible");
+
+        var linha = "<tr>";
+        linha += "<td> Forma de Pagamento</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_forma_pagamento + "</td>";
+        linha += "</tr>";
+        $("#tblDescricao tbody ").append(linha);
+    }
+    function tabelDescricaoInvest(fields){
+        $("#tblDescricao").css("visibility", "visible");
+
+        var linha = "<tr>";
+        linha += "<td> Investimento Tec</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_forma_pagamento + "</td>";
+        linha += "</tr>";
+        $("#tblDescricao tbody ").append(linha);
+
+    }
+    function tabelDescricaoEquip (fields){
+        $("#tblDescricao").css("visibility", "visible");
+        var linha = "<tr>";
+        linha += "<td> Equipamentos Necessário</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_equipe_necessario + "</td>";
+        linha += "</tr>";
+        $("#tblDescricao tbody ").append(linha);
+    }
+    function tabelDescricaoObs(fields){
+        $("#tblDescricao").css("visibility", "visible");
+        var linha = "<tr>";
+        linha += "<td>Observações</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_observacao + "</td>";
+        linha += "</tr>";
+        $("#tblDescricao tbody ").append(linha);
+    }
+
+
 
     //validação de campos
     $(document).on('keypress', '#ins_municipal', function (e) {

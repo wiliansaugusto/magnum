@@ -19,8 +19,7 @@ class Palestrante extends Model
     //Relacionamento Muitos para muitos
     public function categoriaPalestrante()
     {
-        return $this->belongsToMany(
-            'mgm_tbl_palestrante',
+        return $this->belongsTo(
             SubCategoria::class,
             'id_palestrante',
             'id_categoria',

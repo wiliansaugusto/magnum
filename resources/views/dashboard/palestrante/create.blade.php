@@ -164,14 +164,14 @@
                                             <label for="Nome">Disponivel para
                                                 Palestras</label><br>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                       id="inlineRadio1" value="option1">
-                                                <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                <input class="form-check-input" type="radio" name="ds_ativo"
+                                                       id="ds_ativo1" value="option1">
+                                                <label class="form-check-label" for="ds_ativo1">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                       id="inlineRadio2" value="option2">
-                                                <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                <input class="form-check-input" type="radio" name="ds_ativo"
+                                                       id="ds_ativo2" value="option2">
+                                                <label class="form-check-label" for="ds_ativo2">Não</label>
                                             </div>
 
                                             @if ($errors->has('nome'))
@@ -183,14 +183,14 @@
                                         <div class="col-md-4">
                                             <label for="Nome">Visivel no site</label><br>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                       id="inlineRadio1" value="option1">
-                                                <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                <input class="form-check-input" type="radio" name="ds_visivel_site"
+                                                       id="ds_visivel_site1" value="1">
+                                                <label class="form-check-label" for="ds_visivel_site1">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                       id="inlineRadio2" value="option2">
-                                                <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                <input class="form-check-input" type="radio" name="ds_visivel_site"
+                                                       id="ds_visivel_site2" value="0">
+                                                <label class="form-check-label" for="ds_visivel_site2">Não</label>
                                             </div>
                                         </div>
 
@@ -271,7 +271,6 @@
                                             <label for="Nome">Inscrição Municipal</label>
                                             <input id="ins_municipal" type="text"
                                                    class="form-control form-control-sm"
-                                                   data-mask=""
                                                    name="nome" value="" required autofocus>
                                         </div>
                                     </div>
@@ -448,31 +447,16 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table class="table table-sm table-striped" id="tblAssessor"
+                                            <table class="table table-sm table-striped" id="tblDescricao"
                                                    style="visibility: hidden">
                                                 <thead>
                                                 <tr>
-                                                    <th scope="col">#</th>
                                                     <th scope="col">Descrição</th>
                                                     <th scope="col">Conteúdo</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Mark</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Jacob</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Larry the Bird</td>
-                                                    <td>Larry the Bird</td>
-                                                </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
