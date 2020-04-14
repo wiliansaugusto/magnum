@@ -268,7 +268,6 @@ $(document).ready(function () {
         $("#tblAssessor tbody ").append(linha);
     }
 
-<<<<<<< HEAD
     function tabelDescricao(fields){
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
@@ -309,9 +308,9 @@ $(document).ready(function () {
     function tabelDescricaoInvest(fields){
         $("#tblDescricao").css("visibility", "visible");
 
-        var linha = "<tr>";
-        linha += "<td> Investimento Tec</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_forma_pagamento + "</td>";
+        var linha = "<tr id=''>";
+        linha += "<td> Investimento</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_investimento + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
 
@@ -333,8 +332,6 @@ $(document).ready(function () {
         $("#tblDescricao tbody ").append(linha);
     }
 
-
-=======
     function tabelaEnderecoPalestrante(fields) {
         $("#tblEnderecoPalestrante").css("visibility", "visible");
 
@@ -345,7 +342,6 @@ $(document).ready(function () {
 
         $("#tblEnderecoPalestrante tbody ").append(linha);
     }
->>>>>>> 18755e285fcb2c6684f64eef9a99fb67ce4f5a7a
 
     //validação de campos
     $(document).on('keypress', '#ins_municipal', function (e) {
@@ -369,3 +365,4 @@ $(document).ready(function () {
 
 
 });
+

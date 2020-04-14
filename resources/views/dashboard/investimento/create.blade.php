@@ -13,8 +13,8 @@
 
                 <div class="modal-body text-center">
                     <div class="form-group">
-                        <label for="ds_investimentos"> Investimentos</label>
-                        <textarea class="form-control" id="ds_investimentos" name="ds_investimentos" rows="4" required></textarea>
+                        <label for="ds_investimento"> Investimentos</label>
+                        <textarea class="form-control" id="ds_investimento" name="ds_investimento" rows="4" required></textarea>
                     </div>
 
                 </div>

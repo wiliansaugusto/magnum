@@ -1,30 +1,30 @@
 @php
-namespace  App;
-
-//$palestrantes = new Categoria();
-////$palestrantea = $palestrantes->subCategorias();
-//var_dump($palestrantes);
-/*
-$categorias = Categoria::all();
-$acessores = Acessor::all();
-$subcategorias = SubCategoria::all();
-$contatos = Contato::all();
-$bancos = Banco::all();
-$dadosContratuais = DadosContratuais::all();
-$nomeBancos = NomeBanco::all();
-$tipoContato = TipoContato::all();
-
-
+$palestrantes = App\Palestrante::where('id','>',0)->simplePaginate(10);
 @endphp
-<ul>
-    @foreach ($palestrantes as $palestrante => $ve)
-{{$ve}}
-    <li>{{$palestrante}} - - {{$ve}}</li>
-    <li>-</li>
+<div class="row justifi-content">
+    <div class="col-md-12 ">
 
- {{--@foreach ($palestrante as $item => $value)
-    {{($item)}}{{$value}}
-    @endforeach --}}
-    @endforeach
-</ul>
-*/
+        <table class="table table-striped table-sm table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th colspan="3">Palestrante</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($palestrantes as $palestrante)
+                <tr>
+                    <td>{{$palestrante->nm_palestrante}}</td>
+                    <td><button type="button" class="btn btn-primary">Alterar</button></td>
+                    <td><button type="button" class="btn btn-danger">Danger</button></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end">
+            {{$palestrantes->links()}}
+        </div>
+    </div>
+
+
+    </div>
