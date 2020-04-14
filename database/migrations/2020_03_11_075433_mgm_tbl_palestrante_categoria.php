@@ -14,7 +14,7 @@ class MgmTblPalestranteCategoria extends Migration
     public function up()
     {
         Schema::create('mgm_tbl_palestrante_categoria', function (Blueprint $table) {
-            $table->bigIncrements('id_palestrante_categoria');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('id_palestrante');
             $table->foreign('id_palestrante')->references('id')->on('mgm_tbl_palestrante');
             $table->unsignedBigInteger('id_categoria');

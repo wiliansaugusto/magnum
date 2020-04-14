@@ -39,8 +39,8 @@
                         data-target="#frmEquipamentoModal">
                             Equipamentos Necessários
                         </button>
-                        <button type="submit" class="btn btn-primary"data-toggle="modal"
-                        data-target="#frmObservacaoModal">
+                        <button type="submit" class="btn btn-primary"
+                                data-target="#frmObservacaoModal">
                             Observações
                         </button>
                     </div>
@@ -60,9 +60,9 @@
 
 <script src="{{ asset('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <script type="text/javascript">
+
     window.onload = function () {
         tinymce.init({
-            selector: 'textarea',
             selector: 'textarea',
             height: 150,
             language: 'pt_BR',
@@ -75,25 +75,30 @@
             content_css: '//www.tinymce.com/css/codepen.min.css',
             setup: function (ed) {
                 ed.on('keyup', function (e) {
-                    var count = CountCharacters();
-                    var valor = 65550 - count;
+                    e.preventDefault();
+                    let count = CountCharacters();
+                    let valor = 65550 - count;
                     document.getElementById("character_count").innerHTML = "Caracteres Restante: " + valor;
                 });
             }
         });
-    }
-    function CountCharacters() {
-        var body = tinymce.get("txtTinyMCE").getBody();
-        var content = tinymce.trim(body.innerText || body.textContent);
-        return content.length;
     };
-    function ValidateCharacterLength() {
-        var max = 65550;
-        var count = CountCharacters();
-        if (count > max) {
-            alert("Você excedeu a quantidade máxima de " + max + " caracteres.")
-            return false;
-        }
-        return;
+
+    /**
+     * @return {number}
+     */
+    function CountCharacters() {
+        let body = tinymce.get("txtTinyMCE").getBody();
+        let content = tinymce.trim(body.innerText || body.textContent);
+        return content.length;
     }
+    // function ValidateCharacterLength() {
+    //     var max = 65550;
+    //     var count = CountCharacters();
+    //     if (count > max) {
+    //         alert("Você excedeu a quantidade máxima de " + max + " caracteres.")
+    //         return false;
+    //     }
+    //     return;
+    // }
 </script>

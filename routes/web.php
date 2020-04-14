@@ -26,6 +26,7 @@ Auth::routes();
 Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
     Route::resource('palestrante/', 'PalestranteController');
+    Route::post('palestrante/adicionarcategoria/', 'PalestranteController@adicionarCategoria');
     Route::resource('contato/', 'ContatoController');
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
     Route::resource('categoria/', 'CategoriaController');
