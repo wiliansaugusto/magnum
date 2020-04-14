@@ -22,6 +22,7 @@
             <h5 class="card-title">Titulo do Card</h5>
             <p class="card-text">Corpo do Card</p>
             <p>falta o include de contato na create</p>
+            @include('dashboard.palestrante.edit')
         </div>
     </div>
 

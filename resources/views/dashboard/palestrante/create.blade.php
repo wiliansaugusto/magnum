@@ -148,19 +148,27 @@
                                                 <input class="form-check-input" type="radio" name="ds_disponivel"
                                                        id="ds_disponivel2" value="0">
                                                 <label class="form-check-label" for="ds_disponivel2">Não</label>
+                                                <input class="form-check-input" type="radio" name="ds_ativo"
+                                                       id="ds_ativo1" value="option1">
+                                                <label class="form-check-label" for="ds_ativo1">Sim</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="ds_ativo"
+                                                       id="ds_ativo2" value="option2">
+                                                <label class="form-check-label" for="ds_ativo2">Não</label>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="Nome">Visivel no site</label><br>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                       id="inlineRadio1" value="option1">
-                                                <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                <input class="form-check-input" type="radio" name="ds_visivel_site"
+                                                       id="ds_visivel_site1" value="1">
+                                                <label class="form-check-label" for="ds_visivel_site1">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                       id="inlineRadio2" value="option2">
-                                                <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                <input class="form-check-input" type="radio" name="ds_visivel_site"
+                                                       id="ds_visivel_site2" value="0">
+                                                <label class="form-check-label" for="ds_visivel_site2">Não</label>
                                             </div>
                                         </div>
 
@@ -384,11 +392,10 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table class="table table-sm table-striped" id="tblAssessor"
+                                            <table class="table table-sm table-striped" id="tblDescricao"
                                                    style="visibility: hidden">
                                                 <thead>
                                                 <tr>
-                                                    <th scope="col">#</th>
                                                     <th scope="col">Descrição</th>
                                                     <th scope="col">Conteúdo</th>
                                                 </tr>
