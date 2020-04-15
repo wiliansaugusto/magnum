@@ -13,12 +13,12 @@ class MgmTblAdcPalestranteCategoria extends Migration
      */
     public function up()
     {
-Schema::table('mgm_tbl_palestrante_categoria', function (Blueprint $table) {
-        $table->unsignedBigInteger('id_subcategoria');
-        $table->foreign('id_subcategoria')->references('id')->on('mgm_tbl_sub_categoria')->onDelete('cascade');
+        Schema::table('mgm_tbl_palestrante_categoria', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_subcategoria');
+            $table->foreign('id_subcategoria')->references('id')->on('mgm_tbl_sub_categoria')->onDelete('cascade');
 
-    });
-}
+        });
+    }
 
     /**
      * Reverse the migrations.

@@ -14,7 +14,7 @@ aria-labelledby="frmBancoModalLabel"    aria-hidden="true">
                 <div class="modal-body">
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-4">
-                            <label for="nm_banco">Banco</label>
+                            <label for="id_nm_banco">Banco</label>
                             @php
                             $bancos = App\NomeBanco::all()->sortBy('nm_banco');
                             @endphp
@@ -22,10 +22,9 @@ aria-labelledby="frmBancoModalLabel"    aria-hidden="true">
                             <select id="id_nm_banco" name="id_nm_banco" class="form-control form-control-sm">
                                 <option selected disabled>Selecione Banco</option>
                                 @foreach ($bancos as $item)
-                                <option
-                                    class="form-control form-control-sm"
-                                    name="id_nm_banco" value="{{$item->id}}"><span id="nm_banco" value="{{$item->nm_banco}}"> {{$item->nm_banco}}</span></option>
-
+                                    <option class="form-control form-control-sm" name="id_nm_banco" value="{{$item->id}}">
+                                        {{$item->nm_banco}}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>

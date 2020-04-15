@@ -1,18 +1,42 @@
-<div class="modal fade" id="frmCategoriaModal" tabindex="-1" role="dialog" aria-labelledby="frmCategoriaModalLabel"
+<div class="modal fade" id="frmSelecionarCategoriaModal" tabindex="-1" role="dialog" aria-labelledby="frmCategoriaModalLabel"
      aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="POST">
+            <form id="frmSelecionarCategoria" method="POST">
                 @csrf
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="frmCategoriaLabel"></h5>
-                        </div>
-                        <div class="modal-body text-left">
 
-                        </div>
-                    </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="frmContatoModalLabel">Selecionar Categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table id="selecaoCategorias" class="table table-sm table-striped table-hover" style="cursor: pointer">
+                        <thead>
+                            <tr>
+                                <th scope="col">Categorias</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $retorno = new App\Categoria();
+                                $categorias = $retorno::all();
+                            @endphp
+
+                            @foreach ( $categorias as $categoria)
+                                <tr id="cat-{{$categoria->id}}" onclick="selecionarCategoria({{$categoria->id}}, 'cat');">
+                                    <td>{{$categoria->nm_categoria}}</td>
+                                </tr>
+                                    @foreach ($categoria->subCategorias as $subCategoria)
+                                        <tr id="sub-{{$subCategoria->id}}" onClick="selecionarCategoria({{$subCategoria->id}}, 'sub');">
+                                            <td>{{$subCategoria->nm_sub_cat}}</td>
+                                        </tr>
+                                    @endforeach
+
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="modal-footer">
@@ -28,3 +52,32 @@
         </div>
     </div>
 </div>
+<script>
+    function selecionarCategoria(id, tipo){
+        var data = $('#frmObs').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        if(tipo == "cat") {
+            data = data + "&id_categoria=" + id;
+        }else{
+            data = data + "&id_subcategoria=" + id;
+        }
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xhttp.open("POST", "/dashboard/palestrante/adicionarcategoria", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(data);
+        // $.ajax({
+        //     url: '/dashboard/palestrante/adicionarcategoria',
+        //     method: "POST",
+        //     data: data,
+        //     success: function(resposta){
+        //     }
+        // });
+        //
+        // $('#' + tipo + '-' + id).remove();
+    }
+</script>

@@ -14,6 +14,7 @@ $(document).ready(function () {
 
             $("#frmNomePalestrante")[0].reset();
             $('#frmPalestranteModal').modal('show');
+            $('#frmNomePalestranteModal').modal('toggle');
         });
     });
 
@@ -362,7 +363,5 @@ $(document).ready(function () {
 
         }
     });
-
-
 });
 

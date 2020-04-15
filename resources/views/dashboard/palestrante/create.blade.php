@@ -100,69 +100,54 @@
                                     aria-labelledby="nav-pessoais-tab">
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
-                                            <label for="nome_palestrante">Nome do
+                                            <label for="nm_palestrante">Nome do
                                                 Palestrante</label>
                                             <input id="nm_palestrante" type="text" class="form-control form-control-sm"
                                                 name="nm_palestrante" value="" autofocus readonly>
+                                                   name="nm_palestrante" value="" autofocus readonly/>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
-                                            <label for="Nome">Foto</label>
-                                            <input id="nome" type="file"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
+                                            <label for="ds_foto">Foto</label>
+                                            <input id="ds_foto" type="file"
+                                                   class="form-control form-control-sm"
+                                                   name="ds_foto" value="" required autofocus/>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="Nome">Nacionalidade</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
+                                            <label for="ds_nacionalidade">Nacionalidade</label>
+                                            <input id="ds_nacionalidade" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="ds_nacionalidade" value="" required autofocus/>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="Nome">Sexo</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
+                                            <label for="ds_sexo">Sexo</label>
+                                            <input id="ds_sexo" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="ds_sexo" value="" required autofocus/>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
-                                            <label for="Nome">Idiomas</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
+                                            <label for="idiomas">Idiomas</label>
+                                            <input id="idiomas" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="idiomas" value="" required autofocus/>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
-                                            <label for="Nome">Disponivel para
-                                                Palestras</label><br>
+                                            <label for="ds_disponivel">Disponivel para
+                                                Palestras</label>
                                             <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                       id="ds_disponivel1" value="1">
+                                                <label class="form-check-label" for="ds_disponivel1">Sim</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="ds_disponivel"
+                                                       id="ds_disponivel2" value="0">
+                                                <label class="form-check-label" for="ds_disponivel2">Não</label>
                                                 <input class="form-check-input" type="radio" name="ds_ativo"
                                                     id="ds_ativo1" value="option1">
                                                 <label class="form-check-label" for="ds_ativo1">Sim</label>
@@ -239,83 +224,72 @@
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
-                                            <label for="Nome">Razão Social</label>
-                                            <input id="nome" type="text" class="form-control form-control-sm"
-                                                name="nome" value="" required autofocus>
+                                            <label for="nm_razao_social">Razão Social</label>
+                                            <input id="nm_razao_social" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="nm_razao_social" value="" required autofocus/>
                                         </div>
                                     </div>
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
-                                            <label for="Nome">CNPJ</label>
-                                            <input id="cnpj" type="text" class="form-control form-control-sm"
-                                                data-inputmask="'mask' : '00.000.000/0000-00'" name="nome" value=""
-                                                required autofocus>
+                                            <label for="cnpj">CNPJ</label>
+                                            <input id="cnpj" type="text"
+                                                   class="form-control form-control-sm"
+                                                   data-inputmask="'mask' : '00.000.000/0000-00'"
+                                                   name="cnpj" value="" required autofocus/>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="Nome">Inscrição Estadual</label>
-                                            <input id="ins_estadual" type="text" class="form-control form-control-sm"
-                                                name="nome" value="" required autofocus>
+                                            <label for="ins_estadual">Inscrição Estadual</label>
+                                            <input id="ins_estadual" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="ins_estadual" value="" required autofocus/>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="Nome">Inscrição Municipal</label>
-                                            <input id="ins_municipal" type="text" class="form-control form-control-sm"
-                                                name="nome" value="" required autofocus>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-12">
-                                            <label for="Nome">Nome Completo</label>
-                                            <input id="nome" type="text" class="form-control form-control-sm"
-                                                name="nome" value="" required autofocus>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-4">
-                                            <label for="Nome">CPF</label>
-                                            <input id="nome" type="text" class="form-control form-control-sm"
-                                                name="nome" value="" required autofocus>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="Nome">RG</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="Nome">Data de Nascimento</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
-
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
+                                            <label for="ins_municipal">Inscrição Municipal</label>
+                                            <input id="ins_municipal" type="text"
+                                                   class="form-control form-control-sm"
+                                                   data-mask="'mask' : '00.000.000/0000-00'"
+                                                   name="ins_municipal" value="" required autofocus/>
                                         </div>
                                     </div>
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
-                                            <label for="Nome">Obsevações</label>
-                                            <textarea id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus></textarea>
+                                            <label for="nm_completo">Nome Completo</label>
+                                            <input id="nm_completo" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="nm_completo" value="" required autofocus/>
+                                        </div>
+                                    </div>
 
-                                            @if ($errors->has('nome'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nome') }}</strong>
-                                            </span>
-                                            @endif
+                                    <div class="form-group row d-flex justify-content-center">
+                                        <div class="col-md-4">
+                                            <label for="nr_cpf">CPF</label>
+                                            <input id="nr_cpf" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="nr_cpf" value="" required autofocus/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="nr_rg">RG</label>
+                                            <input id="nr_rg" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="nr_rg" value="" required autofocus/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="dt_nascimento">Data de Nascimento</label>
+                                            <input id="dt_nascimento" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="dt_nascimento" value="" required autofocus/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row d-flex justify-content-center">
+                                        <div class="col-md-12">
+                                            <label for="obsevacao">Obsevações</label>
+                                            <textarea id="obsevacao" type="text"
+                                                      class="form-control form-control-sm"
+                                                      name="obsevacao" required autofocus></textarea>
                                         </div>
                                     </div>
 
@@ -428,7 +402,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -441,8 +414,8 @@
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#frmCategoriaModal">
-                                                    Adicionar Categoria
+                                                        data-target="#frmSelecionarCategoriaModal">
+                                                    Selecionar Categorias
                                                 </button>
                                             </div>
                                         </div>
@@ -469,22 +442,22 @@
                                     aria-labelledby="nav-contact-tab">
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-6">
-                                            <label for="Nome">Titulo</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
+                                            <label for="titulo">Titulo</label>
+                                            <input id="titulo" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="titulo" value="" required autofocus>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="Nome">URL</label>
-                                            <input id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus>
+                                            <label for="url">URL</label>
+                                            <input id="url" type="text"
+                                                   class="form-control form-control-sm"
+                                                   name="url" value="" required autofocus>
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="Nome">Descrição</label>
-                                            <textarea id="nome" type="text"
-                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                name="nome" value="" required autofocus></textarea>
+                                            <label for="descricao">Descrição</label>
+                                            <textarea id="descricao" type="text"
+                                                      class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                      name="descricao" required autofocus title="Descrição do Video"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -514,3 +487,4 @@
     {{--@include('dashboard.descricao.create')--}}
     {{--@include('dashboard.assessor.create')--}}
     {{--@include('dashboard.categoria.create')--}}
+</div>
