@@ -39,6 +39,7 @@ class Palestrante extends Model
     {
         return $this->hasMany('App\DadosContratuais','id_palestrante');
     }
+
     public function palestranteAcessor()
     {
         return $this->belongsToMany(
@@ -46,17 +47,6 @@ class Palestrante extends Model
             'mgm_tbl_palestrante_acessor',
             'id_palestrante',
             'id_acessor'
-        );
-    }
-    public function palestranteAcessorContato()
-    {
-        return $this->hasManyThrough(
-            Acessor::class,
-            Contato::class,
-            'id_acessor',
-            'id_contato',
-            'id'
-
         );
     }
 
@@ -73,6 +63,13 @@ class Palestrante extends Model
         return $this->hasMany(Banco::class, 'id_palestrante');
     }
 
-
-
+    public function palestranteCategoria()
+    {
+        return $this->belongsTo(
+            PalestranteCategoria::class, 'id_palestrante', 'id');
+    }
+    public function palestranteIdioma()
+    {
+        return $this->hasMany('App\Idiomas');
+    }
 }

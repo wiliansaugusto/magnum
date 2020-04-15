@@ -104,60 +104,62 @@
                                                 Palestrante</label>
                                             <input id="nm_palestrante" type="text" class="form-control form-control-sm"
                                                 name="nm_palestrante" value="" autofocus readonly>
-                                                   name="nm_palestrante" value="" autofocus readonly/>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
                                             <label for="ds_foto">Foto</label>
-                                            <input id="ds_foto" type="file"
-                                                   class="form-control form-control-sm"
-                                                   name="ds_foto" value="" required autofocus/>
+                                            <input id="ds_foto" type="file" class="form-control form-control-sm"
+                                                name="ds_foto" value="" required autofocus />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="ds_nacionalidade">Nacionalidade</label>
-                                            <input id="ds_nacionalidade" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="ds_nacionalidade" value="" required autofocus/>
+                                            <select id="ds_nacionalidade" name="ds_nacionalidade"
+                                                class="form-control form-control-sm" required autofocus>
+                                                <option class="form-control form-control-sm" selected disabled>
+                                                    Nacionalidade</option>
+                                                <option class="form-control form-control-sm" value="Brasileiro">
+                                                    Brasileiro</option>
+                                                <option class="form-control form-control-sm" value="Estrangeiro">
+                                                    Estrangeiro</option>
+                                            </select>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="ds_sexo">Sexo</label>
-                                            <input id="ds_sexo" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="ds_sexo" value="" required autofocus/>
+                                            <select id="ds_sexo" name="ds_sexo" class="form-control form-control-sm"
+                                                required autofocus>
+                                                <option class="form-control form-control-sm" selected disabled>Sexo
+                                                </option>
+                                                <option class="form-control form-control-sm" value="Masculino">Masculino
+                                                </option>
+                                                <option class="form-control form-control-sm" value="Feminino">Feminino
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
                                             <label for="idiomas">Idiomas</label>
-                                            <input id="idiomas" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="idiomas" value="" required autofocus/>
+                                            <input id="idiomas" type="text" class="form-control form-control-sm"
+                                                name="idiomas" value="" required autofocus />
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
                                             <label for="ds_disponivel">Disponivel para
-                                                Palestras</label>
+                                                Palestras</label><br>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                       id="ds_disponivel1" value="1">
-                                                <label class="form-check-label" for="ds_disponivel1">Sim</label>
+                                                <input class="form-check-input" type="radio" name="ds_ativo"
+                                                    id="ds_disponivel2" value="0">
+                                                <label class="form-check-label" for="ds_disponivel2">Não</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="ds_disponivel"
-                                                       id="ds_disponivel2" value="0">
-                                                <label class="form-check-label" for="ds_disponivel2">Não</label>
                                                 <input class="form-check-input" type="radio" name="ds_ativo"
-                                                    id="ds_ativo1" value="option1">
+                                                    id="ds_ativo1" value="1">
                                                 <label class="form-check-label" for="ds_ativo1">Sim</label>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="ds_ativo"
-                                                    id="ds_ativo2" value="option2">
-                                                <label class="form-check-label" for="ds_ativo2">Não</label>
-                                            </div>
                                         </div>
+
                                         <div class="col-md-4">
                                             <label for="Nome">Visivel no site</label><br>
                                             <div class="form-check form-check-inline">
@@ -225,71 +227,62 @@
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
                                             <label for="nm_razao_social">Razão Social</label>
-                                            <input id="nm_razao_social" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="nm_razao_social" value="" required autofocus/>
+                                            <input id="nm_razao_social" type="text" class="form-control form-control-sm"
+                                                name="nm_razao_social" value="" required autofocus />
                                         </div>
                                     </div>
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
                                             <label for="cnpj">CNPJ</label>
-                                            <input id="cnpj" type="text"
-                                                   class="form-control form-control-sm"
-                                                   data-inputmask="'mask' : '00.000.000/0000-00'"
-                                                   name="cnpj" value="" required autofocus/>
+                                            <input id="cnpj" type="text" class="form-control form-control-sm"
+                                                data-inputmask="'mask' : '00.000.000/0000-00'" name="cnpj" value=""
+                                                required autofocus />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="ins_estadual">Inscrição Estadual</label>
-                                            <input id="ins_estadual" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="ins_estadual" value="" required autofocus/>
+                                            <input id="ins_estadual" type="text" class="form-control form-control-sm"
+                                                name="ins_estadual" value="" required autofocus />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="ins_municipal">Inscrição Municipal</label>
-                                            <input id="ins_municipal" type="text"
-                                                   class="form-control form-control-sm"
-                                                   data-mask="'mask' : '00.000.000/0000-00'"
-                                                   name="ins_municipal" value="" required autofocus/>
+                                            <input id="ins_municipal" type="text" class="form-control form-control-sm"
+                                                data-mask="'mask' : '00.000.000/0000-00'" name="ins_municipal" value=""
+                                                required autofocus />
                                         </div>
                                     </div>
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
                                             <label for="nm_completo">Nome Completo</label>
-                                            <input id="nm_completo" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="nm_completo" value="" required autofocus/>
+                                            <input id="nm_completo" type="text" class="form-control form-control-sm"
+                                                name="nm_completo" value="" required autofocus />
                                         </div>
                                     </div>
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
                                             <label for="nr_cpf">CPF</label>
-                                            <input id="nr_cpf" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="nr_cpf" value="" required autofocus/>
+                                            <input id="nr_cpf" type="text" class="form-control form-control-sm"
+                                                name="nr_cpf" value="" required autofocus />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="nr_rg">RG</label>
-                                            <input id="nr_rg" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="nr_rg" value="" required autofocus/>
+                                            <input id="nr_rg" type="text" class="form-control form-control-sm"
+                                                name="nr_rg" value="" required autofocus />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="dt_nascimento">Data de Nascimento</label>
-                                            <input id="dt_nascimento" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="dt_nascimento" value="" required autofocus/>
+                                            <input id="dt_nascimento" type="date" class="form-control form-control-sm"
+                                                name="dt_nascimento" value="" required autofocus />
                                         </div>
                                     </div>
 
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
                                             <label for="obsevacao">Obsevações</label>
-                                            <textarea id="obsevacao" type="text"
-                                                      class="form-control form-control-sm"
-                                                      name="obsevacao" required autofocus></textarea>
+                                            <textarea id="obsevacao" type="text" class="form-control form-control-sm"
+                                                name="obsevacao" required autofocus></textarea>
                                         </div>
                                     </div>
 
@@ -383,16 +376,39 @@
 
                                 <div class="tab-pane fade" id="nav-descricao" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
-                                    <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-2">
-                                            <div class="form-check form-check-inline">
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#frmDescricaoModal">
-                                                    Adicionar Descrição
-                                                </button>
-                                            </div>
+                                    <div class="form-group row d-flex justify-content-center  text-centerr">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmChamadaModal">
+                                                Chamada
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmCurriculoModal">
+                                                Currículo
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmCurriculoTecModal">
+                                                Currículo Técnico
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmFormaPagamentoModal">
+                                                Forma de Pagamento
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmInvestimentoModal">
+                                                Investimento
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmEquipamentoModal">
+                                                Equipamentos Necessários
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmObservacaoModal">
+                                                Observações
+                                            </button>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="col-md-12">
                                             <table class="table table-sm table-striped" id="tblDescricao"
                                                 style="visibility: hidden">
                                                 <thead>
@@ -414,7 +430,7 @@
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#frmSelecionarCategoriaModal">
+                                                    data-target="#frmSelecionarCategoriaModal">
                                                     Selecionar Categorias
                                                 </button>
                                             </div>
@@ -443,21 +459,20 @@
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-6">
                                             <label for="titulo">Titulo</label>
-                                            <input id="titulo" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="titulo" value="" required autofocus>
+                                            <input id="titulo" type="text" class="form-control form-control-sm"
+                                                name="titulo" value="" required autofocus>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="url">URL</label>
-                                            <input id="url" type="text"
-                                                   class="form-control form-control-sm"
-                                                   name="url" value="" required autofocus>
+                                            <input id="url" type="text" class="form-control form-control-sm" name="url"
+                                                value="" required autofocus>
                                         </div>
                                         <div class="col-md-12">
                                             <label for="descricao">Descrição</label>
                                             <textarea id="descricao" type="text"
-                                                      class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                      name="descricao" required autofocus title="Descrição do Video"></textarea>
+                                                class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                                name="descricao" required autofocus
+                                                title="Descrição do Video"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -479,12 +494,4 @@
             </form>
         </div>
     </div>
-
-
-    {{--@include('dashboard.contato.create')--}}
-    {{--@include('dashboard.banco.create')--}}
-    {{--@include('dashboard.endereco.create')--}}
-    {{--@include('dashboard.descricao.create')--}}
-    {{--@include('dashboard.assessor.create')--}}
-    {{--@include('dashboard.categoria.create')--}}
 </div>

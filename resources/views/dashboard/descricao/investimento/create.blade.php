@@ -1,25 +1,23 @@
-<div class="modal fade" id="frmEquipamentoModal" tabindex="-1" role="dialog" aria-labelledby="frmEquipamentoModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="frmInvestimentoModal" tabindex="-1" role="dialog" aria-labelledby="frmInvestimentoModalLabel"
+ aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="frmEquipamentoModalLabel">
-                    Cadastrar Equipamentos Necessário
+                <h5 class="modal-title" id="frmInvestimentoModalLabel">
+                    Cadastrar Investimentos
                 </h5>
             </div>
-
-            <form method="post" id="frmEquip">
+            <form method="post" id="frmInvestimento">
                 @csrf
-
-                <div class="modal-body text-center ">
+                <div class="modal-body text-center">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="ds_equip_necessario"> Equipamentos Necessário</label>
-                                <textarea class="form-control" id="ds_equip_necessario" name="ds_equip_necessario" rows="4" required></textarea>
+                                <label for="ds_investimento"> Investimentos</label>
+                                <textarea class="form-control" id="ds_investimento" name="ds_investimento" rows="4"
+                                    required></textarea>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="modal-footer">

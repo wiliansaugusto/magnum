@@ -14,9 +14,9 @@ $palestrantes = App\Palestrante::where('id','>',0)->simplePaginate(10);
             <tbody>
                 @foreach ($palestrantes as $palestrante)
                 <tr>
-                    <td>{{$palestrante->nm_palestrante}}</td>
-                    <td><button type="button" class="btn btn-primary">Alterar</button></td>
-                    <td><button type="button" class="btn btn-danger">Danger</button></td>
+                    <td colspan="2">{{$palestrante->nm_palestrante}}</td>
+                    <td class=" text-right"><button type="button" class="btn btn-primary btn-sm ml-1">Alterar</button>
+                    <button type="button"  class="btn btn-danger btn-sm ml-1" >Excluir</button></td>
                 </tr>
                 @endforeach
             </tbody>
