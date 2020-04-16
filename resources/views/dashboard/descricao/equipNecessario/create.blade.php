@@ -1,5 +1,5 @@
 <div class="modal fade" id="frmEquipamentoModal" tabindex="-1" role="dialog" aria-labelledby="frmEquipamentoModalLabel"
-    aria-hidden="true">
+     aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,9 +13,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                < <label for="txtTinyMCE"> Equipamentos Necessário</label>
-                                    <textarea class="form-control" id="txtTinyMCE" name="ds_equip_necessario" rows="4"
-                                        required></textarea>
+                                <label for="txtTinyMCE"> Equipamentos Necessário</label>
+                                <textarea class="form-control" id="txtTinyMCE" name="ds_equip_necessario" rows="4"
+                                          required></textarea>
                             </div>
                         </div>
                     </div>

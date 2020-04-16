@@ -1,5 +1,5 @@
 <div class="modal fade" id="frmChamadaModal" tabindex="-1" role="dialog" aria-labelledby="frmChamadamodalLabel"
-    aria-hidden="true">
+     aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,8 +14,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="txtTinyMCE">Cadastro de Chamada para o site</label>
-                                <textarea class="form-control" name="ds_chamada" id="txtTinyMCE" maxlength="255"
-                                    rows="2"></textarea>
+                                <textarea class="form-control" name="ds_chamada" id="ds_chamada" maxlength="255"
+                                          rows="2"></textarea>
                             </div>
                         </div>
                     </div>
