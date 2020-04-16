@@ -269,7 +269,6 @@ $(document).ready(function () {
         $("#tblAssessor tbody ").append(linha);
     }
 
-<<<<<<< HEAD
     function tabelDescricao(fields){
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
@@ -334,8 +333,6 @@ $(document).ready(function () {
         $("#tblDescricao tbody ").append(linha);
     }
 
-
-=======
     function tabelaEnderecoPalestrante(fields) {
         $("#tblEnderecoPalestrante").css("visibility", "visible");
 
@@ -346,7 +343,6 @@ $(document).ready(function () {
 
         $("#tblEnderecoPalestrante tbody ").append(linha);
     }
->>>>>>> 18755e285fcb2c6684f64eef9a99fb67ce4f5a7a
 
     //validação de campos
     $(document).on('keypress', '#ins_municipal', function (e) {

@@ -39,7 +39,7 @@ class FragmentosPalestranteController extends Controller
 
     }
 
-    public function salvarNome(NomePalestranteRequest $request)
+    public function salvarNome(Request $request)
     {
         $data = Palestrante::create($request->all());
 
