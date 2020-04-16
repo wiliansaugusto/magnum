@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->call(NomesBancosTableSeeder::class);
         $this->call(TipoContatoTableSeeder::class);
+        $this->call(TipoEnderecoTableSeeder::class);
     }
 }

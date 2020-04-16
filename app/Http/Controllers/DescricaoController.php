@@ -125,7 +125,7 @@ public function formaPgto(Request $request)
 public function investimento(Request $request)
 {
     $retorno = Palestrante::find($request->id_palestrante);
-    $retorno->ds_investimento = $request->ds_investimentos;
+    $retorno->ds_investimento = $request->ds_investimento;
     $retorno->save();
     return response(json_encode($retorno), 200)
         ->header('Content-Type', 'application/json');

@@ -83,7 +83,7 @@ $(document).ready(function () {
         var data = $('#frmChamada').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/chamada",
+            url: "/dashboard/chamada/",
             data: data
         }).done(function (data) {
             tabelDescricao(data);
@@ -95,7 +95,7 @@ $(document).ready(function () {
         var data = $('#frmCurriculo').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/curriculo",
+            url: "/dashboard/curriculo/",
             data: data
         }).done(function (data) {
             tabelDescricaoCurriculo(data);
@@ -107,7 +107,7 @@ $(document).ready(function () {
         var data = $('#frmCurriculoTec').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/curriculoTec",
+            url: "/dashboard/curriculoTec/",
             data: data
         }).done(function (data) {
             tabelDescricaoCurriculoTec(data);
@@ -120,7 +120,7 @@ $(document).ready(function () {
         var data = $('#frmEquip').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/equip",
+            url: "/dashboard/equip/",
             data: data
         }).done(function (data) {
             tabelDescricaoEquip(data);
@@ -133,7 +133,7 @@ $(document).ready(function () {
         var data = $('#frmFormaPagamento').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/formapgto",
+            url: "/dashboard/formapgto/",
             data: data
         }).done(function (data) {
             tabelDescricaoForma(data);
@@ -145,7 +145,7 @@ $(document).ready(function () {
         var data = $('#frmInvestimento').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/investimento",
+            url: "/dashboard/investimento/",
             data: data
         }).done(function (data) {
             tabelDescricaoInvest(data);
@@ -157,7 +157,7 @@ $(document).ready(function () {
         var data = $('#frmObs').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/descobs",
+            url: "/dashboard/descobs/",
             data: data
         }).done(function (data) {
             tabelDescricaoObs(data);
@@ -282,7 +282,7 @@ $(document).ready(function () {
     function  tabelDescricaoCurriculo(fields){
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
-        linha += "<td> Curriculo</td>";
+        linha += "<td>Curriculo Resumido</td>";
         linha += "<td class='text-truncate'>"  + fields.ds_curriculo + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
@@ -309,9 +309,9 @@ $(document).ready(function () {
     function tabelDescricaoInvest(fields){
         $("#tblDescricao").css("visibility", "visible");
 
-        var linha = "<tr>";
-        linha += "<td> Investimento Tec</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_forma_pagamento + "</td>";
+        var linha = "<tr id=''>";
+        linha += "<td> Investimento</td>";
+        linha += "<td class='text-truncate'>"  + fields.ds_investimento + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
 
@@ -364,3 +364,4 @@ $(document).ready(function () {
         }
     });
 });
+

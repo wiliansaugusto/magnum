@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+
 class Palestrante extends Model
 {
+
     protected $table = 'mgm_tbl_palestrante';
 
     protected $fillable = [
@@ -65,5 +68,8 @@ class Palestrante extends Model
         return $this->belongsTo(
             PalestranteCategoria::class, 'id_palestrante', 'id');
     }
-
+    public function palestranteIdioma()
+    {
+        return $this->hasMany('App\Idiomas');
+    }
 }

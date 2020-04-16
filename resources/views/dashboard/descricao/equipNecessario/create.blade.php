@@ -1,22 +1,24 @@
-<div class="modal fade" id="frmFormaPagamentoModal" tabindex="-1" role="dialog" aria-labelledby="frmFormaPagamentoLabel"
+<div class="modal fade" id="frmEquipamentoModal" tabindex="-1" role="dialog" aria-labelledby="frmEquipamentoModalLabel"
     aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="frmFormaPagamentoLabel">
-                    Cadastrar Forma de Pagamento
+                <h5 class="modal-title" id="frmEquipamentoModalLabel">
+                    Cadastrar Equipamentos Necessário
                 </h5>
             </div>
-
-            <form method="post" id="frmFormaPagamento">
+            <form method="POST" id="frmEquip">
                 @csrf
-
                 <div class="modal-body text-center">
-                    <div class="form-group">
-                        <label for="ds_forma_pagamento"> Forma de Pagamento</label>
-                        <textarea class="form-control" id="ds_forma_pagamento"  name="ds_forma_pagamento"  rows="4" required></textarea>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                < <label for="txtTinyMCE"> Equipamentos Necessário</label>
+                                    <textarea class="form-control" id="txtTinyMCE" name="ds_equip_necessario" rows="4"
+                                        required></textarea>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">
@@ -27,16 +29,7 @@
                     </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
-
             </form>
         </div>
-
     </div>
 </div>
-
-
-
-
-
-
-

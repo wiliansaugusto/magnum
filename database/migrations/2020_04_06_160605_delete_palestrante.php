@@ -14,10 +14,7 @@ class DeletePalestrante extends Migration
     public function up()
     {
         Schema::drop('mgm_tbl_palestrante_banco');
-        Schema::table('mgm_tbl_banco', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_palestrante')->nullable();
-            $table->foreign('id_palestrante')->references('id')->on('mgm_tbl_palestrante')->onDelete('cascade');
-        });
+
         Schema::drop('mgm_tbl_palestrante_acessor');
     }
 

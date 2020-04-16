@@ -1,25 +1,23 @@
-<div class="modal fade" id="frmEquipamentoModal" tabindex="-1" role="dialog" aria-labelledby="frmEquipamentoModalLabel"
+<div class="modal fade" id="frmCurriculoModal" tabindex="-1" role="dialog" aria-labelledby="frmCurriculoModalLabel"
     aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="frmEquipamentoModalLabel">
-                    Cadastrar Equipamentos Necessário
+                <h5 class="modal-title" id="frmCurriculoModalLabel">
+                    Cadastrar Chamada
                 </h5>
             </div>
-
-            <form method="post" id="frmEquip">
+            <form method="POST" id="frmCurriculo">
                 @csrf
-
-                <div class="modal-body text-center ">
+                <div class="modal-body text-center">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="ds_equip_necessario"> Equipamentos Necessário</label>
-                                <textarea class="form-control" id="ds_equip_necessario" name="ds_equip_necessario" rows="4" required></textarea>
+                                <label for="txtTinyMCE">Cadastro do Curriculo Resumido</label>
+                                <textarea class="form-control" name="ds_curriculo" id="txtTinyMCE"
+                                    rows="4"></textarea>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="modal-footer">
