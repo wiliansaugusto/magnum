@@ -227,8 +227,22 @@ $(document).ready(function () {
             data: data
         }).done(function (data) {
            tabelaIdiomas(data);
+           $("#frmIdiomas")[0].reset();
+
         });
     });
+    //envio de imagem
+        $("#ds_foto").change(function(){
+            const file = $(this)[0].files[0];
+            const fileReader = new FileReader();
+            fileReader.onloadend = function(){
+            $("#imgFoto").css("visibility", "visible");
+            $("#imgFoto").attr('src',fileReader.result);
+            }
+            fileReader.readAsDataURL(file);
+        });
+
+
     //Preencimento das tabelas
     function tabelaBanco(fields) {
         $("#tblBanco").css("visibility", "visible");
@@ -257,6 +271,7 @@ $(document).ready(function () {
 
     function tabelaContato(fields) {
         $("#tblContato").css("visibility", "visible");
+        $("#expandirContato").css("visibility", "visible");
 
         var linha = "<tr>";
         linha +=  "<td><input type='hidden' name='id_contato[]' value='" + fields.id_contato + "' />";

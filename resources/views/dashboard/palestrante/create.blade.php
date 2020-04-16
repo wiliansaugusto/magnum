@@ -38,13 +38,11 @@
         </div>
     </div>
 </div>
-
-
 <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog" aria-labelledby="frmPalestranteModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
         <div class="modal-content">
-            <form method="POST" action="/palestrante" enctype="multipart/form-data">
+            <form method="POST" action="/palestrante" id="palestrante" enctype="multipart/form-data">
                 @csrf
                 <input id="id_palestrante" type="hidden" name="id_palestrante" value="" />
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}" />
@@ -107,11 +105,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <label for="ds_foto">Foto</label>
-                                            <input id="ds_foto" type="file" class="form-control form-control-sm"
-                                                name="ds_foto" value="" required autofocus />
-                                        </div>
+                                            <input id="ds_foto" type="file" class="form-control form-control-sm "
+                                                name="ds_foto" value="" required autofocus>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <img src="" id="imgFoto" class="img-thumbnail img-fluid form-control" heigth="70px"
+                                                     width="70px"  style="visibility: hidden" >
+                                            </div>
+
                                         <div class="col-md-4">
                                             <label for="ds_nacionalidade">Nacionalidade</label>
                                             <select id="ds_nacionalidade" name="ds_nacionalidade"
@@ -200,7 +203,7 @@
                                                 <a data-toggle="collapse" href="#tblIdiomasxp" role="button"
                                                     aria-expanded="false">
                                                     Idiomas
-                                                <i class="fas fa-chevron-down"></i></a>
+                                                    <i class="fas fa-chevron-down"></i></a>
 
                                             </div>
                                             <div class="collapse" id="tblIdiomasxp">
@@ -227,22 +230,31 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table id="tblContato" class="table table-sm table-striped"
-                                                style="visibility: hidden">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Tipo de Contato</th>
-                                                        <th scope="col">Contato</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                            <div id="expandirContato" style="visibility: hidden">
+                                                <a data-toggle="collapse" href="#tblContatoxp" role="button"
+                                                    aria-expanded="false">
+                                                    Contatos
+                                                    <i class="fas fa-chevron-down"></i></a>
 
-                                                </tbody>
-                                            </table>
+                                            </div>
+                                            <div class="collapse" id="tblContatoxp">
+                                                <div class="card-body ">
+                                                    <table id="tblContato" class="table table-sm table-striped"
+                                                        style="visibility: hidden">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Tipo de Contato</th>
+                                                                <th scope="col">Contato</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
                                     aria-labelledby="nav-profile-tab">
 
@@ -269,8 +281,8 @@
                                         <div class="col-md-4">
                                             <label for="ins_municipal">Inscrição Municipal</label>
                                             <input id="ins_municipal" type="text" class="form-control form-control-sm"
-                                                data-mask="'mask' : '00.000.000/0000-00'" name="ins_municipal" value=""
-                                                required autofocus />
+                                                data-inputmask="'mask' : '00.000.000/0000-00'" name="ins_municipal"
+                                                value="" required autofocus />
                                         </div>
                                     </div>
 
@@ -307,7 +319,6 @@
                                                 name="obsevacao" required autofocus></textarea>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="tab-pane fade" id="nav-banco" role="tabpanel"
@@ -501,19 +512,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">
-                            Salvar
-                        </button>
-                        <button type="reset" class="btn btn-warning">
-                            Limpar
-                        </button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">
-                            Cancelar
-                        </button>
-                    </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Salvar
+                    </button>
+                    <button type="reset" class="btn btn-warning">
+                        Limpar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        Cancelar
+                    </button>
             </form>
         </div>
     </div>
+
 </div>

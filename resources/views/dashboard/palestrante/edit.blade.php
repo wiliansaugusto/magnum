@@ -1,5 +1,5 @@
 @php
-$palestrantes = App\Palestrante::where('id','>',0)->simplePaginate(10);
+$palestrantes = App\Palestrante::where('id','>',0)->paginate(10);
 @endphp
 <div class="row justifi-content">
     <div class="col-md-12 ">

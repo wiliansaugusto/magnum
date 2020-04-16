@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Categoria;
+use App\Palestrante;
 use App\PalestranteCategoria;
 use App\SubCategoria;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Palestrante;
+
 class PalestranteController extends Controller
 {
     public function __construct()
@@ -76,9 +77,8 @@ class PalestranteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-
     }
 
     /**
@@ -92,20 +92,38 @@ class PalestranteController extends Controller
         //
     }
 
-    public function adicionarCategoria(Request $request){
+    public function adicionarCategoria(Request $request)
+    {
 
         $palestrante = PalestranteCategoria::create($request->all());
 
-        if($palestrante->id_categoria > 0){
+        if ($palestrante->id_categoria > 0) {
             $categoria = Categoria::find($palestrante->id_categoria)->nm_categoria;
-        }else if ($palestrante->id_subcategoria > 0){
+        } else if ($palestrante->id_subcategoria > 0) {
             $categoria = SubCategoria::find($palestrante->id_subcategoria)->nm_sub_cat;
         }
         $categoriaReturn = array(
-            'categoria' => $categoria
+            'categoria' => $categoria,
         );
         return response(json_encode($categoriaReturn), 200)
             ->header('Content-Type', 'application/json');
 
+    }
+
+    public function salvarFoto(Request $request)
+    {
+
+        if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
+            $nome = $request->ds_foto->getClientOriginalExtension();
+            $extensao = $request->ds_foto->extension();
+            $nome += $extensao;
+            $upload = $request->ds_foto->storeAs('imagemPalestrante', $nome);
+            $palestranteFoto = Palestrante::find($request->id_palestrante);
+            $palestranteFoto->ds_foto = $upload;
+            $palestranteFoto->save();
+            return response(json_encode($palestranteFoto), 200)
+                ->header('Content-Type', 'application/json');
+
+        }
     }
 }
