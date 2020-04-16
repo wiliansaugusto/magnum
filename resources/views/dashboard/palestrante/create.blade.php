@@ -138,13 +138,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-12">
-                                            <label for="idiomas">Idiomas</label>
-                                            <input id="idiomas" type="text" class="form-control form-control-sm"
-                                                name="idiomas" value="" required autofocus />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
                                             <label for="ds_disponivel">Disponivel para
                                                 Palestras</label><br>
@@ -173,7 +166,6 @@
                                                 <label class="form-check-label" for="ds_visivel_site2">Não</label>
                                             </div>
                                         </div>
-
                                         <div class="col-md-4">
                                             <label for="Nome">Ranking do Palestrante</label><br>
                                             <div class="rate">
@@ -192,6 +184,36 @@
                                                 <input type="radio" id="star1" name="rate" value="1" />
                                                 <label for="star1" title="text">1
                                                     star</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row d-flex justify-content-center">
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#frmIdiomasModal">
+                                                Adicionar Idiomas
+                                            </button>
+                                        </div>
+
+                                        <div class="col-md-10">
+                                            <div id="expandirIdioma" style="visibility: hidden">
+                                                <a data-toggle="collapse" href="#tblIdiomasxp" role="button"
+                                                    aria-expanded="false">
+                                                    Idiomas
+                                                <i class="fas fa-chevron-down"></i></a>
+
+                                            </div>
+                                            <div class="collapse" id="tblIdiomasxp">
+                                                <div class="card-body ">
+                                                    <table id="tblIdiomas" class=" table table-sm table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -10,7 +10,6 @@ class Idiomas extends Model
 
     protected $fillable = [
         'ds_idioma',
-        'id_palestrante'
     ];
 
     public function idiomaPalestrante()
