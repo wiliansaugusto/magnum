@@ -30,6 +30,7 @@
 @include('dashboard.assessor.create')
 @include('dashboard.categoria.select')
 @include('dashboard.contato.create')
+@include('dashboard.idiomas.create')
 
 @include('dashboard.descricao.chamada.create')
 @include('dashboard.descricao.curriculo.create')

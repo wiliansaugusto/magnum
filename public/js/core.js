@@ -218,7 +218,17 @@ $(document).ready(function () {
         });
     });
 
-
+    $('#frmIdiomas').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmIdiomas').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/idiomas/",
+            data: data
+        }).done(function (data) {
+           tabelaIdiomas(data);
+        });
+    });
     //Preencimento das tabelas
     function tabelaBanco(fields) {
         $("#tblBanco").css("visibility", "visible");
@@ -342,6 +352,18 @@ $(document).ready(function () {
         linha += "</tr>";
 
         $("#tblEnderecoPalestrante tbody ").append(linha);
+    }
+    function tabelaIdiomas(fields) {
+        $("#tblIdiomas").css("visibility", "visible");
+        $("#tblIdiomasInterna").css("visibility", "visible");
+        $("#expandirIdioma").css("visibility", "visible");
+
+        var linha = "<tr>";
+        linha += "<td>" + fields.ds_idioma + "</td>";
+        linha += "</tr>";
+
+        $("#tblIdiomas tbody ").append(linha);
+        $("#tblIdiomasInterna tbody ").append(linha);
     }
 
     //validação de campos

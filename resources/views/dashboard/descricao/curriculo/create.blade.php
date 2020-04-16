@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="frmCurriculoModalLabel">
-                    Cadastrar Chamada
+                    Cadastrar Curriculo Resumido
                 </h5>
             </div>
             <form method="POST" id="frmCurriculo">

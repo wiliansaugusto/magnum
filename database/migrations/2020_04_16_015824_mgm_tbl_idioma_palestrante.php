@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MgmTblIdiomas extends Migration
+class MgmTblIdiomaPalestrante extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class MgmTblIdiomas extends Migration
      */
     public function up()
     {
-        Schema::create('mgm_tbl_idiomas', function (Blueprint $table) {
+        Schema::create('mgm_tbl_idiomas_palestrante', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ds_idioma',20);
             $table->timestamps();
+            $table->unsignedBigInteger('id_palestrante');
+            $table->foreign('id_palestrante')->references('id')->on('mgm_tbl_palestrante')->onDelete('cascade');
+            $table->unsignedBigInteger('id_idiomas');
+            $table->foreign('id_idiomas')->references('id')->on('mgm_tbl_idiomas')->onDelete('cascade');
 
         });
+
+
+
     }
 
     /**
