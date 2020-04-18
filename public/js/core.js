@@ -400,5 +400,33 @@ $(document).ready(function () {
 
         }
     });
+
+// Configuração do Bootsnipp
+
+$('#example').tagsInput({
+
+    'autocomplete': {
+      source: [
+        'jQuery',
+        'Script',
+        'Net',
+        'Demo'
+      ]
+    }
+
+  });
+
+
+    $('#example#tags').addTag('newTag');
+    $('#example#tags').removeTag('newTag');
+    $('#example#tags').importTags('newTag1, newTag2, newTag3');
+    $('#example').tagsInput({
+    onAddTag: ()=>{},
+    onRemoveTag: ()=>{},
+    onChange: ()=>{}
+
+    });
+
+
 });
 

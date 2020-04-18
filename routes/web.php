@@ -45,5 +45,5 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('endereco/', 'EnderecoController');
     Route::resource('idiomas/', 'IdiomasController');
     Route::post('update/', 'PalestranteController@update');
-    Route::post('foto/', 'PalestranteController@salvarFoto');
+    Route::post('palestrante/', 'PalestranteController@store');
 });

@@ -42,7 +42,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
         <div class="modal-content">
-            <form method="POST" action="/palestrante" id="palestrante" enctype="multipart/form-data">
+            <form method="POST" action="palestrante/" id="palestrante" enctype="multipart/form-data">
                 @csrf
                 <input id="id_palestrante" type="hidden" name="id_palestrante" value="" />
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}" />
@@ -109,18 +109,18 @@
                                             <label for="ds_foto">Foto</label>
                                             <input id="ds_foto" type="file" class="form-control form-control-sm "
                                                 name="ds_foto" value="" required autofocus>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <img src="" id="imgFoto" class="img-thumbnail img-fluid form-control" heigth="70px"
-                                                     width="70px"  style="visibility: hidden" >
-                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <img src="" id="imgFoto" class="img-thumbnail img-fluid form-control"
+                                                heigth="70px" width="70px" style="visibility: hidden">
+                                        </div>
 
                                         <div class="col-md-4">
                                             <label for="ds_nacionalidade">Nacionalidade</label>
-                                            <select id="ds_nacionalidade" name="ds_nacionalidade"
+                                            <select id="ds_nacionalidade" name="id_tp_nacionalidade"
                                                 class="form-control form-control-sm" required autofocus>
                                                 <option class="form-control form-control-sm" selected disabled>
-                                                    Nacionalidade</option>
+                                                    Selecionar Nacionalidade</option>
                                                 <option class="form-control form-control-sm" value="Brasileiro">
                                                     Brasileiro</option>
                                                 <option class="form-control form-control-sm" value="Estrangeiro">
@@ -131,11 +131,13 @@
                                             <label for="ds_sexo">Sexo</label>
                                             <select id="ds_sexo" name="ds_sexo" class="form-control form-control-sm"
                                                 required autofocus>
-                                                <option class="form-control form-control-sm" selected disabled>Sexo
+                                                <option class="form-control form-control-sm" selected disabled>
+                                                    Selecionar Sexo
+                                                </option>
+
+                                                <option class="form-control form-control-sm" value="Feminino">Feminino
                                                 </option>
                                                 <option class="form-control form-control-sm" value="Masculino">Masculino
-                                                </option>
-                                                <option class="form-control form-control-sm" value="Feminino">Feminino
                                                 </option>
                                             </select>
                                         </div>
@@ -146,80 +148,58 @@
                                                 Palestras</label><br>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_ativo"
-                                                    id="ds_disponivel2" value="0">
-                                                <label class="form-check-label" for="ds_disponivel2">Não</label>
+                                                    id="ds_ativo1" value="s">
+                                                <label class="form-check-label" for="ds_ativo1">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_ativo"
-                                                    id="ds_ativo1" value="1">
-                                                <label class="form-check-label" for="ds_ativo1">Sim</label>
+                                                    id="ds_disponivel2" value="n">
+                                                <label class="form-check-label" for="ds_disponivel2">Não</label>
                                             </div>
+
                                         </div>
 
                                         <div class="col-md-4">
                                             <label for="Nome">Visivel no site</label><br>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_visivel_site"
-                                                    id="ds_visivel_site1" value="1">
-                                                <label class="form-check-label" for="ds_visivel_site1">Sim</label>
+                                                    id="ds_visivel_site" value="s">
+                                                <label class="form-check-label" for="ds_visivel_site">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_visivel_site"
-                                                    id="ds_visivel_site2" value="0">
+                                                    id="ds_visivel_site2" value="n">
                                                 <label class="form-check-label" for="ds_visivel_site2">Não</label>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="Nome">Ranking do Palestrante</label><br>
                                             <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <input type="radio" id="star5" name="rank_palestrante" value="5" />
                                                 <label for="star5" title="text">5
                                                     stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <input type="radio" id="star4" name="rank_palestrante" value="4" />
                                                 <label for="star4" title="text">4
                                                     stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <input type="radio" id="star3" name="rank_palestrante" value="3" />
                                                 <label for="star3" title="text">3
                                                     stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <input type="radio" id="star2" name="rank_palestrante" value="2" />
                                                 <label for="star2" title="text">2
                                                     stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <input type="radio" id="star1" name="rank_palestrante" value="1" />
                                                 <label for="star1" title="text">1
                                                     star</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-2">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#frmIdiomasModal">
-                                                Adicionar Idiomas
-                                            </button>
-                                        </div>
-
-                                        <div class="col-md-10">
-                                            <div id="expandirIdioma" style="visibility: hidden">
-                                                <a data-toggle="collapse" href="#tblIdiomasxp" role="button"
-                                                    aria-expanded="false">
-                                                    Idiomas
-                                                    <i class="fas fa-chevron-down"></i></a>
-
-                                            </div>
-                                            <div class="collapse" id="tblIdiomasxp">
-                                                <div class="card-body ">
-                                                    <table id="tblIdiomas" class=" table table-sm table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                        <div class="col-md-12">
+                                            <label for="example">Idiomas</label>
+                                            <input id="example" name="example" type="text" value="jQuery,Script,Net">
                                         </div>
                                     </div>
+
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
@@ -230,28 +210,17 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <div id="expandirContato" style="visibility: hidden">
-                                                <a data-toggle="collapse" href="#tblContatoxp" role="button"
-                                                    aria-expanded="false">
-                                                    Contatos
-                                                    <i class="fas fa-chevron-down"></i></a>
-
-                                            </div>
-                                            <div class="collapse" id="tblContatoxp">
-                                                <div class="card-body ">
-                                                    <table id="tblContato" class="table table-sm table-striped"
-                                                        style="visibility: hidden">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Tipo de Contato</th>
-                                                                <th scope="col">Contato</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                            <table id="tblContato" class="table table-sm table-striped"
+                                                style="visibility: hidden">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Tipo de Contato</th>
+                                                        <th scope="col">Contato</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

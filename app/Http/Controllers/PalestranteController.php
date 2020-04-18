@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categoria;
+use App\DadosContratuais;
 use App\Palestrante;
 use App\PalestranteCategoria;
 use App\SubCategoria;
@@ -43,9 +44,30 @@ class PalestranteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PalestranteRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->ds_foto = $this->salvarFoto($request);
+        $palestrante = Palestrante::find($request->id_palestrante);
+        $palestrante->id_tp_nacionalidade = $request->id_tp_nacionalidade;
+        $palestrante->ds_ativo = $request->ds_ativo;
+        $palestrante->ds_visivel_site = $request->ds_visivel_site;
+        $palestrante->rank_palestrante = $request->rank_palestrante;
+        $palestrante->save();
+
+        $dadosContratuais = new DadosContratuais();
+        $dadosContratuais->nm_razao_social = $request->nm_razao_social;
+        $dadosContratuais->nr_cnpj = $request->cnpj;
+        $dadosContratuais->nr_cpf = $request->nr_cpf;
+        $dadosContratuais->nr_insc_estadual = $request->ins_estadual;
+        $dadosContratuais->nr_rg = $request->nr_rg;
+        $dadosContratuais->dt_nascimento = $request->dt_nascimento;
+        $dadosContratuais->ds_observacao = $request->obsevacao;
+        $dadosContratuais->id_palestrante = $request->id_palestrante;
+
+        $dadosContratuais->save();
+        $retorno=[$palestrante,$dadosContratuais];
+        return response(json_encode($retorno), 200)
+            ->header('Content-Type', 'application/json');
     }
 
     /**
@@ -114,9 +136,10 @@ class PalestranteController extends Controller
     {
 
         if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
-            $nome = $request->ds_foto->getClientOriginalExtension();
-            $extensao = $request->ds_foto->extension();
-            $nome += $extensao;
+
+            $nome = $request->ds_foto->getClientOriginalName();
+            $extensao = $request->ds_foto->getClientOriginalExtension();
+            $nomeFinal = "{$nome}.{$extensao}";
             $upload = $request->ds_foto->storeAs('imagemPalestrante', $nome);
             $palestranteFoto = Palestrante::find($request->id_palestrante);
             $palestranteFoto->ds_foto = $upload;

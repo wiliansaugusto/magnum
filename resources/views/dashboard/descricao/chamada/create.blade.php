@@ -13,8 +13,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="txtTinyMCE">Cadastro de Chamada para o site</label>
-                                <textarea class="form-control" name="ds_chamada" id="txtTinyMCE" maxlength="255"
+                                <label for="ds_chamada">Cadastro de Chamada para o site</label>
+                                <textarea class="form-control" name="ds_chamada" id="ds_chamada" maxlength="255"
                                     rows="2"></textarea>
                             </div>
                         </div>

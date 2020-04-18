@@ -13,8 +13,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                < <label for="txtTinyMCE"> Equipamentos Necessário</label>
-                                    <textarea class="form-control" id="txtTinyMCE" name="ds_equip_necessario" rows="4"
+                                < <label for="ds_equip_necessario"> Equipamentos Necessário</label>
+                                    <textarea class="form-control" id="ds_equip_necessario" name="ds_equip_necessario" rows="4"
                                         required></textarea>
                             </div>
                         </div>
