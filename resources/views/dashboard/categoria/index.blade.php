@@ -101,6 +101,5 @@
             </div>
         </div>
     </div>
-
     @include('dashboard.categoria.create')
 @endsection

@@ -20,7 +20,6 @@
     </div>
     <div class="card-body">
         @include('dashboard.palestrante.edit')
-
     </div>
 </div>
 

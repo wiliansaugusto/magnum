@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //AJAX Request
     $('#frmNomePalestrante').submit(function (event) {
         event.preventDefault();
         var data = $('#frmNomePalestrante').serialize();
@@ -180,6 +181,78 @@ $(document).ready(function () {
         });
     });
 
+    $('#frmIdiomas').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmIdiomas').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/idiomas/",
+            data: data
+        }).done(function (data) {
+            tabelaIdiomas(data);
+        });
+    });
+
+    $(".rowCat").click(function(){
+
+        var row = $(this);
+        var id = row.data("id");
+        var tipo = row.data("tipo");
+        var data = $('#frmSelecionarCategoria').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+
+        if(tipo == "cat") {
+            data = data + "&id_categoria=" + id;
+        }else{
+            data = data + "&id_subcategoria=" + id;
+        }
+
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/palestrante/adicionarcategoria",
+            data: data,
+            success: function(data){
+                $('#msg-sucesso-selcat').html("");
+                $('#msg-sucesso-selcat').append("Categoria adicionada com sucesso!");
+                $('#msg-sucesso-selcat').fadeIn(500, "linear", function () {
+                    $('#msg-sucesso-selcat').fadeOut(10000);
+                });
+                tabelaCategoriaSelecionada(data, tipo, id);
+                row.remove();
+            },
+            error: function(data){
+                $('#msg-erro-selcat').html("");
+                $('#msg-erro-selcat').append("Não foi Possível adicionar a categoria!");
+                $('#msg-erro').fadeIn(500, "linear", function () {
+                    $('#msg-erro').fadeOut(10000);
+                });
+            }
+        });
+    });
+
+    //TODO terminar remoção de categoria do palestrante
+    $(".btn-remove-cat").click(function(){
+        var element = $(this);
+        var id = element.data("id");
+        var tipo = element.data("tipo");
+        var data = $('#frmSelecionarCategoria').serialize() + "&id=" + $("#id_palestrante_categoria").val();
+
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/palestrante/removercategoria",
+            data: data,
+            success: function(data){
+                element.remove();
+            },
+            error: function(data){
+                $('#msg-erro-pcat').html("");
+                $('#msg-erro-pcat').append("Não foi Possível remover a categoria!");
+                $('#msg-erro').fadeIn(500, "linear", function () {
+                    $('#msg-erro').fadeOut(10000);
+                });
+            }
+        });
+    });
+
     //Busca de CEP
     $("#nr_cep").focusout(function(){
         $.ajax({
@@ -218,17 +291,6 @@ $(document).ready(function () {
         });
     });
 
-    $('#frmIdiomas').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmIdiomas').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/idiomas/",
-            data: data
-        }).done(function (data) {
-           tabelaIdiomas(data);
-        });
-    });
     //Preencimento das tabelas
     function tabelaBanco(fields) {
         $("#tblBanco").css("visibility", "visible");
@@ -289,6 +351,7 @@ $(document).ready(function () {
         $("#tblDescricao tbody ").append(linha);
 
     }
+
     function  tabelDescricaoCurriculo(fields){
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
@@ -298,6 +361,7 @@ $(document).ready(function () {
         $("#tblDescricao tbody ").append(linha);
 
     }
+
     function tabelDescricaoCurriculoTec(fields){
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
@@ -307,6 +371,7 @@ $(document).ready(function () {
         $("#tblDescricao tbody ").append(linha);
 
     }
+
     function tabelDescricaoForma(fields){
         $("#tblDescricao").css("visibility", "visible");
 
@@ -316,6 +381,7 @@ $(document).ready(function () {
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
     }
+
     function tabelDescricaoInvest(fields){
         $("#tblDescricao").css("visibility", "visible");
 
@@ -326,6 +392,7 @@ $(document).ready(function () {
         $("#tblDescricao tbody ").append(linha);
 
     }
+
     function tabelDescricaoEquip (fields){
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
@@ -334,6 +401,7 @@ $(document).ready(function () {
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
     }
+
     function tabelDescricaoObs(fields){
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
@@ -353,6 +421,7 @@ $(document).ready(function () {
 
         $("#tblEnderecoPalestrante tbody ").append(linha);
     }
+
     function tabelaIdiomas(fields) {
         $("#tblIdiomas").css("visibility", "visible");
         $("#tblIdiomasInterna").css("visibility", "visible");
@@ -366,6 +435,17 @@ $(document).ready(function () {
         $("#tblIdiomasInterna tbody ").append(linha);
     }
 
+    function tabelaCategoriaSelecionada(fields, tipo, id) {
+        $("#tblSelecionarCategoria tbody").css("visibility", "visible");
+
+        var linha = "<tr>";
+        linha += "<td>" + fields.categoria + "</td>";
+        linha += '<td class="text-right"><button type="button" class="btn btn-success btn-sm btn-remove-cat" data-tipo="'+ tipo +'" data-id="'+ id +'"><i class="fas fa-trash"></i></button></td>';
+        linha += "</tr>";
+
+        $("#tblSelecionarCategoria tbody ").append(linha);
+    }
+
     //validação de campos
     $(document).on('keypress', '#ins_municipal', function (e) {
         var key = (window.event) ? event.keyCode : e.which;
@@ -376,6 +456,7 @@ $(document).ready(function () {
 
         }
     });
+
     $(document).on('keypress', '#ins_estadual', function (e) {
         var key = (window.event) ? event.keyCode : e.which;
         if ((key > 47 && key < 58)) {
@@ -384,6 +465,11 @@ $(document).ready(function () {
             return (key == 8 || key == 0) ? true : false;
 
         }
+    });
+
+//    EVENTOS DE CLICK
+    $(".close-alert").click(function(){
+        $(this).closest('.alert').fadeOut();
     });
 });
 

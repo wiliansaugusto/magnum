@@ -94,17 +94,27 @@ class PalestranteController extends Controller
 
     public function adicionarCategoria(Request $request){
 
-        $palestrante = PalestranteCategoria::create($request->all());
+        $palestranteCategoria = PalestranteCategoria::create($request->all());
 
-        if($palestrante->id_categoria > 0){
-            $categoria = Categoria::find($palestrante->id_categoria)->nm_categoria;
-        }else if ($palestrante->id_subcategoria > 0){
-            $categoria = SubCategoria::find($palestrante->id_subcategoria)->nm_sub_cat;
+        if($palestranteCategoria->id_categoria > 0){
+            $categoria = Categoria::find($palestranteCategoria->id_categoria)->nm_categoria;
+        }else if ($palestranteCategoria->id_subcategoria > 0){
+            $categoria = SubCategoria::find($palestranteCategoria->id_subcategoria)->nm_sub_cat;
         }
         $categoriaReturn = array(
+            'id' => $palestranteCategoria->id,
             'categoria' => $categoria
         );
         return response(json_encode($categoriaReturn), 200)
+            ->header('Content-Type', 'application/json');
+
+    }
+
+    public function removerCategoria(Request $request){
+
+        $palestranteCategoria = PalestranteCategoria::destroy($request->all());
+
+        return response(null,200)
             ->header('Content-Type', 'application/json');
 
     }

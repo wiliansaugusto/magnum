@@ -35,5 +35,6 @@ class IdiomasTableSeeder extends Seeder
         ]);
         \App\Idiomas::create([
             'ds_idioma' => "Japonês",
-        ]);    }
+        ]);
+    }
 }

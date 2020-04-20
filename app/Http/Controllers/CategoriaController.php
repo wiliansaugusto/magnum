@@ -29,11 +29,6 @@ class CategoriaController extends Controller
 
     }
 
-    public function salvarNome(NomeCategoriaRequest $request)
-    {
-
-    }
-
     /**
      * Show the form for creating a new resource.
      *
