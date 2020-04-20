@@ -13,8 +13,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="txtTinyMCE">Cadastro do Curriculo Resumido</label>
-                                <textarea class="form-control" name="ds_curriculo" id="txtTinyMCE"
+                                <label for="ds_curriculo">Cadastro do Curriculo Resumido</label>
+                                <textarea class="form-control" name="ds_curriculo" id="ds_curriculo"
                                     rows="4"></textarea>
                             </div>
                         </div>

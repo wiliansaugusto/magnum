@@ -45,4 +45,6 @@ Route::prefix('dashboard')->group(function () {
     Route::post('descobs/', 'DescricaoController@observacao');
     Route::resource('endereco/', 'EnderecoController');
     Route::resource('idiomas/', 'IdiomasController');
+    Route::post('update/', 'PalestranteController@update');
+    Route::post('palestrante/', 'PalestranteController@store');
 });

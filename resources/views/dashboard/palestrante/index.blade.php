@@ -19,6 +19,7 @@
 
     </div>
     <div class="card-body">
+
         @include('dashboard.palestrante.edit')
     </div>
 </div>
@@ -38,5 +39,4 @@
 @include('dashboard.descricao.investimento.create')
 @include('dashboard.descricao.equipNecessario.create')
 @include('dashboard.descricao.observacao.create')
-
 @endsection

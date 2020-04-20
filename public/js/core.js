@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('#frmContatoPalestrante').submit(function (event) {
         event.preventDefault();
         var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val()
-        +"&id_palestrante=" + $("#id_palestrante").val();
+            + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
             url: "/dashboard/contato",
@@ -181,28 +181,16 @@ $(document).ready(function () {
         });
     });
 
-    $('#frmIdiomas').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmIdiomas').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/idiomas/",
-            data: data
-        }).done(function (data) {
-            tabelaIdiomas(data);
-        });
-    });
-
-    $(".rowCat").click(function(){
+    $(".rowCat").click(function () {
 
         var row = $(this);
         var id = row.data("id");
         var tipo = row.data("tipo");
         var data = $('#frmSelecionarCategoria').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
 
-        if(tipo == "cat") {
+        if (tipo == "cat") {
             data = data + "&id_categoria=" + id;
-        }else{
+        } else {
             data = data + "&id_subcategoria=" + id;
         }
 
@@ -210,7 +198,7 @@ $(document).ready(function () {
             method: "POST",
             url: "/dashboard/palestrante/adicionarcategoria",
             data: data,
-            success: function(data){
+            success: function (data) {
                 $('#msg-sucesso-selcat').html("");
                 $('#msg-sucesso-selcat').append("Categoria adicionada com sucesso!");
                 $('#msg-sucesso-selcat').fadeIn(500, "linear", function () {
@@ -219,7 +207,7 @@ $(document).ready(function () {
                 tabelaCategoriaSelecionada(data, tipo, id);
                 row.remove();
             },
-            error: function(data){
+            error: function (data) {
                 $('#msg-erro-selcat').html("");
                 $('#msg-erro-selcat').append("Não foi Possível adicionar a categoria!");
                 $('#msg-erro').fadeIn(500, "linear", function () {
@@ -230,7 +218,7 @@ $(document).ready(function () {
     });
 
     //TODO terminar remoção de categoria do palestrante
-    $(".btn-remove-cat").click(function(){
+    $(".btn-remove-cat").click(function () {
         var element = $(this);
         var id = element.data("id");
         var tipo = element.data("tipo");
@@ -240,10 +228,10 @@ $(document).ready(function () {
             method: "POST",
             url: "/dashboard/palestrante/removercategoria",
             data: data,
-            success: function(data){
+            success: function (data) {
                 element.remove();
             },
-            error: function(data){
+            error: function (data) {
                 $('#msg-erro-pcat').html("");
                 $('#msg-erro-pcat').append("Não foi Possível remover a categoria!");
                 $('#msg-erro').fadeIn(500, "linear", function () {
@@ -254,12 +242,12 @@ $(document).ready(function () {
     });
 
     //Busca de CEP
-    $("#nr_cep").focusout(function(){
+    $("#nr_cep").focusout(function () {
         $.ajax({
-            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
             dataType: 'json',
-            success: function(resposta){
-                if (resposta.erro === true){
+            success: function (resposta) {
+                if (resposta.erro === true) {
                     $('#nr_cep').addClass('is-invalid');
                     $("#nm_endereco").prop('readonly', false);
                     $("#nm_bairro").prop('readonly', false);
@@ -273,7 +261,7 @@ $(document).ready(function () {
                     $("#nm_cidade").val("");
                     $("#nm_estado").val("");
 
-                }else{
+                } else {
 
                     $('#nr_cep').removeClass('is-invalid');
                     $("#nm_endereco").prop('readonly', true);
@@ -289,6 +277,17 @@ $(document).ready(function () {
                 }
             }
         });
+    });
+
+    //envio de imagem
+    $("#ds_foto").change(function () {
+        const file = $(this)[0].files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = function () {
+            $("#imgFoto").fedeIn(500);
+            $("#imgFoto").attr('src', fileReader.result);
+        }
+        fileReader.readAsDataURL(file);
     });
 
     //Preencimento das tabelas
@@ -319,10 +318,11 @@ $(document).ready(function () {
 
     function tabelaContato(fields) {
         $("#tblContato").css("visibility", "visible");
+        $("#expandirContato").css("visibility", "visible");
 
         var linha = "<tr>";
-        linha +=  "<td><input type='hidden' name='id_contato[]' value='" + fields.id_contato + "' />";
-        linha +=  fields.nm_tipo_contato + "</td>";
+        linha += "<td><input type='hidden' name='id_contato[]' value='" + fields.id_contato + "' />";
+        linha += fields.nm_tipo_contato + "</td>";
         linha += "<td>" + fields.ds_contato + "</td>";
         linha += "</tr>";
 
@@ -341,7 +341,7 @@ $(document).ready(function () {
         $("#tblAssessor tbody ").append(linha);
     }
 
-    function tabelDescricao(fields){
+    function tabelDescricao(fields) {
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
         linha += "<td> Chamada</td>";
@@ -352,61 +352,61 @@ $(document).ready(function () {
 
     }
 
-    function  tabelDescricaoCurriculo(fields){
+    function tabelDescricaoCurriculo(fields) {
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
         linha += "<td>Curriculo Resumido</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_curriculo + "</td>";
+        linha += "<td class='text-truncate'>" + fields.ds_curriculo + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
 
     }
 
-    function tabelDescricaoCurriculoTec(fields){
+    function tabelDescricaoCurriculoTec(fields) {
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
         linha += "<td> Curriculo Técnico</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_curriculo_tecnico + "</td>";
+        linha += "<td class='text-truncate'>" + fields.ds_curriculo_tecnico + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
 
     }
 
-    function tabelDescricaoForma(fields){
+    function tabelDescricaoForma(fields) {
         $("#tblDescricao").css("visibility", "visible");
 
         var linha = "<tr>";
         linha += "<td> Forma de Pagamento</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_forma_pagamento + "</td>";
+        linha += "<td class='text-truncate'>" + fields.ds_forma_pagamento + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
     }
 
-    function tabelDescricaoInvest(fields){
+    function tabelDescricaoInvest(fields) {
         $("#tblDescricao").css("visibility", "visible");
 
         var linha = "<tr id=''>";
         linha += "<td> Investimento</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_investimento + "</td>";
+        linha += "<td class='text-truncate'>" + fields.ds_investimento + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
 
     }
 
-    function tabelDescricaoEquip (fields){
+    function tabelDescricaoEquip(fields) {
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
         linha += "<td> Equipamentos Necessário</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_equipe_necessario + "</td>";
+        linha += "<td class='text-truncate'>" + fields.ds_equipe_necessario + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
     }
 
-    function tabelDescricaoObs(fields){
+    function tabelDescricaoObs(fields) {
         $("#tblDescricao").css("visibility", "visible");
         var linha = "<tr>";
         linha += "<td>Observações</td>";
-        linha += "<td class='text-truncate'>"  + fields.ds_observacao + "</td>";
+        linha += "<td class='text-truncate'>" + fields.ds_observacao + "</td>";
         linha += "</tr>";
         $("#tblDescricao tbody ").append(linha);
     }
@@ -440,7 +440,7 @@ $(document).ready(function () {
 
         var linha = "<tr>";
         linha += "<td>" + fields.categoria + "</td>";
-        linha += '<td class="text-right"><button type="button" class="btn btn-success btn-sm btn-remove-cat" data-tipo="'+ tipo +'" data-id="'+ id +'"><i class="fas fa-trash"></i></button></td>';
+        linha += '<td class="text-right"><button type="button" class="btn btn-success btn-sm btn-remove-cat" data-tipo="' + tipo + '" data-id="' + id + '"><i class="fas fa-trash"></i></button></td>';
         linha += "</tr>";
 
         $("#tblSelecionarCategoria tbody ").append(linha);
@@ -468,8 +468,37 @@ $(document).ready(function () {
     });
 
 //    EVENTOS DE CLICK
-    $(".close-alert").click(function(){
+    $(".close-alert").click(function () {
         $(this).closest('.alert').fadeOut();
+    });
+
+// Configuração do Bootsnipp
+
+        $('#example').tagsInput({
+
+            'autocomplete': {
+                source: [
+                    'jQuery',
+                    'Script',
+                    'Net',
+                    'Demo'
+                ]
+            }
+
+        });
+
+
+    $('#example#tags').addTag('newTag');
+    $('#example#tags').removeTag('newTag');
+    $('#example#tags').importTags('newTag1, newTag2, newTag3');
+    $('#example').tagsInput({
+        onAddTag: () => {
+        },
+        onRemoveTag: () => {
+        },
+        onChange: () => {
+        }
+
     });
 });
 

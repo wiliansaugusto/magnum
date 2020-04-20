@@ -38,13 +38,11 @@
         </div>
     </div>
 </div>
-
-
 <div class="modal fade" id="frmPalestranteModal" tabindex="-1" role="dialog" aria-labelledby="frmPalestranteModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
         <div class="modal-content">
-            <form method="POST" action="/palestrante" enctype="multipart/form-data">
+            <form method="POST" action="palestrante/" id="palestrante" enctype="multipart/form-data">
                 @csrf
                 <input id="id_palestrante" type="hidden" name="id_palestrante" value=""/>
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
@@ -107,17 +105,22 @@
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <label for="ds_foto">Foto</label>
-                                            <input id="ds_foto" type="file" class="form-control form-control-sm"
-                                                   name="ds_foto" value="" required autofocus/>
+                                            <input id="ds_foto" type="file" class="form-control form-control-sm "
+                                                   name="ds_foto" value="" required autofocus>
                                         </div>
+                                        <div class="col-md-2">
+                                            <img src="" id="imgFoto" class="img-thumbnail img-fluid form-control"
+                                                 style="display: none; heigth:70px; width:70px">
+                                        </div>
+
                                         <div class="col-md-4">
                                             <label for="ds_nacionalidade">Nacionalidade</label>
-                                            <select id="ds_nacionalidade" name="ds_nacionalidade"
+                                            <select id="ds_nacionalidade" name="id_tp_nacionalidade"
                                                     class="form-control form-control-sm" required autofocus>
                                                 <option class="form-control form-control-sm" selected disabled>
-                                                    Nacionalidade
+                                                    Selecionar Nacionalidade
                                                 </option>
                                                 <option class="form-control form-control-sm" value="Brasileiro">
                                                     Brasileiro
@@ -131,46 +134,45 @@
                                             <label for="ds_sexo">Sexo</label>
                                             <select id="ds_sexo" name="ds_sexo" class="form-control form-control-sm"
                                                     required autofocus>
-                                                <option class="form-control form-control-sm" selected disabled>Sexo
-                                                </option>
-                                                <option class="form-control form-control-sm" value="Masculino">Masculino
+                                                <option class="form-control form-control-sm" selected disabled>
+                                                    Selecionar Sexo
                                                 </option>
                                                 <option class="form-control form-control-sm" value="Feminino">Feminino
+                                                </option>
+                                                <option class="form-control form-control-sm" value="Masculino">Masculino
                                                 </option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
-                                            <label for="ds_disponivel">Disponivel para
-                                                Palestras</label><br>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_ativo"
-                                                       id="ds_disponivel2" value="0">
-                                                <label class="form-check-label" for="ds_disponivel2">Não</label>
+                                                       id="ds_ativo1" value="s">
+                                                <label class="form-check-label" for="ds_ativo1">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_ativo"
-                                                       id="ds_ativo1" value="1">
-                                                <label class="form-check-label" for="ds_ativo1">Sim</label>
+                                                       id="ds_disponivel2" value="n">
+                                                <label class="form-check-label" for="ds_disponivel2">Não</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
-                                            <label for="Nome">Visivel no site</label><br>
+                                            <label>Visivel no site</label><br>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_visivel_site"
-                                                       id="ds_visivel_site1" value="1">
-                                                <label class="form-check-label" for="ds_visivel_site1">Sim</label>
+                                                       id="ds_visivel_site" value="s">
+                                                <label class="form-check-label" for="ds_visivel_site">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_visivel_site"
-                                                       id="ds_visivel_site2" value="0">
+                                                       id="ds_visivel_site2" value="n">
                                                 <label class="form-check-label" for="ds_visivel_site2">Não</label>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="Nome">Ranking do Palestrante</label><br>
+                                            <label>Ranking do Palestrante</label><br>
                                             <div class="rate">
                                                 <input type="radio" id="star5" name="rate" value="5"/>
                                                 <label for="star5" title="text">5
@@ -191,35 +193,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-2">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#frmIdiomasModal">
-                                                Adicionar Idiomas
-                                            </button>
-                                        </div>
-
-                                        <div class="col-md-10">
-                                            <div id="expandirIdioma" style="visibility: hidden">
-                                                <a data-toggle="collapse" href="#tblIdiomasxp" role="button"
-                                                   aria-expanded="false">
-                                                    Idiomas
-                                                    <i class="fas fa-chevron-down"></i></a>
-
-                                            </div>
-                                            <div class="collapse" id="tblIdiomasxp">
-                                                <div class="card-body ">
-                                                    <table id="tblIdiomas" class=" table table-sm table-striped">
-                                                        <thead>
-                                                        <tr>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                        <div class="col-md-12">
+                                            <label for="example">Idiomas</label>
+                                            <input id="example" name="example" type="text" value="jQuery,Script,Net">
                                         </div>
                                     </div>
+
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
@@ -239,13 +218,11 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
                                      aria-labelledby="nav-profile-tab">
 
@@ -311,7 +288,6 @@
                                                       name="obsevacao" required autofocus></textarea>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="tab-pane fade" id="nav-banco" role="tabpanel"
@@ -462,7 +438,8 @@
                                     </div>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-md-6 m-3">
-                                            <div id="msg-erro-selcat" class="alert alert-danger" role="alert" style="display: none">
+                                            <div id="msg-erro-selcat" class="alert alert-danger" role="alert"
+                                                 style="display: none">
                                             </div>
                                             <table id="tblSelecionarCategoria" class="table table-sm table-striped">
                                                 <thead>
@@ -503,17 +480,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">
-                            Salvar
-                        </button>
-                        <button type="reset" class="btn btn-warning">
-                            Limpar
-                        </button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">
-                            Cancelar
-                        </button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Salvar
+                    </button>
+                    <button type="reset" class="btn btn-warning">
+                        Limpar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        Cancelar
+                    </button>
                 </div>
             </form>
         </div>
