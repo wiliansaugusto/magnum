@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-
 class Palestrante extends Model
 {
 
@@ -16,7 +15,8 @@ class Palestrante extends Model
         'id_residencia', 'ds_ativo', 'ds_visivel_chat',
         'ds_chamada', 'ds_curriculo', 'ds_curriculo_tecnico',
         'ds_observacao', 'ds_investimento',
-        'ds_forma_pagamento', 'ds_equipamento_necessario', "id_usuario",
+        'ds_forma_pagamento', 'ds_equipamento_necessario', "id_usuario", 'ds_titulo_video', 'ds_url_video',
+        'ds_descricao_video',
     ];
 
     //Relacionamento Muitos para muitos
@@ -29,6 +29,7 @@ class Palestrante extends Model
             'id'
         );
     }
+
     public function contatos()
     {
         return $this->belongsTo(
@@ -37,39 +38,32 @@ class Palestrante extends Model
 
     public function dadosContratuais()
     {
-        return $this->hasMany('App\DadosContratuais','id_palestrante');
-    }
-
-    public function palestranteAcessor()
-    {
-        return $this->belongsToMany(
-            'App\Acessor',
-            'mgm_tbl_palestrante_acessor',
-            'id_palestrante',
-            'id_acessor'
-        );
-    }
-
-    public function palestranteValor()
-    {
-        return $this->belongsToMany('mgm_tbl_palestrante_valor','id_valor','id_palestrante','id' );
+        return $this->hasMany('App\DadosContratuais', 'id_palestrante');
     }
 
     public function usuario()
     {
         return $this->hasMany(User::class);
     }
-    public function palestranteBancos(){
+
+    public function palestranteBancos()
+    {
         return $this->hasMany(Banco::class, 'id_palestrante');
     }
 
     public function palestranteCategoria()
     {
         return $this->belongsTo(
-            PalestranteCategoria::class, 'id_palestrante', 'id');
+            'App\PalestranteCategoria', 'id_palestrante', 'id');
     }
+
     public function palestranteIdioma()
     {
         return $this->hasMany('App\Idiomas');
+    }
+
+    public function valores()
+    {
+        return $this->belongsTo('App\Valor', 'id_palestrante', 'id');
     }
 }

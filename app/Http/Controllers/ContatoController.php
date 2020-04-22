@@ -92,6 +92,7 @@ class ContatoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Contato::destroy($id);
+        return response(null, 204)->header('Content-Type', 'application/json');
     }
 }

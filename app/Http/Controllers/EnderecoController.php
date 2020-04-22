@@ -40,6 +40,7 @@ class EnderecoController extends Controller
         $endereco = Endereco::create($request->all());
 
         $enderecoReturn = array(
+            'id_endereco' => $endereco->id,
             'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep,
             'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco
         );
@@ -90,6 +91,7 @@ class EnderecoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Endereco::destroy($id);
+        return response(null, 204)->header('Content-Type', 'application/json');
     }
 }

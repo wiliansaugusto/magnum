@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use App\DadosContratuais;
+use App\IdiomasPalestrante;
 use App\Palestrante;
 use App\PalestranteCategoria;
 use App\SubCategoria;
@@ -46,12 +47,16 @@ class PalestranteController extends Controller
      */
     public function store(Request $request)
     {
+        $id_palestrante = $request->all()['id_palestrante'];
         $request->ds_foto = $this->salvarFoto($request);
         $palestrante = Palestrante::find($request->id_palestrante);
         $palestrante->id_tp_nacionalidade = $request->id_tp_nacionalidade;
         $palestrante->ds_ativo = $request->ds_ativo;
         $palestrante->ds_visivel_site = $request->ds_visivel_site;
         $palestrante->rank_palestrante = $request->rank_palestrante;
+        $palestrante->ds_titulo_video = $request->ds_titulo_video;
+        $palestrante->ds_url_video = $request->ds_url_video;
+        $palestrante->ds_descricao_video = $request->ds_descricao_video;
         $palestrante->save();
 
         $dadosContratuais = new DadosContratuais();
@@ -65,9 +70,31 @@ class PalestranteController extends Controller
         $dadosContratuais->id_palestrante = $request->id_palestrante;
 
         $dadosContratuais->save();
-        $retorno=[$palestrante,$dadosContratuais];
-        return response(json_encode($retorno), 200)
-            ->header('Content-Type', 'application/json');
+
+        $idiomas = $request->all()['idiomas'];
+        $categorias = $request->all()['categorias'];
+
+        foreach ($idiomas as $idioma){
+            $salvaIdioma = new IdiomasPalestrante();
+            $salvaIdioma->id_idiomas = $idioma;
+            $salvaIdioma->id_palestrante = $id_palestrante;
+            $salvaIdioma->save();
+        }
+
+        foreach ($categorias as $categoria){
+            $salvaCategoria = new PalestranteCategoria();
+            $tipoCat = explode("-", $categoria)[0];
+            $catId = explode("-", $categoria)[1];
+            if($tipoCat == "cat"){
+                $salvaCategoria->id_categoria = $catId;
+            }else{
+                $salvaCategoria->id_subcategoria = $catId;
+            }
+            $salvaCategoria->id_palestrante = $id_palestrante;
+            $salvaCategoria->save();
+        }
+
+        return redirect('dashboard/palestrante');
     }
 
     /**
@@ -143,21 +170,17 @@ class PalestranteController extends Controller
 
     }
 
-    public function salvarFoto(Request $request)
+    private function salvarFoto(Request $request)
     {
 
         if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
 
-            $nome = $request->ds_foto->getClientOriginalName();
             $extensao = $request->ds_foto->getClientOriginalExtension();
-            $nomeFinal = "{$nome}.{$extensao}";
-            $upload = $request->ds_foto->storeAs('imagemPalestrante', $nome);
+            $nomeFinal = md5($request->nm_palestrante) . '.' . $extensao;
+            $upload = $request->ds_foto->storeAs('imagemPalestrante', $nomeFinal);
             $palestranteFoto = Palestrante::find($request->id_palestrante);
             $palestranteFoto->ds_foto = $upload;
             $palestranteFoto->save();
-            return response(json_encode($palestranteFoto), 200)
-                ->header('Content-Type', 'application/json');
-
         }
     }
 }

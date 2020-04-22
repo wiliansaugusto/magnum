@@ -42,7 +42,7 @@
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
         <div class="modal-content">
-            <form method="POST" action="palestrante/" id="palestrante" enctype="multipart/form-data">
+            <form method="POST" action="/dashboard/palestrante/" id="palestrante" enctype="multipart/form-data">
                 @csrf
                 <input id="id_palestrante" type="hidden" name="id_palestrante" value=""/>
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
@@ -71,6 +71,10 @@
                                     <a class="nav-item nav-link" id="nav-banco-tab" data-toggle="tab" href="#nav-banco"
                                        role="tab" aria-controls="nav-banco" aria-selected="false">Dados
                                         Bancários</a>
+
+                                    <a class="nav-item nav-link" id="nav-valores-tab" data-toggle="tab"
+                                       href="#nav-valores" role="tab" aria-controls="nav-valores"
+                                       aria-selected="false">Valores</a>
 
                                     <a class="nav-item nav-link" id="nav-endereco-tab" data-toggle="tab"
                                        href="#nav-endereco" role="tab" aria-controls="nav-endereco"
@@ -105,16 +109,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-md-2">
+                                        <div class="col-md-4">
                                             <label for="ds_foto">Foto</label>
                                             <input id="ds_foto" type="file" class="form-control form-control-sm "
                                                    name="ds_foto" value="" required autofocus>
                                         </div>
-                                        <div class="col-md-2">
-                                            <img src="" id="imgFoto" class="img-thumbnail img-fluid form-control"
-                                                 style="display: none; heigth:70px; width:70px">
-                                        </div>
-
                                         <div class="col-md-4">
                                             <label for="ds_nacionalidade">Nacionalidade</label>
                                             <select id="ds_nacionalidade" name="id_tp_nacionalidade"
@@ -146,6 +145,7 @@
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-4">
+                                            <label>Disponivel para Palestras</label><br>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="ds_ativo"
                                                        id="ds_ativo1" value="s">
@@ -174,19 +174,19 @@
                                         <div class="col-md-4">
                                             <label>Ranking do Palestrante</label><br>
                                             <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5"/>
+                                                <input type="radio" id="star5" name="rank_palestrante" value="5"/>
                                                 <label for="star5" title="text">5
                                                     stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4"/>
+                                                <input type="radio" id="star4" name="rank_palestrante" value="4"/>
                                                 <label for="star4" title="text">4
                                                     stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3"/>
+                                                <input type="radio" id="star3" name="rank_palestrante" value="3"/>
                                                 <label for="star3" title="text">3
                                                     stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2"/>
+                                                <input type="radio" id="star2" name="rank_palestrante" value="2"/>
                                                 <label for="star2" title="text">2
                                                     stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1"/>
+                                                <input type="radio" id="star1" name="rank_palestrante" value="1"/>
                                                 <label for="star1" title="text">1
                                                     star</label>
                                             </div>
@@ -194,11 +194,22 @@
                                     </div>
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
-                                            <label for="example">Idiomas</label>
-                                            <input id="example" name="example" type="text" value="jQuery,Script,Net">
+                                            @php
+                                                $idiomas = App\Idiomas::all();
+                                            @endphp
+                                            <label for="idiomas">Idiomas</label>
+                                            <select id="idiomas" name="idiomas[]" class="form-control
+                                                    form-control-sm select-find" multiple="multiple"
+                                                    style="width: 100%">
+                                                <option></option>
+                                                @foreach ($idiomas as $item)
+                                                    <option value="{{$item->id}}">
+                                                        {{$item->ds_idioma}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
-
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-2">
                                             <div class="form-check form-check-inline">
@@ -209,15 +220,18 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table id="tblContato" class="table table-sm table-striped"
-                                                   style="visibility: hidden">
+                                            <table id="tblContato" class="table table-sm table-striped">
                                                 <thead>
                                                 <tr>
                                                     <th scope="col">Tipo de Contato</th>
                                                     <th scope="col">Contato</th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <tr id="contato-null">
+                                                    <td colspan="3" class="text-center"> Nenhum contato registrado</td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -225,7 +239,6 @@
                                 </div>
                                 <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
                                      aria-labelledby="nav-profile-tab">
-
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-12">
                                             <label for="nm_razao_social">Razão Social</label>
@@ -238,7 +251,7 @@
                                         <div class="col-md-4">
                                             <label for="cnpj">CNPJ</label>
                                             <input id="cnpj" type="text" class="form-control form-control-sm"
-                                                   data-inputmask="'mask' : '00.000.000/0000-00'" name="cnpj" value=""
+                                                   data-mask="00.000.000/0000-00" name="cnpj" value=""
                                                    required autofocus/>
                                         </div>
                                         <div class="col-md-4">
@@ -249,7 +262,7 @@
                                         <div class="col-md-4">
                                             <label for="ins_municipal">Inscrição Municipal</label>
                                             <input id="ins_municipal" type="text" class="form-control form-control-sm"
-                                                   data-mask="'mask' : '00.000.000/0000-00'" name="ins_municipal"
+                                                   name="ins_municipal"
                                                    value=""
                                                    required autofocus/>
                                         </div>
@@ -267,12 +280,13 @@
                                         <div class="col-md-4">
                                             <label for="nr_cpf">CPF</label>
                                             <input id="nr_cpf" type="text" class="form-control form-control-sm"
-                                                   name="nr_cpf" value="" required autofocus/>
+                                                   data-mask="000.000.000-00" name="nr_cpf" value="" required
+                                                   autofocus/>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="nr_rg">RG</label>
                                             <input id="nr_rg" type="text" class="form-control form-control-sm"
-                                                   name="nr_rg" value="" required autofocus/>
+                                                   name="nr_rg" value="" data-mask="00.000.000-0" required autofocus/>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="dt_nascimento">Data de Nascimento</label>
@@ -289,7 +303,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="nav-banco" role="tabpanel"
                                      aria-labelledby="nav-banco-tab">
 
@@ -303,24 +316,56 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table id="tblBanco" class="table table-sm table-striped"
-                                                   style="visibility: hidden">
+                                            <table id="tblBanco" class="table table-sm table-striped">
                                                 <thead>
                                                 <tr>
                                                     <th scope="col">Banco</th>
                                                     <th scope="col">Agencia</th>
                                                     <th scope="col">Conta</th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                <tr id="banco-null">
+                                                    <td colspan="4" class="text-center"> Nenhum banco registrado</td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
 
                                 </div>
+                                <div class="tab-pane fade" id="nav-valores" role="tabpanel"
+                                     aria-labelledby="nav-valores-tab">
 
+                                    <div class="form-group row d-flex justify-content-center">
+                                        <div class="col-md-2">
+                                            <div class="form-check form-check-inline">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#frmValorModal">
+                                                    Adicionar Valor
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <table id="tblValor" class="table table-sm table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">Cidade</th>
+                                                    <th scope="col">Valor</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr id="valor-null">
+                                                    <td colspan="3" class="text-center"> Nenhum valor registrado</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 <div class="tab-pane fade" id="nav-endereco" role="tabpanel"
                                      aria-labelledby="nav-endereco-tab">
 
@@ -334,21 +379,23 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table id="tblEnderecoPalestrante" class="table table-sm table-striped"
-                                                   style="visibility: hidden">
+                                            <table id="tblEnderecoPalestrante" class="table table-sm table-striped">
                                                 <thead>
                                                 <tr>
                                                     <th scope="col">Tipo de Endereço</th>
                                                     <th scope="col">Endereço</th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <tr id="endereco-null">
+                                                    <td colspan="3" class="text-center"> Nenhum endereço registrado</td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="nav-assessor" role="tabpanel"
                                      aria-labelledby="nav-assessor-tab">
                                     <div class="form-group row d-flex justify-content-center">
@@ -361,21 +408,22 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10">
-                                            <table class="table table-sm table-striped" id="tblAssessor"
-                                                   style="visibility: hidden">
+                                            <table class="table table-sm table-striped" id="tblAssessor">
                                                 <thead>
                                                 <tr>
                                                     <th scope="col">Nome do Assessor</th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                <tr id="assesssor-null">
+                                                    <td colspan="2" class="text-center"> Nenhum assessor registrado</td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="nav-descricao" role="tabpanel"
                                      aria-labelledby="nav-contact-tab">
                                     <div class="form-group row d-flex justify-content-center text-center">
@@ -411,68 +459,68 @@
                                             </button>
                                         </div>
                                         <div class="col-md-12">
-                                            <table class="table table-sm table-striped" id="tblDescricao"
-                                                   style="visibility: hidden">
+                                            <table class="table table-sm table-striped" id="tblDescricao">
                                                 <thead>
                                                 <tr>
                                                     <th scope="col">Descrição</th>
                                                     <th scope="col">Conteúdo</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="nav-categoria" role="tabpanel"
-                                     aria-labelledby="nav-contact-tab">
-                                    <div class="row d-flex justify-content-center text-center">
-                                        <div class="col-md-12">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#frmSelecionarCategoriaModal">
-                                                Selecionar Categorias
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-md-6 m-3">
-                                            <div id="msg-erro-selcat" class="alert alert-danger" role="alert"
-                                                 style="display: none">
-                                            </div>
-                                            <table id="tblSelecionarCategoria" class="table table-sm table-striped">
-                                                <thead>
-                                                <tr>
-                                                    <th scope="col">Categoria</th>
                                                     <th scope="col"></th>
                                                 </tr>
                                                 </thead>
-                                                <tbody style="visibility: hidden">
+                                                <tbody>
+                                                <tr id="descricao-null">
+                                                    <td colspan="3" class="text-center"> Nenhuma descrição registrada</td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="tab-pane fade" id="nav-categoria" role="tabpanel"
+                                     aria-labelledby="nav-contact-tab">
+                                    <div class="form-group row d-flex justify-content-center">
+                                        <div class="col-md-12">
+                                            <label for="categorias">Selecionar Categorias</label>
+                                            @php
+                                                $categorias = App\Categoria::all();
+                                            @endphp
+                                            <select id="categorias" name="categorias[]"
+                                                    class="form-control form-control-sm select-find"
+                                                    style="width: 100%" multiple="multiple">
+                                                <option></option>
+                                                @foreach ($categorias as $categoria)
+                                                    <option value="cat-{{$categoria->id}}">
+                                                        {{$categoria->nm_categoria}}
+                                                    </option>
+                                                    @foreach ($categoria->subCategorias as $subCategoria)
+                                                        <option value="sub-{{$subCategoria->id}}">
+                                                            {{$subCategoria->nm_sub_cat}}
+                                                        </option>
+                                                    @endforeach
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="tab-pane fade" id="nav-video" role="tabpanel"
                                      aria-labelledby="nav-contact-tab">
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-md-6">
-                                            <label for="titulo">Titulo</label>
-                                            <input id="titulo" type="text" class="form-control form-control-sm"
-                                                   name="titulo" value="" required autofocus>
+                                            <label for="ds_titulo_video">Titulo</label>
+                                            <input id="ds_titulo_video" type="text" class="form-control form-control-sm"
+                                                   name="ds_titulo_video" value="" required autofocus>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="url">URL</label>
-                                            <input id="url" type="text" class="form-control form-control-sm" name="url"
+                                            <label for="ds_url_video">URL</label>
+                                            <input id="ds_url_video" type="text" class="form-control form-control-sm"
+                                                   name="ds_url_video"
                                                    value="" required autofocus>
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="descricao">Descrição</label>
-                                            <textarea id="descricao" type="text"
-                                                      class="form-control form-control-sm{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                                      name="descricao" required autofocus
+                                            <label for="ds_descricao_video">Descrição</label>
+                                            <textarea id="ds_descricao_video" type="text"
+                                                      class="form-control form-control-sm"
+                                                      name="ds_descricao_video" required autofocus
                                                       title="Descrição do Video"></textarea>
                                         </div>
                                     </div>

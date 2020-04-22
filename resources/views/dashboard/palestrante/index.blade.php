@@ -19,17 +19,21 @@
 
     </div>
     <div class="card-body">
-
         @include('dashboard.palestrante.edit')
     </div>
 </div>
 
 @include('dashboard.palestrante.create')
 @include('dashboard.banco.create')
+@include('dashboard.banco.remover')
+@include('dashboard.valor.create')
+@include('dashboard.valor.remover')
 @include('dashboard.endereco.create')
+@include('dashboard.endereco.remover')
 @include('dashboard.assessor.create')
 @include('dashboard.categoria.select')
 @include('dashboard.contato.create')
+@include('dashboard.contato.remover')
 @include('dashboard.idiomas.create')
 
 @include('dashboard.descricao.chamada.create')
@@ -39,4 +43,5 @@
 @include('dashboard.descricao.investimento.create')
 @include('dashboard.descricao.equipNecessario.create')
 @include('dashboard.descricao.observacao.create')
+@include('dashboard.descricao.remover')
 @endsection

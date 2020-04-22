@@ -17,11 +17,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
 
 
     <!-- Configurações do FontAwesome -->
-    <link href="{{asset('fontawesome/css/all.css')}}" rel="stylesheet"> <!--load all styles -->
-    <script defer src="{{ asset('fontawesome/js/all.js')}}"></script> <!--load all styles -->
+    <link href="{{asset('fontawesome/css/all.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -89,13 +89,12 @@
         </main>
     </div>
 </div>
-    <!-- Scripts -->
-    <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/core.js') }}"></script>
+<!-- Scripts -->
+<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+<script src="{{ asset('js/select2.min.js') }}"></script>
+<script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('fontawesome/js/all.js')}}"></script>
+<script src="{{ asset('js/core.js') }}"></script>
 </body>
 </html>

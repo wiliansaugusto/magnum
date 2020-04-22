@@ -14,7 +14,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="ds_equip_necessario"> Equipamentos Necessário</label>
-                                <textarea class="form-control" id="ds_equip_necessario" name="ds_equip_necessario"
+                                <textarea class="form-control" id="ds_equip_necessario" name="descricao"
                                           rows="4"
                                           required></textarea>
                             </div>

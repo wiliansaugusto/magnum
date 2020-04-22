@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(NomesBancosTableSeeder::class);
 //        $this->call(TipoContatoTableSeeder::class);
 //        $this->call(TipoEnderecoTableSeeder::class);
-        $this->call(IdiomasTableSeeder::class);
+//        $this->call(IdiomasTableSeeder::class);
+        $this->call(CidadeTableSeeder::class);
 
     }
 }

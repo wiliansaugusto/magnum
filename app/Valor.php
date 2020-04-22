@@ -9,16 +9,18 @@ class Valor extends Model
     protected $table = 'mgm_tbl_valor';
 
     protected $fillable = [
-        'valor_decimal', 'id_cidade', 'ds_observacao',
+        'nr_valor', 'id_cidade', 'ds_observacao', 'id_palestrante',
     ];
 
-    public function valorPalestrante()
+    public function palestrante()
     {
-        return $this->hasManyThrough(
-            Palestrante::class,
-            'mgm_tbl_paestrante_valor',
-            'id_palestrante',
-            'id_valor'
-        );
+        return $this->hasMany(
+            'App\Palestrante', 'id_palestrante');
+    }
+
+    public function cidade()
+    {
+        return $this->hasMany(
+            'App\Cidade', 'id_cidade');
     }
 }

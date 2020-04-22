@@ -41,6 +41,7 @@ class BancoController extends Controller
         $banco = Banco::create($request->all());
 
         $bancoReturn = array(
+            'id_banco' => $banco->id,
             'nr_conta' => $banco->nr_conta,
             'nr_agencia' => $banco->nr_agencia,
             'nm_banco' => NomeBanco::find($banco->id_nm_banco)->nm_banco
@@ -92,5 +93,8 @@ class BancoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Banco::destroy($id);
+
+        return response(null, 204)
+            ->header('Content-Type', 'application/json');
     }}

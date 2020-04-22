@@ -15,6 +15,6 @@ class PalestranteCategoria extends Model
     public function palestrantres()
     {
         return $this->hasMany(
-            Palestrante::class, 'id_palestrante');
+            'App\Palestrante', 'id_palestrante');
     }
 }

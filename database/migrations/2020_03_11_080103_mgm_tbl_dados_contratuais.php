@@ -24,7 +24,6 @@ class MgmTblDadosContratuais extends Migration
             $table->longText('ds_observacao');
             $table->unsignedBigInteger('id_palestrante');
             $table->foreign('id_palestrante')->references('id')->on('mgm_tbl_palestrante');
-
             $table->timestamps();
         });
     }

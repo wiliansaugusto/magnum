@@ -46,12 +46,11 @@
                                                     data-toggle="modal"
                                                     data-target="#modalAlt{{$categoria->id}}"><i
                                                         class="fas fa-edit"></i>
-                                                Editar
                                             </button>
                                             <button class="btn btn-danger btn-sm ml-1" type="button"
                                                     data-toggle="modal"
                                                     data-target="#modalDel{{$categoria->id}}">
-                                                <i class="fas fa-times"></i> Excluir
+                                                <i class="fas fa-times"></i>
                                             </button>
                                         </div>
                                     </div>

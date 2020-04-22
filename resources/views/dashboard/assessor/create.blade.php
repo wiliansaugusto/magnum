@@ -28,14 +28,18 @@
                             </button>
                         </div>
                         <div class="col-md-9">
-                            <table id="tblContatoAssessor" class="table table-sm table-striped" style="visibility: hidden">
+                            <table id="tblContatoAssessor" class="table table-sm table-striped">
                                 <thead>
                                 <tr>
                                     <th scope="col">Tipo de Contato</th>
                                     <th scope="col">Contato</th>
+                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <tr id="contato-assessor-null">
+                                    <td colspan="3" class="text-center">Nenhum contato registrado</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -68,16 +72,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row d-flex justify-content-center">
-                        <div id="nr_contatoPalestrante" class="col-md-8">
-                            <label for="contatoPalestrante">Contato</label>
-                            <input id="contatoPalestrante" type="text"
+                        <div id="nr_contatoAssessor" class="col-md-8">
+                            <label for="contatoAssessor">Contato</label>
+                            <input id="contatoAssessor" type="text"
                                    class="form-control form-control-sm"
                                    name="ds_contato" value="" required
                                    autofocus/>
                         </div>
                         <div class="col-md-4">
-                            <label for="tipo_contato_palestrante">Tipo Contato</label>
-                            <select id="tipo_contato_palestrante" name="id_tp_contato"
+                            <label for="tipo_contato_assessor">Tipo Contato</label>
+                            <select id="tipo_contato_assessor" name="id_tp_contato"
                                     class="form-control form-control-sm">
                                 <option selected disabled>Selecione Tipo de Contato</option>
                                 @php

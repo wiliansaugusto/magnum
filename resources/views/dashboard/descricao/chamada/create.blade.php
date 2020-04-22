@@ -14,9 +14,12 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="ds_chamada">Cadastro de Chamada para o site</label>
-                                <textarea class="form-control" name="ds_chamada" id="ds_chamada" maxlength="255"
-                                    rows="2"></textarea>
+                                <textarea class="form-control" name="descricao" id="ds_chamada" maxlength="300"
+                                    rows="8"></textarea>
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <p id="cont-char" class="text-right">Caracteres Restantes: <span>300</span></p>
                         </div>
                     </div>
                 </div>

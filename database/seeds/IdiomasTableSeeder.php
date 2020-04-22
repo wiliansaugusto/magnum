@@ -12,6 +12,30 @@ class IdiomasTableSeeder extends Seeder
     public function run()
     {
         \App\Idiomas::create([
+            'ds_idioma' => "Português",
+        ]);
+        \App\Idiomas::create([
+            'ds_idioma' => "Inglês",
+        ]);
+        \App\Idiomas::create([
+            'ds_idioma' => "Espanhol",
+        ]);
+        \App\Idiomas::create([
+            'ds_idioma' => "Francês",
+        ]);
+        \App\Idiomas::create([
+            'ds_idioma' => "Mandarim",
+        ]);
+        \App\Idiomas::create([
+            'ds_idioma' => "Alemão",
+        ]);
+        \App\Idiomas::create([
+            'ds_idioma' => "Árabe",
+        ]);
+        \App\Idiomas::create([
+            'ds_idioma' => "Japonês",
+        ]);
+        \App\Idiomas::create([
             'ds_idioma' => "Afar",
         ]);
         \App\Idiomas::create([
