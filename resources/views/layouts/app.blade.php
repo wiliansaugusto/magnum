@@ -20,11 +20,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!--Configuração do Tagss Input-->
-    <script src="{{assets('src/bootstrap-tagsinput.css')}}"></script>
-    <link rel="stylesheet" href="{{assets('src/bootstrap-tagsinput.css')}}">
-
 </head>
 
 <body>

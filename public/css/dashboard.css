@@ -174,3 +174,43 @@ input[type=number] {
 table#tblDescricao {
   table-layout: fixed;
 }
+
+.palestrante-img{
+    width: 10%;
+    border-radius: 50%;
+}
+
+.inputFoto{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputFoto + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.inputFoto:focus + label,
+.inputFoto + label:hover {
+  background-color: red;
+}
+
+.inputFoto + label {
+  cursor: pointer; /* "hand" cursor */
+}
+
+.inputFoto:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputFoto + label * {
+  pointer-events: none;
+}

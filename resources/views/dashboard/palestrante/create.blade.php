@@ -200,7 +200,7 @@
                                             <label for="idiomas">Idiomas</label>
                                             <select id="idiomas" name="idiomas[]" class="form-control
                                                     form-control-sm select-find" multiple="multiple"
-                                                    style="width: 100%">
+                                                    style="width: 100%" required>
                                                 <option></option>
                                                 @foreach ($idiomas as $item)
                                                     <option value="{{$item->id}}">
@@ -299,7 +299,7 @@
                                         <div class="col-md-12">
                                             <label for="obsevacao">Obsevações</label>
                                             <textarea id="obsevacao" type="text" class="form-control form-control-sm"
-                                                      name="obsevacao" required autofocus></textarea>
+                                                      name="obsevacao" autofocus></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -486,7 +486,7 @@
                                             @endphp
                                             <select id="categorias" name="categorias[]"
                                                     class="form-control form-control-sm select-find"
-                                                    style="width: 100%" multiple="multiple">
+                                                    style="width: 100%" multiple="multiple" required>
                                                 <option></option>
                                                 @foreach ($categorias as $categoria)
                                                     <option value="cat-{{$categoria->id}}">
@@ -520,7 +520,7 @@
                                             <label for="ds_descricao_video">Descrição</label>
                                             <textarea id="ds_descricao_video" type="text"
                                                       class="form-control form-control-sm"
-                                                      name="ds_descricao_video" required autofocus
+                                                      name="ds_descricao_video" autofocus
                                                       title="Descrição do Video"></textarea>
                                         </div>
                                     </div>

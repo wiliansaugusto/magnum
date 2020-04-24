@@ -8,6 +8,7 @@ use App\IdiomasPalestrante;
 use App\Palestrante;
 use App\PalestranteCategoria;
 use App\SubCategoria;
+use App\Valor;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -36,13 +37,13 @@ class PalestranteController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.palestrante.new');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -74,20 +75,20 @@ class PalestranteController extends Controller
         $idiomas = $request->all()['idiomas'];
         $categorias = $request->all()['categorias'];
 
-        foreach ($idiomas as $idioma){
+        foreach ($idiomas as $idioma) {
             $salvaIdioma = new IdiomasPalestrante();
             $salvaIdioma->id_idiomas = $idioma;
             $salvaIdioma->id_palestrante = $id_palestrante;
             $salvaIdioma->save();
         }
 
-        foreach ($categorias as $categoria){
+        foreach ($categorias as $categoria) {
             $salvaCategoria = new PalestranteCategoria();
             $tipoCat = explode("-", $categoria)[0];
             $catId = explode("-", $categoria)[1];
-            if($tipoCat == "cat"){
+            if ($tipoCat == "cat") {
                 $salvaCategoria->id_categoria = $catId;
-            }else{
+            } else {
                 $salvaCategoria->id_subcategoria = $catId;
             }
             $salvaCategoria->id_palestrante = $id_palestrante;
@@ -100,30 +101,30 @@ class PalestranteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return view('dashboard.palestrante.edit');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        return view('dashboard.palestrante.edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -133,12 +134,16 @@ class PalestranteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $palestrante = Palestrante::find($request->id);
+       $palestrante->delete();
+
+        return redirect("/dashboard/palestrante");
+
     }
 
     public function adicionarCategoria(Request $request)
@@ -146,9 +151,9 @@ class PalestranteController extends Controller
 
         $palestranteCategoria = PalestranteCategoria::create($request->all());
 
-        if($palestranteCategoria->id_categoria > 0){
+        if ($palestranteCategoria->id_categoria > 0) {
             $categoria = Categoria::find($palestranteCategoria->id_categoria)->nm_categoria;
-        }else if ($palestranteCategoria->id_subcategoria > 0){
+        } else if ($palestranteCategoria->id_subcategoria > 0) {
             $categoria = SubCategoria::find($palestranteCategoria->id_subcategoria)->nm_sub_cat;
         }
         $categoriaReturn = array(

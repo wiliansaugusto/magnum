@@ -480,7 +480,7 @@ $(document).ready(function () {
     function tabelaEnderecoPalestrante(fields) {
         $("#endereco-null").remove();
 
-        var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
+        var linha = "<tr id='" + fields.id_endereco + "'>";
         linha += "<td>" + fields.tipo_endereco + "</td>";
         linha += "<td>" + fields.endereco + "</td>";
         linha += "<td class='text-right'>";

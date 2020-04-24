@@ -19,7 +19,45 @@
 
     </div>
     <div class="card-body">
-        @include('dashboard.palestrante.edit')
+        @php
+            $palestrantes = App\Palestrante::where('id','>',0)->paginate(10);
+        @endphp
+        <div class="row justifi-content">
+            <div class="col-md-12 ">
+                <table class="table table-striped table-sm table-hover">
+                    <thead class="thead-light">
+                    <tr>
+                        <th style="width: 60%">Palestrante</th>
+                        <th>Data da Alteração</th>
+                        <th>Usuário Alteração</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($palestrantes as $palestrante)
+                        @php
+                            $usuario = App\User::find($palestrante->id_usuario);
+                        @endphp
+                        <tr>
+                            <td >{{$palestrante->nm_palestrante}}</td>
+                            <td>{{date_format($palestrante->updated_at,"d/m/Y H:i:s")}}</td>
+                            <td>{{$usuario->name}}</td>
+                            <td class=" text-right">
+                                <button type="button" class="btn btn-primary btn-sm ml-1"><i class='fas fa-edit'></i></button>
+
+                                <button type="button" class="btn btn-danger btn-sm ml-1" data-toggle="modal"
+                                        data-target="#modalPalestranteDel{{$palestrante->id}}"><i class='fas fa-trash'></i></button>
+                                @include('dashboard.palestrante.delete',['palestrante'=>$palestrante])
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end">
+                    {{$palestrantes->links()}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -44,4 +82,6 @@
 @include('dashboard.descricao.equipNecessario.create')
 @include('dashboard.descricao.observacao.create')
 @include('dashboard.descricao.remover')
+
+
 @endsection

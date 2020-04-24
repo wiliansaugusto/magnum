@@ -12,7 +12,7 @@ class Idiomas extends Model
         'ds_idioma',
     ];
 
-    public function idiomaPalestrante()
+    public function palestrante()
     {
         return $this->belongsTo('App\Palestrante');
     }

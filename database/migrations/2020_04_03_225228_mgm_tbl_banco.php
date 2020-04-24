@@ -21,7 +21,6 @@ class MgmTblBanco extends Migration
             $table->foreign('id_nm_banco')->references('id')->on('mgm_tbl_nome_banco')->onDelete('cascade');
             $table->unsignedBigInteger('id_palestrante');
             $table->foreign('id_palestrante')->references('id')->on('mgm_tbl_palestrante')->onDelete('cascade');
-
             $table->timestamps();
         });
     }

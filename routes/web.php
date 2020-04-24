@@ -25,9 +25,11 @@ Auth::routes();
 
 Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
-    Route::resource('palestrante/', 'PalestranteController');
-    Route::resource('contato/', 'ContatoController');
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
+    Route::resource('palestrante/', 'PalestranteController');
+    Route::delete('palestrante/{id}', 'PalestranteController@destroy');
+    Route::get('palestrante/{id}', 'PalestranteController@edit');
+    Route::resource('contato/', 'ContatoController');
     Route::resource('categoria/', 'CategoriaController');
     Route::post('categoria/', 'CategoriaController@store');
     Route::delete('categoria/{id}', 'CategoriaController@destroy');

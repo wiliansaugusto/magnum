@@ -14,8 +14,7 @@ class Valor extends Model
 
     public function palestrante()
     {
-        return $this->hasMany(
-            'App\Palestrante', 'id_palestrante');
+        return $this->belongsTo('App\Palestrante', 'id_palestrante', 'id');
     }
 
     public function cidade()

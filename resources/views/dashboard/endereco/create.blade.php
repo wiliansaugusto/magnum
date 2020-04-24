@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
-                            <label for="tp_endereco">Bairro</label>
+                            <label for="tp_endereco">Tipo de Endereço</label>
                             <select id="tp_endereco" name="id_tp_endereco" class="form-control form-control-sm" required>
                                 <option selected disabled>Selecione Tipo de Endereço</option>
                                 @php

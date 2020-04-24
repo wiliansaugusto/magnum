@@ -19,17 +19,6 @@ class Palestrante extends Model
         'ds_descricao_video',
     ];
 
-    //Relacionamento Muitos para muitos
-    public function categoriaPalestrante()
-    {
-        return $this->belongsTo(
-            SubCategoria::class,
-            'id_palestrante',
-            'id_categoria',
-            'id'
-        );
-    }
-
     public function contatos()
     {
         return $this->belongsTo(
@@ -57,13 +46,13 @@ class Palestrante extends Model
             'App\PalestranteCategoria', 'id_palestrante', 'id');
     }
 
-    public function palestranteIdioma()
+    public function idiomas()
     {
-        return $this->hasMany('App\Idiomas');
+        return $this->hasMany(Idiomas::class);
     }
 
     public function valores()
     {
-        return $this->belongsTo('App\Valor', 'id_palestrante', 'id');
+        return $this->hasMany(Valor::class);
     }
 }

@@ -13,6 +13,7 @@ class Categoria extends Model
         'nm_categoria',
     ];
 
+    //TODO REFAZER
     public function palestranteCategorias()
     {
         return $this->hasManyThrough(
