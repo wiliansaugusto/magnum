@@ -44,4 +44,5 @@
 @include('dashboard.descricao.equipNecessario.create')
 @include('dashboard.descricao.observacao.create')
 @include('dashboard.descricao.remover')
+@include('dashboard.assessor.remover')
 @endsection

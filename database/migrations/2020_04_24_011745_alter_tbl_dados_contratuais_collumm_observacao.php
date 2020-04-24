@@ -4,18 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DeletePalestrante extends Migration
+class AlterTblValorCollummObservacao extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     */
+     */ 
     public function up()
     {
-        Schema::drop('mgm_tbl_palestrante_banco');
-
-       // Schema::drop('mgm_tbl_palestrante_acessor');
+        Schema::table('mgm_tbl_dados_contratuais', function (Blueprint $table) {
+            $table->string('ds_observacao')->nullable()->change();
+        });
     }
 
     /**

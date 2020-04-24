@@ -14,7 +14,7 @@ class ExluirTabelas extends Migration
     public function up()
     {
 
-        Schema::drop('mgm_tbl_palestrante_acessor');
+        //Schema::drop('mgm_tbl_palestrante_acessor');
         Schema::drop('mgm_tbl_palestrante_valor');
     }
 

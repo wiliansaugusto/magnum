@@ -11,19 +11,19 @@
 
     <title>{{ config('app.name', 'Gerenciamento Magnum') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Scripts 
+    <script src="{{ asset('js/app.js') }}" defer></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css\app.css')}}" rel="stylesheet">
 
     <!--Configuração do Tagss Input-->
-    <script src="{{assets('src/bootstrap-tagsinput.css')}}"></script>
-    <link rel="stylesheet" href="{{assets('src/bootstrap-tagsinput.css')}}">
+    <script src="{{asset('src\bootstrap-tagsinput.css')}}"></script>
+    <link rel="stylesheet" href="{{asset('src\bootstrap-tagsinput.css')}}">
 
 </head>
 

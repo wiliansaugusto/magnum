@@ -42,4 +42,5 @@ Route::prefix('dashboard')->group(function () {
     Route::post('update/', 'PalestranteController@update');
     Route::post('valor/','ValorController@store');
     Route::post('valor/delete/{id}','ValorController@destroy');
+    Route::post('assessor/delete/{id}','AcessorController@destroy');
 });

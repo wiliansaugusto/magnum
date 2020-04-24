@@ -10,6 +10,7 @@ use App\PalestranteCategoria;
 use App\SubCategoria;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Http\Requests\PalestranteRequest;
 
 class PalestranteController extends Controller
 {
@@ -45,8 +46,10 @@ class PalestranteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PalestranteRequest $request)
     {
+        $validated = $request->validated();
+                
         $id_palestrante = $request->all()['id_palestrante'];
         $request->ds_foto = $this->salvarFoto($request);
         $palestrante = Palestrante::find($request->id_palestrante);

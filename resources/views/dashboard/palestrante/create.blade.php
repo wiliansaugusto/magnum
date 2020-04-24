@@ -530,6 +530,17 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                {{-- relativo ao PalestranteFormRequest--}}
+                    @if ($errors->all())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                    
                     <button type="submit" class="btn btn-primary">
                         Salvar
                     </button>

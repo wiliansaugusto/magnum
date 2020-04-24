@@ -93,5 +93,12 @@ class AcessorController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }}
+        $removeAssessor = Acessor::find($id);
+        $removerContatos = Contato::where('id_acessor',$id)->get();
+        foreach ($removerContatos as $removerContato) 
+        {
+        $removerContato->delete();
+        }      
+        $removeAssessor->delete();
+        }
+}
