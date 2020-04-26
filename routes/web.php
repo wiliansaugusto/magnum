@@ -27,8 +27,9 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
     Route::resource('palestrante/', 'PalestranteController');
+    Route::get('palestrante/{id}/novo', 'PalestranteController@create');
     Route::delete('palestrante/{id}', 'PalestranteController@destroy');
-    Route::get('palestrante/{id}', 'PalestranteController@edit');
+    Route::get('palestrante/{id}', 'PalestranteController@show');
     Route::resource('contato/', 'ContatoController');
     Route::resource('categoria/', 'CategoriaController');
     Route::post('categoria/', 'CategoriaController@store');
@@ -44,4 +45,5 @@ Route::prefix('dashboard')->group(function () {
     Route::post('update/', 'PalestranteController@update');
     Route::post('valor/','ValorController@store');
     Route::post('valor/delete/{id}','ValorController@destroy');
+    Route::post('assessor/delete/{id}','AcessorController@destroy');
 });

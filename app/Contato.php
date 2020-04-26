@@ -28,7 +28,7 @@ class Contato extends Model
     }
 
     public function contatosAssesor(){
-        return $this->hasMany(Acessor::class,'id_acessor');
+        return $this->belongsTo('App\Acessor' , 'id_acessor','id');
     }
 
     public function palestranteBanco(){

@@ -11,8 +11,8 @@
 
     <title>{{ config('app.name', 'Gerenciamento Magnum') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Scripts 
+    <script src="{{ asset('js/app.js') }}" defer></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -20,6 +20,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!--Configuração do Tagss Input-->
+    <script src="{{asset('src\bootstrap-tagsinput.css')}}"></script>
+    <link rel="stylesheet" href="{{asset('src\bootstrap-tagsinput.css')}}">
+
 </head>
 
 <body>

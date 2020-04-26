@@ -45,7 +45,7 @@
                                 <div class="card-header" id="headingOne">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
-                                        <h5><i class="far fa-grin-beam"></i> Palestrantes</h5>
+                                        <h5><i class="fa fa-users"></i> Palestrantes</h5>
                                     </button>
                                 </div>
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
@@ -80,13 +80,13 @@
                                 <div class="card-header" id="headingTwo">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link collapsed" data-toggle="collapse"
-                                            data-target="#collapseTwo" aria-expanded="false"
+                                            data-target="#collapseTwo" aria-expanded="true"
                                             aria-controls="collapseTwo">
-                                            <h5><i class="fas fa-stream"></i> Categorias</h5>
+                                            <h5><i class="fa fa-list"></i> Categorias</h5>
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                     data-parent="#accordion">
                                     <div class="card-body">
                                         <p class="card-text text-justify">As categorias e sub-categorias devem
@@ -138,7 +138,7 @@
     </div>
 </div>
 <div class="card-footer text-light text-center bg-info">
-    <i class="far fa-copyright"></i>SDWeb - 2020
+    <i class="fa fa-copyright"></i> SDWeb - 2020
 </div>
 
 

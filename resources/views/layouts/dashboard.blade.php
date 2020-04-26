@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,87 +15,122 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
+    <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('build/css/custom.min.css') }}" rel="stylesheet">
+
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
-
-
-    <!-- Configurações do FontAwesome -->
-    <link href="{{asset('fontawesome/css/all.css')}}" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 </head>
-<body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel sticky-top flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 text-uppercase" href="{{ url('/dashboard') }}">
-        <h3>Magnum</h3>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="{{ url('/dashboard') }}" class="site_title"><i class="fa fa-paw"></i> <span>Magnum</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="profile clearfix">
+                        <div class="profile_info">
+                            <span>Bem vindo,</span>
+                            <h2>{{ Auth::user()->name }}</h2>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <br/>
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li><a href="{{ url('/dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+                                </li>
+                                <li><a href="/dashboard/palestrante"><i class="fa fa-users"></i> Palestrantes </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu_section">
+                            <h3>Recursos</h3>
+                            <ul class="nav side-menu">
+                                <li><a href="/dashboard/categoria"><i class="fa fa-list"></i> Categoria </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
                 </div>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column mt-3">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">
-                            <i class="fas fa-home"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/palestrante">
-                            <i class="far fa-grin-beam"></i> Palestrantes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/categoria">
-                            <i class="fas fa-stream"></i> Categorias
-                        </a>
-                    </li>
-                </ul>
             </div>
-        </nav>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            @yield('content')
-        </main>
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <nav class="nav navbar-nav">
+                        <ul class=" navbar-right">
+                            <li class="nav-item dropdown open" style="padding-left: 15px;">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                                   id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out pull-right"></i>{{ __(' Sair') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="right_col" role="main">
+                @yield('content')
+            </div>
+            <footer>
+                <div class="pull-right">
+                    Gerenciamento Magnum
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+        </div>
     </div>
-</div>
-<!-- Scripts -->
-<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
-<script src="{{ asset('js/select2.min.js') }}"></script>
-<script src="{{ asset('js/jquery.mask.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-<script src="{{ asset('fontawesome/js/all.js')}}"></script>
-<script src="{{ asset('js/core.js') }}"></script>
+
+    {{--<script src="{{ asset('vendors/jquery/dist/jquery.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>--}}
+    <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+    <script src="{{ asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
+    <script src="{{ asset('vendors/fastclick/lib/fastclick.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
+    <script src="{{ asset('build/js/custom.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
+    <script src="{{ asset('build/js/rocket-loader.min.js') }}" data-cf-settings="c024bab70492f018f6371c66-|49" defer=""></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+    <script src="{{ asset('js/core.js') }}"></script>
 </body>
 </html>

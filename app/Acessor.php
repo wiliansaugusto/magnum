@@ -11,13 +11,11 @@ class Acessor extends Model
     protected $fillable = [
         'nm_acessor',
         'id_palestrante',
-        'id_palestrante'
+        'id_acessor'
     ];
+
     public function contatos()
     {
-        return $this->belongsTo(
-            Contato::class, 'id_acessor', 'id');
+        return $this->hasMany('App\Contato','id');
     }
-
-
 }

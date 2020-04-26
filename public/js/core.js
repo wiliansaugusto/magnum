@@ -1,23 +1,6 @@
 $(document).ready(function () {
-
+ 
     //AJAX Request
-    $('#frmNomePalestrante').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmNomePalestrante').serialize();
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/fragmentopalestrante",
-            data: data
-        }).done(function (data) {
-
-            $("#id_palestrante").val(data.id);
-            $("#nm_palestrante").val(data.nm_palestrante);
-
-            $("#frmNomePalestrante")[0].reset();
-            $('#frmPalestranteModal').modal('show');
-            $('#frmNomePalestranteModal').modal('toggle');
-        });
-    });
     $('#frmContatoPalestrante').submit(function (event) {
         event.preventDefault();
         var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
@@ -237,6 +220,7 @@ $(document).ready(function () {
             }
         });
     });
+
     $("#frmRemoverValor").submit(function (event) {
         event.preventDefault();
         var id = $('#id_valor').val();
@@ -329,6 +313,30 @@ $(document).ready(function () {
         });
     });
 
+    $("#frmRemoverAssessor").submit(function (event) {
+        event.preventDefault();
+
+        var id = $('#id_assessor').val();
+        var data = $('#frmRemoverAssessor').serialize();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/assessor/delete/" + id,
+            data: data,
+            success: function () {
+                $('#frmRemoverAssessorModal').modal('toggle');
+                $('#' + id).remove();
+                if ($('#tblAssessor tbody tr').length <= 0) {
+                    $("#tblAssessor tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center"> Nenhum Assessor registrado</td></tr>');
+                    
+                }
+            },
+            error: function () {
+                $('#msg-exAssessor').fadeIn(1000, function () {
+                    $(this).delay(3000).fadeOut(500);
+                });
+            }
+        });
+    });
     //Busca de CEP
     $("#nr_cep").focusout(function () {
         $.ajax({
@@ -559,6 +567,12 @@ $(document).ready(function () {
         modal.find('.modal-body input[name="id"]').val(recipient)
     })
     $('#frmRemoverEnderecoModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('id')
+        var modal = $(this)
+        modal.find('.modal-body input[name="id"]').val(recipient)
+    })
+    $('#frmRemoverAssessorModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('id')
         var modal = $(this)

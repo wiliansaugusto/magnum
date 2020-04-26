@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-md-6 text-right">
                     <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#frmCategoriaModal">
-                        <i class="fas fa-plus"></i> Nova Categoria
+                        <i class="fa fa-plus"></i> Categoria
                     </button>
                 </div>
             </div>
@@ -39,18 +39,18 @@
                                         <div class="col-md-6 text-right d-flex justify-content-end align-items-center">
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                                                     data-target="#modalSub{{$categoria->id}}"><i
-                                                        class="fas fa-plus-circle"></i>
+                                                        class="fa fa-plus-circle"></i>
                                                 Subcategoria
                                             </button>
                                             <button type="button" class="btn btn-success btn-sm ml-1"
                                                     data-toggle="modal"
                                                     data-target="#modalAlt{{$categoria->id}}"><i
-                                                        class="fas fa-edit"></i>
+                                                        class="fa fa-edit"></i>
                                             </button>
                                             <button class="btn btn-danger btn-sm ml-1" type="button"
                                                     data-toggle="modal"
                                                     data-target="#modalDel{{$categoria->id}}">
-                                                <i class="fas fa-times"></i>
+                                                <i class="fa fa-times"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -72,14 +72,14 @@
                                                         <button type="button" class="btn btn-success btn-sm"
                                                                 data-toggle="modal"
                                                                 data-target="#modal{{$subItem->id}}"><i
-                                                                    class="fas fa-edit"></i>
+                                                                    class="fa fa-edit"></i>
                                                             Editar
                                                         </button>
                                                         <button name="sub" value="1" class="btn btn-danger btn-sm"
                                                                 type="button"
                                                                 data-toggle="modal"
                                                                 data-target="#modalSubDel{{$subItem->id}}"><i
-                                                                    class="fas fa-times"></i> Excluir
+                                                                    class="fa fa-times"></i> Excluir
                                                         </button>
                                                     </td>
                                                 </tr>

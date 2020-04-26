@@ -43,8 +43,7 @@ class FragmentosPalestranteController extends Controller
     {
         $data = Palestrante::create($request->all());
 
-        return response(json_encode($data), 200)
-            ->header('Content-Type', 'application/json');
+        return redirect("dashboard/palestrante/{$data->id}/novo");
     }
 
     /**

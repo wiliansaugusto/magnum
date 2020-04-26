@@ -4,15 +4,16 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Editar Palestrante</h3>
+                <h3>Cadastrar Palestrante</h3>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
-                    <form method="POST" action="/dashboard/palestrante/{{$data->id}}" id="palestrante"
+                    <form method="POST" action="/dashboard/palestrante/" id="palestrante"
                           enctype="multipart/form-data">
+                        @csrf
                         <div class="x_content">
                             <div class="col-md-2 col-sm-2  profile_left">
                                 <div class="col-md-12 col-sm-12">
@@ -31,8 +32,7 @@
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 ">
-                                @csrf
-                                <input id="id_palestrante" type="hidden" name="id_palestrante" value=""/>
+                                <input id="id_palestrante" type="hidden" name="id_palestrante" value="{{$data->id}}"/>
                                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                                 <div class="col-md-12">
                                     <nav>
@@ -80,7 +80,7 @@
                                                         Palestrante</label>
                                                     <input id="nm_palestrante" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="nm_palestrante" value="" autofocus readonly>
+                                                           name="nm_palestrante" value="{{$data->nm_palestrante}}" autofocus readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -191,7 +191,7 @@
                                                     <label for="idiomas">Idiomas</label>
                                                     <select id="idiomas" name="idiomas[]" class="form-control
                                                     form-control-sm select-find" multiple="multiple"
-                                                            style="width: 100%">
+                                                            style="width: 100%" required>
                                                         <option></option>
                                                         @foreach ($idiomas as $item)
                                                             <option value="{{$item->id}}">
@@ -209,7 +209,7 @@
                                                     @endphp
                                                     <select id="categorias" name="categorias[]"
                                                             class="form-control form-control-sm select-find"
-                                                            style="width: 100%" multiple="multiple">
+                                                            style="width: 100%" multiple="multiple" required>
                                                         <option></option>
                                                         @foreach ($categorias as $categoria)
                                                             <option value="cat-{{$categoria->id}}">

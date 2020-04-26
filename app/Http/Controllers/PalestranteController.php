@@ -8,9 +8,8 @@ use App\IdiomasPalestrante;
 use App\Palestrante;
 use App\PalestranteCategoria;
 use App\SubCategoria;
-use App\Valor;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use App\Http\Requests\PalestranteRequest;
 
 class PalestranteController extends Controller
 {
@@ -35,9 +34,10 @@ class PalestranteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('dashboard.palestrante.new');
+        $data = Palestrante::find($id);
+        return view('dashboard.palestrante.form')->with('data', $data);
     }
 
     /**
@@ -48,6 +48,8 @@ class PalestranteController extends Controller
      */
     public function store(Request $request)
     {
+//        $validated = $request->validated();
+                
         $id_palestrante = $request->all()['id_palestrante'];
         $request->ds_foto = $this->salvarFoto($request);
         $palestrante = Palestrante::find($request->id_palestrante);
@@ -106,7 +108,8 @@ class PalestranteController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard.palestrante.edit');
+        $data = Palestrante::find($id);
+        return view('dashboard.palestrante.edit')->with('data', $data);
     }
 
     /**
@@ -117,7 +120,7 @@ class PalestranteController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('dashboard.palestrante.edit');
+
     }
 
     /**

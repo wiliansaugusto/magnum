@@ -1,5 +1,5 @@
 <div class="modal fade" id="frmBancoModal" tabindex="-1" role="dialog"
-aria-labelledby="frmBancoModalLabel"    aria-hidden="true">
+     aria-labelledby="frmBancoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,13 +16,15 @@ aria-labelledby="frmBancoModalLabel"    aria-hidden="true">
                         <div class="col-md-4">
                             <label for="id_nm_banco">Banco</label>
                             @php
-                            $bancos = App\NomeBanco::all()->sortBy('nm_banco');
+                                $bancos = App\NomeBanco::all()->sortBy('nm_banco');
                             @endphp
 
-                            <select id="id_nm_banco" name="id_nm_banco" class="form-control form-control-sm">
-                                <option selected disabled>Selecione Banco</option>
+                            <select id="id_nm_banco" name="id_nm_banco" class="form-control form-control-sm select-find"
+                                    style="width: 100%">
+                                <option selected disabled>Selecionar Banco</option>
                                 @foreach ($bancos as $item)
-                                    <option class="form-control form-control-sm" name="id_nm_banco" value="{{$item->id}}">
+                                    <option class="form-control form-control-sm" name="id_nm_banco"
+                                            value="{{$item->id}}">
                                         {{$item->nm_banco}}
                                     </option>
                                 @endforeach
@@ -31,14 +33,14 @@ aria-labelledby="frmBancoModalLabel"    aria-hidden="true">
                         <div class="col-md-4">
                             <label for="nr_agencia">Agencia</label>
                             <input id="nr_agencia" type="text"
-                                class="form-control form-control-sm"
-                                name="nr_agencia" value="" required autofocus>
+                                   class="form-control form-control-sm"
+                                   name="nr_agencia" value="" required autofocus>
                         </div>
                         <div class="col-md-4">
                             <label for="nr_conta">Conta</label>
                             <input id="nr_conta" type="text"
-                                class="form-control form-control-sm"
-                                name="nr_conta" value="" required autofocus>
+                                   class="form-control form-control-sm"
+                                   name="nr_conta" value="" required autofocus>
                         </div>
                     </div>
                 </div>
