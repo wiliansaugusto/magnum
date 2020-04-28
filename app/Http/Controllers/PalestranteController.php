@@ -109,6 +109,9 @@ class PalestranteController extends Controller
     public function show($id)
     {
         $data = Palestrante::find($id);
+        if(!$data){
+            return redirect('dashboard/palestrante');
+        }
         return view('dashboard.palestrante.edit')->with('data', $data);
     }
 

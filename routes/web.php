@@ -28,6 +28,7 @@ Route::prefix('dashboard')->group(function () {
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
     Route::resource('palestrante/', 'PalestranteController');
     Route::get('palestrante/{id}/novo', 'PalestranteController@create');
+    Route::get('palestrante/{id}/edit', 'PalestranteController@show');
     Route::delete('palestrante/{id}', 'PalestranteController@destroy');
     Route::get('palestrante/{id}', 'PalestranteController@show');
     Route::resource('contato/', 'ContatoController');

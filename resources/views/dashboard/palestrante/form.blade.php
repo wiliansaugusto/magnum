@@ -18,7 +18,7 @@
                             <div class="col-md-2 col-sm-2  profile_left">
                                 <div class="col-md-12 col-sm-12">
                                     <div id="crop-avatar">
-                                        <img class="img-responsive avatar-view" src="{{asset('img/no-image.png')}}"
+                                        <img id="imgFoto" class="img-responsive avatar-view" src="{{asset('img/no-image.png')}}"
                                              alt="Avatar" title="Change the avatar" style="width: 100%">
                                     </div>
                                 </div>

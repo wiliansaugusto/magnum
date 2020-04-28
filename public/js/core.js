@@ -375,17 +375,6 @@ $(document).ready(function () {
         });
     });
 
-    // //envio de imagem
-    // $("#ds_foto").change(function () {
-    //     const file = $(this)[0].files[0];
-    //     const fileReader = new FileReader();
-    //     fileReader.onloadend = function () {
-    //         $("#imgFoto").fadeIn(500);
-    //         $("#imgFoto").attr('src', fileReader.result);
-    //     }
-    //     fileReader.readAsDataURL(file);
-    // });
-
     //Preencimento das tabelas
     function tabelaBanco(fields) {
         $("#banco-null").remove();
@@ -578,5 +567,34 @@ $(document).ready(function () {
         var modal = $(this)
         modal.find('.modal-body input[name="id"]').val(recipient)
     })
+
+    //File
+    // $("#ds_foto").change( function( e )
+    // {
+    //     e.preventDefault();
+    //     var fileName = '';
+    //     if( this.files && this.files.length > 1 )
+    //         fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+    //         label.querySelector( 'span' ).innerHTML = e.target.value.split( '\' ).pop();;
+    //     else
+    //         fileName = e.target.value.split( '\' ).pop();
+    //
+    //     if( fileName )
+    //         label.querySelector( 'span' ).innerHTML = fileName;
+    //     else
+    //         label.innerHTML = labelVal;
+    // });
+
+    // //envio de imagem
+    $("#ds_foto").change(function () {
+        const file = $(this)[0].files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = function () {
+            $("#imgFoto").fadeIn(500);
+            $("#imgFoto").removeAttr('src');
+            $("#imgFoto").attr('src', fileReader.result);
+        }
+        fileReader.readAsDataURL(file);
+    });
 });
 

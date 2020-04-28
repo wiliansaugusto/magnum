@@ -43,8 +43,8 @@
                                             <td>{{date_format($palestrante->updated_at,"d/m/Y H:i:s")}}</td>
                                             <td>{{$usuario->name}}</td>
                                             <td class=" text-right">
-                                                <button type="button" class="btn btn-primary btn-sm ml-1"><i
-                                                            class='fa fa-edit'></i></button>
+                                                <a href="/dashboard/palestrante/{{$palestrante->id}}/edit" class="btn btn-primary btn-sm ml-1"><i
+                                                            class='fa fa-edit'></i></a>
 
                                                 <button type="button" class="btn btn-danger btn-sm ml-1"
                                                         data-toggle="modal"

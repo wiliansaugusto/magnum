@@ -17,7 +17,7 @@
                             <div class="col-md-2 col-sm-2  profile_left">
                                 <div class="col-md-12 col-sm-12">
                                     <div id="crop-avatar">
-                                        <img class="img-responsive avatar-view" src="{{asset('img/no-image.png')}}"
+                                        <img id="imgFoto" class="img-responsive avatar-view" src="{{asset('img/no-image.png')}}"
                                              alt="Avatar" title="Change the avatar" style="width: 100%">
                                     </div>
                                 </div>
@@ -77,15 +77,15 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     <label for="nm_palestrante">Nome do
-                                                        Palestrante</label>
+                                                        Palestrante*</label>
                                                     <input id="nm_palestrante" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="nm_palestrante" value="" autofocus readonly>
+                                                           name="nm_palestrante" value="" autofocus/>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-6">
-                                                    <label for="ds_nacionalidade">Nacionalidade</label>
+                                                    <label for="ds_nacionalidade">Nacionalidade*</label>
                                                     <select id="ds_nacionalidade" name="id_tp_nacionalidade"
                                                             class="form-control form-control-sm" required
                                                             autofocus>
@@ -104,7 +104,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="ds_sexo">Sexo</label>
+                                                    <label for="ds_sexo">Sexo*</label>
                                                     <select id="ds_sexo" name="ds_sexo"
                                                             class="form-control form-control-sm"
                                                             required autofocus>
@@ -188,7 +188,7 @@
                                                     @php
                                                         $idiomas = App\Idiomas::all();
                                                     @endphp
-                                                    <label for="idiomas">Idiomas</label>
+                                                    <label for="idiomas">Idiomas*</label>
                                                     <select id="idiomas" name="idiomas[]" class="form-control
                                                     form-control-sm select-find" multiple="multiple"
                                                             style="width: 100%">
@@ -203,7 +203,7 @@
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
-                                                    <label for="categorias">Categorias</label>
+                                                    <label for="categorias">Categorias*</label>
                                                     @php
                                                         $categorias = App\Categoria::all();
                                                     @endphp
@@ -531,20 +531,20 @@
                                                     <label for="ds_titulo_video">Titulo</label>
                                                     <input id="ds_titulo_video" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="ds_titulo_video" value="" required autofocus>
+                                                           name="ds_titulo_video" value="" autofocus>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="ds_url_video">URL</label>
                                                     <input id="ds_url_video" type="text"
                                                            class="form-control form-control-sm"
                                                            name="ds_url_video"
-                                                           value="" required autofocus>
+                                                           value="" autofocus>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <label for="ds_descricao_video">Descrição</label>
                                                     <textarea id="ds_descricao_video" type="text"
                                                               class="form-control form-control-sm"
-                                                              name="ds_descricao_video" required autofocus
+                                                              name="ds_descricao_video" autofocus
                                                               title="Descrição do Video"></textarea>
                                                 </div>
                                             </div>
