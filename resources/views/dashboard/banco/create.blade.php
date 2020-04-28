@@ -20,7 +20,7 @@
                             @endphp
 
                             <select id="id_nm_banco" name="id_nm_banco" class="form-control form-control-sm select-find"
-                                    style="width: 100%">
+                                    style="width: 100%" required>
                                 <option selected disabled>Selecionar Banco</option>
                                 @foreach ($bancos as $item)
                                     <option class="form-control form-control-sm" name="id_nm_banco"
