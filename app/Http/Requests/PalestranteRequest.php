@@ -39,9 +39,10 @@ class PalestranteRequest extends FormRequest
         'nr_insc_estadual' => 'required',
         'nr_rg' => 'required',
         'dt_nascimento' => 'required',
-        'ds_observacao' => 'required',
         'rank_palestrante' => 'required',
-        'nr_insc_municipal' => 'required'
+        'nr_insc_municipal' => 'required',
+        'idiomas' => 'required',    
+        'categorias' => 'required'
         
         ];
     }

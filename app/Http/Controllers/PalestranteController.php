@@ -64,12 +64,12 @@ class PalestranteController extends Controller
 
         $dadosContratuais = new DadosContratuais();
         $dadosContratuais->nm_razao_social = $request->nm_razao_social;
-        $dadosContratuais->nr_cnpj = $request->cnpj;
+        $dadosContratuais->nr_cnpj = $request->nr_cnpj;
         $dadosContratuais->nr_cpf = $request->nr_cpf;
-        $dadosContratuais->nr_insc_estadual = $request->ins_estadual;
+        $dadosContratuais->nr_insc_estadual = $request->nr_insc_estadual;
         $dadosContratuais->nr_rg = $request->nr_rg;
         $dadosContratuais->dt_nascimento = $request->dt_nascimento;
-        $dadosContratuais->ds_observacao = $request->obsevacao;
+        $dadosContratuais->ds_observacao = $request->ds_observacao;
         $dadosContratuais->id_palestrante = $request->id_palestrante;
 
         $dadosContratuais->save();

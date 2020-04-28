@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterTblDadosContratuaisCollummObservacao extends Migration
+class AddTblDadosContratuuaisCollummInsMunicipal extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     */ 
+     */
     public function up()
     {
         Schema::table('mgm_tbl_dados_contratuais', function (Blueprint $table) {
-            $table->string('ds_observacao')->nullable()->change();
+            $table->string('nr_insc_municipal',20);
         });
     }
 

@@ -225,7 +225,7 @@
                                                     @endphp
                                                     <label for="idiomas">Idiomas</label>
                                                     <select id="idiomas" name="idiomas[]" class="form-control
-                                                    form-control-sm select-find" multiple="multiple"
+                                                    form-control-sm select-find {{ $errors->has('idiomas') ? 'is-invalid' : '' }}" multiple="multiple"
                                                             style="width: 100%" >
                                                         <option></option>
                                                         @foreach ($idiomas as $item)
@@ -234,6 +234,11 @@
                                                             </option>
                                                         @endforeach
                                                     </select>
+                                                    @if ($errors->has('idiomas'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('idiomas') }}</strong>
+                                                            </span>
+                                                @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -243,7 +248,7 @@
                                                         $categorias = App\Categoria::all();
                                                     @endphp
                                                     <select id="categorias" name="categorias[]"
-                                                            class="form-control form-control-sm select-find"
+                                                            class="form-control form-control-sm select-find {{ $errors->has('categorias') ? 'is-invalid' : '' }}"
                                                             style="width: 100%" multiple="multiple" >
                                                         <option></option>
                                                         @foreach ($categorias as $categoria)
@@ -257,6 +262,11 @@
                                                             @endforeach
                                                         @endforeach
                                                     </select>
+                                                    @if ($errors->has('categorias'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('categorias') }}</strong>
+                                                    </span>
+                                        @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -636,7 +646,7 @@
                                                     <label for="ds_descricao_video">Descrição</label>
                                                     <textarea id="ds_descricao_video" type="text"
                                                               class="form-control form-control-sm {{ $errors->has('ds_descricao_video') ? 'is-invalid' : '' }}"
-                                                              value="{{ old('ds_descricao_video') }}"
+                                                              value="{{ old('ds_descricao_video')}}"
                                                               name="ds_descricao_video"  autofocus
                                                               title="Descrição do Video"></textarea>
                                                               @if ($errors->has('ds_descricao_video'))
