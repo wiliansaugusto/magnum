@@ -18,7 +18,7 @@
                         <div class="col-md-12">
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-md-12">
-                                    <label for="nome_palestrante">Nome do Palestrante</label>
+                                    <label for="nome_palestrante">Nome do Palestrante*</label>
                                     <input id="nome_palestrante" type="text" class="form-control form-control-sm"
                                            name="nm_palestrante" value="" autofocus>
                                 </div>
@@ -27,13 +27,15 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                        Salvar
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-save"></i> Salvar
                     </button>
-                    <button type="reset" class="btn btn-warning">
-                        Limpar
+                    <button type="reset" class="btn btn-warning btn-sm">
+                        <i class="fa fa-eraser"></i> Limpar
                     </button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                        <i class="fa fa-close"></i> Cancelar
+                    </button>
                 </div>
             </form>
         </div>

@@ -375,17 +375,6 @@ $(document).ready(function () {
         });
     });
 
-    // //envio de imagem
-    // $("#ds_foto").change(function () {
-    //     const file = $(this)[0].files[0];
-    //     const fileReader = new FileReader();
-    //     fileReader.onloadend = function () {
-    //         $("#imgFoto").fadeIn(500);
-    //         $("#imgFoto").attr('src', fileReader.result);
-    //     }
-    //     fileReader.readAsDataURL(file);
-    // });
-
     //Preencimento das tabelas
     function tabelaBanco(fields) {
         $("#banco-null").remove();
@@ -578,5 +567,17 @@ $(document).ready(function () {
         var modal = $(this)
         modal.find('.modal-body input[name="id"]').val(recipient)
     })
+
+    // //envio de imagem
+    $("#ds_foto").change(function () {
+        const file = $(this)[0].files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = function () {
+            $("#imgFoto").fadeIn(500);
+            $("#imgFoto").removeAttr('src');
+            $("#imgFoto").attr('src', fileReader.result);
+        }
+        fileReader.readAsDataURL(file);
+    });
 });
 

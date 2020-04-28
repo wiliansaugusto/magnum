@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary btn-sm">
                             Excluir
                         </button>
                         <button type="button" class="btn btn-danger"
