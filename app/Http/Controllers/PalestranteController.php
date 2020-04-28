@@ -46,7 +46,7 @@ class PalestranteController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PalestranteRequest $request)
     {
 //        $validated = $request->validated();
                 
@@ -178,7 +178,7 @@ class PalestranteController extends Controller
 
     }
 
-    private function salvarFoto(Request $request)
+    private function salvarFoto(PalestranteRequest $request)
     {
 
         if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
