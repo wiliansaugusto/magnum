@@ -163,6 +163,10 @@ return [
 
         Laravel\Scout\ScoutServiceProvider::class,
 
+   // PHPLegends usado para validar CPF CNPJ e outros padrões em pt-BR
+   LaravelLegends\PtBrValidator\ValidatorProvider::class
+
+
     ],
 
     /*
@@ -213,5 +217,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+
+    
+    
 
 ];
