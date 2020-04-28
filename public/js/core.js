@@ -568,23 +568,6 @@ $(document).ready(function () {
         modal.find('.modal-body input[name="id"]').val(recipient)
     })
 
-    //File
-    // $("#ds_foto").change( function( e )
-    // {
-    //     e.preventDefault();
-    //     var fileName = '';
-    //     if( this.files && this.files.length > 1 )
-    //         fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-    //         label.querySelector( 'span' ).innerHTML = e.target.value.split( '\' ).pop();;
-    //     else
-    //         fileName = e.target.value.split( '\' ).pop();
-    //
-    //     if( fileName )
-    //         label.querySelector( 'span' ).innerHTML = fileName;
-    //     else
-    //         label.innerHTML = labelVal;
-    // });
-
     // //envio de imagem
     $("#ds_foto").change(function () {
         const file = $(this)[0].files[0];

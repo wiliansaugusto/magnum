@@ -11,7 +11,12 @@ use App\Http\Requests\BancoRequest;
 
 class AcessorController extends Controller
 {
-/**
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
