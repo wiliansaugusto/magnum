@@ -24,7 +24,7 @@ class PalestranteRequest extends FormRequest
     public function rules()
     {
         return [
-        'ds_foto' => 'required|image',
+        'ds_foto' => 'required|image|mimes:jpeg,png,jpg',
         'id_tp_nacionalidade' => 'required',
         'ds_sexo' => 'required',
         'ds_ativo' =>'required',

@@ -10,6 +10,8 @@ use App\PalestranteCategoria;
 use App\SubCategoria;
 use Illuminate\Http\Request;
 use App\Http\Requests\PalestranteRequest;
+use Image;
+
 
 class PalestranteController extends Controller
 {
@@ -67,6 +69,7 @@ class PalestranteController extends Controller
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
         $dadosContratuais->nr_cpf = $request->nr_cpf;
         $dadosContratuais->nr_insc_estadual = $request->nr_insc_estadual;
+        $dadosContratuais->nr_insc_municipal = $request->nr_insc_municipal;
         $dadosContratuais->nr_rg = $request->nr_rg;
         $dadosContratuais->dt_nascimento = $request->dt_nascimento;
         $dadosContratuais->ds_observacao = $request->ds_observacao;
@@ -109,9 +112,6 @@ class PalestranteController extends Controller
     public function show($id)
     {
         $data = Palestrante::find($id);
-        if(!$data){
-            return redirect('dashboard/palestrante');
-        }
         return view('dashboard.palestrante.edit')->with('data', $data);
     }
 
@@ -183,6 +183,9 @@ class PalestranteController extends Controller
 
     private function salvarFoto(PalestranteRequest $request)
     {
+        ini_set('upload_max_filesize','100M');
+        ini_set('memory_limit','300M');
+        ini_set('post_max_size','150M');
 
         if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
 
@@ -192,6 +195,10 @@ class PalestranteController extends Controller
             $palestranteFoto = Palestrante::find($request->id_palestrante);
             $palestranteFoto->ds_foto = $upload;
             $palestranteFoto->save();
+
+          $novaImg = public_path('/storage/imagemPalestrante/'.$nomeFinal);
+            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
+           
         }
     }
 }
