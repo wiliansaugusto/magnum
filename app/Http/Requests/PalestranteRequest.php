@@ -24,7 +24,7 @@ class PalestranteRequest extends FormRequest
     public function rules()
     {
         return [
-        'ds_foto' => 'required|image',
+        'ds_foto' => 'required|image|mimes:jpeg,png,jpg',
         'id_tp_nacionalidade' => 'required',
         'ds_sexo' => 'required',
         'ds_ativo' =>'required',
@@ -34,8 +34,8 @@ class PalestranteRequest extends FormRequest
         'ds_descricao_video' => 'required',
         'nm_razao_social' => 'required',
         'nm_completo' => 'required',
-        'nr_cnpj' => 'required',
-        'nr_cpf'=> 'required',
+        'nr_cnpj' => 'required|cnpj',
+        'nr_cpf'=> 'required|cpf',
         'nr_insc_estadual' => 'required',
         'nr_rg' => 'required',
         'dt_nascimento' => 'required',

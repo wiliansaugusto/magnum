@@ -646,7 +646,6 @@
                                                     <label for="ds_descricao_video">Descrição</label>
                                                     <textarea id="ds_descricao_video" type="text"
                                                               class="form-control form-control-sm {{ $errors->has('ds_descricao_video') ? 'is-invalid' : '' }}"
-                                                              value="{{ old('ds_descricao_video')}}"
                                                               name="ds_descricao_video"  autofocus
                                                               title="Descrição do Video"></textarea>
                                                               @if ($errors->has('ds_descricao_video'))
