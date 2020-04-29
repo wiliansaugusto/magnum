@@ -1,11 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    @if(!empty($mensagem))
+{{---   
+@if(!empty($mensagem))
         <div class="alert alert-success">
             <p class="text-center"><i class="far fa-thumbs-up"></i> {{ $mensagem }}</p>
         </div>
     @endif
+    --}}
     <div class="card">
         <div class="card-header ">
             <div class="row ">
@@ -42,7 +44,7 @@
                                                         class="fa fa-plus-circle"></i>
                                                 Subcategoria
                                             </button>
-                                            <button type="button" class="btn btn-success btn-sm ml-1"
+                                            <button type="button" class="btn btn-primary btn-sm ml-1"
                                                     data-toggle="modal"
                                                     data-target="#modalAlt{{$categoria->id}}"><i
                                                         class="fa fa-edit"></i>
@@ -50,7 +52,7 @@
                                             <button class="btn btn-danger btn-sm ml-1" type="button"
                                                     data-toggle="modal"
                                                     data-target="#modalDel{{$categoria->id}}">
-                                                <i class="fa fa-times"></i>
+                                                <i class="fa fa-trash"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -69,17 +71,17 @@
 
                                                     </td>
                                                     <td class="text-right">
-                                                        <button type="button" class="btn btn-success btn-sm"
+                                                        <button type="button" class="btn btn-primary btn-sm ml-1"
                                                                 data-toggle="modal"
                                                                 data-target="#modal{{$subItem->id}}"><i
                                                                     class="fa fa-edit"></i>
-                                                            Editar
+                                                            
                                                         </button>
                                                         <button name="sub" value="1" class="btn btn-danger btn-sm"
                                                                 type="button"
                                                                 data-toggle="modal"
                                                                 data-target="#modalSubDel{{$subItem->id}}"><i
-                                                                    class="fa fa-times"></i> Excluir
+                                                                    class="fa fa-trash"></i> 
                                                         </button>
                                                     </td>
                                                 </tr>

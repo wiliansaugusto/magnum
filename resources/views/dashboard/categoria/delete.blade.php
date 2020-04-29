@@ -6,7 +6,7 @@
                   action="categoria/{{$categoria->id}}">
                 @csrf
                 @method('DELETE')
-                <div class="modal-body text-left">
+                <div class="modal-body text-left" style="color:black;">
                     <div class="form-group">
                         <div class="modal-header">
                             <h5 class="modal-title" id="LabelAlt{{$categoria->id}}">
@@ -15,7 +15,7 @@
                         </div>
                         <div class="modal-body text-center">
                             <h5>Tem certeza que você quer excluir a categoria:</h5>
-                            <h2 class="text-uppercase">{{$categoria->nm_categoria}}</h2>
+                            <h2 class="text-uppercase" style="font-weight: bold">{{$categoria->nm_categoria}}</h2>
                             <h5>Todas as Subcategorias vinculadas serão excluidas</h5>
 
                         </div>
@@ -24,7 +24,7 @@
                         <button type="submit" class="btn btn-primary btn-sm">
                             Excluir
                         </button>
-                        <button type="button" class="btn btn-danger"
+                        <button type="button" class="btn btn-danger btn-sm"
                                 data-dismiss="modal">Cancelar
                         </button>
                     </div>

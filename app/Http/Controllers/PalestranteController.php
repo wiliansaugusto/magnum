@@ -183,10 +183,7 @@ class PalestranteController extends Controller
 
     private function salvarFoto(PalestranteRequest $request)
     {
-        ini_set('upload_max_filesize','100M');
-        ini_set('memory_limit','300M');
-        ini_set('post_max_size','150M');
-
+        
         if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
 
             $extensao = $request->ds_foto->getClientOriginalExtension();
@@ -196,7 +193,7 @@ class PalestranteController extends Controller
             $palestranteFoto->ds_foto = $upload;
             $palestranteFoto->save();
 
-          $novaImg = public_path('/storage/imagemPalestrante/'.$nomeFinal);
+            $novaImg = public_path('/storage/imagemPalestrante/'.$nomeFinal);
             $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
            
         }
