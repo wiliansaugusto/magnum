@@ -24,9 +24,9 @@
                                 <div class="col-md-12 col-sm-12 text-center mt-2">
                                     <input id="ds_foto" type="file"
                                            class="form-control form-control-sm inputFoto"
-                                           name="ds_foto" value="" required autofocus/>
+                                           name="ds_foto" value="{{$data->ds_foto}}" required autofocus/>
                                     <label for="ds_foto" class="custom-upload-foto" style="width: 100%;">
-                                        <i class="fa fa-cloud-upload"></i> Carregar Foto
+                                        <i class="fa fa-cloud-upload"></i> {{$data->ds_foto == "" ? 'Carregar foto' : $data->ds_foto}}
                                     </label>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                                         Palestrante*</label>
                                                     <input id="nm_palestrante" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="nm_palestrante" value="" autofocus/>
+                                                           name="nm_palestrante" value="{{$data->nm_palestrante }}" autofocus/>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
