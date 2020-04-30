@@ -14,7 +14,4 @@ class DadosContratuais extends Model
 
     ];
 
-    public function dadosContratuaisPalestrante(){
-        return $this->belongsTo(Palestrante::class, 'id_palestrante', 'id');
-    }
 }

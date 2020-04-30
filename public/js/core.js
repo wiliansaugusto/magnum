@@ -97,7 +97,7 @@ $(document).ready(function () {
             url: "/dashboard/descricao/",
             data: data
         }).done(function (data) {
-            tabelDescricao(data, "Currículo Tecnico", "curriculoTec");
+            tabelDescricao(data, "Currículo Técnico", "curriculoTec");
             $('#frmCurriculoTec')[0].reset();
             $('#frmCurriculoTecModal').modal('toggle');
         });
@@ -572,12 +572,25 @@ $(document).ready(function () {
     $("#ds_foto").change(function () {
         const file = $(this)[0].files[0];
         const fileReader = new FileReader();
-        fileReader.onloadend = function () {
+
+        var ext = $('#ds_foto').val().split('.').pop().toLowerCase();
+        if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+            $("#imgFoto").fadeOut(500);
+            $(".custom-upload-foto").html("<i class=\"fa fa-cloud-upload\"></i> Carregar Foto");
+            $("#imgFoto").attr('src', window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/img/no-image.png");
             $("#imgFoto").fadeIn(500);
-            $("#imgFoto").removeAttr('src');
-            $("#imgFoto").attr('src', fileReader.result);
+            $('#file_invalid').fadeIn(500);
+        }else {
+            fileReader.onloadend = function () {
+                $("#imgFoto").fadeOut(500);
+                $("#imgFoto").removeAttr('src');
+                $("#imgFoto").attr('src', fileReader.result);
+                $("#imgFoto").fadeIn(500);
+                $('#file_invalid').fadeOut(500);
+            }
+            $(".custom-upload-foto").html("<i class=\"fa fa-cloud-upload\"></i> " + file.name);
+            fileReader.readAsDataURL(file);
         }
-        fileReader.readAsDataURL(file);
     });
 });
 

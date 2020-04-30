@@ -14,6 +14,6 @@ class Cidade extends Model
 
     public function valores()
     {
-        return $this->belongsTo('App\Valor', 'id_cidade', 'id');
+        return $this->hasMany('App\Valor', 'id_cidade');
     }
 }

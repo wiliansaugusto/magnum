@@ -18,4 +18,9 @@ class Acessor extends Model
     {
         return $this->hasMany('App\Contato','id');
     }
+
+    public function palestrante()
+    {
+        return $this->belongsTo(Palestrante::class, 'id_palestrante', 'id');
+    }
 }

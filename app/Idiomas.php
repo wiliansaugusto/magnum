@@ -14,6 +14,10 @@ class Idiomas extends Model
 
     public function palestrante()
     {
-        return $this->belongsTo('App\Palestrante');
+        return $this->belongsToMany(
+            Idiomas::class,
+            'mgm_tbl_idiomas_palestrante',
+            'id_idiomas',
+            'id_palestrante');
     }
 }

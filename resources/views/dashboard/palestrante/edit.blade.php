@@ -17,7 +17,8 @@
                             <div class="col-md-2 col-sm-2  profile_left">
                                 <div class="col-md-12 col-sm-12">
                                     <div id="crop-avatar">
-                                        <img id="imgFoto" class="img-responsive avatar-view" src="{{asset('img/no-image.png')}}"
+                                        <img id="imgFoto" class="img-responsive avatar-view"
+                                             src="{{ $data->ds_foto != "" ? storage_path('public/' . $data->ds_foto) : asset('img/no-image.png')}}"
                                              alt="Avatar" title="Change the avatar" style="width: 100%">
                                     </div>
                                 </div>
@@ -28,6 +29,10 @@
                                     <label for="ds_foto" class="custom-upload-foto" style="width: 100%;">
                                         <i class="fa fa-cloud-upload"></i> {{$data->ds_foto == "" ? 'Carregar foto' : $data->ds_foto}}
                                     </label>
+                                    <p id="file_invalid" class="alert alert-error mt-3" style="display: none;">Formato
+                                        de arquivo invalido! <br/>
+                                        Aceito apenas imagens nos formatos .png, .jpeg, .jpg
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 ">
@@ -80,7 +85,8 @@
                                                         Palestrante*</label>
                                                     <input id="nm_palestrante" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="nm_palestrante" value="{{$data->nm_palestrante }}" autofocus/>
+                                                           name="nm_palestrante" value="{{$data->nm_palestrante }}"
+                                                           autofocus/>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -89,16 +95,17 @@
                                                     <select id="ds_nacionalidade" name="id_tp_nacionalidade"
                                                             class="form-control form-control-sm" required
                                                             autofocus>
-                                                        <option class="form-control form-control-sm" selected
+                                                        <option class="form-control form-control-sm"
+                                                                {{$data->ds_nacionalidade == "" ? 'selected' : '' }}
                                                                 disabled>
                                                             Selecionar Nacionalidade
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Brasileiro">
+                                                                value="Brasileiro" {{$data->ds_nacionalidade == "Brasileiro" ? 'selected' : '' }}>
                                                             Brasileiro
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Estrangeiro">
+                                                                value="Estrangeiro" {{$data->ds_nacionalidade == "Estrangeiro" ? 'selected' : '' }}>
                                                             Estrangeiro
                                                         </option>
                                                     </select>
@@ -108,15 +115,18 @@
                                                     <select id="ds_sexo" name="ds_sexo"
                                                             class="form-control form-control-sm"
                                                             required autofocus>
-                                                        <option class="form-control form-control-sm" selected
+                                                        <option class="form-control form-control-sm"
+                                                                {{$data->ds_sexo == "" ? 'selected' : '' }}
                                                                 disabled>
                                                             Selecionar Sexo
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Feminino">Feminino
+                                                                value="Feminino" {{$data->ds_sexo == "Feminino" ? 'selected' : '' }}>
+                                                            Feminino
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Masculino">Masculino
+                                                                value="Masculino" {{$data->ds_sexo == "Masculino" ? 'selected' : '' }}>
+                                                            Masculino
                                                         </option>
                                                     </select>
                                                 </div>
@@ -127,14 +137,16 @@
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio"
                                                                name="ds_ativo"
-                                                               id="ds_ativo1" value="s">
+                                                               id="ds_ativo1"
+                                                               value="s" {{$data->ds_ativo == "s" ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_ativo1">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio"
                                                                name="ds_ativo"
-                                                               id="ds_disponivel2" value="n">
+                                                               id="ds_disponivel2"
+                                                               value="n" {{$data->ds_ativo == "n" ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_disponivel2">Não</label>
                                                     </div>
@@ -145,14 +157,16 @@
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio"
                                                                name="ds_visivel_site"
-                                                               id="ds_visivel_site" value="s">
+                                                               id="ds_visivel_site"
+                                                               value="s" {{$data->ds_visivel_site == "s" ? 'checked' : '' }} />
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio"
                                                                name="ds_visivel_site"
-                                                               id="ds_visivel_site2" value="n">
+                                                               id="ds_visivel_site2"
+                                                               value="n" {{$data->ds_visivel_site == "n" ? 'checked' : '' }} />
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site2">Não</label>
                                                     </div>
@@ -161,23 +175,23 @@
                                                     <label>Ranking do Palestrante</label><br>
                                                     <div class="rate">
                                                         <input type="radio" id="star5" name="rank_palestrante"
-                                                               value="5"/>
+                                                               value="5" {{$data->rank_palestrante == "5" ? 'checked' : '' }} />
                                                         <label for="star5" title="text">5
                                                             stars</label>
                                                         <input type="radio" id="star4" name="rank_palestrante"
-                                                               value="4"/>
+                                                               value="4" {{$data->rank_palestrante == "4" ? 'checked' : '' }} />
                                                         <label for="star4" title="text">4
                                                             stars</label>
                                                         <input type="radio" id="star3" name="rank_palestrante"
-                                                               value="3"/>
+                                                               value="3" {{$data->rank_palestrante == "3" ? 'checked' : '' }} />
                                                         <label for="star3" title="text">3
                                                             stars</label>
                                                         <input type="radio" id="star2" name="rank_palestrante"
-                                                               value="2"/>
+                                                               value="2" {{$data->rank_palestrante == "2" ? 'checked' : '' }} />
                                                         <label for="star2" title="text">2
                                                             stars</label>
                                                         <input type="radio" id="star1" name="rank_palestrante"
-                                                               value="1"/>
+                                                               value="1" {{$data->rank_palestrante == "1" ? 'checked' : '' }} />
                                                         <label for="star1" title="text">1
                                                             star</label>
                                                     </div>
@@ -194,9 +208,17 @@
                                                             style="width: 100%">
                                                         <option></option>
                                                         @foreach ($idiomas as $item)
-                                                            <option value="{{$item->id}}">
-                                                                {{$item->ds_idioma}}
-                                                            </option>
+                                                            @if(sizeof($data->idiomas) > 0)
+                                                                @foreach($data->idiomas as $idioma)
+                                                                    <option value="{{$item->id}}" {{$item->id == $idioma->id ? 'selected="selected"' : ''}}>
+                                                                        {{$item->ds_idioma}}
+                                                                    </option>
+                                                                @endforeach
+                                                            @else
+                                                                <option value="{{$item->id}}">
+                                                                    {{$item->ds_idioma}}
+                                                                </option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -212,13 +234,35 @@
                                                             style="width: 100%" multiple="multiple">
                                                         <option></option>
                                                         @foreach ($categorias as $categoria)
-                                                            <option value="cat-{{$categoria->id}}">
-                                                                {{$categoria->nm_categoria}}
-                                                            </option>
-                                                            @foreach ($categoria->subCategorias as $subCategoria)
-                                                                <option value="sub-{{$subCategoria->id}}">
-                                                                    {{$subCategoria->nm_sub_cat}}
+                                                            @php
+                                                                $categoriaPalestrante = App\PalestranteCategoria::where('id_palestrante', $data->id)
+                                                                    ->where('id_categoria', $categoria->id)->first();
+                                                            @endphp
+                                                            @if(!empty($categoriaPalestrante))
+                                                                <option value="cat-{{$categoria->id}}"
+                                                                        selected="selected">
+                                                                    {{$categoria->nm_categoria}}
                                                                 </option>
+                                                            @else
+                                                                <option value="cat-{{$categoria->id}}">
+                                                                    {{$categoria->nm_categoria}}
+                                                                </option>
+                                                            @endif
+                                                            @foreach ($categoria->subCategorias as $subCategoria)
+                                                                @php
+                                                                    $subcategoriaPalestrante = App\PalestranteCategoria::where('id_palestrante', $data->id)
+                                                                        ->where('id_subcategoria', $subCategoria->id)->first();
+                                                                @endphp
+                                                                @if(!empty($subcategoriaPalestrante))
+                                                                    <option value="sub-{{$subCategoria->id}}"
+                                                                            selected="selected">
+                                                                        {{$subCategoria->nm_sub_cat}}
+                                                                    </option>
+                                                                @else
+                                                                    <option value="sub-{{$subCategoria->id}}">
+                                                                        {{$subCategoria->nm_sub_cat}}
+                                                                    </option>
+                                                                @endif
                                                             @endforeach
                                                         @endforeach
                                                     </select>
@@ -293,7 +337,9 @@
                                                     <label for="nm_razao_social">Razão Social</label>
                                                     <input id="nm_razao_social" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="nm_razao_social" value="" required autofocus/>
+                                                           name="nm_razao_social"
+                                                           value="{{$data->dadosContratuais->nm_razao_social == "" ? "" : $data->dadosContratuais->nm_razao_social}}"
+                                                           required/>
                                                 </div>
                                             </div>
 
@@ -302,22 +348,25 @@
                                                     <label for="cnpj">CNPJ</label>
                                                     <input id="cnpj" type="text"
                                                            class="form-control form-control-sm"
-                                                           data-mask="00.000.000/0000-00" name="cnpj" value=""
-                                                           required autofocus/>
+                                                           data-mask="00.000.000/0000-00" name="cnpj"
+                                                           value="{{$data->dadosContratuais->nr_cnpj == "" ? "" : $data->dadosContratuais->nr_cnpj}}"
+                                                           required/>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="ins_estadual">Inscrição Estadual</label>
-                                                    <input id="ins_estadual" type="text"
+                                                    <label for="insc_estadual">Inscrição Estadual</label>
+                                                    <input id="insc_estadual" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="ins_estadual" value="" required autofocus/>
+                                                           name="ins_estadual"
+                                                           value="{{$data->dadosContratuais->nr_insc_estadual == "" ? "" : $data->dadosContratuais->nr_insc_estadual}}"
+                                                           required/>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="ins_municipal">Inscrição Municipal</label>
-                                                    <input id="ins_municipal" type="text"
+                                                    <label for="insc_municipal">Inscrição Municipal</label>
+                                                    <input id="insc_municipal" type="text"
                                                            class="form-control form-control-sm"
                                                            name="ins_municipal"
-                                                           value=""
-                                                           required autofocus/>
+                                                           value="{{$data->dadosContratuais->nr_insc_municipal == "" ? "" : $data->dadosContratuais->nr_insc_municipal}}"
+                                                           required/>
                                                 </div>
                                             </div>
 
@@ -326,7 +375,9 @@
                                                     <label for="nm_completo">Nome Completo</label>
                                                     <input id="nm_completo" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="nm_completo" value="" required autofocus/>
+                                                           name="nm_completo"
+                                                           value="{{$data->dadosContratuais->nm_completo == "" ? "" : $data->dadosContratuais->nm_completo}}"
+                                                           required/>
                                                 </div>
                                             </div>
 
@@ -335,31 +386,35 @@
                                                     <label for="nr_cpf">CPF</label>
                                                     <input id="nr_cpf" type="text"
                                                            class="form-control form-control-sm"
-                                                           data-mask="000.000.000-00" name="nr_cpf" value=""
-                                                           required
-                                                           autofocus/>
+                                                           data-mask="000.000.000-00" name="nr_cpf"
+                                                           value="{{$data->dadosContratuais->nr_cpf == "" ? "" : $data->dadosContratuais->nr_cpf}}"
+                                                           required/>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="nr_rg">RG</label>
                                                     <input id="nr_rg" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="nr_rg" value="" data-mask="00.000.000-0"
-                                                           required autofocus/>
+                                                           name="nr_rg" data-mask="00.000.000-0"
+                                                           value="{{$data->dadosContratuais->nr_rg == "" ? "" : $data->dadosContratuais->nr_rg}}"
+                                                           required/>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="dt_nascimento">Data de Nascimento</label>
                                                     <input id="dt_nascimento" type="date"
                                                            class="form-control form-control-sm"
-                                                           name="dt_nascimento" value="" required autofocus/>
+                                                           name="dt_nascimento"
+                                                           value="{{$data->dadosContratuais->dt_nascimento == "" ? "" : $data->dadosContratuais->dt_nascimento}}"
+                                                           required/>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
-                                                    <label for="obsevacao">Obsevações</label>
-                                                    <textarea id="obsevacao" type="text"
+                                                    <label for="ds_observacao">Obsevações</label>
+                                                    <textarea id="ds_observacao" type="text"
                                                               class="form-control form-control-sm"
-                                                              name="obsevacao" required autofocus></textarea>
+                                                              name="ds_observacao"
+                                                              required>{{$data->dadosContratuais->ds_observacao == "" ? "" : $data->dadosContratuais->ds_observacao}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -419,11 +474,30 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr id="valor-null">
-                                                            <td colspan="3" class="text-center"> Nenhum valor
-                                                                registrado
-                                                            </td>
-                                                        </tr>
+                                                        @if (sizeof($data->valores) > 0)
+                                                            @foreach($data->valores as $valor)
+                                                                <tr id="{{$valor->id}}">
+                                                                    <td>{{$valor->cidade->nm_cidade}}</td>
+                                                                    <td>{{$valor->nr_valor}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirValor' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-id="{{$valor->id}}"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverValorModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+
+                                                        @else
+                                                            <tr id="valor-null">
+                                                                <td colspan="3" class="text-center"> Nenhum valor
+                                                                    registrado
+                                                                </td>
+                                                            </tr>
+                                                        @endif
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -452,11 +526,29 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr id="assesssor-null">
-                                                            <td colspan="2" class="text-center"> Nenhum assessor
-                                                                registrado
-                                                            </td>
-                                                        </tr>
+                                                        @if (sizeof($data->assessores) > 0)
+                                                            @foreach($data->assessores as $assessor)
+                                                                <tr id="{{$assessor->id}}">
+                                                                    <td>{{$assessor->nm_acessor}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirAssessor' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-id="{{$assessor->id}}"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverAssessorModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+
+                                                        @else
+                                                            <tr id="assesssor-null">
+                                                                <td colspan="2" class="text-center"> Nenhum assessor
+                                                                    registrado
+                                                                </td>
+                                                            </tr>
+                                                        @endif
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -514,11 +606,134 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr id="descricao-null">
-                                                            <td colspan="3" class="text-center"> Nenhuma
-                                                                descrição registrada
-                                                            </td>
-                                                        </tr>
+                                                        @if ($data->ds_chamada != NULL
+                                                            || $data->ds_curriculo != NULL
+                                                            || $data->ds_curriculo_tecnico != NULL
+                                                            || $data->ds_observacao != NULL
+                                                            || $data->ds_investimento != NULL
+                                                            || $data->ds_forma_pagamento != NULL
+                                                            || $data->ds_equipe_necessario != NULL)
+
+                                                            @if($data->ds_chamada != NULL)
+                                                                <tr id="chamada">
+                                                                    <td>Chamada</td>
+                                                                    <td class='text-truncate'>{{$data->ds_chamada}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirDescricao' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-tipo="chamada"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverDescricaoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
+                                                            @if($data->ds_curriculo != NULL)
+                                                                <tr id="curriculo">
+                                                                    <td>Currículo Resumido</td>
+                                                                    <td class='text-truncate'>{{$data->ds_curriculo}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirDescricao' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-tipo="curriculo"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverDescricaoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
+                                                            @if($data->ds_curriculo_tecnico != NULL)
+                                                                <tr id="curriculoTec">
+                                                                    <td>Currículo Técnico</td>
+                                                                    <td class='text-truncate'>{{$data->ds_curriculo_tecnico}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirDescricao' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-tipo="curriculoTec"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverDescricaoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
+                                                            @if($data->ds_observacao != NULL)
+                                                                <tr id="obs">
+                                                                    <td>Observações</td>
+                                                                    <td class='text-truncate'>{{$data->ds_observacao}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirDescricao' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-tipo="obs"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverDescricaoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
+                                                            @if($data->ds_investimento != NULL)
+                                                                <tr id="investimento">
+                                                                    <td>Investimento</td>
+                                                                    <td class='text-truncate'>{{$data->ds_investimento}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirDescricao' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-tipo="investimento"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverDescricaoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
+                                                            @if($data->ds_forma_pagamento != NULL)
+                                                                <tr id="pgto">
+                                                                    <td>Forma de Pagamento</td>
+                                                                    <td class='text-truncate'>{{$data->ds_forma_pagamento}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirDescricao' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-tipo="pgto"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverDescricaoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
+                                                            @if($data->ds_equipe_necessario != NULL)
+                                                                <tr id="equipamento">
+                                                                    <td>Equipamento Necessário</td>
+                                                                    <td class='text-truncate'>{{$data->ds_equipe_necessario}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirDescricao' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-tipo="equipamento"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverDescricaoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
+                                                        @else
+                                                            <tr id="descricao-null">
+                                                                <td colspan="3" class="text-center"> Nenhuma
+                                                                    descrição registrada
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -531,21 +746,22 @@
                                                     <label for="ds_titulo_video">Titulo</label>
                                                     <input id="ds_titulo_video" type="text"
                                                            class="form-control form-control-sm"
-                                                           name="ds_titulo_video" value="" autofocus>
+                                                           name="ds_titulo_video"
+                                                           value="{{$data->ds_titulo_video == "" ? "" : $data->ds_titulo_video}}"/>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="ds_url_video">URL</label>
                                                     <input id="ds_url_video" type="text"
                                                            class="form-control form-control-sm"
                                                            name="ds_url_video"
-                                                           value="" autofocus>
+                                                           value="{{$data->ds_url_video == "" ? "" : $data->ds_url_video}}"/>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <label for="ds_descricao_video">Descrição</label>
                                                     <textarea id="ds_descricao_video" type="text"
                                                               class="form-control form-control-sm"
-                                                              name="ds_descricao_video" autofocus
-                                                              title="Descrição do Video"></textarea>
+                                                              name="ds_descricao_video"
+                                                              title="Descrição do Video">{{$data->ds_descricao_video == "" ? "" : $data->ds_descricao_video}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
