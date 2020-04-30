@@ -13,7 +13,13 @@ class AddTblPalestrante extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('mgm_tbl_palestrante', function (Blueprint $table) {
+            $table->string('ds_sexo', 20);
+            $table->renameColumn('id_tp_nacionalidade', 'ds_nacionalidade');
+
+
+
+        });
     }
 
     /**

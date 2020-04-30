@@ -15,7 +15,6 @@ class AlterarTabelaValorNrvalor extends Migration
     {
         Schema::table('mgm_tbl_valor', function (Blueprint $table) {
             $table->string('nr_valor')->change();
-            $table->renameColumn('id_tp_nacionalidade', 'ds_nacionalidade');
 
         });
 
