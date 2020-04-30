@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterarTabelaValorNrvalor extends Migration
+class AddTblPalestrante extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,7 @@ class AlterarTabelaValorNrvalor extends Migration
      */
     public function up()
     {
-        Schema::table('mgm_tbl_valor', function (Blueprint $table) {
-            $table->string('nr_valor')->change();
-            $table->renameColumn('id_tp_nacionalidade', 'ds_nacionalidade');
-
-        });
-
+        //
     }
 
     /**
