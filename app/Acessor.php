@@ -9,6 +9,7 @@ class Acessor extends Model
     protected $table = 'mgm_tbl_acessor';
 
     protected $fillable = [
+        'id',
         'nm_acessor',
         'id_palestrante',
         'id_acessor'

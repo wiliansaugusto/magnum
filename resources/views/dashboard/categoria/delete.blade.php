@@ -1,6 +1,6 @@
 <div class="modal fade" id="modalDel{{$categoria->id}}" tabindex="-1" role="dialog"
      aria-labelledby="LabelAlt{{$categoria->id}}" aria-hidden="true">
-    <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class=" modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <form method="post"
                   action="categoria/{{$categoria->id}}">
