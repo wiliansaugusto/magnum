@@ -16,10 +16,8 @@ class Categoria extends Model
     //TODO REFAZER
     public function palestranteCategorias()
     {
-        return $this->hasManyThrough(
+        return $this->belongsTo(
             Palestrante::class,
-            'mgm_tbl_palestrante_categoria',
-            'id_categoria',
             'id_palestrante',
             'id'
         );

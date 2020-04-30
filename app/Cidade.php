@@ -8,6 +8,7 @@ class Cidade extends Model
 {
     protected $table = 'mgm_tbl_cidade';
     protected $fillable = [
+        'id',
         'nm_cidade',
     ];
     public $timestamps=false;

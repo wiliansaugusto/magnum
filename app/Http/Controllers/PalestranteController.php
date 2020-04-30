@@ -69,6 +69,7 @@ class PalestranteController extends Controller
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
         $dadosContratuais->nr_cpf = $request->nr_cpf;
         $dadosContratuais->nr_insc_estadual = $request->nr_insc_estadual;
+        $dadosContratuais->nm_completo = $request->nm_completo;
         $dadosContratuais->nr_insc_municipal = $request->nr_insc_municipal;
         $dadosContratuais->nr_rg = $request->nr_rg;
         $dadosContratuais->dt_nascimento = $request->dt_nascimento;
