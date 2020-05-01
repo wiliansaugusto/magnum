@@ -51,17 +51,18 @@ class PalestranteController extends Controller
     public function store(PalestranteRequest $request)
     {
 //        $validated = $request->validated();
-                
+
         $id_palestrante = $request->all()['id_palestrante'];
         $request->ds_foto = $this->salvarFoto($request);
         $palestrante = Palestrante::find($request->id_palestrante);
-        $palestrante->id_tp_nacionalidade = $request->id_tp_nacionalidade;
+        $palestrante->ds_nacionalidade = $request->ds_nacionalidade;
         $palestrante->ds_ativo = $request->ds_ativo;
         $palestrante->ds_visivel_site = $request->ds_visivel_site;
         $palestrante->rank_palestrante = $request->rank_palestrante;
         $palestrante->ds_titulo_video = $request->ds_titulo_video;
         $palestrante->ds_url_video = $request->ds_url_video;
         $palestrante->ds_descricao_video = $request->ds_descricao_video;
+        $palestrante->ds_sexo = $request->ds_sexo;
         $palestrante->save();
 
         $dadosContratuais = new DadosContratuais();
@@ -184,7 +185,7 @@ class PalestranteController extends Controller
 
     private function salvarFoto(PalestranteRequest $request)
     {
-        
+
         if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
 
             $extensao = $request->ds_foto->getClientOriginalExtension();
@@ -196,7 +197,7 @@ class PalestranteController extends Controller
 
             $novaImg = public_path('/storage/imagemPalestrante/'.$nomeFinal);
             $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
-           
+
         }
     }
 }

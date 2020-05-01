@@ -91,8 +91,8 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-6">
                                                     <label for="ds_nacionalidade">Nacionalidade</label>
-                                                    <select id="ds_nacionalidade" name="id_tp_nacionalidade"
-                                                            class="form-control form-control-sm {{ $errors->has('id_tp_nacionalidade') ? 'is-invalid' : '' }}" 
+                                                    <select id="ds_nacionalidade" name="ds_nacionalidade"
+                                                            class="form-control form-control-sm {{ $errors->has('ds_nacionalidade') ? 'is-invalid' : '' }}"
                                                             autofocus>
                                                         <option class="form-control form-control-sm" selected
                                                                 disabled>
@@ -107,9 +107,9 @@
                                                             Estrangeiro
                                                         </option>
                                                     </select>
-                                                    @if ($errors->has('id_tp_nacionalidade'))
+                                                    @if ($errors->has('ds_nacionalidade'))
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('id_tp_nacionalidade') }}</strong>
+                                                        <strong>{{ $errors->first('ds_nacionalidade') }}</strong>
                                                     </span>
                                                     @endif
                                                 </div>
@@ -151,8 +151,8 @@
                                                                name="ds_ativo"
                                                                id="ds_disponivel2" value="n">
                                                         <label class="form-check-label"
-                                                               for="ds_disponivel2">Não</label>  
-                                                               
+                                                               for="ds_disponivel2">Não</label>
+
                                                     </div>
                                                     @if ($errors->has('ds_ativo'))
                                                                <p class="invalid-feedback" role="alert">
@@ -160,7 +160,7 @@
                                                                </p>
                                                                @endif
                                                 </div>
-                                              
+
                                                 <div class="col-md-4">
                                                     <label>Visivel no site</label><br>
                                                     <div class="form-check form-check-inline">
@@ -183,7 +183,7 @@
                                                     </span>
                                                     @endif
                                                 </div>
-                                                
+
                                                 <div class="col-md-4">
                                                     <label>Ranking do Palestrante</label><br>
                                                     <div class="rate {{ $errors->has('rank_palestrante') ? 'is-invalid' : '' }}">
@@ -214,10 +214,10 @@
                                                             </span>
                                                             @endif
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
-                                         
+
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     @php
@@ -346,7 +346,7 @@
                                                            @endif
                                                 </div>
                                             </div>
-                                           
+
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <label for="cnpj">CNPJ</label>
@@ -360,7 +360,7 @@
                                                             </span>
                                                             @endif
                                                 </div>
-                                             
+
                                                 <div class="col-md-4">
                                                     <label for="ins_estadual">Inscrição Estadual</label>
                                                     <input id="ins_estadual" type="text"
@@ -372,7 +372,7 @@
                                                            </span>
                                                        @endif
                                                 </div>
-                                               
+
                                                 <div class="col-md-4">
                                                     <label for="ins_municipal">Inscrição Municipal</label>
                                                     <input id="ins_municipal" type="text"
@@ -398,7 +398,7 @@
                                                        @endif
                                                 </div>
                                             </div>
-                                           
+
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <label for="nr_cpf">CPF</label>
@@ -412,7 +412,7 @@
                                                            </span>
                                                        @endif
                                                 </div>
-                                              
+
                                                 <div class="col-md-4">
                                                     <label for="nr_rg">RG</label>
                                                     <input id="nr_rg" type="text"
@@ -425,7 +425,7 @@
                                                             </span>
                                                         @endif
                                                 </div>
-                                               
+
                                                 <div class="col-md-4">
                                                     <label for="dt_nascimento">Data de Nascimento</label>
                                                     <input id="dt_nascimento" type="date"
@@ -438,7 +438,7 @@
                                         @endif
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     <label for="obsevacao">Obsevações</label>
@@ -628,7 +628,7 @@
                                                 </span>
                                                 @endif
                                                 </div>
-                                                
+
                                                 <div class="col-md-6">
                                                     <label for="ds_url_video">URL</label>
                                                     <input id="ds_url_video" type="text"
@@ -641,7 +641,7 @@
                                                            </span>
                                                            @endif
                                                 </div>
-                                            
+
                                                 <div class="col-md-12">
                                                     <label for="ds_descricao_video">Descrição</label>
                                                     <textarea id="ds_descricao_video" type="text"
@@ -654,7 +654,7 @@
                                                               </span>
                                                               @endif
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                     </div>

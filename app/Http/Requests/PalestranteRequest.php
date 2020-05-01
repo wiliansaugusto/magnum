@@ -25,7 +25,7 @@ class PalestranteRequest extends FormRequest
     {
         return [
         'ds_foto' => 'required|image|mimes:jpeg,png,jpg',
-        'id_tp_nacionalidade' => 'required',
+        'ds_nacionalidade' => 'required',
         'ds_sexo' => 'required',
         'ds_ativo' =>'required',
         'ds_visivel_site' => 'required',
@@ -41,9 +41,9 @@ class PalestranteRequest extends FormRequest
         'dt_nascimento' => 'required',
         'rank_palestrante' => 'required',
         'nr_insc_municipal' => 'required',
-        'idiomas' => 'required',    
+        'idiomas' => 'required',
         'categorias' => 'required'
-        
+
         ];
     }
             public function messages()
@@ -59,7 +59,7 @@ class PalestranteRequest extends FormRequest
     return [
         'ds_foto' => 'Foto do Palestrante',
         'ds_sexo' => 'Sexo',
-        'id_tp_nacionalidade' => 'Nacionalidade',
+        'ds_nacionalidade' => 'Nacionalidade',
         'ds_ativo' =>'Disponivel para palestras',
         'ds_visivel_site' => 'Visivel no site',
         'ds_titulo_video' => 'Titulo do Video',
