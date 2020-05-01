@@ -9,7 +9,6 @@ class DadosContratuais extends Model
     protected $table = 'mgm_tbl_dados_contratuais';
 
     protected $fillable = [
-        'id',
         'nm_razao_social', 
         'nr_cnpj',
         'nr_cpf', 

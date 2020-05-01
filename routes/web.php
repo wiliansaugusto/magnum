@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,26 +9,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-use App\Http\Controllers\CategoriaController;
-
 Route::get('/', function () {
     return Redirect::to('/login');
 });
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
-//Route::resource('/dashboard/palestrante/', 'PalestranteController');
-
 Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
-    Route::resource('palestrante/', 'PalestranteController');
+//    Route::resource('palestrante/', 'PalestranteController');
+    Route::get('palestrante/', 'PalestranteController@index');
     Route::get('palestrante/{id}/novo', 'PalestranteController@create');
     Route::get('palestrante/{id}/edit', 'PalestranteController@show');
     Route::delete('palestrante/{id}', 'PalestranteController@destroy');
+    Route::put('palestrante/update/{id}', 'PalestranteController@edit');
     Route::get('palestrante/{id}', 'PalestranteController@show');
     Route::resource('contato/', 'ContatoController');
     Route::resource('categoria/', 'CategoriaController');
@@ -47,4 +41,5 @@ Route::prefix('dashboard')->group(function () {
     Route::post('valor/','ValorController@store');
     Route::post('valor/delete/{id}','ValorController@destroy');
     Route::post('assessor/delete/{id}','AcessorController@destroy');
+    Route::resource('config/', 'ConfigurationController');
 });

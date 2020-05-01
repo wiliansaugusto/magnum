@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use App\DadosContratuais;
+use App\Idiomas;
 use App\IdiomasPalestrante;
 use App\Palestrante;
 use App\PalestranteCategoria;
@@ -50,7 +51,7 @@ class PalestranteController extends Controller
      */
     public function store(PalestranteRequest $request)
     {
-//        $validated = $request->validated();
+        $validated = $request->validated();
 
         $id_palestrante = $request->all()['id_palestrante'];
         $request->ds_foto = $this->salvarFoto($request);
@@ -123,9 +124,88 @@ class PalestranteController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
 
+        $id_palestrante = $request->all()['id_palestrante'];
+        $request->ds_foto = $this->atualizarFoto($request);
+        $palestrante = Palestrante::find($id);
+        $palestrante->nm_palestrante = $request->nm_palestrante;
+        $palestrante->ds_nacionalidade = $request->ds_nacionalidade;
+        $palestrante->ds_ativo = $request->ds_ativo;
+        $palestrante->ds_visivel_site = $request->ds_visivel_site;
+        $palestrante->rank_palestrante = $request->rank_palestrante;
+        $palestrante->ds_titulo_video = $request->ds_titulo_video;
+        $palestrante->ds_url_video = $request->ds_url_video;
+        $palestrante->ds_descricao_video = $request->ds_descricao_video;
+        $palestrante->ds_sexo = $request->ds_sexo;
+        $palestrante->save();
+
+        $dadosContratuais = new DadosContratuais();
+        $dadosContratuais->nm_razao_social = $request->nm_razao_social;
+        $dadosContratuais->nr_cnpj = $request->nr_cnpj;
+        $dadosContratuais->nr_cpf = $request->nr_cpf;
+        $dadosContratuais->nr_insc_estadual = $request->nr_insc_estadual;
+        $dadosContratuais->nm_completo = $request->nm_completo;
+        $dadosContratuais->nr_insc_municipal = $request->nr_insc_municipal;
+        $dadosContratuais->nr_rg = $request->nr_rg;
+        $dadosContratuais->dt_nascimento = $request->dt_nascimento;
+        $dadosContratuais->ds_observacao = $request->ds_observacao;
+        $dadosContratuais->id_palestrante = $request->id_palestrante;
+
+        $dadosContratuais->save();
+
+        $idiomasSalvos = IdiomasPalestrante::where('id_palestrante', $id_palestrante);
+        $idiomasSalvos->delete();
+        $categoriasSalvas = PalestranteCategoria::where('id_palestrante', $id_palestrante);
+        $categoriasSalvas->delete();
+
+        if(array_key_exists('idiomas', $request->all())){
+            $idiomas = $request->all()['idiomas'];
+
+            foreach ($idiomas as $idioma) {
+                $idiomaPalestrante = IdiomasPalestrante::where('id_palestrante', $id_palestrante)
+                    ->where('id_idiomas', $idioma)->first();
+
+                if (empty($idiomaPalestrante)) {
+                    $salvaIdioma = new IdiomasPalestrante();
+                    $salvaIdioma->id_idiomas = $idioma;
+                    $salvaIdioma->id_palestrante = $id_palestrante;
+                    $salvaIdioma->save();
+                }
+            }
+        }
+        if (array_key_exists('categorias', $request->all())) {
+            $categorias = $request->all()['categorias'];
+
+            foreach ($categorias as $categoria) {
+
+                $tipoCat = explode("-", $categoria)[0];
+                $catId = explode("-", $categoria)[1];
+
+                if ($tipoCat == "cat") {
+                    $categoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
+                        ->where('id_categoria', $catId)->first();
+                    if (empty($categoriaPalestrante)) {
+                        $salvaCategoria = new PalestranteCategoria();
+                        $salvaCategoria->id_categoria = $catId;
+                        $salvaCategoria->id_palestrante = $id_palestrante;
+                        $salvaCategoria->save();
+                    }
+                } else {
+                    $subcategoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
+                        ->where('id_subcategoria', $catId)->first();
+
+                    if (empty($subcategoriaPalestrante)) {
+                        $salvaCategoria = new PalestranteCategoria();
+                        $salvaCategoria->id_subcategoria = $catId;
+                        $salvaCategoria->id_palestrante = $id_palestrante;
+                        $salvaCategoria->save();
+                    }
+                }
+            }
+        }
+        return redirect('dashboard/palestrante');
     }
 
     /**
@@ -148,7 +228,7 @@ class PalestranteController extends Controller
     public function destroy(Request $request)
     {
         $palestrante = Palestrante::find($request->id);
-       $palestrante->delete();
+        $palestrante->delete();
 
         return redirect("/dashboard/palestrante");
 
@@ -195,7 +275,25 @@ class PalestranteController extends Controller
             $palestranteFoto->ds_foto = $upload;
             $palestranteFoto->save();
 
-            $novaImg = public_path('/storage/imagemPalestrante/'.$nomeFinal);
+            $novaImg = public_path('/storage/imagemPalestrante/' . $nomeFinal);
+            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
+
+        }
+    }
+
+    private function atualizarFoto(Request $request)
+    {
+
+        if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
+
+            $extensao = $request->ds_foto->getClientOriginalExtension();
+            $nomeFinal = md5($request->nm_palestrante) . '.' . $extensao;
+            $upload = $request->ds_foto->storeAs('imagemPalestrante', $nomeFinal);
+            $palestranteFoto = Palestrante::find($request->id_palestrante);
+            $palestranteFoto->ds_foto = $upload;
+            $palestranteFoto->save();
+
+            $novaImg = public_path('/storage/imagemPalestrante/' . $nomeFinal);
             $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
 
         }

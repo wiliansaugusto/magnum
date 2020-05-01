@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <a href="{{url("/dashboard/config")}}" data-toggle="tooltip" data-placement="top" title="Configurações">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
                         <a data-toggle="tooltip" data-placement="top" title="FullScreen">

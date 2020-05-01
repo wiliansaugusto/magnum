@@ -11,8 +11,10 @@
         <div class="row">
             <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
-                    <form method="POST" action="/dashboard/palestrante/{{$data->id}}" id="palestrante"
+                    <form method="POST" action="/dashboard/palestrante/update/{{$data->id}}" id="palestrante"
                           enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
                         <div class="x_content">
                             <div class="col-md-2 col-sm-2  profile_left">
                                 <div class="col-md-12 col-sm-12">
@@ -25,7 +27,7 @@
                                 <div class="col-md-12 col-sm-12 text-center mt-2">
                                     <input id="ds_foto" type="file"
                                            class="form-control form-control-sm inputFoto"
-                                           name="ds_foto" value="{{$data->ds_foto}}" required autofocus/>
+                                           name="ds_foto" value="{{$data->ds_foto}}"/>
                                     <label for="ds_foto" class="custom-upload-foto" style="width: 100%;">
                                         <i class="fa fa-cloud-upload"></i> {{$data->ds_foto == "" ? 'Carregar foto' : $data->ds_foto}}
                                     </label>
@@ -36,7 +38,6 @@
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 ">
-                                @csrf
                                 <input id="id_palestrante" type="hidden" name="id_palestrante" value="{{$data->id}}"/>
                                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                                 <div class="col-md-12">
@@ -92,9 +93,8 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-6">
                                                     <label for="ds_nacionalidade">Nacionalidade*</label>
-                                                    <select id="ds_nacionalidade" name="id_tp_nacionalidade"
-                                                            class="form-control form-control-sm" required
-                                                            autofocus>
+                                                    <select id="ds_nacionalidade" name="ds_nacionalidade"
+                                                            class="form-control form-control-sm">
                                                         <option class="form-control form-control-sm"
                                                                 {{$data->ds_nacionalidade == "" ? 'selected' : '' }}
                                                                 disabled>
@@ -113,8 +113,7 @@
                                                 <div class="col-md-6">
                                                     <label for="ds_sexo">Sexo*</label>
                                                     <select id="ds_sexo" name="ds_sexo"
-                                                            class="form-control form-control-sm"
-                                                            required autofocus>
+                                                            class="form-control form-control-sm">
                                                         <option class="form-control form-control-sm"
                                                                 {{$data->ds_sexo == "" ? 'selected' : '' }}
                                                                 disabled>
@@ -208,12 +207,15 @@
                                                             style="width: 100%">
                                                         <option></option>
                                                         @foreach ($idiomas as $item)
-                                                            @if(sizeof($data->idiomas) > 0)
-                                                                @foreach($data->idiomas as $idioma)
-                                                                    <option value="{{$item->id}}" {{$item->id == $idioma->id ? 'selected="selected"' : ''}}>
-                                                                        {{$item->ds_idioma}}
-                                                                    </option>
-                                                                @endforeach
+                                                            @php
+                                                                $idiomaPalestrante = App\IdiomasPalestrante::where('id_palestrante', $data->id)
+                                                                    ->where('id_idiomas', $item->id)->first();
+                                                            @endphp
+                                                            @if(!empty($idiomaPalestrante))
+                                                                <option value="{{$item->id}}"
+                                                                        selected="selected">
+                                                                    {{$item->ds_idioma}}
+                                                                </option>
                                                             @else
                                                                 <option value="{{$item->id}}">
                                                                     {{$item->ds_idioma}}
@@ -368,90 +370,177 @@
                                         </div>
                                         <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
                                              aria-labelledby="nav-profile-tab">
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-12">
-                                                    <label for="nm_razao_social">Razão Social</label>
-                                                    <input id="nm_razao_social" type="text"
-                                                           class="form-control form-control-sm"
-                                                           name="nm_razao_social"
-                                                           value="{{$data->dadosContratuais->nm_razao_social == "" ? "" : $data->dadosContratuais->nm_razao_social}}"
-                                                           required/>
+                                            @if(is_object($data->dadosContratuais))
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-12">
+                                                        <label for="nm_razao_social">Razão Social</label>
+                                                        <input id="nm_razao_social" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nm_razao_social"
+                                                               value="{{$data->dadosContratuais->nm_razao_social == "" ? "" : $data->dadosContratuais->nm_razao_social}}"
+                                                               required/>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <label for="cnpj">CNPJ</label>
-                                                    <input id="cnpj" type="text"
-                                                           class="form-control form-control-sm"
-                                                           data-mask="00.000.000/0000-00" name="cnpj"
-                                                           value="{{$data->dadosContratuais->nr_cnpj == "" ? "" : $data->dadosContratuais->nr_cnpj}}"
-                                                           required/>
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-4">
+                                                        <label for="cnpj">CNPJ</label>
+                                                        <input id="cnpj" type="text"
+                                                               class="form-control form-control-sm"
+                                                               data-mask="00.000.000/0000-00" name="nr_cnpj"
+                                                               value="{{$data->dadosContratuais->nr_cnpj == "" ? "" : $data->dadosContratuais->nr_cnpj}}"
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="insc_estadual">Inscrição Estadual</label>
+                                                        <input id="insc_estadual" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nr_insc_estadual"
+                                                               value="{{$data->dadosContratuais->nr_insc_estadual == "" ? "" : $data->dadosContratuais->nr_insc_estadual}}"
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="insc_municipal">Inscrição Municipal</label>
+                                                        <input id="insc_municipal" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nr_insc_municipal"
+                                                               value="{{$data->dadosContratuais->nr_insc_municipal == "" ? "" : $data->dadosContratuais->nr_insc_municipal}}"
+                                                               required/>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <label for="insc_estadual">Inscrição Estadual</label>
-                                                    <input id="insc_estadual" type="text"
-                                                           class="form-control form-control-sm"
-                                                           name="ins_estadual"
-                                                           value="{{$data->dadosContratuais->nr_insc_estadual == "" ? "" : $data->dadosContratuais->nr_insc_estadual}}"
-                                                           required/>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="insc_municipal">Inscrição Municipal</label>
-                                                    <input id="insc_municipal" type="text"
-                                                           class="form-control form-control-sm"
-                                                           name="ins_municipal"
-                                                           value="{{$data->dadosContratuais->nr_insc_municipal == "" ? "" : $data->dadosContratuais->nr_insc_municipal}}"
-                                                           required/>
-                                                </div>
-                                            </div>
 
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-12">
-                                                    <label for="nm_completo">Nome Completo</label>
-                                                    <input id="nm_completo" type="text"
-                                                           class="form-control form-control-sm"
-                                                           name="nm_completo"
-                                                           value="{{$data->dadosContratuais->nm_completo == "" ? "" : $data->dadosContratuais->nm_completo}}"
-                                                           required/>
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-12">
+                                                        <label for="nm_completo">Nome Completo</label>
+                                                        <input id="nm_completo" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nm_completo"
+                                                               value="{{$data->dadosContratuais->nm_completo == "" ? "" : $data->dadosContratuais->nm_completo}}"
+                                                               required/>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <label for="nr_cpf">CPF</label>
-                                                    <input id="nr_cpf" type="text"
-                                                           class="form-control form-control-sm"
-                                                           data-mask="000.000.000-00" name="nr_cpf"
-                                                           value="{{$data->dadosContratuais->nr_cpf == "" ? "" : $data->dadosContratuais->nr_cpf}}"
-                                                           required/>
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-4">
+                                                        <label for="nr_cpf">CPF</label>
+                                                        <input id="nr_cpf" type="text"
+                                                               class="form-control form-control-sm"
+                                                               data-mask="000.000.000-00" name="nr_cpf"
+                                                               value="{{$data->dadosContratuais->nr_cpf == "" ? "" : $data->dadosContratuais->nr_cpf}}"
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="nr_rg">RG</label>
+                                                        <input id="nr_rg" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nr_rg" data-mask="00.000.000-0"
+                                                               value="{{$data->dadosContratuais->nr_rg == "" ? "" : $data->dadosContratuais->nr_rg}}"
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="dt_nascimento">Data de Nascimento</label>
+                                                        <input id="dt_nascimento" type="date"
+                                                               class="form-control form-control-sm"
+                                                               name="dt_nascimento"
+                                                               value="{{$data->dadosContratuais->dt_nascimento == "" ? "" : $data->dadosContratuais->dt_nascimento}}"
+                                                               required/>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <label for="nr_rg">RG</label>
-                                                    <input id="nr_rg" type="text"
-                                                           class="form-control form-control-sm"
-                                                           name="nr_rg" data-mask="00.000.000-0"
-                                                           value="{{$data->dadosContratuais->nr_rg == "" ? "" : $data->dadosContratuais->nr_rg}}"
-                                                           required/>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="dt_nascimento">Data de Nascimento</label>
-                                                    <input id="dt_nascimento" type="date"
-                                                           class="form-control form-control-sm"
-                                                           name="dt_nascimento"
-                                                           value="{{$data->dadosContratuais->dt_nascimento == "" ? "" : $data->dadosContratuais->dt_nascimento}}"
-                                                           required/>
-                                                </div>
-                                            </div>
 
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-12">
-                                                    <label for="ds_observacao">Obsevações</label>
-                                                    <textarea id="ds_observacao" type="text"
-                                                              class="form-control form-control-sm"
-                                                              name="ds_observacao">{{$data->dadosContratuais->ds_observacao == "" ? "" : $data->dadosContratuais->ds_observacao}}</textarea>
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-12">
+                                                        <label for="ds_observacao">Obsevações</label>
+                                                        <textarea id="ds_observacao" type="text"
+                                                                  class="form-control form-control-sm"
+                                                                  name="ds_observacao">{{$data->dadosContratuais->ds_observacao == "" ? "" : $data->dadosContratuais->ds_observacao}}</textarea>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @else
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-12">
+                                                        <label for="nm_razao_social">Razão Social</label>
+                                                        <input id="nm_razao_social" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nm_razao_social"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-4">
+                                                        <label for="cnpj">CNPJ</label>
+                                                        <input id="cnpj" type="text"
+                                                               class="form-control form-control-sm"
+                                                               data-mask="00.000.000/0000-00" name="nr_cnpj"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="insc_estadual">Inscrição Estadual</label>
+                                                        <input id="insc_estadual" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nr_insc_estadual"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="insc_municipal">Inscrição Municipal</label>
+                                                        <input id="insc_municipal" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nr_insc_municipal"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-12">
+                                                        <label for="nm_completo">Nome Completo</label>
+                                                        <input id="nm_completo" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nm_completo"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-4">
+                                                        <label for="nr_cpf">CPF</label>
+                                                        <input id="nr_cpf" type="text"
+                                                               class="form-control form-control-sm"
+                                                               data-mask="000.000.000-00" name="nr_cpf"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="nr_rg">RG</label>
+                                                        <input id="nr_rg" type="text"
+                                                               class="form-control form-control-sm"
+                                                               name="nr_rg" data-mask="00.000.000-0"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="dt_nascimento">Data de Nascimento</label>
+                                                        <input id="dt_nascimento" type="date"
+                                                               class="form-control form-control-sm"
+                                                               name="dt_nascimento"
+                                                               value=""
+                                                               required/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-md-12">
+                                                        <label for="ds_observacao">Obsevações</label>
+                                                        <textarea id="ds_observacao" type="text"
+                                                                  class="form-control form-control-sm"
+                                                                  name="ds_observacao"></textarea>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </div>
                                         <div class="tab-pane fade" id="nav-banco" role="tabpanel"
                                              aria-labelledby="nav-banco-tab">
