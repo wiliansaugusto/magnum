@@ -30,7 +30,7 @@
                     <button type="submit" class="btn btn-primary btn-sm">
                         <i class="fa fa-save"></i> Salvar
                     </button>
-                    <button type="reset" class="btn btn-warning btn-sm">
+                    <button type="reset" class="btn btn-warning btn-sm text-white">
                         <i class="fa fa-eraser"></i> Limpar
                     </button>
                     <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">

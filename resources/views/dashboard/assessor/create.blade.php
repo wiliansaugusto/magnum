@@ -49,7 +49,7 @@
                     <button type="submit" class="btn btn-primary">
                         Salvar
                     </button>
-                    <button type="reset" class="btn btn-warning">
+                    <button type="reset" class="btn btn-warning text-white">
                         Limpar
                     </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -99,7 +99,7 @@
                     <button type="submit" class="btn btn-primary">
                         Salvar
                     </button>
-                    <button type="reset" class="btn btn-warning">
+                    <button type="reset" class="btn btn-warning text-white">
                         Limpar
                     </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>

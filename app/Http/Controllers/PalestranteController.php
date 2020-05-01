@@ -124,7 +124,7 @@ class PalestranteController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit(PalestranteRequest $request, $id)
     {
 
         $id_palestrante = $request->all()['id_palestrante'];
