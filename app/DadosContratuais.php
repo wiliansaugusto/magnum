@@ -23,4 +23,7 @@ class DadosContratuais extends Model
 
     ];
 
+    public function dadosContratuaisPalestrante(){
+        return $this->hasOne(Palestrante::class, 'id_palestrante', 'id');
+    }
 }

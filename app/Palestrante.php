@@ -41,7 +41,7 @@ class Palestrante extends Model
         return $this->hasMany(User::class);
     }
 
-    public function palestranteBancos()
+    public function bancos()
     {
         return $this->hasMany(Banco::class, 'id_palestrante');
     }
@@ -64,5 +64,10 @@ class Palestrante extends Model
     public function valores()
     {
         return $this->hasMany(Valor::class, 'id_palestrante');
+    }
+
+    public function enderecos()
+    {
+        return $this->hasMany(Endereco::class, 'id_palestrante');
     }
 }

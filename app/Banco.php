@@ -15,13 +15,13 @@ class Banco extends Model
         'id_nm_banco',
         'id_palestrante'
     ];
-    public function bancoPalestrante()
+    public function palestrante()
     {
         return $this->belongsTo(Palestrante::class, 'id');
 
     }
 
-    public function nomeBancos()
+    public function nomeBanco()
     {
         return $this->belongsTo(
             NomeBanco::class,

@@ -24,4 +24,9 @@ class Endereco extends Model
     {
         return $this->belongsTo('App\TipoEndereco', 'id_tp_endereco');
     }
+
+    public function palestrante()
+    {
+        return $this->belongsTo('App\Palestrante', 'id_palestrante', 'id');
+    }
 }

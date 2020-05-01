@@ -289,11 +289,28 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr id="contato-null">
-                                                            <td colspan="3" class="text-center"> Nenhum contato
-                                                                registrado
-                                                            </td>
-                                                        </tr>
+                                                        @if(sizeof($data->contatos) > 0)
+                                                            @foreach($data->contatos as $contato)
+                                                                <tr id="{{$contato->id}}">
+                                                                    <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
+                                                                    <td>{{$contato->ds_contato}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirBanco-{{$contato->id}}' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-id=" {{$contato->id}}"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverContatoModal'><i
+                                                                                    class='fa fa-trash'></i></button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @else
+                                                            <tr id="contato-null">
+                                                                <td colspan="3" class="text-center"> Nenhum contato
+                                                                    registrado
+                                                                </td>
+                                                            </tr>
+                                                        @endif
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -320,11 +337,25 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr id="endereco-null">
-                                                            <td colspan="3" class="text-center"> Nenhum endereço
-                                                                registrado
-                                                            </td>
-                                                        </tr>
+                                                        @if(sizeof($data->enderecos) > 0)
+                                                            @foreach($data->enderecos as $endereco)
+                                                                <tr id="{{$endereco->id}}">
+                                                                    <td>{{$endereco->tipoEndereco->nm_tipo_endereco}}</td>
+                                                                    <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirEndereco' type='button' class='btn btn-danger btn-sm' data-id="{{$endereco->id}}" data-toggle='modal' data-target='#frmRemoverEnderecoModal'>
+                                                                            <i class='fas fa-trash'></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                            @endforeach
+                                                        @else
+                                                            <tr id="endereco-null">
+                                                                <td colspan="3" class="text-center"> Nenhum endereço
+                                                                    registrado
+                                                                </td>
+                                                            </tr>
+                                                        @endif
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -413,8 +444,7 @@
                                                     <label for="ds_observacao">Obsevações</label>
                                                     <textarea id="ds_observacao" type="text"
                                                               class="form-control form-control-sm"
-                                                              name="ds_observacao"
-                                                              required>{{$data->dadosContratuais->ds_observacao == "" ? "" : $data->dadosContratuais->ds_observacao}}</textarea>
+                                                              name="ds_observacao">{{$data->dadosContratuais->ds_observacao == "" ? "" : $data->dadosContratuais->ds_observacao}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -441,11 +471,29 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr id="banco-null">
-                                                            <td colspan="4" class="text-center"> Nenhum banco
-                                                                registrado
-                                                            </td>
-                                                        </tr>
+                                                        @if(sizeof($data->bancos) > 0)
+                                                            @foreach($data->bancos as $banco)
+                                                                <tr id="{{$banco->id}}">
+                                                                    <td>{{$banco->nomeBanco->nm_banco}}</td>
+                                                                    <td>{{$banco->nr_agencia}}</td>
+                                                                    <td>{{$banco->nr_conta}}</td>
+                                                                    <td class='text-right'>
+                                                                        <button id='excluirBanco' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-id=" {{$banco->id}}"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverBancoModal'><i
+                                                                                    class='fa fa-trash'></i></button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @else
+                                                            <tr id="banco-null">
+                                                                <td colspan="4" class="text-center"> Nenhum banco
+                                                                    registrado
+                                                                </td>
+                                                            </tr>
+                                                        @endif
                                                         </tbody>
                                                     </table>
                                                 </div>
