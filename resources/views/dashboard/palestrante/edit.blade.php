@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-10 col-sm-10 ">
                                 @csrf
-                                <input id="id_palestrante" type="hidden" name="id_palestrante" value=""/>
+                                <input id="id_palestrante" type="hidden" name="id_palestrante" value="{{$data->id}}"/>
                                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                                 <div class="col-md-12">
                                     <nav>
@@ -295,7 +295,8 @@
                                                                     <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
                                                                     <td>{{$contato->ds_contato}}</td>
                                                                     <td class='text-right'>
-                                                                        <button id='excluirBanco-{{$contato->id}}' type='button'
+                                                                        <button id='excluirBanco-{{$contato->id}}'
+                                                                                type='button'
                                                                                 class='btn btn-danger btn-sm'
                                                                                 data-id=" {{$contato->id}}"
                                                                                 data-toggle='modal'
@@ -343,11 +344,15 @@
                                                                     <td>{{$endereco->tipoEndereco->nm_tipo_endereco}}</td>
                                                                     <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
                                                                     <td class='text-right'>
-                                                                        <button id='excluirEndereco' type='button' class='btn btn-danger btn-sm' data-id="{{$endereco->id}}" data-toggle='modal' data-target='#frmRemoverEnderecoModal'>
-                                                                            <i class='fas fa-trash'></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
+                                                                        <button id='excluirEndereco' type='button'
+                                                                                class='btn btn-danger btn-sm'
+                                                                                data-id="{{$endereco->id}}"
+                                                                                data-toggle='modal'
+                                                                                data-target='#frmRemoverEnderecoModal'>
+                                                                            <i class='fa fa-trash'></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
                                                             @endforeach
                                                         @else
                                                             <tr id="endereco-null">
@@ -818,9 +823,6 @@
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             <i class="fa fa-save"></i> Salvar
-                                        </button>
-                                        <button type="reset" class="btn btn-warning btn-sm">
-                                            <i class="fa fa-eraser"></i> Limpar
                                         </button>
                                         <button type="button" class="btn btn-danger btn-sm">
                                             <i class="fa fa-close"></i> Cancelar

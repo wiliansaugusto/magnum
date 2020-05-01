@@ -1,5 +1,5 @@
 $(document).ready(function () {
- 
+
     //AJAX Request
     $('#frmContatoPalestrante').submit(function (event) {
         event.preventDefault();
@@ -327,7 +327,7 @@ $(document).ready(function () {
                 $('#' + id).remove();
                 if ($('#tblAssessor tbody tr').length <= 0) {
                     $("#tblAssessor tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center"> Nenhum Assessor registrado</td></tr>');
-                    
+
                 }
             },
             error: function () {
@@ -384,7 +384,7 @@ $(document).ready(function () {
         linha += "<td>" + fields.nr_agencia + "</td>";
         linha += "<td>" + fields.nr_conta + "</td>";
         linha += "<td class='text-right'>";
-        linha += "<button id='excluirBanco' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_banco + "' data-toggle='modal' data-target='#frmRemoverBancoModal'><i class='fas fa-trash'></i></button>";
+        linha += "<button id='excluirBanco' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_banco + "' data-toggle='modal' data-target='#frmRemoverBancoModal'><i class='fa fa-trash'></i></button>";
         linha += "</td>";
         linha += "</tr>";
 
@@ -399,7 +399,7 @@ $(document).ready(function () {
         linha += "<td>" + fields.ds_contato + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirContatoAssessor' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_contato + "' data-toggle='modal' data-target='#frmRemoverContatoModal'>";
-        linha += "<i class='fas fa-trash'></i>";
+        linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";
         linha += "</td>";
         linha += "<input type='hidden' name='id_contato[]' value='" + fields.id_contato + "' />";
@@ -417,7 +417,7 @@ $(document).ready(function () {
         linha += "<td>" + fields.ds_contato + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirContato' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_contato + "' data-toggle='modal' data-target='#frmRemoverContatoModal'>";
-        linha += "<i class='fas fa-trash'></i>";
+        linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";
         linha += "</td>";
         linha += "</tr>";
@@ -433,7 +433,7 @@ $(document).ready(function () {
         linha += "<td>" + fields.nm_acessor + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirAssessor' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id + "' data-toggle='modal' data-target='#frmRemoverAssessorModal'>";
-        linha += "<i class='fas fa-trash'></i>";
+        linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";
         linha += "</td>";
         linha += "</tr>";
@@ -449,7 +449,7 @@ $(document).ready(function () {
         linha += "<td>" + fields.nr_valor + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirValor' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_valor + "' data-toggle='modal' data-target='#frmRemoverValorModal'>";
-        linha += "<i class='fas fa-trash'></i>";
+        linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";
         linha += "</td>";
         linha += "</tr>";
@@ -465,7 +465,7 @@ $(document).ready(function () {
         linha += "<td class='text-truncate'>" + fields.descricao + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirDescricao' type='button' class='btn btn-danger btn-sm' data-tipo='" + campo + "' data-toggle='modal' data-target='#frmRemoverDescricaoModal'>";
-        linha += "<i class='fas fa-trash'></i>";
+        linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";
         linha += "</td>";
         linha += "</tr>";
@@ -482,7 +482,7 @@ $(document).ready(function () {
         linha += "<td>" + fields.endereco + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirEndereco' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
-        linha += "<i class='fas fa-trash'></i>";
+        linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";
         linha += "</td>";
         linha += "</tr>";
@@ -574,13 +574,13 @@ $(document).ready(function () {
         const fileReader = new FileReader();
 
         var ext = $('#ds_foto').val().split('.').pop().toLowerCase();
-        if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+        if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
             $("#imgFoto").fadeOut(500);
             $(".custom-upload-foto").html("<i class=\"fa fa-cloud-upload\"></i> Carregar Foto");
             $("#imgFoto").attr('src', window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/img/no-image.png");
             $("#imgFoto").fadeIn(500);
             $('#file_invalid').fadeIn(500);
-        }else {
+        } else {
             fileReader.onloadend = function () {
                 $("#imgFoto").fadeOut(500);
                 $("#imgFoto").removeAttr('src');
