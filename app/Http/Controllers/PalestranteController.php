@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Categoria;
-use App\DadosContratuais;
 use App\Idiomas;
-use App\IdiomasPalestrante;
+use App\Categoria;
 use App\Palestrante;
-use App\PalestranteCategoria;
 use App\SubCategoria;
+use App\DadosContratuais;
+use App\IdiomasPalestrante;
 use Illuminate\Http\Request;
+use App\PalestranteCategoria;
+use App\Http\Controllers\Controller;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PalestranteRequest;
-use Image;
-
 
 class PalestranteController extends Controller
 {
@@ -124,7 +126,7 @@ class PalestranteController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit(PalestranteRequest $request, $id)
     {
 
         $id_palestrante = $request->all()['id_palestrante'];
@@ -271,31 +273,73 @@ class PalestranteController extends Controller
             $extensao = $request->ds_foto->getClientOriginalExtension();
             $nomeFinal = md5($request->nm_palestrante) . '.' . $extensao;
             $upload = $request->ds_foto->storeAs('imagemPalestrante', $nomeFinal);
+            /*
+            $novaImg = imagecreatefrompng('storage/'.$upload);
+            $crop_width = imagesx($novaImg);
+            $crop_height = imagesy($novaImg);
+            $minimo = ($crop_height <= $crop_width) ? $crop_height : $crop_width;
+            $imgCortada = imagecrop($novaImg, ['x' =>( $crop_width /2), 'y' => ($crop_height/2),
+            'width' => ($minimo/2), 'height' =>($minimo/2)]);
+            */
+            //Storage::delete([$upload]);
+
+            $manager = new ImageManager(array('driver' => 'GD'));
+            $image = $manager->make($request->ds_foto);
+            $image->fit(300);
+            $image->save('storage/'.$upload);
+
+
+
+            //salva no banco
             $palestranteFoto = Palestrante::find($request->id_palestrante);
             $palestranteFoto->ds_foto = $upload;
-            $palestranteFoto->save();
-
-            $novaImg = public_path('/storage/imagemPalestrante/' . $nomeFinal);
-            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
+            $teste = $palestranteFoto->save();
 
         }
     }
 
-    private function atualizarFoto(Request $request)
+    private function atualizarFoto(PalestranteRequest $request)
     {
 
         if ($request->hasFile('ds_foto') && $request->file('ds_foto')->isValid()) {
 
             $extensao = $request->ds_foto->getClientOriginalExtension();
             $nomeFinal = md5($request->nm_palestrante) . '.' . $extensao;
-            $upload = $request->ds_foto->storeAs('imagemPalestrante', $nomeFinal);
-            $palestranteFoto = Palestrante::find($request->id_palestrante);
-            $palestranteFoto->ds_foto = $upload;
-            $palestranteFoto->save();
+            //$upload = $request->ds_foto->storeAs('imagemPalestrante', $nomeFinal);
+            //$palestranteFoto = Palestrante::find($request->id_palestrante);
+            //$palestranteFoto->ds_foto = $upload;
+            //$palestranteFoto->save();
+//            $novaImg = public_path('/storage/imagemPalestrante/' . $nomeFinal);
+//            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
 
-            $novaImg = public_path('/storage/imagemPalestrante/' . $nomeFinal);
-            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
 
+            $diretorio = dir(public_path("storage\imagemPalestrante"));
+            $salvar=0;
+            while($arquivo = $diretorio->read()){
+                echo ($arquivo."<br>".$nomeFinal."<hr>");
+                if($arquivo == $nomeFinal){
+                        $this->salvar = 0;
+                echo("achou<br>");
+
+                }else{
+                    $this->salvar = 1;
+                    echo("não achou<br>");
+                break;
+                }
+            }
+            $diretorio -> close();
+
+            if($salvar = 1){
+                $manager = new ImageManager(array('driver' => 'GD'));
+                $image = $manager->make($request->ds_foto);
+                $image->fit(300);
+                $upload=$image->save('storage/imagemPalestrante/'.$nomeFinal);
+
+
+                $palestranteFoto = Palestrante::find($request->id_palestrante);
+                $palestranteFoto->ds_foto = "imagemPalestrante/".$nomeFinal;
+                $palestranteFoto->save();
+}
         }
     }
 }
