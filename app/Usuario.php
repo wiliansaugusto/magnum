@@ -2,18 +2,27 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
     protected $table = 'mgm_tbl_usuario';
 
     protected $fillable = [
-        'nm_usuario', 'ds_nickname', 'email', 'password',
+        'nm_usuario', 'email', 'password', 'ds_nickname', 'id_perfil',
     ];
 
-    public function usuario()
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function perfil()
     {
-        return $this->belongsTo('App\Palestrante');
+        return $this->belongsTo(Perfil::class, 'id_perfil');
+    }
+
+    public function palestrantes()
+    {
+        return $this->belongsTo(Palestrante::class, 'id_usuario', 'id');
     }
 }

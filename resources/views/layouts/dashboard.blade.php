@@ -39,7 +39,7 @@
                     <div class="profile clearfix">
                         <div class="profile_info">
                             <span>Bem vindo,</span>
-                            <h2>{{ Auth::user()->name }}</h2>
+                            <h2>{{ Auth::user()->ds_nickname }}</h2>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -94,7 +94,7 @@
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                    id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->ds_nickname }}
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
