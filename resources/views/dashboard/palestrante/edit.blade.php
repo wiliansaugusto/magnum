@@ -20,7 +20,7 @@
                                 <div class="col-md-12 col-sm-12">
                                     <div id="crop-avatar">
                                         <img id="imgFoto" class="img-responsive avatar-view"
-                                             src="{{ $data->ds_foto != "" ? storage_path('public/' . $data->ds_foto) : asset('img/no-image.png')}}"
+                                             src="{{ $data->ds_foto != "" ? asset('storage/' . $data->ds_foto) : asset('img/no-image.png')}}"
                                              alt="Avatar" title="Change the avatar" style="width: 100%">
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                                     <label for="nm_palestrante">Nome do
                                                         Palestrante*</label>
                                                     <input id="nm_palestrante" type="text"
-                                                           class="form-control form-control-sm"
+                                                           class="form-control form-control-sm "
                                                            name="nm_palestrante" value="{{$data->nm_palestrante }}"
                                                            autofocus/>
                                                 </div>
@@ -378,7 +378,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_razao_social"
                                                                value="{{$data->dadosContratuais->nm_razao_social == "" ? "" : $data->dadosContratuais->nm_razao_social}}"
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -388,8 +388,8 @@
                                                         <input id="cnpj" type="text"
                                                                class="form-control form-control-sm"
                                                                data-mask="00.000.000/0000-00" name="nr_cnpj"
-                                                               value="{{$data->dadosContratuais->nr_cnpj == "" ? "" : $data->dadosContratuais->nr_cnpj}}"
-                                                               required/>
+                                                               value="{{$data->dadosContratuais->nr_cnpj == "" ? "" : $data->dadosContratuais->nr_cnpj }}"
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_estadual">Inscrição Estadual</label>
@@ -397,7 +397,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_estadual"
                                                                value="{{$data->dadosContratuais->nr_insc_estadual == "" ? "" : $data->dadosContratuais->nr_insc_estadual}}"
-                                                               required/>
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_municipal">Inscrição Municipal</label>
@@ -405,7 +405,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_municipal"
                                                                value="{{$data->dadosContratuais->nr_insc_municipal == "" ? "" : $data->dadosContratuais->nr_insc_municipal}}"
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -416,7 +416,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_completo"
                                                                value="{{$data->dadosContratuais->nm_completo == "" ? "" : $data->dadosContratuais->nm_completo}}"
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -427,7 +427,7 @@
                                                                class="form-control form-control-sm"
                                                                data-mask="000.000.000-00" name="nr_cpf"
                                                                value="{{$data->dadosContratuais->nr_cpf == "" ? "" : $data->dadosContratuais->nr_cpf}}"
-                                                               required/>
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="nr_rg">RG</label>
@@ -435,7 +435,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_rg" data-mask="00.000.000-0"
                                                                value="{{$data->dadosContratuais->nr_rg == "" ? "" : $data->dadosContratuais->nr_rg}}"
-                                                               required/>
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="dt_nascimento">Data de Nascimento</label>
@@ -443,7 +443,7 @@
                                                                class="form-control form-control-sm"
                                                                name="dt_nascimento"
                                                                value="{{$data->dadosContratuais->dt_nascimento == "" ? "" : $data->dadosContratuais->dt_nascimento}}"
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -463,7 +463,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_razao_social"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -474,7 +474,7 @@
                                                                class="form-control form-control-sm"
                                                                data-mask="00.000.000/0000-00" name="nr_cnpj"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_estadual">Inscrição Estadual</label>
@@ -482,7 +482,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_estadual"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_municipal">Inscrição Municipal</label>
@@ -490,7 +490,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_municipal"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -501,7 +501,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_completo"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -512,7 +512,7 @@
                                                                class="form-control form-control-sm"
                                                                data-mask="000.000.000-00" name="nr_cpf"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="nr_rg">RG</label>
@@ -520,7 +520,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_rg" data-mask="00.000.000-0"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="dt_nascimento">Data de Nascimento</label>
@@ -528,7 +528,7 @@
                                                                class="form-control form-control-sm"
                                                                name="dt_nascimento"
                                                                value=""
-                                                               required/>
+                                                               />
                                                     </div>
                                                 </div>
 
@@ -909,7 +909,20 @@
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
-                                    <div class="text-right">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        </div>
+
+                                    <div class="col-md-auto text-right">
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             <i class="fa fa-save"></i> Salvar
                                         </button>
@@ -917,6 +930,7 @@
                                             <i class="fa fa-close"></i> Cancelar
                                         </button>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>

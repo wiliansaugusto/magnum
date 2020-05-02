@@ -84,7 +84,7 @@
                                                     <label for="nm_palestrante">Nome do
                                                         Palestrante</label>
                                                     <input id="nm_palestrante" type="text"
-                                                           class="form-control form-control-sm"
+                                                           class="form-control form-control-sm "
                                                            name="nm_palestrante" value="{{$data->nm_palestrante}}" autofocus readonly>
                                                 </div>
                                             </div>

@@ -18,7 +18,7 @@ Auth::routes();
 Route::prefix('dashboard')->group(function () {
     Route::resource('/', 'HomeController');
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
-//    Route::resource('palestrante/', 'PalestranteController');
+    Route::resource('palestrante/', 'PalestranteController');
     Route::get('palestrante/', 'PalestranteController@index');
     Route::get('palestrante/{id}/novo', 'PalestranteController@create');
     Route::get('palestrante/{id}/edit', 'PalestranteController@show');
@@ -37,7 +37,7 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('assessor/', 'AcessorController');
     Route::post('descricao/', 'DescricaoController@store');
     Route::resource('endereco/', 'EnderecoController');
-    Route::post('update/', 'PalestranteController@update');
+    Route::post('palestrante/update/{id}', 'PalestranteController@edit');
     Route::post('valor/','ValorController@store');
     Route::post('valor/delete/{id}','ValorController@destroy');
     Route::post('assessor/delete/{id}','AcessorController@destroy');
