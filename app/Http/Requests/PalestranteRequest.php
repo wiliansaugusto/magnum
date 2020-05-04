@@ -24,7 +24,7 @@ class PalestranteRequest extends FormRequest
     public function rules()
     {
         return [
-        'ds_foto' => 'required|image|mimes:jpeg,png,jpg',
+        'ds_foto' => 'image|mimes:jpeg,png,jpg',
         'ds_nacionalidade' => 'required',
         'ds_sexo' => 'required',
         'ds_ativo' =>'required',
@@ -50,8 +50,8 @@ class PalestranteRequest extends FormRequest
         {
             return [
                 'required' => 'O campo :attribute é obrigatório',
-                'image' => 'A :attribute está em formatao inválido',
-                'url' =>  'Endereço não disponível'
+                'image' => 'A :attribute está em formato inválido',
+                'url' =>  'Url não disponível'
             ];
         }
         public function attributes()

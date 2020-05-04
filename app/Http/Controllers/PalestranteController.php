@@ -282,10 +282,8 @@ class PalestranteController extends Controller
             'width' => ($minimo/2), 'height' =>($minimo/2)]);
             */
             //Storage::delete([$upload]);
-
-            $manager = new ImageManager(array('driver' => 'GD'));
-            $image = $manager->make($request->ds_foto);
-            $image->fit(300);
+            $image = Image::make($request->ds_foto);
+            $image->fit(500)->orientate();
             $image->save('storage/'.$upload);
 
 
@@ -313,7 +311,7 @@ class PalestranteController extends Controller
 //            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
 
 
-            $diretorio = dir(public_path("storage\imagemPalestrante"));
+            $diretorio = dir(public_path("storage/imagemPalestrante"));
             $salvar=0;
             while($arquivo = $diretorio->read()){
                 echo ($arquivo."<br>".$nomeFinal."<hr>");
@@ -330,11 +328,10 @@ class PalestranteController extends Controller
             $diretorio -> close();
 
             if($salvar = 1){
-                $manager = new ImageManager(array('driver' => 'GD'));
-                $image = $manager->make($request->ds_foto);
-                $image->fit(300);
-                $upload=$image->save('storage/imagemPalestrante/'.$nomeFinal);
 
+                $image = Image::make($request->ds_foto);
+                $image->fit(500)->orientate();
+                $upload=$image->save('storage/imagemPalestrante/'.$nomeFinal);
 
                 $palestranteFoto = Palestrante::find($request->id_palestrante);
                 $palestranteFoto->ds_foto = "imagemPalestrante/".$nomeFinal;
