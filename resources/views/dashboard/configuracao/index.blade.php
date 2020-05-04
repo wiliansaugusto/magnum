@@ -15,4 +15,8 @@
             </div>
         </div>
     </div>
+    @php
+        $usuarios = App\Usuario::select('id','nm_usuario','created_at')->get();
+    @endphp
+    @include('dashboard.usuario.list', ['usuarios' => $usuarios])
 @endsection

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ConfigurationController extends Controller
 {
@@ -17,7 +19,11 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-        return view('dashboard.configuracao.index');
+        $usuarios = Usuario::select('id','nm_usuario','created_at')->get();
+         $data = array(
+            'usuarios' => $usuarios
+        );
+        return view('dashboard.configuracao.index')->with('data', $data);
     }
 
     /**
@@ -84,5 +90,16 @@ class ConfigurationController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function register(Request $request){
+        Usuario::create([
+            'nm_usuario' => $request->all()['nm_usuario'],
+            'email' => $request->all()['email'],
+            'password' => Hash::make($request->all()['password']),
+            'id_perfil' => 1,
+        ]);
+
+        return redirect('dashboard/config');
     }
 }
