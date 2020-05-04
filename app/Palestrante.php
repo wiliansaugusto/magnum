@@ -38,7 +38,7 @@ class Palestrante extends Model
 
     public function usuario()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Usuario::class, 'id_usuario');
     }
 
     public function bancos()
