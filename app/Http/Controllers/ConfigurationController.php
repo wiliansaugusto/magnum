@@ -102,4 +102,11 @@ class ConfigurationController extends Controller
 
         return redirect('dashboard/config');
     }
+
+    public function deleteUsuario($id){
+        $usuario = Usuario::find($id);
+        $usuario->delete();
+
+        return redirect('dashboard/config');
+    }
 }

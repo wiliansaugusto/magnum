@@ -43,4 +43,5 @@ Route::prefix('dashboard')->group(function () {
     Route::post('assessor/delete/{id}','AcessorController@destroy');
     Route::resource('config/', 'ConfigurationController');
     Route::post('register/', 'ConfigurationController@register');
+    Route::delete('usuario/{id}', 'ConfigurationController@deleteUsuario');
 });
