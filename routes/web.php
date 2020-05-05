@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::prefix('dashboard')->group(function () {
+Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard'], function () {
     Route::resource('/', 'HomeController');
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
     Route::resource('palestrante/', 'PalestranteController');
@@ -44,6 +44,6 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('config/', 'ConfigurationController');
     Route::post('register/', 'ConfigurationController@register');
     Route::delete('usuario/{id}', 'ConfigurationController@deleteUsuario');
-    Route::post('pesquisar/', 'PalestranteController@search');
+//    Route::post('pesquisar/', 'PalestranteController@search');
 
 });

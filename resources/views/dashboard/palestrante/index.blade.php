@@ -18,79 +18,74 @@
             <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                     <div class="x_content">
-                        @php
-                        if(!isset($search)){
-                           $palestrantes = App\Palestrante::where('id','>',0)->paginate(10);
-                       }
-                       @endphp
-
-
-                            <div class="col-md-12 col-sm-12">
-                              <form action="pesquisar/" method="post" enctype="multipart/form-data">
-                                    @csrf
-                                    <table class="table table-striped table-sm table-hover">
-                                        <thead class="thead-light">
-                                        <tr>
-                                            <th colspan="2" style="width: 60%">Procurar Palestrante</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td  style="width: 95%"><input type="search" id="palestranteId" class="form-control input-sm" name="search"
-                                                value={{$search or ""}}></td>
-                                            <td><button type="submit" class="btn btn-primary btn-sm ml-1">
-                                                <i class="fas fa-search"></i>
-                                             </button></td>
-
-                                            </tr>
-                                    </tbody>
-                                </table>
-                              </form>
-                            </div>
-
-                            <div class="col-md-12 ">
-                                <table class="table table-striped table-sm table-hover">
-                                    <thead class="thead-light">
-                                    <tr>
-                                        <th style="width: 60%">Palestrante</th>
-                                        <th>Data da Alteração</th>
-                                        <th>Usuário Alteração</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach ($palestrantes as $palestrante)
-                                        @php
-                                            $usuario = App\User::find($palestrante->id_usuario);
-                                        @endphp
-                                        <tr>
-                                            <td>{{$palestrante->nm_palestrante}}</td>
-                                            <td>{{date_format($palestrante->updated_at,"d/m/Y H:i:s")}}</td>
-                                            <td>{{$usuario->name}}</td>
-                                            <td class=" text-right">
-                                                <a href="/dashboard/palestrante/{{$palestrante->id}}/edit" class="btn btn-primary btn-sm ml-1"><i
-                                                            class='fa fa-edit'></i></a>
-
-                                                <button type="button" class="btn btn-danger btn-sm ml-1"
-                                                        data-toggle="modal"
-                                                        data-target="#modalPalestranteDel{{$palestrante->id}}"><i
-                                                            class='fa fa-trash'></i></button>
-                                                @include('dashboard.palestrante.delete',['palestrante'=>$palestrante])
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                                <div class="d-flex justify-content-end">
-                                    {{$palestrantes->links()}}
-
+                        <div class="col-md-12 col-sm-12">
+                            <form action="" method="GET">
+                                <div class="form-group row d-flex justify-content-center">
+                                    <div class="col-md-10 col-sm-10">
+                                        <label for="search-palestrantre">Procurar Palestrante</label>
+                                        <input type="search" id="search-palestrantre"
+                                               class="form-control form-control-sm"
+                                               name="search"
+                                               value="{{ $_GET['search'] or "" }}"/>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1">
+                                        <br/>
+                                        <button type="submit" class="btn btn-primary btn-sm float-left" style="width: 100%">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1">
+                                        <br/>
+                                        <a href="/dashboard/palestrante" class="btn btn-warning btn-sm text-white float-right" style="width: 100%">
+                                            <i class="fa fa-eraser"></i>
+                                        </a>
+                                    </div>
                                 </div>
+                            </form>
+                        </div>
+                        <div class="col-md-12 ">
+                            <table class="table table-striped table-sm table-hover">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th style="width: 60%">Palestrante</th>
+                                    <th>Data da Alteração</th>
+                                    <th>Usuário Alteração</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($palestrantes as $palestrante)
+                                    @php
+                                        $usuario = App\User::find($palestrante->id_usuario);
+                                    @endphp
+                                    <tr>
+                                        <td>{{$palestrante->nm_palestrante}}</td>
+                                        <td>{{date_format($palestrante->updated_at,"d/m/Y H:i:s")}}</td>
+                                        <td>{{$usuario->name}}</td>
+                                        <td class=" text-right">
+                                            <a href="/dashboard/palestrante/{{$palestrante->id}}/edit"
+                                               class="btn btn-primary btn-sm ml-1"><i
+                                                        class='fa fa-edit'></i></a>
+
+                                            <button type="button" class="btn btn-danger btn-sm ml-1"
+                                                    data-toggle="modal"
+                                                    data-target="#modalPalestranteDel{{$palestrante->id}}"><i
+                                                        class='fa fa-trash'></i></button>
+                                            @include('dashboard.palestrante.delete',['palestrante'=>$palestrante])
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="d-flex justify-content-end">
+                                {{$palestrantes->links()}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     @include('dashboard.palestrante.create')
