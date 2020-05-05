@@ -666,7 +666,7 @@
                                         <button type="reset" class="btn btn-warning btn-sm text-white">
                                             <i class="fa fa-eraser"></i> Limpar
                                         </button>
-                                        <button type="button" class="btn btn-danger btn-sm">
+                                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
                                             <i class="fa fa-close"></i> Cancelar
                                         </button>
                                     </div>

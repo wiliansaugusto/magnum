@@ -18,11 +18,36 @@
             <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                     <div class="x_content">
-
                         @php
-                            $palestrantes = App\Palestrante::where('id','>',0)->paginate(10);
-                        @endphp
-                        <div class="row justifi-content">
+                        if(!isset($search)){
+                           $palestrantes = App\Palestrante::where('id','>',0)->paginate(10);
+                       }
+                       @endphp
+
+
+                            <div class="col-md-12 col-sm-12">
+                              <form action="pesquisar/" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <table class="table table-striped table-sm table-hover">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <th colspan="2" style="width: 60%">Procurar Palestrante</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td  style="width: 95%"><input type="search" id="palestranteId" class="form-control input-sm" name="search"
+                                                value={{$search or ""}}></td>
+                                            <td><button type="submit" class="btn btn-primary btn-sm ml-1">
+                                                <i class="fas fa-search"></i>
+                                             </button></td>
+
+                                            </tr>
+                                    </tbody>
+                                </table>
+                              </form>
+                            </div>
+
                             <div class="col-md-12 ">
                                 <table class="table table-striped table-sm table-hover">
                                     <thead class="thead-light">
@@ -58,6 +83,7 @@
                                 </table>
                                 <div class="d-flex justify-content-end">
                                     {{$palestrantes->links()}}
+
                                 </div>
                             </div>
                         </div>

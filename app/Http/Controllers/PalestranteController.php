@@ -336,7 +336,19 @@ class PalestranteController extends Controller
                 $palestranteFoto = Palestrante::find($request->id_palestrante);
                 $palestranteFoto->ds_foto = "imagemPalestrante/".$nomeFinal;
                 $palestranteFoto->save();
-}
+            }
         }
+    }
+
+    public function search(Request $request){
+
+        $search = $request->get('search');
+
+
+        $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%'.$search.'%')->paginate(5); //busca com operador LIKE SQL
+
+        //return view('dashboard.palestrante.index')->with(compact('palestrantes','search'));
+        return view('dashboard.palestrante.index', ['palestrantes' => $palestrantes, 'search'=>$search]);
+
     }
 }

@@ -10,6 +10,8 @@ class Perfil extends Model
 
     protected $fillable = [ 'nm_perfil', ];
 
+    public $timestamps = false;
+
     public function usuarios(){
         return $this->hasMany(
             Usuario::class, 'id_perfil', 'id');

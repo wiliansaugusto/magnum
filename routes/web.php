@@ -44,4 +44,6 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('config/', 'ConfigurationController');
     Route::post('register/', 'ConfigurationController@register');
     Route::delete('usuario/{id}', 'ConfigurationController@deleteUsuario');
+    Route::post('pesquisar/', 'PalestranteController@search');
+
 });

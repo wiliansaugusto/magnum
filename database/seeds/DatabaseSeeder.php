@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoEnderecoTableSeeder::class);
         $this->call(IdiomasTableSeeder::class);
         $this->call(CidadeTableSeeder::class);
+        $this->call(PerfilTableSeeder::class);
+        $this->call(UsuarioTableSeeder::class);
+
 
     }
 }
