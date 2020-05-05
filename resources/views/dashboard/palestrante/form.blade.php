@@ -18,7 +18,8 @@
                             <div class="col-md-2 col-sm-2  profile_left">
                                 <div class="col-md-12 col-sm-12">
                                     <div id="crop-avatar">
-                                        <img id="imgFoto" class="img-responsive avatar-view" src="{{asset('img/no-image.png')}}"
+                                        <img id="imgFoto" class="img-responsive avatar-view"
+                                             src="{{asset('img/no-image.png')}}"
                                              alt="Avatar" title="Change the avatar" style="width: 100%">
                                     </div>
                                 </div>
@@ -30,10 +31,10 @@
                                         <i class="fa fa-cloud-upload"></i> Carregar Foto
                                     </label>
                                     @if ($errors->has('ds_foto'))
-                                    <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('ds_foto') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 ">
@@ -85,7 +86,8 @@
                                                         Palestrante</label>
                                                     <input id="nm_palestrante" type="text"
                                                            class="form-control form-control-sm "
-                                                           name="nm_palestrante" value="{{$data->nm_palestrante}}" autofocus readonly>
+                                                           name="nm_palestrante" value="{{$data->nm_palestrante}}"
+                                                           autofocus readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -94,21 +96,22 @@
                                                     <select id="ds_nacionalidade" name="ds_nacionalidade"
                                                             class="form-control form-control-sm {{ $errors->has('ds_nacionalidade') ? 'is-invalid' : '' }}"
                                                             autofocus>
-                                                        <option class="form-control form-control-sm" selected
+                                                        <option class="form-control form-control-sm"
+                                                                {{ old('ds_nacionalidade') == '' ? 'selected' : ''}}
                                                                 disabled>
                                                             Selecionar Nacionalidade
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Brasileiro">
+                                                                value="Brasileiro" {{ old('ds_nacionalidade') == 'Brasileiro' ? 'selected' : ''}}>
                                                             Brasileiro
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Estrangeiro">
+                                                                value="Estrangeiro" {{ old('ds_nacionalidade') == 'Estrangeiro' ? 'selected' : ''}}>
                                                             Estrangeiro
                                                         </option>
                                                     </select>
                                                     @if ($errors->has('ds_nacionalidade'))
-                                                    <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('ds_nacionalidade') }}</strong>
                                                     </span>
                                                     @endif
@@ -117,20 +120,23 @@
                                                     <label for="ds_sexo">Sexo</label>
                                                     <select id="ds_sexo" name="ds_sexo"
                                                             class="form-control form-control-sm {{ $errors->has('ds_sexo') ? 'is-invalid' : '' }}"
-                                                             autofocus>
-                                                        <option class="form-control form-control-sm" selected
+                                                            autofocus>
+                                                        <option class="form-control form-control-sm"
+                                                                {{ old('ds_sexo') == '' ? 'selected' : ''}}
                                                                 disabled>
                                                             Selecionar Sexo
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                         value="Feminino">Feminino
+                                                                value="Feminino" {{ old('ds_sexo') == 'Feminino' ? 'selected' : ''}}>
+                                                            Feminino
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Masculino">Masculino
+                                                                value="Masculino" {{ old('ds_sexo') == 'Masculino' ? 'selected' : ''}}>
+                                                            Masculino
                                                         </option>
                                                     </select>
                                                     @if ($errors->has('ds_sexo'))
-                                                    <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('ds_sexo') }}</strong>
                                                     </span>
                                                     @endif
@@ -140,45 +146,51 @@
                                                 <div class="col-md-4">
                                                     <label>Disponivel para Palestras</label><br>
                                                     <div class="form-check form-check-inline ">
-                                                        <input class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}" type="radio"
+                                                        <input class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}"
+                                                               type="radio"
                                                                name="ds_ativo"
-                                                               id="ds_ativo1" value="s">
+                                                               id="ds_ativo1"
+                                                               value="s" {{ old('ds_ativo') == 's' ? 'checked' : '' }}/>
                                                         <label class="form-check-label"
                                                                for="ds_ativo1">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}" type="radio"
+                                                        <input class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}"
+                                                               type="radio"
                                                                name="ds_ativo"
-                                                               id="ds_disponivel2" value="n">
+                                                               id="ds_disponivel2"
+                                                               value="n" {{ old('ds_ativo') == 'n' ? 'checked' : '' }}/>
                                                         <label class="form-check-label"
                                                                for="ds_disponivel2">Não</label>
 
                                                     </div>
                                                     @if ($errors->has('ds_ativo'))
-                                                               <p class="invalid-feedback" role="alert">
-                                                               <strong>{{ $errors->first('ds_ativo') }}</strong>
-                                                               </p>
-                                                               @endif
+                                                        <p class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('ds_ativo') }}</strong>
+                                                        </p>
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <label>Visivel no site</label><br>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}" type="radio"
+                                                        <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
+                                                               type="radio"
                                                                name="ds_visivel_site"
                                                                id="ds_visivel_site" value="s">
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}" type="radio"
+                                                        <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
+                                                               type="radio"
                                                                name="ds_visivel_site"
                                                                id="ds_visivel_site2" value="n">
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site2">Não</label><br>
                                                     </div>
                                                     @if ($errors->has('ds_visivel_site'))
-                                                    <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('ds_visivel_site') }}</strong>
                                                     </span>
                                                     @endif
@@ -207,12 +219,12 @@
                                                                value="1"/>
                                                         <label for="star1" title="text">1
                                                             star</label>
-                                                            <br>
-                                                            @if ($errors->has('rank_palestrante'))
+                                                        <br>
+                                                        @if ($errors->has('rank_palestrante'))
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('rank_palestrante') }}</strong>
                                                             </span>
-                                                            @endif
+                                                        @endif
                                                     </div>
 
                                                 </div>
@@ -221,24 +233,32 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     @php
+                                                        var_dump( old('idiomas'));
                                                         $idiomas = App\Idiomas::all();
                                                     @endphp
                                                     <label for="idiomas">Idiomas</label>
                                                     <select id="idiomas" name="idiomas[]" class="form-control
-                                                    form-control-sm select-find {{ $errors->has('idiomas') ? 'is-invalid' : '' }}" multiple="multiple"
-                                                            style="width: 100%" >
+                                                    form-control-sm select-find {{ $errors->has('idiomas') ? 'is-invalid' : '' }}"
+                                                            multiple="multiple"
+                                                            style="width: 100%">
                                                         <option></option>
                                                         @foreach ($idiomas as $item)
-                                                            <option value="{{$item->id}}">
-                                                                {{$item->ds_idioma}}
-                                                            </option>
+                                                            @if(old('idiomas') != NULL )
+                                                                <option value="{{$item->id}}" {{ in_array($item->id, old('idiomas')) == 'true' ? 'selected' : ''}}>
+                                                                    {{$item->ds_idioma}}
+                                                                </option>
+                                                            @else
+                                                                <option value="{{$item->id}}">
+                                                                    {{$item->ds_idioma}}
+                                                                </option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('idiomas'))
-                                                            <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('idiomas') }}</strong>
                                                             </span>
-                                                @endif
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -249,7 +269,7 @@
                                                     @endphp
                                                     <select id="categorias" name="categorias[]"
                                                             class="form-control form-control-sm select-find {{ $errors->has('categorias') ? 'is-invalid' : '' }}"
-                                                            style="width: 100%" multiple="multiple" >
+                                                            style="width: 100%" multiple="multiple">
                                                         <option></option>
                                                         @foreach ($categorias as $categoria)
                                                             <option value="cat-{{$categoria->id}}">
@@ -263,10 +283,10 @@
                                                         @endforeach
                                                     </select>
                                                     @if ($errors->has('categorias'))
-                                                    <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('categorias') }}</strong>
                                                     </span>
-                                        @endif
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -338,12 +358,13 @@
                                                     <label for="nm_razao_social">Razão Social</label>
                                                     <input id="nm_razao_social" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
-                                                           name="nm_razao_social" value="{{ old('nm_razao_social') }}" autofocus/>
-                                                           @if ($errors->has('nm_razao_social'))
-                                                           <span class="invalid-feedback" role="alert">
+                                                           name="nm_razao_social" value="{{ old('nm_razao_social') }}"
+                                                           autofocus/>
+                                                    @if ($errors->has('nm_razao_social'))
+                                                        <span class="invalid-feedback" role="alert">
                                                                <strong>{{$errors->first('nm_razao_social')}}</strong>
                                                            </span>
-                                                           @endif
+                                                    @endif
                                                 </div>
                                             </div>
 
@@ -352,50 +373,54 @@
                                                     <label for="cnpj">CNPJ</label>
                                                     <input id="cnpj" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nr_cnpj') ? 'is-invalid' : '' }}"
-                                                           data-mask="00.000.000/0000-00" name="nr_cnpj" value="{{ old('nr_cnpj') }}"
-                                                            autofocus/>
-                                                            @if ($errors->has('nr_cnpj'))
-                                                            <span class="invalid-feedback" role="alert">
+                                                           data-mask="00.000.000/0000-00" name="nr_cnpj"
+                                                           value="{{ old('nr_cnpj') }}"
+                                                           autofocus/>
+                                                    @if ($errors->has('nr_cnpj'))
+                                                        <span class="invalid-feedback" role="alert">
                                                                 <strong>{{$errors->first('nr_cnpj')}}</strong>
                                                             </span>
-                                                            @endif
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <label for="ins_estadual">Inscrição Estadual</label>
                                                     <input id="ins_estadual" type="text"
                                                            class="form-control form-control-sm  {{$errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
-                                                           name="nr_insc_estadual" value="{{ old('nr_insc_estadual') }}"  autofocus/>
-                                                           @if ($errors->has('nr_insc_estadual'))
-                                                           <span class="invalid-feedback" role="alert">
+                                                           name="nr_insc_estadual" value="{{ old('nr_insc_estadual') }}"
+                                                           autofocus/>
+                                                    @if ($errors->has('nr_insc_estadual'))
+                                                        <span class="invalid-feedback" role="alert">
                                                            <strong>{{$errors->first('nr_insc_estadual')}}</strong>
                                                            </span>
-                                                       @endif
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <label for="ins_municipal">Inscrição Municipal</label>
                                                     <input id="ins_municipal" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
-                                                           name="nr_insc_municipal" value="{{ old('nr_insc_municipal') }}" autofocus/>
-                                                           @if ($errors->has('nr_insc_municipal'))
-                                                           <span class="invalid-feedback" role="alert">
+                                                           name="nr_insc_municipal"
+                                                           value="{{ old('nr_insc_municipal') }}" autofocus/>
+                                                    @if ($errors->has('nr_insc_municipal'))
+                                                        <span class="invalid-feedback" role="alert">
                                                            <strong>{{$errors->first('nr_insc_municipal')}}</strong>
                                                            </span>
-                                                       @endif
-                                                       </div>
+                                                    @endif
                                                 </div>
-                                                <div class="form-group row d-flex justify-content-center">
+                                            </div>
+                                            <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     <label for="nm_completo">Nome Completo</label>
                                                     <input id="nm_completo" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
-                                                           name="nm_completo" value="{{ old('nm_completo') }}"  autofocus/>
-                                                           @if ($errors->has('nm_completo'))
-                                                           <span class="invalid-feedback" role="alert">
+                                                           name="nm_completo" value="{{ old('nm_completo') }}"
+                                                           autofocus/>
+                                                    @if ($errors->has('nm_completo'))
+                                                        <span class="invalid-feedback" role="alert">
                                                            <strong>{{$errors->first('nm_completo')}}</strong>
                                                            </span>
-                                                       @endif
+                                                    @endif
                                                 </div>
                                             </div>
 
@@ -404,38 +429,41 @@
                                                     <label for="nr_cpf">CPF</label>
                                                     <input id="nr_cpf" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nr_cpf') ? 'is-invalid' : '' }}"
-                                                           data-mask="000.000.000-00" name="nr_cpf" value="{{ old('nr_cpf') }}"
+                                                           data-mask="000.000.000-00" name="nr_cpf"
+                                                           value="{{ old('nr_cpf') }}"
                                                            autofocus/>
-                                                           @if ($errors->has('nr_cpf'))
-                                                           <span class="invalid-feedback" role="alert">
+                                                    @if ($errors->has('nr_cpf'))
+                                                        <span class="invalid-feedback" role="alert">
                                                            <strong>{{$errors->first('nr_cpf')}}</strong>
                                                            </span>
-                                                       @endif
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <label for="nr_rg">RG</label>
                                                     <input id="nr_rg" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nr_rg') ? 'is-invalid' : '' }}"
-                                                           name="nr_rg" value="{{ old('nr_rg') }}" data-mask="00.000.000-0"
-                                                            autofocus/>
-                                                            @if ($errors->has('nr_rg'))
-                                                            <span class="invalid-feedback" role="alert">
+                                                           name="nr_rg" value="{{ old('nr_rg') }}"
+                                                           data-mask="00.000.000-0"
+                                                           autofocus/>
+                                                    @if ($errors->has('nr_rg'))
+                                                        <span class="invalid-feedback" role="alert">
                                                             <strong>{{$errors->first('nr_rg')}}</strong>
                                                             </span>
-                                                        @endif
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <label for="dt_nascimento">Data de Nascimento</label>
                                                     <input id="dt_nascimento" type="date"
                                                            class="form-control form-control-sm {{$errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
-                                                           name="dt_nascimento" value="{{ old('dt_nascimento') }}"  autofocus/>
-                                                           @if ($errors->has('dt_nascimento'))
-                                            <span class="invalid-feedback" role="alert">
+                                                           name="dt_nascimento" value="{{ old('dt_nascimento') }}"
+                                                           autofocus/>
+                                                    @if ($errors->has('dt_nascimento'))
+                                                        <span class="invalid-feedback" role="alert">
                                             <strong>{{$errors->first('dt_nascimento')}}</strong>
                                             </span>
-                                        @endif
+                                                    @endif
                                                 </div>
                                             </div>
 
@@ -444,12 +472,13 @@
                                                     <label for="obsevacao">Obsevações</label>
                                                     <textarea id="obsevacao" type="text"
                                                               class="form-control form-control-sm {{$errors->has('ds_observacao') ? 'is-invalid' : '' }}"
-                                                              name="ds_observacao" value="{{ old('ds_observacao') }}"  autofocus></textarea>
-                                                              @if ($errors->has('ds_observacao'))
-                                                              <span class="invalid-feedback" role="alert">
+                                                              name="ds_observacao"
+                                                              autofocus>  {{ old('ds_observacao') }} </textarea>
+                                                    @if ($errors->has('ds_observacao'))
+                                                        <span class="invalid-feedback" role="alert">
                                                               <strong>{{$errors->first('ds_observacao')}}</strong>
                                                               </span>
-                                                          @endif
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -621,12 +650,13 @@
                                                     <label for="ds_titulo_video">Titulo</label>
                                                     <input id="ds_titulo_video" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('ds_titulo_video') ? 'is-invalid' : '' }}"
-                                                           name="ds_titulo_video" value="{{ old('ds_titulo_video') }}"  autofocus>
-                                                           @if ($errors->has('ds_titulo_video'))
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('ds_titulo_video') }}</strong>
-                                                </span>
-                                                @endif
+                                                           name="ds_titulo_video" value="{{ old('ds_titulo_video') }}"
+                                                           autofocus>
+                                                    @if ($errors->has('ds_titulo_video'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('ds_titulo_video') }}</strong>
+                                                        </span>
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-6">
@@ -634,25 +664,25 @@
                                                     <input id="ds_url_video" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('ds_url_video') ? 'is-invalid' : '' }}"
                                                            name="ds_url_video"
-                                                           value="{{ old('ds_url_video') }}"  autofocus>
-                                                           @if ($errors->has('ds_url_video'))
-                                                           <span class="invalid-feedback" role="alert">
+                                                           value="{{ old('ds_url_video') }}" autofocus>
+                                                    @if ($errors->has('ds_url_video'))
+                                                        <span class="invalid-feedback" role="alert">
                                                            <strong>{{ $errors->first('ds_url_video') }}</strong>
-                                                           </span>
-                                                           @endif
+                                                        </span>
+                                                    @endif
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <label for="ds_descricao_video">Descrição</label>
                                                     <textarea id="ds_descricao_video" type="text"
                                                               class="form-control form-control-sm {{ $errors->has('ds_descricao_video') ? 'is-invalid' : '' }}"
-                                                              name="ds_descricao_video"  autofocus
-                                                              title="Descrição do Video"></textarea>
-                                                              @if ($errors->has('ds_descricao_video'))
-                                                              <span class="invalid-feedback" role="alert">
+                                                              name="ds_descricao_video" autofocus
+                                                              title="Descrição do Video">{{ old('ds_descricao_video')  }}</textarea>
+                                                    @if ($errors->has('ds_descricao_video'))
+                                                        <span class="invalid-feedback" role="alert">
                                                               <strong>{{ $errors->first('ds_descricao_video') }}</strong>
-                                                              </span>
-                                                              @endif
+                                                        </span>
+                                                    @endif
                                                 </div>
 
                                             </div>
