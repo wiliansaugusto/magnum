@@ -56,7 +56,7 @@
                                 <tbody>
                                 @foreach ($palestrantes as $palestrante)
                                     @php
-                                        $usuario = App\User::find($palestrante->id_usuario);
+                                        $usuario = App\Usuario::find($palestrante->id_usuario);
                                     @endphp
                                     <tr>
                                         <td>{{$palestrante->nm_palestrante}}</td>

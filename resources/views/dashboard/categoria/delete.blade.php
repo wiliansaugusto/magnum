@@ -22,11 +22,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary btn-sm">
-                            Excluir
+                            <i class="fa fa-trash"></i> Excluir
                         </button>
                         <button type="button" class="btn btn-danger btn-sm"
-                                data-dismiss="modal">Cancelar
-                        </button>
+                            data-dismiss="modal">
+                        <i class="fa fa-close"></i> Cancelar
+                    </button>
                     </div>
                 </div>
             </form>

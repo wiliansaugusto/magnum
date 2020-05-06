@@ -27,9 +27,9 @@ class PalestranteController extends Controller
     public function index(Request $request)
     {
         if($request->has('search')){
-            $palestrantes = Palestrante::where('nm_palestrante', $request['search'])->paginate(1)->appends('search',  $request['search']);
+            $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%'.$request['search'].'%')->paginate(5)->appends('search',  $request['search']);
         }else{
-            $palestrantes = Palestrante::where('id','>',0)->paginate(10);
+            $palestrantes = Palestrante::where('id','>',0,)->orderByDesc('id')->paginate(10);
         }
         return view('dashboard.palestrante.index')->with('palestrantes', $palestrantes);
 

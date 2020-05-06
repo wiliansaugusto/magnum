@@ -6,6 +6,15 @@
             <div class="title_left">
                 <h3>Cadastrar Palestrante</h3>
             </div>
+            <div class="title_right">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>Verificar os campos inserido</li>
+                    </ul>
+                </div>
+            @endif
+            </div>
         </div>
         <div class="clearfix"></div>
         <div class="row">
@@ -26,7 +35,7 @@
                                 <div class="col-md-12 col-sm-12 text-center mt-2">
                                     <input id="ds_foto" type="file"
                                            class="form-control form-control-sm inputFoto {{ $errors->has('ds_foto') ? 'is-invalid' : '' }}"
-                                           name="ds_foto" value="" autofocus/>
+                                           name="ds_foto" value="" {{ old('ds_foto') !='img/no-image.png' ? 'true' : $data->image  }} autofocus/>
                                     <label for="ds_foto" class="custom-upload-foto" style="width: 100%;">
                                         <i class="fa fa-cloud-upload"></i> Carregar Foto
                                     </label>
@@ -177,7 +186,7 @@
                                                         <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
                                                                type="radio"
                                                                name="ds_visivel_site"
-                                                               id="ds_visivel_site" value="s">
+                                                               id="ds_visivel_site" value="s" {{ old('ds_visivel_site') == 's' ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site">Sim</label>
                                                     </div>
@@ -185,7 +194,7 @@
                                                         <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
                                                                type="radio"
                                                                name="ds_visivel_site"
-                                                               id="ds_visivel_site2" value="n">
+                                                               id="ds_visivel_site2" value="n"{{ old('ds_visivel_site') == 'n' ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site2">Não</label><br>
                                                     </div>
@@ -200,23 +209,23 @@
                                                     <label>Ranking do Palestrante</label><br>
                                                     <div class="rate {{ $errors->has('rank_palestrante') ? 'is-invalid' : '' }}">
                                                         <input type="radio" id="star5" name="rank_palestrante"
-                                                               value="5"/>
+                                                               value="5" {{ old('rank_palestrante') == '5' ? 'checked' : '' }}/>
                                                         <label for="star5" title="text">5
                                                             stars</label>
                                                         <input type="radio" id="star4" name="rank_palestrante"
-                                                               value="4"/>
+                                                               value="4" {{ old('rank_palestrante') == '4' ? 'checked' : '' }}/>
                                                         <label for="star4" title="text">4
                                                             stars</label>
                                                         <input type="radio" id="star3" name="rank_palestrante"
-                                                               value="3"/>
+                                                               value="3" {{ old('rank_palestrante') == '3' ? 'checked' : '' }}/>
                                                         <label for="star3" title="text">3
                                                             stars</label>
                                                         <input type="radio" id="star2" name="rank_palestrante"
-                                                               value="2"/>
+                                                               value="2" {{ old('rank_palestrante') == '4' ? 'checked' : '' }}/>
                                                         <label for="star2" title="text">2
                                                             stars</label>
                                                         <input type="radio" id="star1" name="rank_palestrante"
-                                                               value="1"/>
+                                                               value="1" {{ old('rank_palestrante') == '5' ? 'checked' : '' }}/>
                                                         <label for="star1" title="text">1
                                                             star</label>
                                                         <br>
@@ -233,7 +242,6 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     @php
-                                                        var_dump( old('idiomas'));
                                                         $idiomas = App\Idiomas::all();
                                                     @endphp
                                                     <label for="idiomas">Idiomas</label>
@@ -266,6 +274,7 @@
                                                     <label for="categorias">Categorias</label>
                                                     @php
                                                         $categorias = App\Categoria::all();
+
                                                     @endphp
                                                     <select id="categorias" name="categorias[]"
                                                             class="form-control form-control-sm select-find {{ $errors->has('categorias') ? 'is-invalid' : '' }}"
