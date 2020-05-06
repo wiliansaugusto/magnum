@@ -22,10 +22,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary btn-sm">
-                            Excluir
+                            <i class="fa fa-check"></i> Sim
                         </button>
-                        <button type="button" class="btn btn-danger btn-sm"
-                                data-dismiss="modal">Cancelar
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                            <i class="fa fa-close"></i> Não
                         </button>
                     </div>
                 </div>

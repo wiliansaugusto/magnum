@@ -210,7 +210,7 @@ $(document).ready(function () {
                 $('#frmRemoverBancoModal').modal('toggle');
                 $('#' + id).remove();
                 if ($('#tblBanco tbody tr').length <= 0) {
-                    $("#tblBanco tbody ").html('<tr id="banco-null"><td colspan="3" class="text-center"> Nenhum banco registrado</td></tr>');
+                    $("#tblBanco tbody ").html('<tr id="banco-null"><td colspan="4" class="text-center"> Nenhum banco registrado</td></tr>');
                 }
             },
             error: function () {
@@ -231,7 +231,7 @@ $(document).ready(function () {
             data: data,
             success: function () {
                 $('#frmRemoverValorModal').modal('toggle');
-                $('#' + id).remove();
+                $('#tblValor tbody tr#' + id).remove();
                 if ($('#tblValor tbody tr').length <= 0) {
                     $("#tblValor tbody ").html('<tr id="valor-null"><td colspan="3" class="text-center"> Nenhum valor registrado</td></tr>');
                 }
@@ -253,7 +253,7 @@ $(document).ready(function () {
             data: data,
             success: function () {
                 $('#frmRemoverDescricaoModal').modal('toggle');
-                $('#' + tipo).remove();
+                $('#tblDescricao tbody tr#' + tipo).remove();
                 if ($('#tblDescricao tbody tr').length <= 0) {
                     $("#tblDescricao tbody ").html('<tr id="descricao-null"><td colspan="3" class="text-center"> Nenhuma descricao registrada</td></tr>');
                 }
@@ -269,7 +269,6 @@ $(document).ready(function () {
         event.preventDefault();
         var data = $('#frmRemoverContato').serialize();
         var id = $('#id_contato').val();
-
         $.ajax({
             method: 'POST',
             url: '/dashboard/contato/delete/' + id,
@@ -278,14 +277,15 @@ $(document).ready(function () {
                 $('#frmRemoverContatoModal').modal('toggle');
                 $('#contato-' + id).remove();
                 if ($('#tblContato tbody tr').length <= 0) {
-                    $("#tblContato tbody ").html('<tr id="contato-assessor-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
+                    $("#tblContato tbody ").html('<tr id="contato-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
                 }
                 if ($('#tblContatoAssessor tbody tr').length <= 0) {
-                    $("#tblContatoAssessor tbody ").html('<tr id="contato-assessor-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
+                    $("#tblContatoAssessor tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
                 }
+                console.log(id);
             },
             error: function () {
-                $('#msg-exDescricao').fadeIn(1000, function () {
+                $('#msg-exContato').fadeIn(1000, function () {
                     $(this).delay(3000).fadeOut(500);
                 });
             }

@@ -28,8 +28,8 @@
                                     <input id="ds_foto" type="file"
                                            class="form-control form-control-sm inputFoto"
                                            name="ds_foto" value="{{$data->ds_foto}}"/>
-                                    <label for="ds_foto" class="custom-upload-foto" style="width: 100%;">
-                                        <i class="fa fa-cloud-upload"></i> {{$data->ds_foto == "" ? 'Carregar foto' : $data->ds_foto}}
+                                    <label for="ds_foto" class="custom-upload-foto" style="width: 100%;word-break: break-all;">
+                                        <i class="fa fa-cloud-upload"></i> Carregar foto
                                     </label>
                                     <p id="file_invalid" class="alert alert-error mt-3" style="display: none;">Formato
                                         de arquivo invalido! <br/>
@@ -98,7 +98,7 @@
                                                         <option class="form-control form-control-sm"
                                                                 {{$data->ds_nacionalidade == "" ? 'selected' : '' }}
                                                                 disabled>
-                                                            Selecionar Nacionalidade
+                                                            Selecionar Nacionalidade*
                                                         </option>
                                                         <option class="form-control form-control-sm"
                                                                 value="Brasileiro" {{$data->ds_nacionalidade == "Brasileiro" ? 'selected' : '' }}>
@@ -199,7 +199,7 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     @php
-                                                        $idiomas = App\Idiomas::all();
+                                                        $idiomas = App\Idiomas::all()->sortBy('ds_idioma');
                                                     @endphp
                                                     <label for="idiomas">Idiomas*</label>
                                                     <select id="idiomas" name="idiomas[]" class="form-control
@@ -300,7 +300,7 @@
                                                                         <button id='excluirBanco-{{$contato->id}}'
                                                                                 type='button'
                                                                                 class='btn btn-danger btn-sm'
-                                                                                data-id=" {{$contato->id}}"
+                                                                                data-id="{{$contato->id}}"
                                                                                 data-toggle='modal'
                                                                                 data-target='#frmRemoverContatoModal'><i
                                                                                     class='fa fa-trash'></i></button>
@@ -343,7 +343,7 @@
                                                         @if(sizeof($data->enderecos) > 0)
                                                             @foreach($data->enderecos as $endereco)
                                                                 <tr id="{{$endereco->id}}">
-                                                                    <td>{{$endereco->tipoEndereco->nm_tipo_endereco}}</td>
+                                                                    <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}</td>
                                                                     <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
                                                                     <td class='text-right'>
                                                                         <button id='excluirEndereco' type='button'
@@ -378,7 +378,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_razao_social"
                                                                value="{{$data->dadosContratuais->nm_razao_social == "" ? "" : $data->dadosContratuais->nm_razao_social}}"
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -389,7 +389,7 @@
                                                                class="form-control form-control-sm"
                                                                data-mask="00.000.000/0000-00" name="nr_cnpj"
                                                                value="{{$data->dadosContratuais->nr_cnpj == "" ? "" : $data->dadosContratuais->nr_cnpj }}"
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_estadual">Inscrição Estadual</label>
@@ -397,7 +397,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_estadual"
                                                                value="{{$data->dadosContratuais->nr_insc_estadual == "" ? "" : $data->dadosContratuais->nr_insc_estadual}}"
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_municipal">Inscrição Municipal</label>
@@ -405,7 +405,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_municipal"
                                                                value="{{$data->dadosContratuais->nr_insc_municipal == "" ? "" : $data->dadosContratuais->nr_insc_municipal}}"
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -416,7 +416,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_completo"
                                                                value="{{$data->dadosContratuais->nm_completo == "" ? "" : $data->dadosContratuais->nm_completo}}"
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -427,7 +427,7 @@
                                                                class="form-control form-control-sm"
                                                                data-mask="000.000.000-00" name="nr_cpf"
                                                                value="{{$data->dadosContratuais->nr_cpf == "" ? "" : $data->dadosContratuais->nr_cpf}}"
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="nr_rg">RG</label>
@@ -435,7 +435,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_rg" data-mask="00.000.000-0"
                                                                value="{{$data->dadosContratuais->nr_rg == "" ? "" : $data->dadosContratuais->nr_rg}}"
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="dt_nascimento">Data de Nascimento</label>
@@ -443,7 +443,7 @@
                                                                class="form-control form-control-sm"
                                                                name="dt_nascimento"
                                                                value="{{$data->dadosContratuais->dt_nascimento == "" ? "" : $data->dadosContratuais->dt_nascimento}}"
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -463,7 +463,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_razao_social"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -474,7 +474,7 @@
                                                                class="form-control form-control-sm"
                                                                data-mask="00.000.000/0000-00" name="nr_cnpj"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_estadual">Inscrição Estadual</label>
@@ -482,7 +482,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_estadual"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="insc_municipal">Inscrição Municipal</label>
@@ -490,7 +490,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_insc_municipal"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -501,7 +501,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nm_completo"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -512,7 +512,7 @@
                                                                class="form-control form-control-sm"
                                                                data-mask="000.000.000-00" name="nr_cpf"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="nr_rg">RG</label>
@@ -520,7 +520,7 @@
                                                                class="form-control form-control-sm"
                                                                name="nr_rg" data-mask="00.000.000-0"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="dt_nascimento">Data de Nascimento</label>
@@ -528,7 +528,7 @@
                                                                class="form-control form-control-sm"
                                                                name="dt_nascimento"
                                                                value=""
-                                                               />
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -574,7 +574,7 @@
                                                                     <td class='text-right'>
                                                                         <button id='excluirBanco' type='button'
                                                                                 class='btn btn-danger btn-sm'
-                                                                                data-id=" {{$banco->id}}"
+                                                                                data-id="{{$banco->id}}"
                                                                                 data-toggle='modal'
                                                                                 data-target='#frmRemoverBancoModal'><i
                                                                                     class='fa fa-trash'></i></button>
@@ -910,27 +910,15 @@
                                     </div>
                                     <div class="ln_solid"></div>
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
+                                        <div class="col-md-12 col-sm-12 text-right">
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-save"></i> Salvar
+                                            </button>
+                                            <a href="/dashboard/palestrante" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-close"></i> Cancelar
+                                            </a>
                                         </div>
-
-                                    <div class="col-md-auto text-right">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-save"></i> Salvar
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-close"></i> Cancelar
-                                        </button>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                         </div>

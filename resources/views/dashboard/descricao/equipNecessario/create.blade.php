@@ -22,13 +22,15 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                        Salvar
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-save"></i> Salvar
                     </button>
-                    <button type="reset" class="btn btn-warning text-white">
-                        Limpar
+                    <button type="reset" class="btn btn-warning text-white btn-sm">
+                        <i class="fa fa-eraser"></i> Limpar
                     </button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                        <i class="fa fa-close"></i> Cancelar
+                    </button>
                 </div>
             </form>
         </div>
