@@ -303,8 +303,13 @@ $(document).ready(function () {
             success: function () {
                 $('#frmRemoverEnderecoModal').modal('toggle');
                 $('#endereco-' + id).remove();
+
+                if ($('#tblEnderecoPalestrante tbody tr').length <= 0) {
+console.log($('#tblEnderecoPalestrante tbody tr').length);
                 $("#tblEnderecoPalestrante tbody ").html('<tr id="endereco-null"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
+                }
             },
+
             error: function () {
                 $('#msg-exEndereco').fadeIn(1000, function () {
                     $(this).delay(3000).fadeOut(500);

@@ -11,6 +11,11 @@
         <div class="row">
             <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
+                    @if ($errors->any())
+                        <div class="alert alert-danger text-white">
+                            Campos inseridos incorretamente ou em branco
+                        </div>
+                    @endif
                     <form method="POST" action="/dashboard/palestrante/update/{{$data->id}}" id="palestrante"
                           enctype="multipart/form-data">
                         @csrf
@@ -94,106 +99,138 @@
                                                 <div class="col-md-6">
                                                     <label for="ds_nacionalidade">Nacionalidade*</label>
                                                     <select id="ds_nacionalidade" name="ds_nacionalidade"
-                                                            class="form-control form-control-sm">
+                                                            class="form-control form-control-sm
+                                                            {{ $errors->has('ds_nacionalidade') ? 'is-invalid' : '' }}">
                                                         <option class="form-control form-control-sm"
-                                                                {{$data->ds_nacionalidade == "" ? 'selected' : '' }}
+                                                                {{$data->ds_nacionalidade == "" ? 'selected' : old('ds_nacionalidade') }}
                                                                 disabled>
                                                             Selecionar Nacionalidade*
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Brasileiro" {{$data->ds_nacionalidade == "Brasileiro" ? 'selected' : '' }}>
-                                                            Brasileiro
+                                                        value="Brasileiro" {{ old('ds_nacionalidade') == 'Brasileiro' ? 'selected' : ''}}>
+                                                        Brasileiro
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Estrangeiro" {{$data->ds_nacionalidade == "Estrangeiro" ? 'selected' : '' }}>
-                                                            Estrangeiro
+                                                        value="Estrangeiro" {{ old('ds_nacionalidade') == 'Estrangeiro' ? 'selected' : ''}}>
+                                                        Estrangeiro
                                                         </option>
                                                     </select>
+                                                    @if ($errors->has('ds_nacionalidade'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('ds_nacionalidade') }}</strong>
+                                                </span>
+                                                @endif
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="ds_sexo">Sexo*</label>
                                                     <select id="ds_sexo" name="ds_sexo"
-                                                            class="form-control form-control-sm">
-                                                        <option class="form-control form-control-sm"
-                                                                {{$data->ds_sexo == "" ? 'selected' : '' }}
+                                                            class="form-control form-control-sm {{ $errors->has('ds_sexo') ? 'is-invalid' : '' }}">
+                                                        <option class="form-control form-control-sm "
+                                                                {{$data->ds_sexo == "" ? 'selected' : old('ds_sexo') }}
                                                                 disabled>
                                                             Selecionar Sexo
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Feminino" {{$data->ds_sexo == "Feminino" ? 'selected' : '' }}>
-                                                            Feminino
+                                                        value="Feminino" {{ old('ds_sexo') == 'Feminino' ? 'selected' : ''}}>
+                                                        Feminino
                                                         </option>
                                                         <option class="form-control form-control-sm"
-                                                                value="Masculino" {{$data->ds_sexo == "Masculino" ? 'selected' : '' }}>
-                                                            Masculino
+                                                        value="Masculino" {{ old('ds_sexo') == 'Masculino' ? 'selected' : ''}}>
+                                                        Masculino
                                                         </option>
                                                     </select>
+                                                    @if ($errors->has('ds_sexo'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('ds_sexo') }}</strong>
+                                                    </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-4">
-                                                    <label>Disponivel para Palestras</label><br>
+                                                    <label>Disponivel para Palestras*</label><br>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}" type="radio"
                                                                name="ds_ativo"
                                                                id="ds_ativo1"
-                                                               value="s" {{$data->ds_ativo == "s" ? 'checked' : '' }}>
+                                                               value="s" {{($data->ds_ativo == 's') ? 'checked'  : (old('ds_ativo') == 's') ? 'checked' : ''}}>
                                                         <label class="form-check-label"
                                                                for="ds_ativo1">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input  {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}" type="radio"
                                                                name="ds_ativo"
                                                                id="ds_disponivel2"
-                                                               value="n" {{$data->ds_ativo == "n" ? 'checked' : '' }}>
+                                                               value="n" {{($data->ds_ativo == 'n') ? 'checked'  : (old('ds_ativo') == 'n') ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_disponivel2">Não</label>
                                                     </div>
+                                                    @if ($errors->has('ds_ativo'))
+                                                    <span class="invalid-feedback" role="alert"
+                                                          style="display: block;">
+                                                        <strong>{{ $errors->first('ds_ativo') }}</strong>
+                                                    </span>
+                                                @endif
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <label>Visivel no site</label><br>
+                                                    <label>Visivel no site*</label><br>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}" type="radio"
                                                                name="ds_visivel_site"
                                                                id="ds_visivel_site"
-                                                               value="s" {{$data->ds_visivel_site == "s" ? 'checked' : '' }} />
+                                                               value="s" {{($data->ds_visivel_site == 's') ? 'checked'  : (old('ds_visivel_site') == 's') ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}" type="radio"
                                                                name="ds_visivel_site"
                                                                id="ds_visivel_site2"
-                                                               value="n" {{$data->ds_visivel_site == "n" ? 'checked' : '' }} />
+                                                               value="n" {{($data->ds_visivel_site == 'n') ? 'checked'  : (old('ds_visivel_site') == 'n') ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site2">Não</label>
                                                     </div>
+                                                    @if ($errors->has('ds_visivel_site'))
+                                                    <span class="invalid-feedback" role="alert"
+                                                          style="display: block;">
+                                                    <strong>{{ $errors->first('ds_visivel_site') }}</strong>
+                                                </span>
+                                                @endif
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label>Ranking do Palestrante</label><br>
-                                                    <div class="rate">
+                                                    <label>Ranking do Palestrante*</label><br>
+                                                    <div class="rate {{ $errors->has('rank_palestrante') ? 'is-invalid' : '' }}">
                                                         <input type="radio" id="star5" name="rank_palestrante"
-                                                               value="5" {{$data->rank_palestrante == "5" ? 'checked' : '' }} />
+                                                        value="5" {{($data->rank_palestrante == '5') ? 'checked'  : (old('rank_palestrante') == '5') ? 'checked' : '' }}>
                                                         <label for="star5" title="text">5
                                                             stars</label>
                                                         <input type="radio" id="star4" name="rank_palestrante"
-                                                               value="4" {{$data->rank_palestrante == "4" ? 'checked' : '' }} />
+                                                        value="4" {{($data->rank_palestrante == '4') ? 'checked'  : (old('rank_palestrante') == '4') ? 'checked' : '' }}>
                                                         <label for="star4" title="text">4
                                                             stars</label>
                                                         <input type="radio" id="star3" name="rank_palestrante"
-                                                               value="3" {{$data->rank_palestrante == "3" ? 'checked' : '' }} />
+                                                        value="3" {{($data->rank_palestrante == '3') ? 'checked'  : (old('rank_palestrante') == '3') ? 'checked' : '' }}>
                                                         <label for="star3" title="text">3
                                                             stars</label>
                                                         <input type="radio" id="star2" name="rank_palestrante"
-                                                               value="2" {{$data->rank_palestrante == "2" ? 'checked' : '' }} />
+                                                        value="2" {{($data->rank_palestrante == '2') ? 'checked'  : (old('rank_palestrante') == '2') ? 'checked' : '' }}>
                                                         <label for="star2" title="text">2
                                                             stars</label>
                                                         <input type="radio" id="star1" name="rank_palestrante"
-                                                               value="1" {{$data->rank_palestrante == "1" ? 'checked' : '' }} />
+                                                        value="1" {{($data->rank_palestrante == '1') ? 'checked'  : (old('rank_palestrante') == '1') ? 'checked' : '' }}>
+
                                                         <label for="star1" title="text">1
                                                             star</label>
                                                     </div>
+                                                    @if ($errors->has('rank_palestrante'))
+                                                    <div class="col-md-12 mt-0">
+                                                        <span class="invalid-feedback" role="alert"
+                                                              style="display: block;width: 100%">
+                                                            <strong>{{ $errors->first('rank_palestrante') }}</strong>
+                                                        </span>
+                                                    </div>
+                                                @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -203,7 +240,8 @@
                                                     @endphp
                                                     <label for="idiomas">Idiomas*</label>
                                                     <select id="idiomas" name="idiomas[]" class="form-control
-                                                    form-control-sm select-find" multiple="multiple"
+                                                    form-control-sm select-find {{ $errors->has('idiomas') ? 'is-invalid' : '' }}"
+                                                     multiple="multiple"
                                                             style="width: 100%">
                                                         <option></option>
                                                         @foreach ($idiomas as $item)
@@ -211,18 +249,27 @@
                                                                 $idiomaPalestrante = App\IdiomasPalestrante::where('id_palestrante', $data->id)
                                                                     ->where('id_idiomas', $item->id)->first();
                                                             @endphp
-                                                            @if(!empty($idiomaPalestrante))
+                                                            @if(old('idiomas') != NULL)
+                                                                <option value="{{$item->id}}" {{ in_array($item->id, old('idiomas')) == 'true' ? 'selected' : ''}}>
+                                                                    {{$item->ds_idioma}}
+                                                                </option>
+                                                                @elseif(!empty($idiomaPalestrante))
                                                                 <option value="{{$item->id}}"
                                                                         selected="selected">
                                                                     {{$item->ds_idioma}}
                                                                 </option>
-                                                            @else
+                                                                @else
                                                                 <option value="{{$item->id}}">
                                                                     {{$item->ds_idioma}}
                                                                 </option>
                                                             @endif
                                                         @endforeach
                                                     </select>
+                                                    @if ($errors->has('idiomas'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('idiomas') }}</strong>
+                                                            </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -232,7 +279,7 @@
                                                         $categorias = App\Categoria::all();
                                                     @endphp
                                                     <select id="categorias" name="categorias[]"
-                                                            class="form-control form-control-sm select-find"
+                                                            class="form-control form-control-sm select-find {{ $errors->has('categorias') ? 'is-invalid' : '' }}"
                                                             style="width: 100%" multiple="multiple">
                                                         <option></option>
                                                         @foreach ($categorias as $categoria)
@@ -245,6 +292,10 @@
                                                                         selected="selected">
                                                                     {{$categoria->nm_categoria}}
                                                                 </option>
+                                                            @elseif(old('categorias') != NULL )
+                                                            <option value="cat-{{$categoria->id}}" {{ in_array ( "cat-".$categoria->id, old('categorias')) == 'true' ? 'selected' : ''}}>
+                                                                {{$categoria->nm_categoria}}
+                                                            </option>
                                                             @else
                                                                 <option value="cat-{{$categoria->id}}">
                                                                     {{$categoria->nm_categoria}}
@@ -260,6 +311,10 @@
                                                                             selected="selected">
                                                                         {{$subCategoria->nm_sub_cat}}
                                                                     </option>
+                                                                @elseif(old('categorias') != NULL )
+                                                                <option value="sub-{{$subCategoria->id}}" {{ in_array ( "sub-".$subCategoria->id, old('categorias')) == 'true' ? 'selected' : ''}}>
+                                                                    {{$subCategoria->nm_sub_cat}}
+                                                                </option>
                                                                 @else
                                                                     <option value="sub-{{$subCategoria->id}}">
                                                                         {{$subCategoria->nm_sub_cat}}
@@ -268,6 +323,11 @@
                                                             @endforeach
                                                         @endforeach
                                                     </select>
+                                                    @if ($errors->has('categorias'))
+                                                    <span class="invalid-feedback" role="alert" >
+                                                    <strong>{{ $errors->first('categorias') }}</strong>
+                                                </span>
+                                                @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -297,7 +357,7 @@
                                                                     <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
                                                                     <td>{{$contato->ds_contato}}</td>
                                                                     <td class='text-right'>
-                                                                        <button id='excluirBanco-{{$contato->id}}'
+                                                                        <button id='excluirContato-{{$contato->id}}'
                                                                                 type='button'
                                                                                 class='btn btn-danger btn-sm'
                                                                                 data-id="{{$contato->id}}"
@@ -373,12 +433,16 @@
                                             @if(is_object($data->dadosContratuais))
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12">
-                                                        <label for="nm_razao_social">Razão Social</label>
+                                                        <label for="nm_razao_social">Razão Social*</label>
                                                         <input id="nm_razao_social" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{ $errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
                                                                name="nm_razao_social"
-                                                               value="{{$data->dadosContratuais->nm_razao_social == "" ? "" : $data->dadosContratuais->nm_razao_social}}"
-                                                        />
+                                                               value="{{$data->nm_razao_social == 'is-valid' ? $data->nm_razao_social : (old('nm_razao_social') != NULL)?old('nm_razao_social'):'' }}"/>
+                                                                @if ($errors->has('nm_razao_social'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('nm_razao_social') }}</strong>
+                                                                </span>
+                                                                @endif
                                                     </div>
                                                 </div>
 
@@ -386,64 +450,93 @@
                                                     <div class="col-md-4">
                                                         <label for="cnpj">CNPJ</label>
                                                         <input id="cnpj" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{ $errors->has('nr_cnpj') ? 'is-invalid' : '' }}"
                                                                data-mask="00.000.000/0000-00" name="nr_cnpj"
-                                                               value="{{$data->dadosContratuais->nr_cnpj == "" ? "" : $data->dadosContratuais->nr_cnpj }}"
-                                                        />
+                                                               value="{{$data->nr_cnpj == 'is-valid' ? $data->nr_cnpj : (old('nr_cnpj') != NULL)?old('nr_cnpj'):'' }}"/>
+                                                               @if ($errors->has('nr_cnpj'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('nr_cnpj') }}</strong>
+                                                                </span>
+                                                                @endif
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label for="insc_estadual">Inscrição Estadual</label>
+                                                        <label for="insc_estadual">Inscrição Estadual*</label>
                                                         <input id="insc_estadual" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{ $errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
                                                                name="nr_insc_estadual"
-                                                               value="{{$data->dadosContratuais->nr_insc_estadual == "" ? "" : $data->dadosContratuais->nr_insc_estadual}}"
-                                                        />
-                                                    </div>
+                                                               value="{{$data->nr_insc_estadual == 'is-valid' ? $data->nr_insc_estadual : (old('nr_insc_estadual') != NULL)?old('nr_insc_estadual'):'' }}"/>
+                                                            @if ($errors->has('nr_insc_estadual'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('nr_insc_estadual') }}</strong>
+                                                            </span>
+                                                            @endif
+                                                            </div>
                                                     <div class="col-md-4">
-                                                        <label for="insc_municipal">Inscrição Municipal</label>
+                                                        <label for="insc_municipal">Inscrição Municipal*</label>
                                                         <input id="insc_municipal" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{ $errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
                                                                name="nr_insc_municipal"
-                                                               value="{{$data->dadosContratuais->nr_insc_municipal == "" ? "" : $data->dadosContratuais->nr_insc_municipal}}"
-                                                        />
+                                                               value="{{$data->nr_insc_municipal == 'is-valid' ? $data->nr_insc_municipal : (old('nr_insc_municipal') != NULL)?old('nr_insc_municipal'):'' }}"/>
+                                                               @if ($errors->has('nr_insc_municipal'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('nr_insc_municipal') }}</strong>
+                                                                </span>
+                                                                @endif
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12">
-                                                        <label for="nm_completo">Nome Completo</label>
+                                                        <label for="nm_completo">Nome Completo*</label>
                                                         <input id="nm_completo" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
                                                                name="nm_completo"
-                                                               value="{{$data->dadosContratuais->nm_completo == "" ? "" : $data->dadosContratuais->nm_completo}}"
-                                                        />
+                                                               value="{{$data->nm_completo == 'is-valid' ? $data->nm_completo : (old('nm_completo') != NULL)?old('nm_completo'):'' }}"/>
+
+                                                        @if ($errors->has('nm_completo'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                           <strong>{{$errors->first('nm_completo')}}</strong>
+                                                           </span>
+                                                           @endif
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-4">
-                                                        <label for="nr_cpf">CPF</label>
+                                                        <label for="nr_cpf">CPF*</label>
                                                         <input id="nr_cpf" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{ $errors->has('nr_cpf') ? 'is-invalid' : '' }}"
                                                                data-mask="000.000.000-00" name="nr_cpf"
-                                                               value="{{$data->dadosContratuais->nr_cpf == "" ? "" : $data->dadosContratuais->nr_cpf}}"
-                                                        />
+                                                               value="{{$data->nr_cpf == 'is-valid' ? $data->nr_cpf : (old('nr_cpf') != NULL)?old('nr_cpf'):'' }}"/>
+                                                               @if ($errors->has('nr_cpf'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('nr_cpf') }}</strong>
+                                                                </span>
+                                                                @endif
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label for="nr_rg">RG</label>
+                                                        <label for="nr_rg">RG*</label>
                                                         <input id="nr_rg" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{ $errors->has('nr_rg') ? 'is-invalid' : '' }}"
                                                                name="nr_rg" data-mask="00.000.000-0"
-                                                               value="{{$data->dadosContratuais->nr_rg == "" ? "" : $data->dadosContratuais->nr_rg}}"
-                                                        />
+                                                               value="{{$data->nr_rg == 'is-valid' ? $data->nr_rg : (old('nr_rg') != NULL)?old('nr_rg'):'' }}"/>
+                                                               @if ($errors->has('nr_rg'))
+                                                               <span class="invalid-feedback" role="alert">
+                                                                   <strong>{{ $errors->first('nr_rg') }}</strong>
+                                                               </span>
+                                                               @endif
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label for="dt_nascimento">Data de Nascimento</label>
+                                                        <label for="dt_nascimento">Data de Nascimento*</label>
                                                         <input id="dt_nascimento" type="date"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{ $errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
                                                                name="dt_nascimento"
-                                                               value="{{$data->dadosContratuais->dt_nascimento == "" ? "" : $data->dadosContratuais->dt_nascimento}}"
-                                                        />
+                                                               value="{{$data->dt_nascimento == 'is-valid' ? $data->dt_nascimento : (old('dt_nascimento') != NULL)?old('dt_nascimento'):'' }}"/>
+                                                               @if ($errors->has('dt_nascimento'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('dt_nascimento') }}</strong>
+                                                                </span>
+                                                                @endif
                                                     </div>
                                                 </div>
 
@@ -452,93 +545,126 @@
                                                         <label for="ds_observacao">Obsevações</label>
                                                         <textarea id="ds_observacao" type="text"
                                                                   class="form-control form-control-sm"
-                                                                  name="ds_observacao">{{$data->dadosContratuais->ds_observacao == "" ? "" : $data->dadosContratuais->ds_observacao}}</textarea>
-                                                    </div>
+                                                                  name="ds_observacao">{{ $data->ds_observacao != NULL ? $data->ds_observacao :old('ds_observacao') }}</textarea>
+                                                                </div>
                                                 </div>
                                             @else
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12">
-                                                        <label for="nm_razao_social">Razão Social</label>
+                                                        <label for="nm_razao_social">Razão Social*</label>
                                                         <input id="nm_razao_social" type="text"
-                                                               class="form-control form-control-sm"
-                                                               name="nm_razao_social"
-                                                               value=""
-                                                        />
+                                                               class="form-control form-control-sm {{$errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
+                                                           name="nm_razao_social" value="{{ old('nm_razao_social') }}"/>
+                                                            @if ($errors->has('nm_razao_social'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                               <strong>{{$errors->first('nm_razao_social')}}</strong>
+                                                           </span>
+                                                    @endif
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-4">
-                                                        <label for="cnpj">CNPJ</label>
+                                                        <label for="cnpj">CNPJ*</label>
                                                         <input id="cnpj" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{$errors->has('nr_cnpj') ? 'is-invalid' : '' }}"
                                                                data-mask="00.000.000/0000-00" name="nr_cnpj"
-                                                               value=""
-                                                        />
+                                                               value="{{ old('nr_cnpj') }}"/>
+                                                        @if ($errors->has('nr_cnpj'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{$errors->first('nr_cnpj')}}</strong>
+                                                                </span>
+                                                        @endif
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label for="insc_estadual">Inscrição Estadual</label>
-                                                        <input id="insc_estadual" type="text"
-                                                               class="form-control form-control-sm"
+                                                        <label for="ins_estadual">Inscrição Estadual*</label>
+                                                        <input id="ins_estadual" type="text"
+                                                               class="form-control form-control-sm  {{$errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
                                                                name="nr_insc_estadual"
-                                                               value=""
-                                                        />
+                                                               value="{{ old('nr_insc_estadual') }}"/>
+                                                        @if ($errors->has('nr_insc_estadual'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                               <strong>{{$errors->first('nr_insc_estadual')}}</strong>
+                                                               </span>
+                                                        @endif
                                                     </div>
+
                                                     <div class="col-md-4">
-                                                        <label for="insc_municipal">Inscrição Municipal</label>
-                                                        <input id="insc_municipal" type="text"
-                                                               class="form-control form-control-sm"
+                                                        <label for="ins_municipal">Inscrição Municipal*</label>
+                                                        <input id="ins_municipal" type="text"
+                                                               class="form-control form-control-sm {{$errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
                                                                name="nr_insc_municipal"
-                                                               value=""
-                                                        />
+                                                               value="{{ old('nr_insc_municipal') }}"/>
+                                                        @if ($errors->has('nr_insc_municipal'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                               <strong>{{$errors->first('nr_insc_municipal')}}</strong>
+                                                               </span>
+                                                        @endif
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12">
-                                                        <label for="nm_completo">Nome Completo</label>
+                                                        <label for="nm_completo">Nome Completo*</label>
                                                         <input id="nm_completo" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
                                                                name="nm_completo"
-                                                               value=""
-                                                        />
+                                                               value="{{$data->nm_completo == 'is-valid' ? $data->nm_completo : (old('nm_completo') != NULL)?old('nm_completo'):'' }}"/>
+                                                               @if ($errors->has('nm_completo'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                               <strong>{{$errors->first('nm_completo')}}</strong>
+                                                               </span>
+                                                        @endif
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-4">
-                                                        <label for="nr_cpf">CPF</label>
+                                                        <label for="nr_cpf">CPF*</label>
                                                         <input id="nr_cpf" type="text"
-                                                               class="form-control form-control-sm"
+                                                               class="form-control form-control-sm {{$errors->has('nr_cpf') ? 'is-invalid' : '' }}"
                                                                data-mask="000.000.000-00" name="nr_cpf"
-                                                               value=""
-                                                        />
+                                                               value="{{ old('nr_cpf') }}"/>
+                                                        @if ($errors->has('nr_cpf'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                               <strong>{{$errors->first('nr_cpf')}}</strong>
+                                                               </span>
+                                                        @endif
                                                     </div>
+
                                                     <div class="col-md-4">
-                                                        <label for="nr_rg">RG</label>
+                                                        <label for="nr_rg">RG*</label>
                                                         <input id="nr_rg" type="text"
-                                                               class="form-control form-control-sm"
-                                                               name="nr_rg" data-mask="00.000.000-0"
-                                                               value=""
-                                                        />
+                                                               class="form-control form-control-sm {{$errors->has('nr_rg') ? 'is-invalid' : '' }}"
+                                                               name="nr_rg" value="{{ old('nr_rg') }}"
+                                                               data-mask="00.000.000-0"/>
+                                                        @if ($errors->has('nr_rg'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{$errors->first('nr_rg')}}</strong>
+                                                                </span>
+                                                        @endif
                                                     </div>
+
                                                     <div class="col-md-4">
-                                                        <label for="dt_nascimento">Data de Nascimento</label>
+                                                        <label for="dt_nascimento">Data de Nascimento*</label>
                                                         <input id="dt_nascimento" type="date"
-                                                               class="form-control form-control-sm"
-                                                               name="dt_nascimento"
-                                                               value=""
-                                                        />
+                                                               class="form-control form-control-sm {{$errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
+                                                               name="dt_nascimento" value="{{ old('dt_nascimento') }}"/>
+                                                        @if ($errors->has('dt_nascimento'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{$errors->first('dt_nascimento')}}</strong>
+                                                </span>
+                                                        @endif
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12">
-                                                        <label for="ds_observacao">Obsevações</label>
-                                                        <textarea id="ds_observacao" type="text"
-                                                                  class="form-control form-control-sm"
-                                                                  name="ds_observacao"></textarea>
-                                                    </div>
+                                                    <label for="obsevacao">Obsevações*</label>
+                                                    <textarea id="obsevacao" type="text"
+                                                              class="form-control form-control-sm "
+                                                              name="ds_observacao">{{ $data->ds_observacao != NULL ? $data->ds_observacao :old('ds_observacao') }}</textarea>
+                                                   </div>
                                                 </div>
                                             @endif
                                         </div>
@@ -703,38 +829,38 @@
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmChamadaModal">
-                                                        Chamada
+                                                        Chamada*
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmCurriculoModal">
-                                                        Currículo
+                                                        Currículo*
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmCurriculoTecModal">
-                                                        Currículo Técnico
+                                                        Currículo Técnico*
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmFormaPagamentoModal">
-                                                        Forma de Pagamento
+                                                        Forma de Pagamento*
                                                     </button>
 
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmInvestimentoModal">
-                                                        Investimento
+                                                        Investimento*
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmEquipamentoModal">
-                                                        Equipamentos Necessários
+                                                        Equipamentos Necessários*
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmObservacaoModal">
-                                                        Observações
+                                                        Observações*
                                                     </button>
                                                 </div>
                                                 <div class="col-md-12">
@@ -885,26 +1011,74 @@
                                              aria-labelledby="nav-contact-tab">
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-6">
-                                                    <label for="ds_titulo_video">Titulo</label>
+                                                    @if(isset($data->ds_titulo_video))
+                                                    <label for="ds_titulo_video">Titulo*</label>
                                                     <input id="ds_titulo_video" type="text"
-                                                           class="form-control form-control-sm"
+                                                           class="form-control form-control-sm {{ $errors->has('ds_titulo_video') ? 'is-invalid' : '' }}"
                                                            name="ds_titulo_video"
-                                                           value="{{$data->ds_titulo_video == "" ? "" : $data->ds_titulo_video}}"/>
+                                                           value="{{$data->ds_titulo_video == 'is-valid' ? $data->ds_titulo_video : (old('ds_titulo_video') != NULL)?old('ds_titulo_video'):'' }}"/>
+                                                           @if ($errors->has('ds_titulo_video'))
+                                                           <span class="invalid-feedback" role="alert">
+                                                               <strong>{{ $errors->first('ds_titulo_video') }}</strong>
+                                                           </span>
+                                                       @endif
+                                                           @else
+                                                    <label for="ds_titulo_video">Titulo*</label>
+                                                    <input id="ds_titulo_video" type="text"
+                                                           class="form-control form-control-sm {{ $errors->has('ds_titulo_video') ? 'is-invalid' : '' }}"
+                                                           name="ds_titulo_video" value="{{ old('ds_titulo_video') }}"/>
+                                                    @if ($errors->has('ds_titulo_video'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('ds_titulo_video') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="ds_url_video">URL</label>
+                                                    @if(isset($data->ds_url_video))
+                                                    <label for="ds_url_video">URL*</label>
                                                     <input id="ds_url_video" type="text"
-                                                           class="form-control form-control-sm"
+                                                           class="form-control form-control-sm {{ $errors->has('ds_url_video') ? 'is-invalid' : '' }}"
                                                            name="ds_url_video"
-                                                           value="{{$data->ds_url_video == "" ? "" : $data->ds_url_video}}"/>
-                                                </div>
+                                                           value="{{$data->ds_url_video == 'is-valid' ? $data->ds_url_video : (old('ds_url_video') != NULL)?old('ds_url_video'):'' }}"/>
+                                                           @if ($errors->has('ds_url_video'))
+                                                               <span class="invalid-feedback" role="alert">
+                                                                  <strong>{{ $errors->first('ds_url_video') }}</strong>
+                                                               </span>
+                                                           @endif
+                                                           @else
+                                                           <label for="ds_url_video">URL*</label>
+                                                           <input id="ds_url_video" type="text"
+                                                                  class="form-control form-control-sm {{ $errors->has('ds_url_video') ? 'is-invalid' : '' }}"
+                                                                  name="ds_url_video"
+                                                                  value="{{ old('ds_url_video') }}"/>
+                                                           @if ($errors->has('ds_url_video'))
+                                                               <span class="invalid-feedback" role="alert">
+                                                                  <strong>{{ $errors->first('ds_url_video') }}</strong>
+                                                               </span>
+                                                           @endif
+                                                           @endif
+                                                        </div>
                                                 <div class="col-md-12">
-                                                    <label for="ds_descricao_video">Descrição</label>
+                                                    @if(isset($data->ds_descricao_video))
+                                                    <label for="ds_descricao_video">Descrição*</label>
                                                     <textarea id="ds_descricao_video" type="text"
                                                               class="form-control form-control-sm"
                                                               name="ds_descricao_video"
                                                               title="Descrição do Video">{{$data->ds_descricao_video == "" ? "" : $data->ds_descricao_video}}</textarea>
-                                                </div>
+                                                @else
+                                                <label for="ds_descricao_video">Descrição*</label>
+                                                <textarea id="ds_descricao_video" type="text"
+                                                          class="form-control form-control-sm {{ $errors->has('ds_descricao_video') ? 'is-invalid' : '' }}"
+                                                          name="ds_descricao_video"
+                                                          title="Descrição do Video">{{ old('ds_descricao_video') }}</textarea>
+                                                @if ($errors->has('ds_descricao_video'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                          <strong>{{ $errors->first('ds_descricao_video') }}</strong>
+                                                    </span>
+                                                @endif
+                                                @endif
+                                                            </div>
                                             </div>
                                         </div>
                                     </div>
