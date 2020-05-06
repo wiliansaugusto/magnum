@@ -164,12 +164,19 @@ class CategoriaController extends Controller
     public function destroy(Request $request)
     {
         if (isset($request->sub) == 1) {
+
             SubCategoria::destroy($request->id);
             $request->session()->flash('mensagem',
                 "Sub Categoria removida com sucesso ");
+
             return redirect('dashboard/categoria');
         } else {
+            $subCats = SubCategoria::all()->where('id_categoria','=' ,$request->id);
 
+            foreach ($subCats as  $value) {
+                $value->delete();
+
+            }
             Categoria::destroy($request->id);
             $request->session()->flash('mensagem',
                 "Categoria removida com sucesso ");

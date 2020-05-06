@@ -9,6 +9,7 @@
                 <div class="modal-body text-left" style="color:black;">
                     <div class="form-group">
                         <div class="modal-header">
+                            <input type="hidden" name="sub" value="1">
                             <h5 class="modal-title" id="LabelAlt{{$subItem->id}}">
                                 Excluir Categoria
                             </h5>
