@@ -197,7 +197,7 @@
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <label>Ranking do Palestrante</label><br>
+                                                    <label>Ranking do Palestrante*</label><br>
                                                     <div class="rate {{ $errors->has('rank_palestrante') ? 'is-invalid' : '' }}">
                                                         <input type="radio" id="star5" name="rank_palestrante"
                                                                value="5"/>
@@ -233,10 +233,9 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     @php
-                                                        var_dump( old('idiomas'));
                                                         $idiomas = App\Idiomas::all();
                                                     @endphp
-                                                    <label for="idiomas">Idiomas</label>
+                                                    <label for="idiomas">Idiomas*</label>
                                                     <select id="idiomas" name="idiomas[]" class="form-control
                                                     form-control-sm select-find {{ $errors->has('idiomas') ? 'is-invalid' : '' }}"
                                                             multiple="multiple"

@@ -19,17 +19,19 @@
                     </thead>
                     <tbody>
                     @foreach ($usuarios as $usuario)
-                        <tr>
-                            <td>{{$usuario->nm_usuario}}</td>
-                            <td>{{date_format($usuario->created_at,"d/m/Y H:i:s")}}</td>
-                            <td class=" text-right">
-                                <button type="button" class="btn btn-danger btn-sm ml-1"
-                                        data-toggle="modal"
-                                        data-target="#modalUsuarioeDel{{$usuario->id}}"><i
-                                            class='fa fa-trash'></i></button>
-                                @include('dashboard.usuario.delete',['usuario'=>$usuario])
-                            </td>
-                        </tr>
+                        @if($usuario->id != Auth::user()->id)
+                            <tr>
+                                <td>{{$usuario->nm_usuario}}</td>
+                                <td>{{date_format($usuario->created_at,"d/m/Y H:i:s")}}</td>
+                                <td class=" text-right">
+                                    <button type="button" class="btn btn-danger btn-sm ml-1"
+                                            data-toggle="modal"
+                                            data-target="#modalUsuarioeDel{{$usuario->id}}"><i
+                                                class='fa fa-trash'></i></button>
+                                    @include('dashboard.usuario.delete',['usuario'=>$usuario])
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

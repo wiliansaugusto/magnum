@@ -56,12 +56,14 @@
                                 <tbody>
                                 @foreach ($palestrantes as $palestrante)
                                     @php
-                                        $usuario = App\User::find($palestrante->id_usuario);
+                                        $usuario = App\Usuario::withTrashed()
+                                                    ->where('id',$palestrante->id_usuario)
+                                                    ->first();
                                     @endphp
                                     <tr>
                                         <td>{{$palestrante->nm_palestrante}}</td>
                                         <td>{{date_format($palestrante->updated_at,"d/m/Y H:i:s")}}</td>
-                                        <td>{{$usuario->name}}</td>
+                                        <td>{{$usuario->nm_usuario}}</td>
                                         <td class=" text-right">
                                             <a href="/dashboard/palestrante/{{$palestrante->id}}/edit"
                                                class="btn btn-primary btn-sm ml-1"><i
