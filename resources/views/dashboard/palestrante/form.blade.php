@@ -662,7 +662,7 @@
                                                         <tbody>
                                                         @if (sizeof($data->assessores) > 0)
                                                             @foreach($data->assessores as $assessor)
-                                                                <tr id="{{$assessor->id}}">
+                                                                <tr id="assessor-{{$assessor->id}}">
                                                                     <td>{{$assessor->nm_acessor}}</td>
                                                                     <td class='text-right'>
                                                                         <button id='excluirAssessor' type='button'
