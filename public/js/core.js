@@ -322,13 +322,14 @@ $(document).ready(function () {
 
         var id = $('#id_assessor').val();
         var data = $('#frmRemoverAssessor').serialize();
+        debugger;
         $.ajax({
             method: "POST",
             url: "/dashboard/assessor/delete/" + id,
             data: data,
             success: function () {
                 $('#frmRemoverAssessorModal').modal('toggle');
-                $('#' + id).remove();
+                $('#assessor-' + id).remove();
                 if ($('#tblAssessor tbody tr').length <= 0) {
                     $("#tblAssessor tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center"> Nenhum Assessor registrado</td></tr>');
 
@@ -433,7 +434,7 @@ $(document).ready(function () {
         $("#tblContatoAssessor tbody ").html('<tr id="contato-assessor-null"><td colspan="3" class="text-center"> Nenhum contato registrado</td></tr>');
         $("#assesssor-null").remove();
 
-        var linha = "<tr id='" + fields.id + "'>";
+        var linha = "<tr id='assessor-" + fields.id + "'>";
         linha += "<td>" + fields.nm_acessor + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirAssessor' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id + "' data-toggle='modal' data-target='#frmRemoverAssessorModal'>";

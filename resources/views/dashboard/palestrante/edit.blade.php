@@ -437,7 +437,7 @@
                                                         <input id="nm_razao_social" type="text"
                                                                class="form-control form-control-sm {{ $errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
                                                                name="nm_razao_social"
-                                                               value="{{$data->nm_razao_social == 'is-valid' ? $data->nm_razao_social : (old('nm_razao_social') != NULL)?old('nm_razao_social'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->nm_razao_social != NULL ? $data->dadosContratuais->nm_razao_social : '' }}"/>
                                                                 @if ($errors->has('nm_razao_social'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('nm_razao_social') }}</strong>
@@ -452,7 +452,7 @@
                                                         <input id="cnpj" type="text"
                                                                class="form-control form-control-sm {{ $errors->has('nr_cnpj') ? 'is-invalid' : '' }}"
                                                                data-mask="00.000.000/0000-00" name="nr_cnpj"
-                                                               value="{{$data->nr_cnpj == 'is-valid' ? $data->nr_cnpj : (old('nr_cnpj') != NULL)?old('nr_cnpj'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->nr_cnpj  != NULL ? $data->dadosContratuais->nr_cnpj : '' }}"/>
                                                                @if ($errors->has('nr_cnpj'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('nr_cnpj') }}</strong>
@@ -464,7 +464,7 @@
                                                         <input id="insc_estadual" type="text"
                                                                class="form-control form-control-sm {{ $errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
                                                                name="nr_insc_estadual"
-                                                               value="{{$data->nr_insc_estadual == 'is-valid' ? $data->nr_insc_estadual : (old('nr_insc_estadual') != NULL)?old('nr_insc_estadual'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->nr_insc_estadual != NULL ? $data->dadosContratuais->nr_insc_estadual : '' }}"/>
                                                             @if ($errors->has('nr_insc_estadual'))
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('nr_insc_estadual') }}</strong>
@@ -476,7 +476,7 @@
                                                         <input id="insc_municipal" type="text"
                                                                class="form-control form-control-sm {{ $errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
                                                                name="nr_insc_municipal"
-                                                               value="{{$data->nr_insc_municipal == 'is-valid' ? $data->nr_insc_municipal : (old('nr_insc_municipal') != NULL)?old('nr_insc_municipal'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->nr_insc_municipal != NULL ? $data->dadosContratuais->nr_insc_municipal : '' }}"/>
                                                                @if ($errors->has('nr_insc_municipal'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('nr_insc_municipal') }}</strong>
@@ -491,7 +491,7 @@
                                                         <input id="nm_completo" type="text"
                                                                class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
                                                                name="nm_completo"
-                                                               value="{{$data->nm_completo == 'is-valid' ? $data->nm_completo : (old('nm_completo') != NULL)?old('nm_completo'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->nm_completo != NULL ? $data->dadosContratuais->nm_completo : '' }}"/>
 
                                                         @if ($errors->has('nm_completo'))
                                                         <span class="invalid-feedback" role="alert">
@@ -507,7 +507,7 @@
                                                         <input id="nr_cpf" type="text"
                                                                class="form-control form-control-sm {{ $errors->has('nr_cpf') ? 'is-invalid' : '' }}"
                                                                data-mask="000.000.000-00" name="nr_cpf"
-                                                               value="{{$data->nr_cpf == 'is-valid' ? $data->nr_cpf : (old('nr_cpf') != NULL)?old('nr_cpf'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->nr_cpf != NULL ? $data->dadosContratuais->nr_cpf : '' }}"/>
                                                                @if ($errors->has('nr_cpf'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('nr_cpf') }}</strong>
@@ -519,7 +519,7 @@
                                                         <input id="nr_rg" type="text"
                                                                class="form-control form-control-sm {{ $errors->has('nr_rg') ? 'is-invalid' : '' }}"
                                                                name="nr_rg" data-mask="00.000.000-0"
-                                                               value="{{$data->nr_rg == 'is-valid' ? $data->nr_rg : (old('nr_rg') != NULL)?old('nr_rg'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->nr_rg != NULL ? $data->dadosContratuais->nr_rg : '' }}"/>
                                                                @if ($errors->has('nr_rg'))
                                                                <span class="invalid-feedback" role="alert">
                                                                    <strong>{{ $errors->first('nr_rg') }}</strong>
@@ -531,7 +531,7 @@
                                                         <input id="dt_nascimento" type="date"
                                                                class="form-control form-control-sm {{ $errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
                                                                name="dt_nascimento"
-                                                               value="{{$data->dt_nascimento == 'is-valid' ? $data->dt_nascimento : (old('dt_nascimento') != NULL)?old('dt_nascimento'):'' }}"/>
+                                                               value="{{$data->dadosContratuais->dt_nascimento != NULL ? $data->dadosContratuais->dt_nascimento : '' }}"/>
                                                                @if ($errors->has('dt_nascimento'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('dt_nascimento') }}</strong>
@@ -545,7 +545,7 @@
                                                         <label for="ds_observacao">Obsevações</label>
                                                         <textarea id="ds_observacao" type="text"
                                                                   class="form-control form-control-sm"
-                                                                  name="ds_observacao">{{ $data->ds_observacao != NULL ? $data->ds_observacao :old('ds_observacao') }}</textarea>
+                                                                  name="ds_observacao">{{ $data->dadosContratuais->ds_observacao != NULL ? $data->dadosContratuais->ds_observacao : '' }}</textarea>
                                                                 </div>
                                                 </div>
                                             @else
@@ -609,7 +609,7 @@
                                                         <input id="nm_completo" type="text"
                                                                class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
                                                                name="nm_completo"
-                                                               value="{{$data->nm_completo == 'is-valid' ? $data->nm_completo : (old('nm_completo') != NULL)?old('nm_completo'):'' }}"/>
+                                                               value="{{old('nm_completo') }}"/>
                                                                @if ($errors->has('nm_completo'))
                                                             <span class="invalid-feedback" role="alert">
                                                                <strong>{{$errors->first('nm_completo')}}</strong>
@@ -663,7 +663,7 @@
                                                     <label for="obsevacao">Obsevações*</label>
                                                     <textarea id="obsevacao" type="text"
                                                               class="form-control form-control-sm "
-                                                              name="ds_observacao">{{ $data->ds_observacao != NULL ? $data->ds_observacao :old('ds_observacao') }}</textarea>
+                                                              name="ds_observacao">{{ old('ds_observacao') }}</textarea>
                                                    </div>
                                                 </div>
                                             @endif
@@ -796,7 +796,7 @@
                                                         <tbody>
                                                         @if (sizeof($data->assessores) > 0)
                                                             @foreach($data->assessores as $assessor)
-                                                                <tr id="{{$assessor->id}}">
+                                                                <tr id="assessor-{{$assessor->id}}">
                                                                     <td>{{$assessor->nm_acessor}}</td>
                                                                     <td class='text-right'>
                                                                         <button id='excluirAssessor' type='button'
@@ -1016,7 +1016,7 @@
                                                     <input id="ds_titulo_video" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('ds_titulo_video') ? 'is-invalid' : '' }}"
                                                            name="ds_titulo_video"
-                                                           value="{{$data->ds_titulo_video == 'is-valid' ? $data->ds_titulo_video : (old('ds_titulo_video') != NULL)?old('ds_titulo_video'):'' }}"/>
+                                                           value="{{$data->ds_titulo_video != NULL ? $data->ds_titulo_video : '' }}"/>
                                                            @if ($errors->has('ds_titulo_video'))
                                                            <span class="invalid-feedback" role="alert">
                                                                <strong>{{ $errors->first('ds_titulo_video') }}</strong>
@@ -1040,7 +1040,7 @@
                                                     <input id="ds_url_video" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('ds_url_video') ? 'is-invalid' : '' }}"
                                                            name="ds_url_video"
-                                                           value="{{$data->ds_url_video == 'is-valid' ? $data->ds_url_video : (old('ds_url_video') != NULL)?old('ds_url_video'):'' }}"/>
+                                                           value="{{$data->ds_url_video != NULL ? $data->ds_url_video : '' }}"/>
                                                            @if ($errors->has('ds_url_video'))
                                                                <span class="invalid-feedback" role="alert">
                                                                   <strong>{{ $errors->first('ds_url_video') }}</strong>
