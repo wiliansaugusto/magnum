@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                   <label for="txtTinyMCE"> Observações</label>
+                                   <label for="txtTinyMCE">Cadastrar Observações*</label>
                                 <textarea class="form-control" id="txtTinyMCE" name="descricao" rows="4" required></textarea>
                             </div>
                         </div>

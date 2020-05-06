@@ -829,38 +829,38 @@
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmChamadaModal">
-                                                        Chamada*
+                                                        Chamada
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmCurriculoModal">
-                                                        Currículo*
+                                                        Currículo
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmCurriculoTecModal">
-                                                        Currículo Técnico*
+                                                        Currículo Técnico
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmFormaPagamentoModal">
-                                                        Forma de Pagamento*
+                                                        Forma de Pagamento
                                                     </button>
 
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmInvestimentoModal">
-                                                        Investimento*
+                                                        Investimento
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmEquipamentoModal">
-                                                        Equipamentos Necessários*
+                                                        Equipamentos Necessários
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#frmObservacaoModal">
-                                                        Observações*
+                                                        Observações
                                                     </button>
                                                 </div>
                                                 <div class="col-md-12">

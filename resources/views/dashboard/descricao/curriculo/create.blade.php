@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="ds_curriculo">Cadastro do Curriculo Resumido</label>
+                                <label for="ds_curriculo">Cadastro do Curriculo Resumido*</label>
                                 <textarea class="form-control" name="descricao" id="ds_curriculo"
                                     rows="4"></textarea>
                             </div>

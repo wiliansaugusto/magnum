@@ -1,4 +1,3 @@
-
 <div class="modal fade" id="frmFormaPagamentoModal" tabindex="-1" role="dialog"
     aria-labelledby="frmFormaPagamentoModalLabel" aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -14,7 +13,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="txtTinyMCE"> Forma de Pagamento</label>
+                                <label for="txtTinyMCE">Cadastrar a Forma de Pagamento*</label>
                                 <textarea class="form-control" id="txtTinyMCE" name="descricao" rows="4"
                                     required></textarea>
                             </div>

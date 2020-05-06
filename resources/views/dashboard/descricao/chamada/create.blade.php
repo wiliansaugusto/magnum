@@ -13,9 +13,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="ds_chamada">Cadastro de Chamada para o site</label>
+                                <label  for="ds_chamada">Cadastro da Chamada para o site*</label>
                                 <textarea class="form-control" name="descricao" id="ds_chamada" maxlength="300"
-                                    rows="8"></textarea>
+                                    rows="4"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">

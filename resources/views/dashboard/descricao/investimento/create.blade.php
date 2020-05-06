@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="ds_investimento"> Investimentos</label>
+                                <label for="ds_investimento">Cadastrar Investimentos*</label>
                                 <textarea class="form-control" id="ds_investimento" name="descricao" rows="4"
                                     required></textarea>
                             </div>
