@@ -305,8 +305,7 @@ $(document).ready(function () {
                 $('#endereco-' + id).remove();
 
                 if ($('#tblEnderecoPalestrante tbody tr').length <= 0) {
-console.log($('#tblEnderecoPalestrante tbody tr').length);
-                $("#tblEnderecoPalestrante tbody ").html('<tr id="endereco-null"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
+                    $("#tblEnderecoPalestrante tbody ").html('<tr id="endereco-null"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
                 }
             },
 
@@ -482,7 +481,7 @@ console.log($('#tblEnderecoPalestrante tbody tr').length);
     function tabelaEnderecoPalestrante(fields) {
         $("#endereco-null").remove();
 
-        var linha = "<tr id='" + fields.id_endereco + "'>";
+        var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
         linha += "<td>" + fields.tipo_endereco + "</td>";
         linha += "<td>" + fields.endereco + "</td>";
         linha += "<td class='text-right'>";

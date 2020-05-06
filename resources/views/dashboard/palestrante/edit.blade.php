@@ -402,7 +402,7 @@
                                                         <tbody>
                                                         @if(sizeof($data->enderecos) > 0)
                                                             @foreach($data->enderecos as $endereco)
-                                                                <tr id="{{$endereco->id}}">
+                                                                <tr id="endereco-{{$endereco->id}}">
                                                                     <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}</td>
                                                                     <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
                                                                     <td class='text-right'>
