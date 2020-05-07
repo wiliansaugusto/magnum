@@ -1,0 +1,10 @@
+# Use PHP71 as default
+AddHandler application/x-httpd-php71 .php
+# BEGIN custom php.ini PHP71
+<IfModule mod_suphp.c>
+    suPHP_ConfigPath /home2/magnu152
+</IfModule>
+<IfModule mime_module>
+ AddHandler application/x-httpd-ea-php71 .php .php7 .phtml
+ </IfModule>
+# END custom php.ini

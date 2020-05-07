@@ -16,7 +16,8 @@ class Palestrante extends Model
         'ds_chamada', 'ds_curriculo', 'ds_curriculo_tecnico',
         'ds_observacao', 'ds_investimento',
         'ds_forma_pagamento', 'ds_equipamento_necessario', "id_usuario", 'ds_titulo_video', 'ds_url_video',
-        'ds_descricao_video',
+        'ds_descricao_video','nm_completo_palestrante','nr_rg_palestrante','nr_cpf_palestrante',
+        'dt_nascimento_palestrante','cidade_palestrante',
     ];
 
     public function contatos()

@@ -26,10 +26,10 @@ class PalestranteController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->has('search')){
-            $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%'.$request['search'].'%')->paginate(10)->appends('search',  $request['search']);
-        }else{
-            $palestrantes = Palestrante::where('id','>',0)->orderByDesc('id')->paginate(10);
+        if ($request->has('search')) {
+            $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%' . $request['search'] . '%')->paginate(10)->appends('search', $request['search']);
+        } else {
+            $palestrantes = Palestrante::where('id', '>', 0)->orderByDesc('id')->paginate(10);
         }
         return view('dashboard.palestrante.index')->with('palestrantes', $palestrantes);
 
@@ -49,7 +49,7 @@ class PalestranteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(PalestranteRequest $request)
@@ -66,6 +66,11 @@ class PalestranteController extends Controller
         $palestrante->ds_url_video = $request->ds_url_video;
         $palestrante->ds_descricao_video = $request->ds_descricao_video;
         $palestrante->ds_sexo = $request->ds_sexo;
+        $palestrante->nm_completo_palestrante = $request->nm_completo_palestrante;
+        $palestrante->nr_rg_palestrante = $request->nr_rg_palestrante;
+        $palestrante->nr_cpf_palestrante = $request->nr_cpf_palestrante;
+        $palestrante->dt_nascimento_palestrante = $request->dt_nascimento_palestrante;
+        $palestrante->cidade_palestrante = $request->cidade_palestrante;
         $palestrante->save();
 
         $dadosContratuais = new DadosContratuais();
@@ -82,28 +87,34 @@ class PalestranteController extends Controller
 
         $dadosContratuais->save();
 
-        $idiomas = $request->all()['idiomas'];
-        $categorias = $request->all()['categorias'];
 
-        foreach ($idiomas as $idioma) {
-            $salvaIdioma = new IdiomasPalestrante();
-            $salvaIdioma->id_idiomas = $idioma;
-            $salvaIdioma->id_palestrante = $id_palestrante;
-            $salvaIdioma->save();
-        }
+        if (isset($request->al['idiomas'])) {
+            $idiomas = $request->all()['idiomas'];
 
-        foreach ($categorias as $categoria) {
-            $salvaCategoria = new PalestranteCategoria();
-            $tipoCat = explode("-", $categoria)[0];
-            $catId = explode("-", $categoria)[1];
-            if ($tipoCat == "cat") {
-                $salvaCategoria->id_categoria = $catId;
-            } else {
-                $salvaCategoria->id_subcategoria = $catId;
+            foreach ($idiomas as $idioma) {
+                $salvaIdioma = new IdiomasPalestrante();
+                $salvaIdioma->id_idiomas = $idioma;
+                $salvaIdioma->id_palestrante = $id_palestrante;
+                $salvaIdioma->save();
             }
-            $salvaCategoria->id_palestrante = $id_palestrante;
-            $salvaCategoria->save();
         }
+
+        if (isset($request->all['categorias'])) {
+            $categorias = $request->all()['categorias'];
+            foreach ($categorias as $categoria) {
+                $salvaCategoria = new PalestranteCategoria();
+                $tipoCat = explode("-", $categoria)[0];
+                $catId = explode("-", $categoria)[1];
+                if ($tipoCat == "cat") {
+                    $salvaCategoria->id_categoria = $catId;
+                } else {
+                    $salvaCategoria->id_subcategoria = $catId;
+                }
+                $salvaCategoria->id_palestrante = $id_palestrante;
+                $salvaCategoria->save();
+            }
+        }
+
 
         return redirect('dashboard/palestrante');
     }
@@ -111,7 +122,7 @@ class PalestranteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -123,7 +134,7 @@ class PalestranteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit(PalestranteRequest $request, $id)
@@ -141,6 +152,11 @@ class PalestranteController extends Controller
         $palestrante->ds_url_video = $request->ds_url_video;
         $palestrante->ds_descricao_video = $request->ds_descricao_video;
         $palestrante->ds_sexo = $request->ds_sexo;
+        $palestrante->nm_completo_palestrante = $request->nm_completo_palestrante;
+        $palestrante->nr_rg_palestrante = $request->nr_rg_palestrante;
+        $palestrante->nr_cpf_palestrante = $request->nr_cpf_palestrante;
+        $palestrante->dt_nascimento_palestrante = $request->dt_nascimento_palestrante;
+        $palestrante->cidade_palestrante = $request->cidade_palestrante;
         $palestrante->save();
 
         $dadosContratuais = new DadosContratuais();
@@ -162,8 +178,8 @@ class PalestranteController extends Controller
         $categoriasSalvas = PalestranteCategoria::where('id_palestrante', $id_palestrante);
         $categoriasSalvas->delete();
 
-        if(array_key_exists('idiomas', $request->all())){
             $idiomas = $request->all()['idiomas'];
+            $categorias = $request->all()['categorias'];
 
             foreach ($idiomas as $idioma) {
                 $idiomaPalestrante = IdiomasPalestrante::where('id_palestrante', $id_palestrante)
@@ -176,9 +192,7 @@ class PalestranteController extends Controller
                     $salvaIdioma->save();
                 }
             }
-        }
-        if (array_key_exists('categorias', $request->all())) {
-            $categorias = $request->all()['categorias'];
+
 
             foreach ($categorias as $categoria) {
 
@@ -206,15 +220,15 @@ class PalestranteController extends Controller
                     }
                 }
             }
-        }
+
         return redirect('dashboard/palestrante');
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -224,7 +238,7 @@ class PalestranteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
@@ -284,8 +298,7 @@ class PalestranteController extends Controller
             //Storage::delete([$upload]);
             $image = Image::make($request->ds_foto);
             $image->fit(500)->orientate();
-            $image->save('storage/'.$upload);
-
+            $image->save('storage/' . $upload);
 
 
             //salva no banco
@@ -312,43 +325,44 @@ class PalestranteController extends Controller
 
 
             $diretorio = dir(public_path("storage/imagemPalestrante"));
-            $salvar=0;
-            while($arquivo = $diretorio->read()){
-                echo ($arquivo."<br>".$nomeFinal."<hr>");
-                if($arquivo == $nomeFinal){
-                        $this->salvar = 0;
-                echo("achou<br>");
+            $salvar = 0;
+            while ($arquivo = $diretorio->read()) {
+                echo($arquivo . "<br>" . $nomeFinal . "<hr>");
+                if ($arquivo == $nomeFinal) {
+                    $this->salvar = 0;
+                    echo("achou<br>");
 
-                }else{
+                } else {
                     $this->salvar = 1;
                     echo("não achou<br>");
-                break;
+                    break;
                 }
             }
-            $diretorio -> close();
+            $diretorio->close();
 
-            if($salvar = 1){
+            if ($salvar = 1) {
 
                 $image = Image::make($request->ds_foto);
                 $image->fit(500)->orientate();
-                $upload=$image->save('storage/imagemPalestrante/'.$nomeFinal);
+                $upload = $image->save('storage/imagemPalestrante/' . $nomeFinal);
 
                 $palestranteFoto = Palestrante::find($request->id_palestrante);
-                $palestranteFoto->ds_foto = "imagemPalestrante/".$nomeFinal;
+                $palestranteFoto->ds_foto = "imagemPalestrante/" . $nomeFinal;
                 $palestranteFoto->save();
             }
         }
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
 
         $search = $request->get('search');
 
 
-        $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%'.$search.'%')->paginate(5); //busca com operador LIKE SQL
+        $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%' . $search . '%')->paginate(5); //busca com operador LIKE SQL
 
         //return view('dashboard.palestrante.index')->with(compact('palestrantes','search'));
-        return view('dashboard.palestrante.index', ['palestrantes' => $palestrantes, 'search'=>$search]);
+        return view('dashboard.palestrante.index', ['palestrantes' => $palestrantes, 'search' => $search]);
 
     }
 }

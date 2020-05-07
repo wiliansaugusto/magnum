@@ -20,7 +20,7 @@
                                 <div class="col-md-12">
                                     <label for="nome_palestrante">Nome do Palestrante*</label>
                                     <input id="nome_palestrante" type="text" class="form-control form-control-sm"
-                                           name="nm_palestrante" value="" autofocus>
+                                           name="nm_palestrante" value="" autofocus required>
                                 </div>
                             </div>
                         </div>
