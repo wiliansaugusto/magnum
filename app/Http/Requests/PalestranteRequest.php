@@ -25,7 +25,7 @@ class PalestranteRequest extends FormRequest
     {
 
         return [
-            'ds_foto' => 'image|mimes:jpeg,png,jpg',
+            'ds_foto' => 'nullable|image|mimes:jpeg,png,jpg',
             'ds_nacionalidade' => 'required',
             'ds_sexo' => 'required',
             'ds_ativo' => 'required',
@@ -35,17 +35,20 @@ class PalestranteRequest extends FormRequest
 //            'ds_descricao_video' => 'required',
 //            'nm_razao_social' => 'required',
 //            'nm_completo' => 'required',
-            'nr_cnpj' => 'nullabe|cnpj',
-            'nr_cpf' => 'nullabe|cpf',
-            'nr_cpf_palestrante' => 'nullable|cpf',
+            'nr_cnpj' => 'nullable|cnpj',
+            'nr_cpf' => 'nullable|cpf',
 //            'nr_insc_estadual' => 'required',
 //            'nr_rg' => 'required',
 //            'dt_nascimento' => 'required',
             'rank_palestrante' => 'required',
 //            'nr_insc_municipal' => 'required',
             'idiomas' => 'required',
-            'categorias' => 'required'
-//              'nm_completo_palestrante'=>,
+            'categorias' => 'required',
+            'nr_cpf_palestrante' => 'nullable|cpf',
+
+//          'nm_completo_palestrante'=> 'required',
+//          'dt_nascimento_palestrante'=> 'required',
+//          'nr_rg_palestrante'=> 'required',
         ];
     }
 
@@ -78,7 +81,11 @@ class PalestranteRequest extends FormRequest
             'dt_nascimento' => 'Data de Nascimento',
             'ds_observacao' => 'Observações ',
             'rank_palestrante' => 'Rank do Palestrante',
-            'nr_insc_municipal' => 'Inscrição Municipal'
+            'nr_insc_municipal' => 'Inscrição Municipal',
+            'nm_completo_palestrante'=>     'Nome Completo do Palestrante',
+            'dt_nascimento_palestrante'=>   'Data de Nascimento do Palestrante',
+            'nr_rg_palestrante'=>           'RG do Palestrante',
+            'nr_cpf_palestrante'=>          'CPF do Palestrante',
         ];
     }
 }

@@ -32,8 +32,8 @@
                             <div class="col-md-12 col-sm-12 text-center mt-2">
                                 <input id="ds_foto" type="file"
                                     class="form-control form-control-sm inputFoto {{ $errors->has('ds_foto') ? 'is-invalid' : '' }}"
-                                    name="ds_foto" value="" required
-                                    {{ old('ds_foto') !='img/no-image.png' ? 'true' : $data->image  }} autofocus />
+                                    name="ds_foto" value=""
+                                    {{ old('ds_foto') !='img/no-image.png' ? 'true' : $data->image  }} />
                                 <label for="ds_foto" class="custom-upload-foto" style="width: 100%;">
                                     <i class="fa fa-cloud-upload"></i> Carregar Foto
                                 </label>
@@ -55,6 +55,18 @@
                                             aria-selected="true">Dados
                                             Pessoais</a>
 
+                                        <a class="nav-item nav-link" id="nav-assessor-tab" data-toggle="tab"
+                                            href="#nav-assessor" role="tab" aria-controls="nav-assessor"
+                                            aria-selected="false">Assessor</a>
+
+                                        <a class="nav-item nav-link" id="nav-descricao-tab" data-toggle="tab"
+                                            href="#nav-descricao" role="tab" aria-controls="nav-descricao"
+                                            aria-selected="false">Descrição</a>
+                                        <a class="nav-item nav-link" id="nav-valores-tab" data-toggle="tab"
+                                            href="#nav-valores" role="tab" aria-controls="nav-valores"
+                                            aria-selected="false">Valores</a>
+
+
                                         <a class="nav-item nav-link" id="nav-contrato-tab" data-toggle="tab"
                                             href="#nav-contrato" role="tab" aria-controls="nav-contrato"
                                             aria-selected="false">Dados
@@ -64,18 +76,6 @@
                                             href="#nav-banco" role="tab" aria-controls="nav-banco"
                                             aria-selected="false">Dados
                                             Bancários</a>
-
-                                        <a class="nav-item nav-link" id="nav-valores-tab" data-toggle="tab"
-                                            href="#nav-valores" role="tab" aria-controls="nav-valores"
-                                            aria-selected="false">Valores</a>
-
-                                        <a class="nav-item nav-link" id="nav-assessor-tab" data-toggle="tab"
-                                            href="#nav-assessor" role="tab" aria-controls="nav-assessor"
-                                            aria-selected="false">Assessor</a>
-
-                                        <a class="nav-item nav-link" id="nav-descricao-tab" data-toggle="tab"
-                                            href="#nav-descricao" role="tab" aria-controls="nav-descricao"
-                                            aria-selected="false">Descrição</a>
 
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
                                             href="#nav-video" role="tab" aria-controls="nav-contact"
@@ -226,6 +226,59 @@
                                             </div>
                                         </div>
                                         <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-12 col-sm-12">
+                                                <label for="nm_completo_palestrante">Nome Completo Palestrante</label>
+                                                <input id="nm_completo_palestrante"
+                                                    class="form-control form-control-sm  {{ $errors->has('nm_completo_palestrante') ? 'is-invalid' : '' }}"
+                                                    type="text" name="nm_completo_palestrante"
+                                                    value="{{ old('nm_completo_palestrante') }}">
+                                                @if ($errors->has('nm_completo_palestrante'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('nm_completo_palestrante') }}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+
+                                            <div class="col-md-4 col-sm-12">
+                                                <label for="nr_cpf_palestrante">CPF Palestrante</label>
+                                                <input id="nr_cpf_palestrante" type="text"
+                                                    class="form-control form-control-sm {{ $errors->has('nr_cpf_palestrante') ? 'is-invalid' : '' }}"
+                                                    data-mask="000.000.000-00" name="nr_cpf_palestrante"
+                                                    value="{{old('nr_cpf_palestrante')}}" />
+                                                @if ($errors->has('nr_cpf_palestrante'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('nr_cpf_palestrante') }}</strong>
+                                                </span>
+                                                @endif
+
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <label for="nr_rg_palestrante">RG*</label>
+                                                <input id="nr_rg_palestrante" type="text"
+                                                    class="form-control form-control-sm {{ $errors->has('nr_rg_palestrante') ? 'is-invalid' : '' }}"
+                                                    name="nr_rg_palestrante" data-mask="00.000.000-0"
+                                                    value="{{old('nr_rg_palestrante')}}" />
+                                                @if ($errors->has('nr_rg_palestrante'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('nr_rg_palestrante') }}</strong>
+                                                </span>
+                                                @endif
+
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <label for="dt_nascimento_palestrante">Data de Nascimento*</label>
+                                                <input id="dt_nascimento_palestrante" type="date"
+                                                    class="form-control form-control-sm {{ $errors->has('dt_nascimento_palestrante') ? 'is-invalid' : '' }}"
+                                                    name="dt_nascimento_palestrante"
+                                                    value="{{old('dt_nascimento_palestrante')}}" />
+                                                @if ($errors->has('dt_nascimento_palestrante'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('dt_nascimento_palestrante') }}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12">
                                                 @php
                                                 $idiomas = App\Idiomas::all()->sortBy('ds_idioma');
@@ -301,56 +354,6 @@
                                         </div>
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12 col-sm-12">
-                                                <label for="nm_completo_palestrante">Nome Completo Palestrante</label>
-                                                <input id="nm_completo_palestrante"
-                                                    class="form-control form-control-sm select-find {{ $errors->has('nm_completo_palestrante') ? 'is-invalid' : '' }}"
-                                                    type="text" name="nm_completo_palestrante">
-                                            </div>
-
-                                            <div class="col-md-4 col-sm-12">
-                                                <label for="nr_cpf_palestrante">CPF Palestrante</label>
-                                                <input id="nr_cpf_palestrante" type="text"
-                                                    class="form-control form-control-sm {{ $errors->has('nr_cpf') ? 'is-invalid' : '' }}"
-                                                    data-mask="000.000.000-00" name="nr_cpf_palestrante"
-                                                    value="{{$data->nr_cpf == 'is-valid' ? $data->nr_cpf : (old('nr_cpf_palestrante') != NULL)?old('nr_cpf_palestrante'):'' }}" />
-
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">
-                                                <label for="nr_rg_palestrante">RG*</label>
-                                                <input id="nr_rg_palestrante" type="text"
-                                                    class="form-control form-control-sm {{ $errors->has('nr_rg_palestrante') ? 'is-invalid' : '' }}"
-                                                    name="nr_rg_palestrante" data-mask="00.000.000-0"
-                                                    value="{{$data->nr_rg == 'is-valid' ? $data->nr_rg : (old('nr_rg_palestrante') != NULL)?old('nr_rg_palestrante'):'' }}" />
-
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">
-                                                <label for="dt_nascimento_palestrante">Data de Nascimento*</label>
-                                                <input id="dt_nascimento_palestrante" type="date"
-                                                    class="form-control form-control-sm {{ $errors->has('dt_nascimento_palestrante') ? 'is-invalid' : '' }}"
-                                                    name="dt_nascimento_palestrante"
-                                                    value="{{$data->dt_nascimento == 'is-valid' ? $data->dt_nascimento : (old('dt_nascimento_palestrante') != NULL)?old('dt_nascimento_palestrante'):'' }}" />
-                                                @if ($errors->has('dt_nascimento_palestrante'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('dt_nascimento_palestrante') }}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-12">
-                                                <label for="nm_completo">Nome Completo*</label>
-                                                <input id="nm_completo" type="text"
-                                                    class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
-                                                    name="nm_completo" value="{{ old('nm_completo') }}" />
-                                                @if ($errors->has('nm_completo'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nm_completo')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-12 col-sm-12">
                                                 <label for="contatos">Contatos</label>
                                             </div>
                                             <div class="col-md-2">
@@ -386,261 +389,6 @@
                                                         @else
                                                         <tr id="contato-null">
                                                             <td colspan="3" class="text-center"> Nenhum contato
-                                                                registrado
-                                                            </td>
-                                                        </tr>
-                                                        @endif
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
-                                        aria-labelledby="nav-profile-tab">
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-12">
-                                                <label for="nm_razao_social">Razão Social*</label>
-                                                <input id="nm_razao_social" type="text"
-                                                    class="form-control form-control-sm {{$errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
-                                                    name="nm_razao_social" value="{{ old('nm_razao_social') }}" />
-                                                @if ($errors->has('nm_razao_social'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nm_razao_social')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-4">
-                                                <label for="cnpj">CNPJ*</label>
-                                                <input id="cnpj" type="text"
-                                                    class="form-control form-control-sm {{$errors->has('nr_cnpj') ? 'is-invalid' : '' }}"
-                                                    data-mask="00.000.000/0000-00" name="nr_cnpj"
-                                                    value="{{ old('nr_cnpj') }}" />
-                                                @if ($errors->has('nr_cnpj'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_cnpj')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <label for="ins_estadual">Inscrição Estadual*</label>
-                                                <input id="ins_estadual" type="text"
-                                                    class="form-control form-control-sm  {{$errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
-                                                    name="nr_insc_estadual" value="{{ old('nr_insc_estadual') }}" />
-                                                @if ($errors->has('nr_insc_estadual'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_insc_estadual')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <label for="ins_municipal">Inscrição Municipal</label>
-                                                <input id="ins_municipal" type="text"
-                                                    class="form-control form-control-sm {{$errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
-                                                    name="nr_insc_municipal" value="{{ old('nr_insc_municipal') }}" />
-                                                @if ($errors->has('nr_insc_municipal'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_insc_municipal')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-4">
-                                                <label for="nr_cpf">CPF*</label>
-                                                <input id="nr_cpf" type="text"
-                                                    class="form-control form-control-sm {{$errors->has('nr_cpf') ? 'is-invalid' : '' }}"
-                                                    data-mask="000.000.000-00" name="nr_cpf"
-                                                    value="{{ old('nr_cpf') }}" />
-                                                @if ($errors->has('nr_cpf'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_cpf')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <label for="nr_rg">RG*</label>
-                                                <input id="nr_rg" type="text"
-                                                    class="form-control form-control-sm {{$errors->has('nr_rg') ? 'is-invalid' : '' }}"
-                                                    name="nr_rg" value="{{ old('nr_rg') }}" data-mask="00.000.000-0" />
-                                                @if ($errors->has('nr_rg'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_rg')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <label for="dt_nascimento">Data de Nascimento*</label>
-                                                <input id="dt_nascimento" type="date"
-                                                    class="form-control form-control-sm {{$errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
-                                                    name="dt_nascimento" value="{{ old('dt_nascimento') }}" />
-                                                @if ($errors->has('dt_nascimento'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('dt_nascimento')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="contatos">Endereços</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                    data-target="#frmEnderecoPalestranteModal">
-                                                    <i class="fa fa-plus"></i> Endereço
-                                                </button>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <table id="tblEnderecoPalestrante" class="table table-sm table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Tipo de Endereço</th>
-                                                            <th scope="col">Endereço</th>
-                                                            <th scope="col"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @if(sizeof($data->enderecos) > 0)
-                                                        @foreach($data->enderecos as $endereco)
-                                                        <tr id="endereco-{{$endereco->id}}">
-                                                            <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}
-                                                            </td>
-                                                            <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}
-                                                            </td>
-                                                            <td class='text-right'>
-                                                                <button id='endereco-{{$endereco->id}}' type='button'
-                                                                    class='btn btn-danger btn-sm'
-                                                                    data-id="{{$endereco->id}}" data-toggle='modal'
-                                                                    data-target='#frmRemoverEnderecoModal'>
-                                                                    <i class='fa fa-trash'></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        @endforeach
-                                                        @else
-                                                        <tr id="endereco-null">
-                                                            <td colspan="3" class="text-center"> Nenhum endereço
-                                                                registrado
-                                                            </td>
-                                                        </tr>
-                                                        @endif
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-12">
-                                                <label for="obsevacao">Obsevações*</label>
-                                                <textarea id="obsevacao" type="text"
-                                                    class="form-control form-control-sm {{$errors->has('ds_observacao') ? 'is-invalid' : '' }}"
-                                                    name="ds_observacao">{{ old('ds_observacao') }}</textarea>
-                                                @if ($errors->has('ds_observacao'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('ds_observacao')}}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-banco" role="tabpanel"
-                                        aria-labelledby="nav-banco-tab">
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-2">
-                                                <div class="form-check form-check-inline">
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                        data-toggle="modal" data-target="#frmBancoModal">
-                                                        <i class="fa fa-plus"></i> Banco
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <table id="tblBanco" class="table table-sm table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Banco</th>
-                                                            <th scope="col">Agencia</th>
-                                                            <th scope="col">Conta</th>
-                                                            <th scope="col"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @if(sizeof($data->bancos) > 0)
-                                                        @foreach($data->bancos as $banco)
-                                                        <tr id="{{$banco->id}}">
-                                                            <td>{{$banco->nomeBanco->nm_banco}}</td>
-                                                            <td>{{$banco->nr_agencia}}</td>
-                                                            <td>{{$banco->nr_conta}}</td>
-                                                            <td class='text-right'>
-                                                                <button id='excluirBanco' type='button'
-                                                                    class='btn btn-danger btn-sm'
-                                                                    data-id="{{$banco->id}}" data-toggle='modal'
-                                                                    data-target='#frmRemoverBancoModal'><i
-                                                                        class='fa fa-trash'></i></button>
-                                                            </td>
-                                                        </tr>
-                                                        @endforeach
-                                                        @else
-                                                        <tr id="banco-null">
-                                                            <td colspan="4" class="text-center"> Nenhum banco
-                                                                registrado
-                                                            </td>
-                                                        </tr>
-                                                        @endif
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-valores" role="tabpanel"
-                                        aria-labelledby="nav-valores-tab">
-
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-2">
-                                                <div class="form-check form-check-inline">
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                        data-toggle="modal" data-target="#frmValorModal">
-                                                        <i class="fa fa-plus"></i> Valor
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <table id="tblValor" class="table table-sm table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Cidade</th>
-                                                            <th scope="col">Valor</th>
-                                                            <th scope="col"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @if (sizeof($data->valores) > 0)
-                                                        @foreach($data->valores as $valor)
-                                                        <tr id="{{$valor->id}}">
-                                                            <td>{{$valor->cidade->nm_cidade}}</td>
-                                                            <td>{{$valor->nr_valor}}</td>
-                                                            <td class='text-right'>
-                                                                <button id='excluirValor' type='button'
-                                                                    class='btn btn-danger btn-sm'
-                                                                    data-id="{{$valor->id}}" data-toggle='modal'
-                                                                    data-target='#frmRemoverValorModal'>
-                                                                    <i class='fa fa-trash'></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        @endforeach
-
-                                                        @else
-                                                        <tr id="valor-null">
-                                                            <td colspan="3" class="text-center"> Nenhum valor
                                                                 registrado
                                                             </td>
                                                         </tr>
@@ -869,6 +617,276 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane fade" id="nav-valores" role="tabpanel"
+                                        aria-labelledby="nav-valores-tab">
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button" class="btn btn-primary btn-sm"
+                                                        data-toggle="modal" data-target="#frmValorModal">
+                                                        <i class="fa fa-plus"></i> Valor
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table id="tblValor" class="table table-sm table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Cidade</th>
+                                                            <th scope="col">Valor</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if (sizeof($data->valores) > 0)
+                                                        @foreach($data->valores as $valor)
+                                                        <tr id="{{$valor->id}}">
+                                                            <td>{{$valor->cidade->nm_cidade}}</td>
+                                                            <td>{{$valor->nr_valor}}</td>
+                                                            <td class='text-right'>
+                                                                <button id='excluirValor' type='button'
+                                                                    class='btn btn-danger btn-sm'
+                                                                    data-id="{{$valor->id}}" data-toggle='modal'
+                                                                    data-target='#frmRemoverValorModal'>
+                                                                    <i class='fa fa-trash'></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+
+                                                        @else
+                                                        <tr id="valor-null">
+                                                            <td colspan="3" class="text-center"> Nenhum valor
+                                                                registrado
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
+                                        aria-labelledby="nav-profile-tab">
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-12">
+                                                <label for="nm_razao_social">Razão Social*</label>
+                                                <input id="nm_razao_social" type="text"
+                                                    class="form-control form-control-sm {{$errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
+                                                    name="nm_razao_social" value="{{ old('nm_razao_social') }}" />
+                                                @if ($errors->has('nm_razao_social'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('nm_razao_social')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <label for="cnpj">CNPJ*</label>
+                                                <input id="cnpj" type="text"
+                                                    class="form-control form-control-sm {{$errors->has('nr_cnpj') ? 'is-invalid' : '' }}"
+                                                    data-mask="00.000.000/0000-00" name="nr_cnpj"
+                                                    value="{{ old('nr_cnpj') }}" />
+                                                @if ($errors->has('nr_cnpj'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('nr_cnpj')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="ins_estadual">Inscrição Estadual*</label>
+                                                <input id="ins_estadual" type="text"
+                                                    class="form-control form-control-sm  {{$errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
+                                                    name="nr_insc_estadual" value="{{ old('nr_insc_estadual') }}" />
+                                                @if ($errors->has('nr_insc_estadual'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('nr_insc_estadual')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="ins_municipal">Inscrição Municipal</label>
+                                                <input id="ins_municipal" type="text"
+                                                    class="form-control form-control-sm {{$errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
+                                                    name="nr_insc_municipal" value="{{ old('nr_insc_municipal') }}" />
+                                                @if ($errors->has('nr_insc_municipal'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('nr_insc_municipal')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-12">
+                                                <label for="nm_completo">Nome Completo*</label>
+                                                <input id="nm_completo" type="text"
+                                                    class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
+                                                    name="nm_completo" value="{{ old('nm_completo') }}" />
+                                                @if ($errors->has('nm_completo'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('nm_completo')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <label for="nr_cpf">CPF*</label>
+                                                <input id="nr_cpf" type="text"
+                                                    class="form-control form-control-sm {{$errors->has('nr_cpf') ? 'is-invalid' : '' }}"
+                                                    data-mask="000.000.000-00" name="nr_cpf"
+                                                    value="{{ old('nr_cpf') }}" />
+                                                @if ($errors->has('nr_cpf'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('nr_cpf')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="nr_rg">RG*</label>
+                                                <input id="nr_rg" type="text"
+                                                    class="form-control form-control-sm {{$errors->has('nr_rg') ? 'is-invalid' : '' }}"
+                                                    name="nr_rg" value="{{ old('nr_rg') }}" data-mask="00.000.000-0" />
+                                                @if ($errors->has('nr_rg'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('nr_rg')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="dt_nascimento">Data de Nascimento*</label>
+                                                <input id="dt_nascimento" type="date"
+                                                    class="form-control form-control-sm {{$errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
+                                                    name="dt_nascimento" value="{{ old('dt_nascimento') }}" />
+                                                @if ($errors->has('dt_nascimento'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('dt_nascimento')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-12 col-sm-12">
+                                                <label for="contatos">Endereços</label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                    data-target="#frmEnderecoPalestranteModal">
+                                                    <i class="fa fa-plus"></i> Endereço
+                                                </button>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table id="tblEnderecoPalestrante" class="table table-sm table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Tipo de Endereço</th>
+                                                            <th scope="col">Endereço</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if(sizeof($data->enderecos) > 0)
+                                                        @foreach($data->enderecos as $endereco)
+                                                        <tr id="endereco-{{$endereco->id}}">
+                                                            <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}
+                                                            </td>
+                                                            <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}
+                                                            </td>
+                                                            <td class='text-right'>
+                                                                <button id='endereco-{{$endereco->id}}' type='button'
+                                                                    class='btn btn-danger btn-sm'
+                                                                    data-id="{{$endereco->id}}" data-toggle='modal'
+                                                                    data-target='#frmRemoverEnderecoModal'>
+                                                                    <i class='fa fa-trash'></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                        @else
+                                                        <tr id="endereco-null">
+                                                            <td colspan="3" class="text-center"> Nenhum endereço
+                                                                registrado
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-12">
+                                                <label for="obsevacao">Obsevações*</label>
+                                                <textarea id="obsevacao" type="text"
+                                                    class="form-control form-control-sm {{$errors->has('ds_observacao') ? 'is-invalid' : '' }}"
+                                                    name="ds_observacao">{{ old('ds_observacao') }}</textarea>
+                                                @if ($errors->has('ds_observacao'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{$errors->first('ds_observacao')}}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-banco" role="tabpanel"
+                                        aria-labelledby="nav-banco-tab">
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button" class="btn btn-primary btn-sm"
+                                                        data-toggle="modal" data-target="#frmBancoModal">
+                                                        <i class="fa fa-plus"></i> Banco
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <table id="tblBanco" class="table table-sm table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Banco</th>
+                                                            <th scope="col">Agencia</th>
+                                                            <th scope="col">Conta</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if(sizeof($data->bancos) > 0)
+                                                        @foreach($data->bancos as $banco)
+                                                        <tr id="{{$banco->id}}">
+                                                            <td>{{$banco->nomeBanco->nm_banco}}</td>
+                                                            <td>{{$banco->nr_agencia}}</td>
+                                                            <td>{{$banco->nr_conta}}</td>
+                                                            <td class='text-right'>
+                                                                <button id='excluirBanco' type='button'
+                                                                    class='btn btn-danger btn-sm'
+                                                                    data-id="{{$banco->id}}" data-toggle='modal'
+                                                                    data-target='#frmRemoverBancoModal'><i
+                                                                        class='fa fa-trash'></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                        @else
+                                                        <tr id="banco-null">
+                                                            <td colspan="4" class="text-center"> Nenhum banco
+                                                                registrado
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <div class="tab-pane fade" id="nav-video" role="tabpanel"
                                         aria-labelledby="nav-contact-tab">
                                         <div class="form-group row d-flex justify-content-center">
