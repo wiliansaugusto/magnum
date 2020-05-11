@@ -113,7 +113,6 @@ class PalestranteController extends Controller
 
 
       //      dd($palestrante, $dadosContratuais, $idiomas, $categoria);
-
         return redirect('dashboard/palestrante');
     }
 
@@ -157,7 +156,8 @@ class PalestranteController extends Controller
         $palestrante->cidade_palestrante = $request->cidade_palestrante;
         $palestrante->save();
 
-        $dadosContratuais = DadosContratuais::find($request->id_palestrante);
+
+        $dadosContratuais = DadosContratuais::find($id_palestrante);
         $dadosContratuais->nm_razao_social = $request->nm_razao_social;
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
         $dadosContratuais->nr_cpf = $request->nr_cpf;
@@ -168,9 +168,7 @@ class PalestranteController extends Controller
         $dadosContratuais->dt_nascimento = $request->dt_nascimento;
         $dadosContratuais->ds_observacao = $request->ds_observacao;
         $dadosContratuais->id_palestrante = $request->id_palestrante;
-
         $dadosContratuais->save();
-      //  dd($dadosContratuais);
 
         $idiomasSalvos = IdiomasPalestrante::where('id_palestrante', $id_palestrante);
         $idiomasSalvos->delete();
@@ -323,7 +321,7 @@ class PalestranteController extends Controller
 //            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
 
 
-                $diretorio = dir(public_path("storage/imagemPalestrante"));
+                $diretorio = dir(storage_path("app/public/imagemPalestrante"));
                 $salvar = 0;
                 while ($arquivo = $diretorio->read()) {
                     echo($arquivo . "<br>" . $nomeFinal . "<hr>");

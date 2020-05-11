@@ -240,6 +240,9 @@
                                                          </span>
                                                          @endif
                                             </div>
+                                        </div>
+                                        <div class="form-group row d-flex justify-content-center">
+
                                             <div class="col-md-4 col-sm-12">
                                                 <label for="nr_cpf_palestrante">CPF Palestrante</label>
                                                 <input id="nr_cpf_palestrante" type="text"
@@ -254,7 +257,7 @@
                                                      @endif
                                             </div>
                                             <div class="col-md-4 col-sm-12">
-                                                <label for="nr_rg_palestrante">RG Palestrante*</label>
+                                                <label for="nr_rg_palestrante">RG Palestrante</label>
                                                 <input id="nr_rg_palestrante" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('nr_rg_palestrante') ? 'is-invalid' : '' }}"
                                                     name="nr_rg_palestrante" data-mask="00.000.000-0"
@@ -267,7 +270,7 @@
                                                      @endif
                                             </div>
                                             <div class="col-md-4 col-sm-12">
-                                                <label for="dt_nascimento_palestrante">Data de Nascimento*</label>
+                                                <label for="dt_nascimento_palestrante">Data de Nascimento</label>
                                                 <input id="dt_nascimento_palestrante" type="date"
                                                     class="form-control form-control-sm {{ $errors->has('dt_nascimento_palestrante') ? 'is-invalid' : '' }}"
                                                     name="dt_nascimento_palestrante"
@@ -433,7 +436,7 @@
                                         @if(is_object($data->dadosContratuais))
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12">
-                                                <label for="nm_razao_social">Razão Social*</label>
+                                                <label for="nm_razao_social">Razão Social</label>
                                                 <input id="nm_razao_social" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
                                                     name="nm_razao_social"
@@ -460,7 +463,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="insc_estadual">Inscrição Estadual*</label>
+                                                <label for="insc_estadual">Inscrição Estadua*</label>
                                                 <input id="insc_estadual" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
                                                     name="nr_insc_estadual"
@@ -472,7 +475,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="insc_municipal">Inscrição Municipal*</label>
+                                                <label for="insc_municipal">Inscrição Municipal</label>
                                                 <input id="insc_municipal" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
                                                     name="nr_insc_municipal"
@@ -487,7 +490,7 @@
 
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12">
-                                                <label for="nm_completo">Nome Completo*</label>
+                                                <label for="nm_completo">Nome Completo</label>
                                                 <input id="nm_completo" type="text"
                                                     class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
                                                     name="nm_completo"
@@ -515,7 +518,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="nr_rg">RG*</label>
+                                                <label for="nr_rg">RG</label>
                                                 <input id="nr_rg" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('nr_rg') ? 'is-invalid' : '' }}"
                                                     name="nr_rg" data-mask="00.000.000-0"
@@ -527,7 +530,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="dt_nascimento">Data de Nascimento*</label>
+                                                <label for="dt_nascimento">Data de Nascimento</label>
                                                 <input id="dt_nascimento" type="date"
                                                     class="form-control form-control-sm {{ $errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
                                                     name="dt_nascimento"
@@ -551,7 +554,7 @@
                                         @else
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12">
-                                                <label for="nm_razao_social">Razão Social*</label>
+                                                <label for="nm_razao_social">Razão Social</label>
                                                 <input id="nm_razao_social" type="text"
                                                     class="form-control form-control-sm {{$errors->has('nm_razao_social') ? 'is-invalid' : '' }}"
                                                     name="nm_razao_social" value="{{ old('nm_razao_social') }}" />
@@ -565,7 +568,7 @@
 
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-4">
-                                                <label for="cnpj">CNPJ*</label>
+                                                <label for="cnpj">CNPJ</label>
                                                 <input id="cnpj" type="text"
                                                     class="form-control form-control-sm {{$errors->has('nr_cnpj') ? 'is-invalid' : '' }}"
                                                     data-mask="00.000.000/0000-00" name="nr_cnpj"
@@ -577,7 +580,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="ins_estadual">Inscrição Estadual*</label>
+                                                <label for="ins_estadual">Inscrição Estadual</label>
                                                 <input id="ins_estadual" type="text"
                                                     class="form-control form-control-sm  {{$errors->has('nr_insc_estadual') ? 'is-invalid' : '' }}"
                                                     name="nr_insc_estadual" value="{{ old('nr_insc_estadual') }}" />
@@ -589,7 +592,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <label for="ins_municipal">Inscrição Municipal*</label>
+                                                <label for="ins_municipal">Inscrição Municipal</label>
                                                 <input id="ins_municipal" type="text"
                                                     class="form-control form-control-sm {{$errors->has('nr_insc_municipal') ? 'is-invalid' : '' }}"
                                                     name="nr_insc_municipal" value="{{ old('nr_insc_municipal') }}" />
@@ -603,7 +606,7 @@
 
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12">
-                                                <label for="nm_completo">Nome Completo*</label>
+                                                <label for="nm_completo">Nome Completo</label>
                                                 <input id="nm_completo" type="text"
                                                     class="form-control form-control-sm {{$errors->has('nm_completo') ? 'is-invalid' : '' }}"
                                                     name="nm_completo" value="{{old('nm_completo') }}" />
@@ -617,7 +620,7 @@
 
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-4">
-                                                <label for="nr_cpf">CPF*</label>
+                                                <label for="nr_cpf">CPF</label>
                                                 <input id="nr_cpf" type="text"
                                                     class="form-control form-control-sm {{$errors->has('nr_cpf') ? 'is-invalid' : '' }}"
                                                     data-mask="000.000.000-00" name="nr_cpf"
@@ -630,7 +633,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <label for="nr_rg">RG*</label>
+                                                <label for="nr_rg">RG</label>
                                                 <input id="nr_rg" type="text"
                                                     class="form-control form-control-sm {{$errors->has('nr_rg') ? 'is-invalid' : '' }}"
                                                     name="nr_rg" value="{{ old('nr_rg') }}" data-mask="00.000.000-0" />
@@ -642,7 +645,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <label for="dt_nascimento">Data de Nascimento*</label>
+                                                <label for="dt_nascimento">Data de Nascimento</label>
                                                 <input id="dt_nascimento" type="date"
                                                     class="form-control form-control-sm {{$errors->has('dt_nascimento') ? 'is-invalid' : '' }}"
                                                     name="dt_nascimento" value="{{ old('dt_nascimento') }}" />
@@ -703,7 +706,7 @@
                                         </div>
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-12">
-                                                <label for="obsevacao">Obsevações*</label>
+                                                <label for="obsevacao">Obsevações</label>
                                                 <textarea id="obsevacao" type="text"
                                                     class="form-control form-control-sm "
                                                     name="ds_observacao">{{ old('ds_observacao') }}</textarea>
@@ -1035,7 +1038,7 @@
                                         <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-6">
                                                 @if(isset($data->ds_titulo_video))
-                                                <label for="ds_titulo_video">Titulo*</label>
+                                                <label for="ds_titulo_video">Titulo</label>
                                                 <input id="ds_titulo_video" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('ds_titulo_video') ? 'is-invalid' : '' }}"
                                                     name="ds_titulo_video"
@@ -1046,7 +1049,7 @@
                                                 </span>
                                                 @endif
                                                 @else
-                                                <label for="ds_titulo_video">Titulo*</label>
+                                                <label for="ds_titulo_video">Titulo</label>
                                                 <input id="ds_titulo_video" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('ds_titulo_video') ? 'is-invalid' : '' }}"
                                                     name="ds_titulo_video" value="{{ old('ds_titulo_video') }}" />
@@ -1059,7 +1062,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 @if(isset($data->ds_url_video))
-                                                <label for="ds_url_video">URL*</label>
+                                                <label for="ds_url_video">URL</label>
                                                 <input id="ds_url_video" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('ds_url_video') ? 'is-invalid' : '' }}"
                                                     name="ds_url_video"
@@ -1070,7 +1073,7 @@
                                                 </span>
                                                 @endif
                                                 @else
-                                                <label for="ds_url_video">URL*</label>
+                                                <label for="ds_url_video">URL</label>
                                                 <input id="ds_url_video" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('ds_url_video') ? 'is-invalid' : '' }}"
                                                     name="ds_url_video" value="{{ old('ds_url_video') }}" />
@@ -1083,12 +1086,12 @@
                                             </div>
                                             <div class="col-md-12">
                                                 @if(isset($data->ds_descricao_video))
-                                                <label for="ds_descricao_video">Descrição*</label>
+                                                <label for="ds_descricao_video">Descrição</label>
                                                 <textarea id="ds_descricao_video" type="text"
                                                     class="form-control form-control-sm" name="ds_descricao_video"
                                                     title="Descrição do Video">{{$data->ds_descricao_video == "" ? "" : $data->ds_descricao_video}}</textarea>
                                                 @else
-                                                <label for="ds_descricao_video">Descrição*</label>
+                                                <label for="ds_descricao_video">Descrição</label>
                                                 <textarea id="ds_descricao_video" type="text"
                                                     class="form-control form-control-sm {{ $errors->has('ds_descricao_video') ? 'is-invalid' : '' }}"
                                                     name="ds_descricao_video"

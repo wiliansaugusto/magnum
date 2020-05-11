@@ -2,7 +2,7 @@
      aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form method="POST" enctype="multipart/form-data" action="categoria/">
+            <form method="POST" enctype="multipart/form-data" >
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
