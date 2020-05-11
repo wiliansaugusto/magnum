@@ -5,7 +5,7 @@
         {{--Cadastro de Usuario--}}
         <div class="page-title">
             <div class="title_left">
-                <h3>Configuração de Plano</h3>
+                <h3>Configuração de Usuário</h3>
             </div>
         </div>
         <div class="clearfix"></div>
