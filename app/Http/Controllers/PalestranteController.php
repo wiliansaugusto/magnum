@@ -84,12 +84,11 @@ class PalestranteController extends Controller
         $dadosContratuais->dt_nascimento = $request->dt_nascimento;
         $dadosContratuais->ds_observacao = $request->ds_observacao;
         $dadosContratuais->id_palestrante = $request->id_palestrante;
-
         $dadosContratuais->save();
 
+        $idiomas = $request->all()['idiomas'];
+        $categorias = $request->all()['categorias'];
 
-        if (isset($request->al['idiomas'])) {
-            $idiomas = $request->all()['idiomas'];
 
             foreach ($idiomas as $idioma) {
                 $salvaIdioma = new IdiomasPalestrante();
@@ -97,10 +96,8 @@ class PalestranteController extends Controller
                 $salvaIdioma->id_palestrante = $id_palestrante;
                 $salvaIdioma->save();
             }
-        }
 
-        if (isset($request->all['categorias'])) {
-            $categorias = $request->all()['categorias'];
+
             foreach ($categorias as $categoria) {
                 $salvaCategoria = new PalestranteCategoria();
                 $tipoCat = explode("-", $categoria)[0];
@@ -113,8 +110,9 @@ class PalestranteController extends Controller
                 $salvaCategoria->id_palestrante = $id_palestrante;
                 $salvaCategoria->save();
             }
-        }
 
+
+      //      dd($palestrante, $dadosContratuais, $idiomas, $categoria);
 
         return redirect('dashboard/palestrante');
     }
@@ -159,7 +157,7 @@ class PalestranteController extends Controller
         $palestrante->cidade_palestrante = $request->cidade_palestrante;
         $palestrante->save();
 
-        $dadosContratuais = new DadosContratuais();
+        $dadosContratuais = DadosContratuais::find($request->id_palestrante);
         $dadosContratuais->nm_razao_social = $request->nm_razao_social;
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
         $dadosContratuais->nr_cpf = $request->nr_cpf;
@@ -172,6 +170,7 @@ class PalestranteController extends Controller
         $dadosContratuais->id_palestrante = $request->id_palestrante;
 
         $dadosContratuais->save();
+      //  dd($dadosContratuais);
 
         $idiomasSalvos = IdiomasPalestrante::where('id_palestrante', $id_palestrante);
         $idiomasSalvos->delete();
@@ -324,34 +323,34 @@ class PalestranteController extends Controller
 //            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
 
 
-            $diretorio = dir(public_path("storage/imagemPalestrante"));
-            $salvar = 0;
-            while ($arquivo = $diretorio->read()) {
-                echo($arquivo . "<br>" . $nomeFinal . "<hr>");
-                if ($arquivo == $nomeFinal) {
-                    $this->salvar = 0;
-                    echo("achou<br>");
+                $diretorio = dir(public_path("storage/imagemPalestrante"));
+                $salvar = 0;
+                while ($arquivo = $diretorio->read()) {
+                    echo($arquivo . "<br>" . $nomeFinal . "<hr>");
+                    if ($arquivo == $nomeFinal) {
+                        $this->salvar = 0;
+                        echo("achou<br>");
 
-                } else {
-                    $this->salvar = 1;
-                    echo("não achou<br>");
-                    break;
+                    } else {
+                        $this->salvar = 1;
+                        echo("não achou<br>");
+                        break;
+                    }
                 }
-            }
-            $diretorio->close();
+                $diretorio->close();
 
-            if ($salvar = 1) {
+                if ($salvar = 1) {
 
-                $image = Image::make($request->ds_foto);
-                $image->fit(500)->orientate();
-                $upload = $image->save('storage/imagemPalestrante/' . $nomeFinal);
+                    $image = Image::make($request->ds_foto);
+                    $image->fit(500)->orientate();
+                    $upload = $image->save('storage/imagemPalestrante/' . $nomeFinal);
 
-                $palestranteFoto = Palestrante::find($request->id_palestrante);
-                $palestranteFoto->ds_foto = "imagemPalestrante/" . $nomeFinal;
-                $palestranteFoto->save();
-            }
+                    $palestranteFoto = Palestrante::find($request->id_palestrante);
+                    $palestranteFoto->ds_foto = "imagemPalestrante/" . $nomeFinal;
+                    $palestranteFoto->save();
+                }
+         }
         }
-    }
 
     public function search(Request $request)
     {
