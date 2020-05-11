@@ -238,7 +238,8 @@
                                                 </span>
                                                 @endif
                                             </div>
-
+                                        </div>
+                                        <div class="form-group row d-flex justify-content-center">
                                             <div class="col-md-4 col-sm-12">
                                                 <label for="nr_cpf_palestrante">CPF Palestrante</label>
                                                 <input id="nr_cpf_palestrante" type="text"
