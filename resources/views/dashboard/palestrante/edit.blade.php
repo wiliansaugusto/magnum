@@ -640,8 +640,8 @@
                                                                value="{{ old('nr_cnpj') }}"/>
                                                         @if ($errors->has('nr_cnpj'))
                                                             <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_cnpj')}}</strong>
-                                                </span>
+                                                                <strong>{{$errors->first('nr_cnpj')}}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
                                                     <div class="col-md-4">
@@ -652,8 +652,8 @@
                                                                value="{{ old('nr_insc_estadual') }}"/>
                                                         @if ($errors->has('nr_insc_estadual'))
                                                             <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_insc_estadual')}}</strong>
-                                                </span>
+                                                                <strong>{{$errors->first('nr_insc_estadual')}}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
 
@@ -665,8 +665,8 @@
                                                                value="{{ old('nr_insc_municipal') }}"/>
                                                         @if ($errors->has('nr_insc_municipal'))
                                                             <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_insc_municipal')}}</strong>
-                                                </span>
+                                                                <strong>{{$errors->first('nr_insc_municipal')}}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -679,8 +679,8 @@
                                                                name="nm_completo" value="{{old('nm_completo') }}"/>
                                                         @if ($errors->has('nm_completo'))
                                                             <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nm_completo')}}</strong>
-                                                </span>
+                                                                <strong>{{$errors->first('nm_completo')}}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -694,8 +694,8 @@
                                                                value="{{ old('nr_cpf') }}"/>
                                                         @if ($errors->has('nr_cpf'))
                                                             <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_cpf')}}</strong>
-                                                </span>
+                                                                <strong>{{$errors->first('nr_cpf')}}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
 
@@ -707,8 +707,8 @@
                                                                data-mask="00.000.000-0"/>
                                                         @if ($errors->has('nr_rg'))
                                                             <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('nr_rg')}}</strong>
-                                                </span>
+                                                                <strong>{{$errors->first('nr_rg')}}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
 
@@ -719,8 +719,8 @@
                                                                name="dt_nascimento" value="{{ old('dt_nascimento') }}"/>
                                                         @if ($errors->has('dt_nascimento'))
                                                             <span class="invalid-feedback" role="alert">
-                                                    <strong>{{$errors->first('dt_nascimento')}}</strong>
-                                                </span>
+                                                                <strong>{{$errors->first('dt_nascimento')}}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
                                                 </div>
