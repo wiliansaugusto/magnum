@@ -27,7 +27,7 @@ class PalestranteController extends Controller
     public function index(Request $request)
     {
         if ($request->has('search')) {
-            $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%' . $request['search'] . '%')->paginate(10)->appends('search', $request['search']);
+            $palestrantes = Palestrante::where('nm_plano', 'LIKE', '%' . $request['search'] . '%')->paginate(10)->appends('search', $request['search']);
         } else {
             $palestrantes = Palestrante::where('id', '>', 0)->orderByDesc('id')->paginate(10);
         }
@@ -157,7 +157,9 @@ class PalestranteController extends Controller
         $palestrante->save();
 
 
-        $dadosContratuais = DadosContratuais::find($id_palestrante);
+        $dadosContratuais = DadosContratuais::find($id_palestrante) == NULL ? new DadosContratuais()
+        : DadosContratuais::find($id_palestrante);
+
         $dadosContratuais->nm_razao_social = $request->nm_razao_social;
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
         $dadosContratuais->nr_cpf = $request->nr_cpf;

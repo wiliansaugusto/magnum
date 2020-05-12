@@ -51,7 +51,7 @@ $(document).ready(function () {
         var data = $('#frmAssessor').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
-            url: "/dashboard/assessor/",
+            url: "/dashboard/assessor",
             data: data,
             success: function (data) {
                 tabelaAssessor(data);
@@ -68,7 +68,7 @@ $(document).ready(function () {
         var data = $('#frmChamada').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=chamada";
         $.ajax({
             method: "POST",
-            url: "/dashboard/descricao/",
+            url: "/dashboard/descricao",
             data: data
         }).done(function (data) {
             tabelDescricao(data, "Chamada", "chamada");
@@ -81,7 +81,7 @@ $(document).ready(function () {
         var data = $('#frmCurriculo').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=curriculo";
         $.ajax({
             method: "POST",
-            url: "/dashboard/descricao/",
+            url: "/dashboard/descricao",
             data: data
         }).done(function (data) {
             tabelDescricao(data, "Currículo Resumido", "curriculo");
@@ -94,7 +94,7 @@ $(document).ready(function () {
         var data = $('#frmCurriculoTec').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=curriculoTec";
         $.ajax({
             method: "POST",
-            url: "/dashboard/descricao/",
+            url: "/dashboard/descricao",
             data: data
         }).done(function (data) {
             tabelDescricao(data, "Currículo Técnico", "curriculoTec");
@@ -107,7 +107,7 @@ $(document).ready(function () {
         var data = $('#frmEquip').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=equipamento";
         $.ajax({
             method: "POST",
-            url: "/dashboard/descricao/",
+            url: "/dashboard/descricao",
             data: data
         }).done(function (data) {
             tabelDescricao(data, "Equipamento Necessário", "equipamento");
@@ -121,7 +121,7 @@ $(document).ready(function () {
         var data = $('#frmFormaPagamento').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=pgto";
         $.ajax({
             method: "POST",
-            url: "/dashboard/descricao/",
+            url: "/dashboard/descricao",
             data: data
         }).done(function (data) {
             tabelDescricao(data, "Forma de Pagamento", "pgto");
@@ -134,7 +134,7 @@ $(document).ready(function () {
         var data = $('#frmInvestimento').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=investimento";
         $.ajax({
             method: "POST",
-            url: "/dashboard/descricao/",
+            url: "/dashboard/descricao",
             data: data
         }).done(function (data) {
             tabelDescricao(data, "Investimento", "investimento");
