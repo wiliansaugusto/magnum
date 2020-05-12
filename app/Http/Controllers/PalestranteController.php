@@ -83,7 +83,7 @@ class PalestranteController extends Controller
         $dadosContratuais->nr_rg = $request->nr_rg;
         $dadosContratuais->dt_nascimento = $request->dt_nascimento;
         $dadosContratuais->ds_observacao = $request->ds_observacao;
-        $dadosContratuais->id_palestrante = $request->id_palestrante;
+        $dadosContratuais->id_palestrante = $id_palestrante;
         $dadosContratuais->save();
 
         $idiomas = $request->all()['idiomas'];
@@ -157,8 +157,8 @@ class PalestranteController extends Controller
         $palestrante->save();
 
 
-        $dadosContratuais = DadosContratuais::find($id_palestrante) == NULL ? new DadosContratuais()
-        : DadosContratuais::find($id_palestrante);
+        $dadosContratuais = DadosContratuais::where('id_palestrante', $id_palestrante)->first() == NULL ? new DadosContratuais()
+        : DadosContratuais::where('id_palestrante', $id_palestrante)->first();
 
         $dadosContratuais->nm_razao_social = $request->nm_razao_social;
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
