@@ -37,11 +37,11 @@ class PalestranteRequest extends FormRequest
 //            'nm_completo' => 'required',
             'nr_cnpj' => 'nullable|cnpj',
             'nr_cpf' => 'nullable|cpf',
-//            'nr_insc_estadual' => 'required',
+            'nr_insc_estadual' => 'nullable|min:8|max:14',
 //            'nr_rg' => 'required',
 //            'dt_nascimento' => 'required',
             'rank_palestrante' => 'required',
-//            'nr_insc_municipal' => 'required',
+            'nr_insc_municipal' => 'nullable|min:8|max:15',
             'idiomas' => 'required',
             'categorias' => 'required',
             'nr_cpf_palestrante' => 'nullable|cpf',
@@ -57,7 +57,9 @@ class PalestranteRequest extends FormRequest
         return [
             'required' => 'O campo :attribute é obrigatório',
             'image' => 'A :attribute está em formato inválido',
-            'url' => 'Url não disponível'
+            'url' => 'Url não disponível',
+            'max' => 'Inserir um valor entre 8 á 14 digitos',
+            'min' => 'Inserir um valor entre 8 á 14 digitos',
         ];
     }
 

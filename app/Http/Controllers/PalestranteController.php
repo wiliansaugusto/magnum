@@ -43,7 +43,7 @@ class PalestranteController extends Controller
     public function create($id)
     {
         $data = Palestrante::find($id);
-        return view('dashboard.palestrante.form')->with('data', $data);
+        return view('dashboard.palestrante.form')->with(['data'=>$data, 'action'=>"criar"]);
     }
 
     /**
@@ -90,30 +90,28 @@ class PalestranteController extends Controller
         $categorias = $request->all()['categorias'];
 
 
-            foreach ($idiomas as $idioma) {
-                $salvaIdioma = new IdiomasPalestrante();
-                $salvaIdioma->id_idiomas = $idioma;
-                $salvaIdioma->id_palestrante = $id_palestrante;
-                $salvaIdioma->save();
+        foreach ($idiomas as $idioma) {
+            $salvaIdioma = new IdiomasPalestrante();
+            $salvaIdioma->id_idiomas = $idioma;
+            $salvaIdioma->id_palestrante = $id_palestrante;
+            $salvaIdioma->save();
+        }
+
+
+        foreach ($categorias as $categoria) {
+            $salvaCategoria = new PalestranteCategoria();
+            $tipoCat = explode("-", $categoria)[0];
+            $catId = explode("-", $categoria)[1];
+            if ($tipoCat == "cat") {
+                $salvaCategoria->id_categoria = $catId;
+            } else {
+                $salvaCategoria->id_subcategoria = $catId;
             }
+            $salvaCategoria->id_palestrante = $id_palestrante;
+            $salvaCategoria->save();
+        }
 
-
-            foreach ($categorias as $categoria) {
-                $salvaCategoria = new PalestranteCategoria();
-                $tipoCat = explode("-", $categoria)[0];
-                $catId = explode("-", $categoria)[1];
-                if ($tipoCat == "cat") {
-                    $salvaCategoria->id_categoria = $catId;
-                } else {
-                    $salvaCategoria->id_subcategoria = $catId;
-                }
-                $salvaCategoria->id_palestrante = $id_palestrante;
-                $salvaCategoria->save();
-            }
-
-
-      //      dd($palestrante, $dadosContratuais, $idiomas, $categoria);
-        return redirect('dashboard/palestrante');
+        return redirect('dashboard/palestrante/'.$id_palestrante.'/novo');
     }
 
     /**
@@ -125,7 +123,7 @@ class PalestranteController extends Controller
     public function show($id)
     {
         $data = Palestrante::find($id);
-        return view('dashboard.palestrante.edit')->with('data', $data);
+        return view('dashboard.palestrante.form')->with(['data'=>$data, 'action'=>"editar"]);
     }
 
     /**
@@ -158,7 +156,7 @@ class PalestranteController extends Controller
 
 
         $dadosContratuais = DadosContratuais::where('id_palestrante', $id_palestrante)->first() == NULL ? new DadosContratuais()
-        : DadosContratuais::where('id_palestrante', $id_palestrante)->first();
+            : DadosContratuais::where('id_palestrante', $id_palestrante)->first();
 
         $dadosContratuais->nm_razao_social = $request->nm_razao_social;
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
@@ -177,50 +175,50 @@ class PalestranteController extends Controller
         $categoriasSalvas = PalestranteCategoria::where('id_palestrante', $id_palestrante);
         $categoriasSalvas->delete();
 
-            $idiomas = $request->all()['idiomas'];
-            $categorias = $request->all()['categorias'];
+        $idiomas = $request->all()['idiomas'];
+        $categorias = $request->all()['categorias'];
 
-            foreach ($idiomas as $idioma) {
-                $idiomaPalestrante = IdiomasPalestrante::where('id_palestrante', $id_palestrante)
-                    ->where('id_idiomas', $idioma)->first();
+        foreach ($idiomas as $idioma) {
+            $idiomaPalestrante = IdiomasPalestrante::where('id_palestrante', $id_palestrante)
+                ->where('id_idiomas', $idioma)->first();
 
-                if (empty($idiomaPalestrante)) {
-                    $salvaIdioma = new IdiomasPalestrante();
-                    $salvaIdioma->id_idiomas = $idioma;
-                    $salvaIdioma->id_palestrante = $id_palestrante;
-                    $salvaIdioma->save();
+            if (empty($idiomaPalestrante)) {
+                $salvaIdioma = new IdiomasPalestrante();
+                $salvaIdioma->id_idiomas = $idioma;
+                $salvaIdioma->id_palestrante = $id_palestrante;
+                $salvaIdioma->save();
+            }
+        }
+
+
+        foreach ($categorias as $categoria) {
+
+            $tipoCat = explode("-", $categoria)[0];
+            $catId = explode("-", $categoria)[1];
+
+            if ($tipoCat == "cat") {
+                $categoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
+                    ->where('id_categoria', $catId)->first();
+                if (empty($categoriaPalestrante)) {
+                    $salvaCategoria = new PalestranteCategoria();
+                    $salvaCategoria->id_categoria = $catId;
+                    $salvaCategoria->id_palestrante = $id_palestrante;
+                    $salvaCategoria->save();
+                }
+            } else {
+                $subcategoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
+                    ->where('id_subcategoria', $catId)->first();
+
+                if (empty($subcategoriaPalestrante)) {
+                    $salvaCategoria = new PalestranteCategoria();
+                    $salvaCategoria->id_subcategoria = $catId;
+                    $salvaCategoria->id_palestrante = $id_palestrante;
+                    $salvaCategoria->save();
                 }
             }
+        }
 
-
-            foreach ($categorias as $categoria) {
-
-                $tipoCat = explode("-", $categoria)[0];
-                $catId = explode("-", $categoria)[1];
-
-                if ($tipoCat == "cat") {
-                    $categoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
-                        ->where('id_categoria', $catId)->first();
-                    if (empty($categoriaPalestrante)) {
-                        $salvaCategoria = new PalestranteCategoria();
-                        $salvaCategoria->id_categoria = $catId;
-                        $salvaCategoria->id_palestrante = $id_palestrante;
-                        $salvaCategoria->save();
-                    }
-                } else {
-                    $subcategoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
-                        ->where('id_subcategoria', $catId)->first();
-
-                    if (empty($subcategoriaPalestrante)) {
-                        $salvaCategoria = new PalestranteCategoria();
-                        $salvaCategoria->id_subcategoria = $catId;
-                        $salvaCategoria->id_palestrante = $id_palestrante;
-                        $salvaCategoria->save();
-                    }
-                }
-            }
-
-        return redirect('dashboard/palestrante');
+        return redirect('dashboard/palestrante/'.$id_palestrante.'/edit');
     }
 
     /**
@@ -323,34 +321,34 @@ class PalestranteController extends Controller
 //            $img = Image::make($novaImg)->resize(300, 300)->save($novaImg);
 
 
-                $diretorio = dir(storage_path("app/public/imagemPalestrante"));
-                $salvar = 0;
-                while ($arquivo = $diretorio->read()) {
-                    echo($arquivo . "<br>" . $nomeFinal . "<hr>");
-                    if ($arquivo == $nomeFinal) {
-                        $this->salvar = 0;
-                        echo("achou<br>");
+            $diretorio = dir(storage_path("app/public/imagemPalestrante"));
+            $salvar = 0;
+            while ($arquivo = $diretorio->read()) {
+                echo($arquivo . "<br>" . $nomeFinal . "<hr>");
+                if ($arquivo == $nomeFinal) {
+                    $this->salvar = 0;
+                    echo("achou<br>");
 
-                    } else {
-                        $this->salvar = 1;
-                        echo("não achou<br>");
-                        break;
-                    }
+                } else {
+                    $this->salvar = 1;
+                    echo("não achou<br>");
+                    break;
                 }
-                $diretorio->close();
+            }
+            $diretorio->close();
 
-                if ($salvar = 1) {
+            if ($salvar = 1) {
 
-                    $image = Image::make($request->ds_foto);
-                    $image->fit(500)->orientate();
-                    $upload = $image->save('storage/imagemPalestrante/' . $nomeFinal);
+                $image = Image::make($request->ds_foto);
+                $image->fit(500)->orientate();
+                $upload = $image->save('storage/imagemPalestrante/' . $nomeFinal);
 
-                    $palestranteFoto = Palestrante::find($request->id_palestrante);
-                    $palestranteFoto->ds_foto = "imagemPalestrante/" . $nomeFinal;
-                    $palestranteFoto->save();
-                }
-         }
+                $palestranteFoto = Palestrante::find($request->id_palestrante);
+                $palestranteFoto->ds_foto = "imagemPalestrante/" . $nomeFinal;
+                $palestranteFoto->save();
+            }
         }
+    }
 
     public function search(Request $request)
     {

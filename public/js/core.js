@@ -320,7 +320,6 @@ $(document).ready(function () {
 
         var id = $('#id_assessor').val();
         var data = $('#frmRemoverAssessor').serialize();
-        debugger;
         $.ajax({
             method: "POST",
             url: "/dashboard/assessor/delete/" + id,
@@ -330,7 +329,6 @@ $(document).ready(function () {
                 $('#assessor-' + id).remove();
                 if ($('#tblAssessor tbody tr').length <= 0) {
                     $("#tblAssessor tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center"> Nenhum Assessor registrado</td></tr>');
-
                 }
             },
             error: function () {
@@ -430,7 +428,7 @@ $(document).ready(function () {
 
     function tabelaAssessor(fields) {
         $("#tblContatoAssessor tbody ").html('<tr id="contato-assessor-null"><td colspan="3" class="text-center"> Nenhum contato registrado</td></tr>');
-        $("#assesssor-null").remove();
+        $("#assessor-null").remove();
 
         var linha = "<tr id='assessor-" + fields.id + "'>";
         linha += "<td>" + fields.nm_acessor + "</td>";
