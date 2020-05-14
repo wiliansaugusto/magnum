@@ -338,7 +338,7 @@
                                                     @php
                                                         $categorias = App\Categoria::all();
                                                     @endphp
-                                                 
+
                                                     <select id="categorias" name="categorias[]"
                                                             class="form-control form-control-sm select-find {{ $errors->has('categorias') ? 'is-invalid' : '' }}"
                                                             style="width: 100%" multiple="multiple">
