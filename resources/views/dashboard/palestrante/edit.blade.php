@@ -104,11 +104,11 @@
                                                             Selecionar Nacionalidade*
                                                         </option>
                                                         <option class="form-control form-control-sm" value="Brasileiro"
-                                                                {{ old('ds_nacionalidade') == 'Brasileiro' ? 'selected' : ''}}>
+                                                            {{ old('ds_nacionalidade') == 'Brasileiro' ? 'selected' : ''}}>
                                                             Brasileiro
                                                         </option>
                                                         <option class="form-control form-control-sm" value="Estrangeiro"
-                                                                {{ old('ds_nacionalidade') == 'Estrangeiro' ? 'selected' : ''}}>
+                                                            {{ old('ds_nacionalidade') == 'Estrangeiro' ? 'selected' : ''}}>
                                                             Estrangeiro
                                                         </option>
                                                     </select>
@@ -128,11 +128,11 @@
                                                             Selecionar Sexo
                                                         </option>
                                                         <option class="form-control form-control-sm" value="Feminino"
-                                                                {{ old('ds_sexo') == 'Feminino' ? 'selected' : ''}}>
+                                                            {{ old('ds_sexo') == 'Feminino' ? 'selected' : ''}}>
                                                             Feminino
                                                         </option>
                                                         <option class="form-control form-control-sm" value="Masculino"
-                                                                {{ old('ds_sexo') == 'Masculino' ? 'selected' : ''}}>
+                                                            {{ old('ds_sexo') == 'Masculino' ? 'selected' : ''}}>
                                                             Masculino
                                                         </option>
                                                     </select>
@@ -148,17 +148,17 @@
                                                     <label>Disponivel para Palestras*</label><br>
                                                     <div class="form-check form-check-inline">
                                                         <input
-                                                                class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}"
-                                                                type="radio" name="ds_ativo" id="ds_ativo1" value="s"
-                                                                {{($data->ds_ativo == 's') ? 'checked'  : (old('ds_ativo') == 's') ? 'checked' : ''}}>
+                                                            class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}"
+                                                            type="radio" name="ds_ativo" id="ds_ativo1" value="s"
+                                                            {{($data->ds_ativo == 's') ? 'checked'  : (old('ds_ativo') == 's') ? 'checked' : ''}}>
                                                         <label class="form-check-label" for="ds_ativo1">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input
-                                                                class="form-check-input  {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}"
-                                                                type="radio" name="ds_ativo" id="ds_disponivel2"
-                                                                value="n"
-                                                                {{($data->ds_ativo == 'n') ? 'checked'  : (old('ds_ativo') == 'n') ? 'checked' : '' }}>
+                                                            class="form-check-input  {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}"
+                                                            type="radio" name="ds_ativo" id="ds_disponivel2"
+                                                            value="n"
+                                                            {{($data->ds_ativo == 'n') ? 'checked'  : (old('ds_ativo') == 'n') ? 'checked' : '' }}>
                                                         <label class="form-check-label" for="ds_disponivel2">Não</label>
                                                     </div>
                                                     @if ($errors->has('ds_ativo'))
@@ -172,20 +172,20 @@
                                                     <label>Visivel no site*</label><br>
                                                     <div class="form-check form-check-inline">
                                                         <input
-                                                                class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
-                                                                type="radio" name="ds_visivel_site" id="ds_visivel_site"
-                                                                value="s"
-                                                                {{($data->ds_visivel_site == 's') ? 'checked'  : (old('ds_visivel_site') == 's') ? 'checked' : '' }}>
+                                                            class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
+                                                            type="radio" name="ds_visivel_site" id="ds_visivel_site"
+                                                            value="s"
+                                                            {{($data->ds_visivel_site == 's') ? 'checked'  : (old('ds_visivel_site') == 's') ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site">Sim</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input
-                                                                class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
-                                                                type="radio" name="ds_visivel_site"
-                                                                id="ds_visivel_site2"
-                                                                value="n"
-                                                                {{($data->ds_visivel_site == 'n') ? 'checked'  : (old('ds_visivel_site') == 'n') ? 'checked' : '' }}>
+                                                            class="form-check-input {{ $errors->has('ds_visivel_site') ? 'is-invalid' : '' }}"
+                                                            type="radio" name="ds_visivel_site"
+                                                            id="ds_visivel_site2"
+                                                            value="n"
+                                                            {{($data->ds_visivel_site == 'n') ? 'checked'  : (old('ds_visivel_site') == 'n') ? 'checked' : '' }}>
                                                         <label class="form-check-label"
                                                                for="ds_visivel_site2">Não</label>
                                                     </div>
@@ -199,25 +199,25 @@
                                                 <div class="col-md-4">
                                                     <label>Ranking do Palestrante*</label><br>
                                                     <div
-                                                            class="rate {{ $errors->has('rank_palestrante') ? 'is-invalid' : '' }}">
+                                                        class="rate {{ $errors->has('rank_palestrante') ? 'is-invalid' : '' }}">
                                                         <input type="radio" id="star5" name="rank_palestrante" value="5"
-                                                                {{($data->rank_palestrante == '5') ? 'checked'  : (old('rank_palestrante') == '5') ? 'checked' : '' }}>
+                                                            {{($data->rank_palestrante == '5') ? 'checked'  : (old('rank_palestrante') == '5') ? 'checked' : '' }}>
                                                         <label for="star5" title="text">5
                                                             stars</label>
                                                         <input type="radio" id="star4" name="rank_palestrante" value="4"
-                                                                {{($data->rank_palestrante == '4') ? 'checked'  : (old('rank_palestrante') == '4') ? 'checked' : '' }}>
+                                                            {{($data->rank_palestrante == '4') ? 'checked'  : (old('rank_palestrante') == '4') ? 'checked' : '' }}>
                                                         <label for="star4" title="text">4
                                                             stars</label>
                                                         <input type="radio" id="star3" name="rank_palestrante" value="3"
-                                                                {{($data->rank_palestrante == '3') ? 'checked'  : (old('rank_palestrante') == '3') ? 'checked' : '' }}>
+                                                            {{($data->rank_palestrante == '3') ? 'checked'  : (old('rank_palestrante') == '3') ? 'checked' : '' }}>
                                                         <label for="star3" title="text">3
                                                             stars</label>
                                                         <input type="radio" id="star2" name="rank_palestrante" value="2"
-                                                                {{($data->rank_palestrante == '2') ? 'checked'  : (old('rank_palestrante') == '2') ? 'checked' : '' }}>
+                                                            {{($data->rank_palestrante == '2') ? 'checked'  : (old('rank_palestrante') == '2') ? 'checked' : '' }}>
                                                         <label for="star2" title="text">2
                                                             stars</label>
                                                         <input type="radio" id="star1" name="rank_palestrante" value="1"
-                                                                {{($data->rank_palestrante == '1') ? 'checked'  : (old('rank_palestrante') == '1') ? 'checked' : '' }}>
+                                                            {{($data->rank_palestrante == '1') ? 'checked'  : (old('rank_palestrante') == '1') ? 'checked' : '' }}>
 
                                                         <label for="star1" title="text">1
                                                             star</label>
@@ -311,7 +311,7 @@
                                                             @endphp
                                                             @if(old('idiomas') != NULL)
                                                                 <option value="{{$item->id}}"
-                                                                        {{ in_array($item->id, old('idiomas')) == 'true' ? 'selected' : ''}}>
+                                                                    {{ in_array($item->id, old('idiomas')) == 'true' ? 'selected' : ''}}>
                                                                     {{$item->ds_idioma}}
                                                                 </option>
                                                             @elseif(!empty($idiomaPalestrante))
@@ -338,6 +338,7 @@
                                                     @php
                                                         $categorias = App\Categoria::all();
                                                     @endphp
+                                                 
                                                     <select id="categorias" name="categorias[]"
                                                             class="form-control form-control-sm select-find {{ $errors->has('categorias') ? 'is-invalid' : '' }}"
                                                             style="width: 100%" multiple="multiple">
@@ -346,16 +347,19 @@
                                                             @php
                                                                 $categoriaPalestrante =
                                                                 App\PalestranteCategoria::where('id_palestrante', $data->id)
-                                                                ->where('id_categoria', $categoria->id)->first();
+                                                                ->where('id_categoria', '=' ,$categoria->id)->first();
+
                                                             @endphp
-                                                            @if(!empty($categoriaPalestrante))
+
+                                                            @if( (old('categorias') == NULL && !$errors->has('categorias'))
+                                                                        && $categoriaPalestrante != NULL)
                                                                 <option value="cat-{{$categoria->id}}"
                                                                         selected="selected">
                                                                     {{$categoria->nm_categoria}}
                                                                 </option>
-                                                            @elseif(old('categorias') != NULL )
+                                                            @elseif(old('categorias') != NULL && !$errors->has('categorias') )
                                                                 <option value="cat-{{$categoria->id}}"
-                                                                        {{ in_array ( "cat-".$categoria->id, old('categorias')) == 'true' ? 'selected' : ''}}>
+                                                                    {{ in_array(('cat-'.$categoria->id), old('categorias')) == 'true' ? 'selected' : ''}}>
                                                                     {{$categoria->nm_categoria}}
                                                                 </option>
                                                             @else
@@ -363,20 +367,22 @@
                                                                     {{$categoria->nm_categoria}}
                                                                 </option>
                                                             @endif
+
                                                             @foreach ($categoria->subCategorias as $subCategoria)
                                                                 @php
                                                                     $subcategoriaPalestrante =
                                                                     App\PalestranteCategoria::where('id_palestrante', $data->id)
-                                                                    ->where('id_subcategoria', $subCategoria->id)->first();
+                                                                    ->where('id_subcategoria','=', $subCategoria->id)->first();
                                                                 @endphp
-                                                                @if(!empty($subcategoriaPalestrante))
+                                                                @if(  (old('categorias') == NULL && !$errors->has('categorias')) && $subcategoriaPalestrante != NULL )
+
                                                                     <option value="sub-{{$subCategoria->id}}"
                                                                             selected="selected">
                                                                         {{$subCategoria->nm_sub_cat}}
                                                                     </option>
-                                                                @elseif(old('categorias') != NULL )
+                                                                @elseif(old('categorias') != NULL && !$errors->has('categoria') )
                                                                     <option value="sub-{{$subCategoria->id}}"
-                                                                            {{ in_array ( "sub-".$subCategoria->id, old('categorias')) == 'true' ? 'selected' : ''}}>
+                                                                        {{ in_array ( "sub-".$subCategoria->id, old('categorias')) == 'true' ? 'selected' : ''}}>
                                                                         {{$subCategoria->nm_sub_cat}}
                                                                     </option>
                                                                 @else
@@ -384,8 +390,9 @@
                                                                         {{$subCategoria->nm_sub_cat}}
                                                                     </option>
                                                                 @endif
+                                                                    @endforeach
+
                                                             @endforeach
-                                                        @endforeach
                                                     </select>
                                                     @if ($errors->has('categorias'))
                                                         <span class="invalid-feedback" role="alert">
@@ -427,7 +434,7 @@
                                                                                 data-id="{{$contato->id}}"
                                                                                 data-toggle='modal'
                                                                                 data-target='#frmRemoverContatoModal'><i
-                                                                                    class='fa fa-trash'></i></button>
+                                                                                class='fa fa-trash'></i></button>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -819,7 +826,7 @@
                                                                                 data-id="{{$banco->id}}"
                                                                                 data-toggle='modal'
                                                                                 data-target='#frmRemoverBancoModal'><i
-                                                                                    class='fa fa-trash'></i></button>
+                                                                                class='fa fa-trash'></i></button>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach

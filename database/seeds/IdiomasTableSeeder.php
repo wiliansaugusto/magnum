@@ -96,9 +96,6 @@ class IdiomasTableSeeder extends Seeder
             'ds_idioma' => "Dhiveli",
         ]);
         \App\Idiomas::create([
-            'ds_idioma' => "Dzongkha",
-        ]);
-        \App\Idiomas::create([
             'ds_idioma' => "Eslovaco",
         ]);
         \App\Idiomas::create([
@@ -221,38 +218,9 @@ class IdiomasTableSeeder extends Seeder
         \App\Idiomas::create([
             'ds_idioma' => "Paulaense",
         ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Persa",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Polonês",
-        ]);
+        ;
         \App\Idiomas::create([
             'ds_idioma' => "Punjabi",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Quíchua",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Quirguiz",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Romeno",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Romanche",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Russo",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Sérvio",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Cingalês",
-        ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Somali",
         ]);
         \App\Idiomas::create([
             'ds_idioma' => "Soto",
@@ -287,9 +255,7 @@ class IdiomasTableSeeder extends Seeder
         \App\Idiomas::create([
             'ds_idioma' => "Polonês",
         ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Punjabi",
-        ]);
+
         \App\Idiomas::create([
             'ds_idioma' => "Quíchua",
         ]);
@@ -302,9 +268,7 @@ class IdiomasTableSeeder extends Seeder
         \App\Idiomas::create([
             'ds_idioma' => "Romanche",
         ]);
-        \App\Idiomas::create([
-            'ds_idioma' => "Russo",
-        ]);
+
         \App\Idiomas::create([
             'ds_idioma' => "Sérvio",
         ]);
