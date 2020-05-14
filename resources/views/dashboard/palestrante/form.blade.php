@@ -333,7 +333,6 @@
                                                         @endif
                                                     </div>
                                                 </div>
-
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12">
                                                         @php
@@ -385,12 +384,14 @@
                                                         @endif
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12">
                                                         <label for="categorias">Categorias*</label>
                                                         @php
                                                             $categorias = App\Categoria::all();
                                                         @endphp
+
                                                         <select id="categorias" name="categorias[]"
                                                                 class="form-control form-control-sm select-find {{ $errors->has('categorias') ? 'is-invalid' : '' }}"
                                                                 style="width: 100%" multiple="multiple">
@@ -399,16 +400,19 @@
                                                                 @php
                                                                     $categoriaPalestrante =
                                                                     App\PalestranteCategoria::where('id_palestrante', $data->id)
-                                                                    ->where('id_categoria', $categoria->id)->first();
+                                                                    ->where('id_categoria', '=' ,$categoria->id)->first();
+
                                                                 @endphp
-                                                                @if(!empty($categoriaPalestrante))
+
+                                                                @if( (old('categorias') == NULL && !$errors->has('categorias'))
+                                                                            && $categoriaPalestrante != NULL)
                                                                     <option value="cat-{{$categoria->id}}"
                                                                             selected="selected">
                                                                         {{$categoria->nm_categoria}}
                                                                     </option>
-                                                                @elseif(old('categorias') != NULL )
+                                                                @elseif(old('categorias') != NULL && !$errors->has('categorias') )
                                                                     <option value="cat-{{$categoria->id}}"
-                                                                            {{ in_array ( "cat-".$categoria->id, old('categorias')) == 'true' ? 'selected' : ''}}>
+                                                                            {{ in_array(('cat-'.$categoria->id), old('categorias')) == 'true' ? 'selected' : ''}}>
                                                                         {{$categoria->nm_categoria}}
                                                                     </option>
                                                                 @else
@@ -416,18 +420,20 @@
                                                                         {{$categoria->nm_categoria}}
                                                                     </option>
                                                                 @endif
+
                                                                 @foreach ($categoria->subCategorias as $subCategoria)
                                                                     @php
                                                                         $subcategoriaPalestrante =
                                                                         App\PalestranteCategoria::where('id_palestrante', $data->id)
-                                                                        ->where('id_subcategoria', $subCategoria->id)->first();
+                                                                        ->where('id_subcategoria','=', $subCategoria->id)->first();
                                                                     @endphp
-                                                                    @if(!empty($subcategoriaPalestrante))
+                                                                    @if(  (old('categorias') == NULL && !$errors->has('categorias')) && $subcategoriaPalestrante != NULL )
+
                                                                         <option value="sub-{{$subCategoria->id}}"
                                                                                 selected="selected">
                                                                             {{$subCategoria->nm_sub_cat}}
                                                                         </option>
-                                                                    @elseif(old('categorias') != NULL )
+                                                                    @elseif(old('categorias') != NULL && !$errors->has('categoria') )
                                                                         <option value="sub-{{$subCategoria->id}}"
                                                                                 {{ in_array ( "sub-".$subCategoria->id, old('categorias')) == 'true' ? 'selected' : ''}}>
                                                                             {{$subCategoria->nm_sub_cat}}
@@ -438,15 +444,17 @@
                                                                         </option>
                                                                     @endif
                                                                 @endforeach
+
                                                             @endforeach
                                                         </select>
                                                         @if ($errors->has('categorias'))
                                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('categorias') }}</strong>
-                                        </span>
+                                                    <strong>{{ $errors->first('categorias') }}</strong>
+                                                </span>
                                                         @endif
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-md-12 col-sm-12">
                                                         <label for="contatos">Contatos</label>
