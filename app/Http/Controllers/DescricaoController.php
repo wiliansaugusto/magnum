@@ -35,7 +35,6 @@ class DescricaoController extends Controller
      */
     public function store(Request $request)
     {
-        $retorno = null;
         if($request->all()['tipo_descricao'] == "chamada") {
             $descricao = Palestrante::find($request->id_palestrante);
             $descricao->ds_chamada = $request->descricao == "null" ? "" : $request->descricao;

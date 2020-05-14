@@ -15,11 +15,11 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-    <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/nprogress/nprogress.css') }}" rel="stylesheet">
 
     <link href="{{ asset('build/css/custom.min.css') }}" rel="stylesheet">
 
@@ -123,11 +123,11 @@
         </div>
     </div>
 
-    {{--<script src="{{ asset('vendors/jquery/dist/jquery.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>--}}
+    {{--<script src="{{ asset('lib/jquery/dist/jquery.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>--}}
     <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
-    <script src="{{ asset('vendors/fastclick/lib/fastclick.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
+    <script src="{{ asset('lib/bootstrap/dist/js/bootstrap.bundle.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
+    <script src="{{ asset('lib/fastclick/lib/fastclick.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
     <script src="{{ asset('build/js/custom.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
     <script src="{{ asset('build/js/rocket-loader.min.js') }}" data-cf-settings="c024bab70492f018f6371c66-|49" defer=""></script>
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>

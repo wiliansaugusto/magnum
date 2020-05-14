@@ -21,7 +21,7 @@
                     @foreach ($usuarios as $usuario)
                         @if($usuario->id != Auth::user()->id)
                             <tr>
-                                <td>{{$usuario->name}}</td>
+                                <td>{{$usuario->nm_usuario}}</td>
                                 <td>{{date_format($usuario->created_at,"d/m/Y H:i:s")}}</td>
                                 <td class=" text-right">
                                     <button type="button" class="btn btn-danger btn-sm ml-1"
