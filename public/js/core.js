@@ -196,7 +196,6 @@ $(document).ready(function () {
             }
         });
     })
-
     $("#frmRemoverBanco").submit(function (event) {
         event.preventDefault();
 
@@ -220,7 +219,6 @@ $(document).ready(function () {
             }
         });
     });
-
     $("#frmRemoverValor").submit(function (event) {
         event.preventDefault();
         var id = $('#id_valor').val();
