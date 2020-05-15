@@ -33,7 +33,7 @@ class PalestranteRequest extends FormRequest
 //        'ds_titulo_video' => 'required',
             'ds_url_video' => 'nullable|url',
 //            'ds_descricao_video' => 'required',
-//            'nm_razao_social' => 'required',
+         'nm_razao_social' => 'nullable|min:3|max:60',
 //            'nm_completo' => 'required',
             'nr_cnpj' => 'nullable|cnpj',
             'nr_cpf' => 'nullable|cpf',
@@ -58,8 +58,8 @@ class PalestranteRequest extends FormRequest
             'required' => 'O campo :attribute é obrigatório',
             'image' => 'A :attribute está em formato inválido',
             'url' => 'Url não disponível',
-            'max' => 'Inserir um valor entre 8 á 14 digitos',
-            'min' => 'Inserir um valor entre 8 á 14 digitos',
+            'max' => 'O valor não pode ser superior a :max caracteres',
+            'min' => 'O valor não pode ser inferior a :min caracteres',
         ];
     }
 
