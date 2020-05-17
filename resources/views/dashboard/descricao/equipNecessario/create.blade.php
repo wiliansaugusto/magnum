@@ -16,7 +16,7 @@
                                 <label for="ds_equip_necessario"> Cadastro dos Equipamentos Necessário*</label>
                                 <textarea class="form-control" id="ds_equip_necessario" name="descricao"
                                           rows="4"
-                                          required></textarea>
+                                          required>{{ $data != NULL ? $data : '' }}</textarea>
                             </div>
                         </div>
                     </div>

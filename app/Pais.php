@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pais extends Model
 {
     protected $table = 'mgm_tbl_pais';
+    public $timestamps=false;
 
     protected $fillable = [
         'nm_pais'

@@ -666,7 +666,7 @@
                                                                         <tr id="endereco-{{$endereco->id}}">
                                                                             <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}
                                                                             </td>
-                                                                            <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}
+                                                                            <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}
                                                                             </td>
                                                                             <td class='text-right'>
                                                                                 <button id='excluirEndereco'
@@ -956,6 +956,7 @@
                                                             <tr>
                                                                 <th scope="col">Cidade</th>
                                                                 <th scope="col">Valor</th>
+                                                                <th scope="col">Observações</th>
                                                                 <th scope="col"></th>
                                                             </tr>
                                                             </thead>
@@ -965,6 +966,7 @@
                                                                     <tr id="{{$valor->id}}">
                                                                         <td>{{$valor->cidade->nm_cidade}}</td>
                                                                         <td>{{$valor->nr_valor}}</td>
+                                                                        <td>{{$valor->ds_observacao}}</td>
                                                                         <td class='text-right'>
                                                                             <button id='excluirValor'
                                                                                     type='button'
@@ -1009,7 +1011,7 @@
                                                                id="tblAssessor">
                                                             <thead>
                                                             <tr>
-                                                                <th scope="col">Nome do Assessor</th>
+                                                                <th scope="col">Assessor</th>
                                                                 <th scope="col"></th>
                                                             </tr>
                                                             </thead>
@@ -1340,13 +1342,13 @@
     @include('dashboard.contato.create')
     @include('dashboard.assessor.create')
     @include('dashboard.endereco.create')
-    @include('dashboard.descricao.chamada.create')
-    @include('dashboard.descricao.curriculo.create')
-    @include('dashboard.descricao.observacao.create')
-    @include('dashboard.descricao.investimento.create')
-    @include('dashboard.descricao.formaPagamento.create')
-    @include('dashboard.descricao.equipNecessario.create')
-    @include('dashboard.descricao.curriculoTecnico.create')
+    @include('dashboard.descricao.chamada.create',[ 'data'=>$data->ds_chamada] )
+    @include('dashboard.descricao.curriculo.create',[ 'data'=>$data->ds_curriculo] )
+    @include('dashboard.descricao.observacao.create',[ 'data'=>$data->ds_observacao] )
+    @include('dashboard.descricao.investimento.create',[ 'data' => $data->ds_investimento] )
+    @include('dashboard.descricao.formaPagamento.create',[ 'data'=>$data->ds_forma_pagamento] )
+    @include('dashboard.descricao.equipNecessario.create',[ 'data' => $data->ds_equipe_necessario ] )
+    @include('dashboard.descricao.curriculoTecnico.create',[ 'data'=>$data->ds_curriculo_tecnico ] )
 
     @include('dashboard.banco.remover')
     @include('dashboard.valor.remover')

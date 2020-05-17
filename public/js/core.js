@@ -448,6 +448,7 @@ $(document).ready(function () {
         var linha = "<tr id='" + fields.id_valor + "'>";
         linha += "<td>" + fields.nm_cidade + "</td>";
         linha += "<td>" + fields.nr_valor + "</td>";
+        linha += "<td>" + fields.ds_observacao + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirValor' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_valor + "' data-toggle='modal' data-target='#frmRemoverValorModal'>";
         linha += "<i class='fa fa-trash'></i>";

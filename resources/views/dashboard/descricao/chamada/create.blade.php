@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <label  for="ds_chamada">Cadastro da Chamada para o site*</label>
                                 <textarea class="form-control" name="descricao" id="ds_chamada" maxlength="300"
-                                    rows="4"></textarea>
+                                    rows="4">{{ $data != NULL ? $data : '' }}</textarea>
                             </div>
                         </div>
                         <div class="col-md-12">

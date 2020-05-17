@@ -1,13 +1,6 @@
 @extends('layouts.dashboard')
 
 @section('content')
-{{---   
-@if(!empty($mensagem))
-        <div class="alert alert-success">
-            <p class="text-center"><i class="far fa-thumbs-up"></i> {{ $mensagem }}</p>
-        </div>
-    @endif
-    --}}
     <div class="card">
         <div class="card-header ">
             <div class="row ">
@@ -75,13 +68,13 @@
                                                                 data-toggle="modal"
                                                                 data-target="#modal{{$subItem->id}}"><i
                                                                     class="fa fa-edit"></i>
-                                                            
+
                                                         </button>
                                                         <button name="sub" value="1" class="btn btn-danger btn-sm"
                                                                 type="button"
                                                                 data-toggle="modal"
                                                                 data-target="#modalSubDel{{$subItem->id}}"><i
-                                                                    class="fa fa-trash"></i> 
+                                                                    class="fa fa-trash"></i>
                                                         </button>
                                                     </td>
                                                 </tr>
