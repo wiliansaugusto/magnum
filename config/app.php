@@ -65,7 +65,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'timezone' => 'UTC',
+=======
+    'timezone' => 'America/Sao_Paulo',
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +95,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'fallback_locale' => 'en',
+=======
+    'fallback_locale' => 'pt-BR',
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 
     /*
     |--------------------------------------------------------------------------
@@ -147,6 +155,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
         /*
          * Package Service Providers...
          */
@@ -160,6 +172,17 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+<<<<<<< HEAD
+=======
+        Laravel\Scout\ScoutServiceProvider::class,
+
+        // PHPLegends usado para validar CPF CNPJ e outros padrões em pt-BR
+        LaravelLegends\PtBrValidator\ValidatorProvider::class,
+        // Intervention Imagem usado para redimensionar as imagens
+        Intervention\Image\ImageServiceProvider::class,
+
+
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     ],
 
     /*
@@ -208,7 +231,17 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
 
     ],
 
+=======
+        'Image' => Intervention\Image\Facades\Image::class,
+
+    ],
+
+    
+    
+
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 ];

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +14,13 @@
 
     <title>{{ config('app.name', 'Gerenciamento Magnum') }}</title>
 
+<<<<<<< HEAD
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+=======
+    <!-- Scripts 
+    <script src="{{ asset('js/app.js') }}" defer></script>-->
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -19,14 +28,24 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<<<<<<< HEAD
 </head>
 <body>
+=======
+
+</head>
+
+<body>
+
+
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/dashboard') }}">
                     {{ config('app.name', 'Magnum') }}
                 </a>
+<<<<<<< HEAD
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -68,6 +87,13 @@
                         @endguest
                     </ul>
                 </div>
+=======
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
             </div>
         </nav>
 
@@ -76,4 +102,8 @@
         </main>
     </div>
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 </html>

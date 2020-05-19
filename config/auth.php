@@ -67,6 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+<<<<<<< HEAD
             'model' => App\User::class,
         ],
 
@@ -74,6 +75,15 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+=======
+            'model' => App\Usuario::class,
+        ],
+
+         'users' => [
+             'driver' => 'database',
+             'table' => 'mgm_tbl_usuario',
+         ],
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     ],
 
     /*

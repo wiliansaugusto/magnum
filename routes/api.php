@@ -14,5 +14,9 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+<<<<<<< HEAD
     return $request->user();
+=======
+    return $request;
+>>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 });
