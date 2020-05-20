@@ -2,16 +2,6 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-
-class PalestranteController extends Controller
-{
-    public function __construct()
-    {
-        $this->middleware('auth', ['except' => ['index']]);
-    }
-=======
 use App\Idiomas;
 use App\Categoria;
 use App\Palestrante;
@@ -28,18 +18,12 @@ use App\Http\Requests\PalestranteRequest;
 
 class PalestranteController extends Controller
 {
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function index()
-    {
-        return view('dashboard.palestrante.create');
-=======
     public function index(Request $request)
     {
         if ($request->has('search')) {
@@ -49,7 +33,6 @@ class PalestranteController extends Controller
         }
         return view('dashboard.palestrante.index')->with('palestrantes', $palestrantes);
 
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 
     /**
@@ -57,29 +40,15 @@ class PalestranteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function create()
-    {
-        //
-=======
     public function create($id)
     {
         $data = Palestrante::find($id);
         return view('dashboard.palestrante.form')->with(['data'=>$data, 'action'=>"criar"]);
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 
     /**
      * Store a newly created resource in storage.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-=======
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -143,40 +112,23 @@ class PalestranteController extends Controller
         }
 
         return redirect('dashboard/palestrante/'.$id_palestrante.'/novo');
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-=======
      * @param int $id
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-<<<<<<< HEAD
-        //
-=======
         $data = Palestrante::find($id);
         return view('dashboard.palestrante.form')->with(['data'=>$data, 'action'=>"editar"]);
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-=======
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -267,41 +219,22 @@ class PalestranteController extends Controller
         }
 
         return redirect('dashboard/palestrante/'.$id_palestrante.'/edit');
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 
     /**
      * Update the specified resource in storage.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-=======
      * @param \Illuminate\Http\Request $request
      * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-=======
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -428,6 +361,5 @@ class PalestranteController extends Controller
         //return view('dashboard.palestrante.index')->with(compact('palestrantes','search'));
         return view('dashboard.palestrante.index', ['palestrantes' => $palestrantes, 'search' => $search]);
 
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 }

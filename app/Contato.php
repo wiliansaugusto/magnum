@@ -6,12 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contato extends Model
 {
-<<<<<<< HEAD
-    protected $fillable = [
-        'ds_contato', 'id_tp_contato',
-    ];
-    protected $table = 'mgm_tbl_contato';
-=======
     protected $table = 'mgm_tbl_contato';
 
     protected $fillable = [
@@ -36,5 +30,4 @@ class Contato extends Model
         return $this->belongsTo('App\Acessor' , 'id_acessor','id');
     }
 
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 }

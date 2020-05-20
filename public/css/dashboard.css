@@ -98,11 +98,7 @@ body {
 }
 .rate {
   float: left;
-<<<<<<< HEAD
-  height: 46px;
-=======
   height: auto;
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
   padding: 0px;
 }
 .rate:not(:checked) > input {
@@ -144,20 +140,12 @@ label {
   max-width: 100% !important;
 }
 
-<<<<<<< HEAD
-.modal-dialog {
-  margin: 0.75rem !important;
-}
-=======
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 .form-group {
   margin-bottom: 0.2rem !important;
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
   font-weight: bold;
-<<<<<<< HEAD
-=======
 }
 
 .table-no-mb {
@@ -233,5 +221,4 @@ table#tblDescricao {
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
   line-height: 20px !important;
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 }

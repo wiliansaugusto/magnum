@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-=======
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,23 +9,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-<<<<<<< HEAD
-
-Route::get('/', function () {
-    return view('welcome');
-=======
 Route::get('/', function () {
     return Redirect::to('/login');
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
 });
 
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('/dashboard/palestrante/', 'PalestranteController');
-=======
 Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard'], function () {
     Route::resource('/', 'HomeController');
     Route::post('fragmentopalestrante/', 'FragmentosPalestranteController@salvarNome');
@@ -70,4 +55,3 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 //    Route::post('pesquisar/', 'PalestranteController@search');
 
 });
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb

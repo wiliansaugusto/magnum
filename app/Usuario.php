@@ -2,21 +2,6 @@
 
 namespace App;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-
-class Usuario extends Model
-{
-    protected $table = 'mgm_tbl_usuario';
-
-    protected $fillable = [
-        'nm_usuario', 'ds_nickname', 'email', 'password',
-    ];
-
-    public function usuario()
-    {
-        return $this->belongsTo('App\Palestrante');
-=======
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -44,6 +29,5 @@ class Usuario extends Authenticatable
     public function palestrantes()
     {
         return $this->belongsTo(Palestrante::class, 'id_usuario', 'id');
->>>>>>> b8da2327ba6e31e5bbb8b2ec5a23c0ab952c5aeb
     }
 }
