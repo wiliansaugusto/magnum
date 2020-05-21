@@ -22,6 +22,22 @@
                                    class="form-control form-control-sm"
                                    name="nr_valor" value="" required autofocus>
                         </div>
+                        <div class="col-md-12">
+                            <label for="id_tp_servico">Tipos de Serviço</label>
+                            @php
+                                $servicos = App\TiposDeServico::all();
+                            @endphp
+
+                            <select id="id_tp_servico" name="id_tp_servico" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                @foreach ($servicos as $item)
+                                    <option value="{{$item->id}}">
+                                        {{$item->nm_tipo_servico}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
@@ -31,7 +47,7 @@
                             @endphp
 
                             <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
-                                    style="width: 100%">
+                                    style="width: 100%" required>
                                 <option></option>
                                 @foreach ($cidades as $item)
                                     <option value="{{$item->id}}">

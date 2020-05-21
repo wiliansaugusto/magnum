@@ -957,6 +957,7 @@
                                                                 <th scope="col">Cidade</th>
                                                                 <th scope="col">Valor</th>
                                                                 <th scope="col">Observações</th>
+                                                                <th scope="col">Tipo de Serviço</th>
                                                                 <th scope="col"></th>
                                                             </tr>
                                                             </thead>
@@ -966,7 +967,9 @@
                                                                     <tr id="{{$valor->id}}">
                                                                         <td>{{$valor->cidade->nm_cidade}}</td>
                                                                         <td>{{$valor->nr_valor}}</td>
-                                                                        <td>{{$valor->ds_observacao}}</td>
+                                                                        <td>{{$valor->ds_observacao == null ?'Não Cadastrado':$valor->ds_observacao}}</td>
+                                                                        <td>{{ $valor->id_tp_servico == null ? 'Não Cadastrado'
+                                                                        : $valor->tipoServico->nm_tipo_servico }}</td>
                                                                         <td class='text-right'>
                                                                             <button id='excluirValor'
                                                                                     type='button'
@@ -982,7 +985,7 @@
 
                                                             @else
                                                                 <tr id="valor-null">
-                                                                    <td colspan="3" class="text-center"> Nenhum
+                                                                    <td colspan="4" class="text-center"> Nenhum
                                                                         valor
                                                                         registrado
                                                                     </td>
@@ -1358,3 +1361,5 @@
     @include('dashboard.descricao.remover')
 
 @endsection
+
+
