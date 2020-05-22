@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cidade;
+use App\TiposDeServico;
 use App\Valor;
 use Illuminate\Http\Request;
 
@@ -42,9 +43,9 @@ class ValorController extends Controller
            'id_valor' => $valor->id,
            'nr_valor' => $valor->nr_valor,
            'ds_observacao' => $valor->ds_observacao,
+           'nm_tipo_servico' => TiposDeServico::find($valor->id_tp_servico)->nm_tipo_servico,
            'nm_cidade' => Cidade::find($valor->id_cidade)->nm_cidade
        );
-
         return response(json_encode($retorno), 200)
             ->header('Content-Type', 'application/json');
 
