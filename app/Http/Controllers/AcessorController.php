@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Contato;
+use App\TipoContato;
 use Illuminate\Http\Request;
 use App\Acessor;
 
@@ -40,16 +41,42 @@ class AcessorController extends Controller
      */
     public function store(Request $request)
     {
-        $assessor = Acessor::create($request->all());
+        if(sizeof($request->all()['id_contato']) > 0) {
+            $assessor = Acessor::create($request->all());
 
-        foreach ($request->all()['id_contato'] as $id_contato){
-            $contato = Contato::find($id_contato);
-            $contato->id_acessor = $assessor->id;
-            $contato->save();
+            foreach ($request->all()['id_contato'] as $id_contato) {
+                $contato = Contato::find($id_contato);
+                $contato->id_acessor = $assessor->id;
+                $contato->save();
+            }
+
+            $dataContato = Contato::where('id_acessor', $assessor->id)->get();
+
+            $contatos = array();
+
+            foreach ($dataContato as $item){
+                $tipocontato = TipoContato::where('id', $item->id_tp_contato)->first();
+
+                $array = array(
+                    "id_contato" => $item->id,
+                    "nm_tipo_contato" => $tipocontato->nm_tipo_contato,
+                    "ds_contato" => $item->ds_contato
+                );
+                $contatos[] = $array;
+            }
+            $data = array(
+                "id" => $assessor->id,
+                "id_palestrante" => $assessor->id_palestrante,
+                "nm_acessor" => $assessor->nm_acessor,
+                "contatos" => $contatos
+            );
+
+            return response(json_encode($data), 200)
+                ->header('Content-Type', 'application/json');
+        }else{
+            return response(null, 400)
+                ->header('Content-Type', 'application/json');
         }
-
-        return response(json_encode($assessor), 200)
-            ->header('Content-Type', 'application/json');
     }
 
     /**

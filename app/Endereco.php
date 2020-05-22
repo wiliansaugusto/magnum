@@ -11,12 +11,12 @@ class Endereco extends Model
     protected $fillable = [
         "nm_endereco",
         "ds_complemento", 
-        "nm_bairro", 
-        "nm_cidade", 
-        "nm_estado", 
+        "nm_bairro",
+        "id_cidade",
         "nr_endereco",
         "id_palestrante", 
-        "id_tp_endereco", 
+        "id_dado_contratual",
+        "id_tp_endereco",
         "nr_cep"
     ];
 
@@ -28,5 +28,15 @@ class Endereco extends Model
     public function palestrante()
     {
         return $this->belongsTo('App\Palestrante', 'id_palestrante', 'id');
+    }
+
+    public function dadoContratual()
+    {
+        return $this->belongsTo('App\DadosContratuais', 'id_dado_contratual', 'id');
+    }
+
+    public function cidade()
+    {
+        return $this->hasMany('App\Cidade', 'id_cidade', 'id');
     }
 }

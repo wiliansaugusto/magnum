@@ -55,11 +55,14 @@ $(document).ready(function () {
             data: data,
             success: function (data) {
                 tabelaAssessor(data);
+
                 $("#frmAssessor")[0].reset();
                 $('#frmAssessorModal').modal('toggle');
             },
             error: function () {
-
+                $('#msg-error-assessor').fadeIn(1000, function () {
+                    $(this).delay(3000).fadeOut(500);
+                });
             }
         });
     });
@@ -155,17 +158,17 @@ $(document).ready(function () {
             $('#frmObservacaoModal').modal('toggle');
         });
     });
-    $('#frmEnderecoPalestrante').submit(function (event) {
+    $('#frmEndereco').submit(function (event) {
         event.preventDefault();
-        var data = $('#frmEnderecoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        var data = $('#frmEndereco').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
         $.ajax({
             method: "POST",
             url: "/dashboard/endereco",
             data: data,
             success: function (data) {
-                tabelaEnderecoPalestrante(data);
-                $("#frmEnderecoPalestrante")[0].reset();
-                $('#frmEnderecoPalestranteModal').modal('toggle');
+                tabelaEndereco(data);
+                $("#frmEndereco")[0].reset();
+                $('#frmEnderecoModal').modal('toggle');
                 $("#nm_endereco").prop('readonly', false);
                 $("#nm_bairro").prop('readonly', false);
                 $("#nm_cidade").prop('readonly', false);
@@ -173,7 +176,9 @@ $(document).ready(function () {
                 $("#nr_cep").focus();
             },
             error: function () {
-                //TODO adicionar mensagem de falha no cadastro de endereço
+                $('#msg-error-endereco').fadeIn(1000, function () {
+                    $(this).delay(3000).fadeOut(500);
+                });
             }
         });
     });
@@ -277,10 +282,12 @@ $(document).ready(function () {
                 if ($('#tblContato tbody tr').length <= 0) {
                     $("#tblContato tbody ").html('<tr id="contato-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
                 }
-                if ($('#tblContatoAssessor tbody tr').length <= 0) {
-                    $("#tblContatoAssessor tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
+                if ($('#assessor-contato-null tbody tr').length <= 0) {
+                    $("#assessor-contato-null tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
                 }
-                console.log(id);
+                if ($('#tblContatoAssessor tbody tr').length <= 0) {
+                    $("#tblContatoAssessor tbody ").html('<tr id="contato-assessor-null"><td colspan="3" class="text-center">Nenhum contato registrado</td></tr>');
+                }
             },
             error: function () {
                 $('#msg-exContato').fadeIn(1000, function () {
@@ -302,8 +309,8 @@ $(document).ready(function () {
                 $('#frmRemoverEnderecoModal').modal('toggle');
                 $('#endereco-' + id).remove();
 
-                if ($('#tblEnderecoPalestrante tbody tr').length <= 0) {
-                    $("#tblEnderecoPalestrante tbody ").html('<tr id="endereco-null"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
+                if ($('#tblEndereco tbody tr').length <= 0) {
+                    $("#tblEndereco tbody ").html('<tr id="endereco-null"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
                 }
             },
 
@@ -325,10 +332,16 @@ $(document).ready(function () {
             url: "/dashboard/assessor/delete/" + id,
             data: data,
             success: function () {
+                debugger;
                 $('#frmRemoverAssessorModal').modal('toggle');
-                $('#assessor-' + id).remove();
-                if ($('#tblAssessor tbody tr').length <= 0) {
-                    $("#tblAssessor tbody ").html('<tr id="assessor-null"><td colspan="3" class="text-center"> Nenhum Assessor registrado</td></tr>');
+                $('#painel-assessor-' + id).remove();
+                if ($('#accordion-assessor div.panel').length <= 0) {
+                    $("#accordion-assessor").html('<table class="table table-sm table-striped" id="tblAssessor">' +
+                        '<tr id="assesssor-null">' +
+                        '<td colspan="2" class="text-center">Nenhum assessor registrado' +
+                        '</td>' +
+                        '</tr>' +
+                        '</table>');
                 }
             },
             error: function () {
@@ -428,18 +441,58 @@ $(document).ready(function () {
 
     function tabelaAssessor(fields) {
         $("#tblContatoAssessor tbody ").html('<tr id="contato-assessor-null"><td colspan="3" class="text-center"> Nenhum contato registrado</td></tr>');
-        $("#assessor-null").remove();
+        $("#tblAssessor").remove();
 
-        var linha = "<tr id='assessor-" + fields.id + "'>";
-        linha += "<td>" + fields.nm_acessor + "</td>";
-        linha += "<td class='text-right'>";
-        linha += "<button id='excluirAssessor' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id + "' data-toggle='modal' data-target='#frmRemoverAssessorModal'>";
-        linha += "<i class='fa fa-trash'></i>";
-        linha += "</button>";
-        linha += "</td>";
-        linha += "</tr>";
+        var linha = '<div class="panel" id="painel-assessor-'+ fields.id +'">';
+        linha += '<div class="panel-heading">';
+        linha += '<div class="col-md-11 mt-1">';
+        linha += '<a role="tab" id="heading-'+ fields.id +'" data-toggle="collapse" data-parent="#accordion-assessor" href="#collapseAssessor-'+ fields.id +'" aria-expanded="true" aria-controls="collapseAssessor-'+ fields.id +'">';
+        linha += '<h4 class="panel-title">' + fields.nm_acessor + '</h4>';
+        linha += '</a>';
+        linha += '</div>';
+        linha += '<div class="col-md-1">';
+        linha += '<button id="excluirAssessor" type="button" class="btn btn-danger btn-sm" data-id="'+ fields.id +'" data-toggle="modal" data-target="#frmRemoverAssessorModal">';
+        linha += '<i class="fa fa-trash"></i>';
+        linha += '</button>';
+        linha += '</div>';
+        linha += '<div class="clearfix"></div>';
+        linha += '</div>';
+        linha += '<div id="collapseAssessor-'+ fields.id +'" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-'+ fields.id +'">';
+        linha += '<div class="panel-body p-3">';
+        linha += '<table id="assessor-contato" class="table table-sm table-striped">';
+        linha += '<thead>';
+        linha += '<tr>';
+        linha += '<th>Tipo de Contato</th>';
+        linha += '<th>Contato</th>';
+        linha += '<th></th>';
+        linha += '</tr>';
+        linha += '</thead>';
+        linha += '<tbody>';
+        if(fields.contatos.length > 0) {
+            for(var i = 0; i < fields.contatos.length; i++) {
+                console.log(fields.contatos[i]);
+                linha += '<tr id="contato-' + fields.contatos[i].id_contato + '">';
+                linha += '<td>'+ fields.contatos[i].nm_tipo_contato +'</td>';
+                linha += '<td>'+ fields.contatos[i].ds_contato +'</td>';
+                linha += '<td class="text-right">'
+                linha += '<button id="excluirContato" type="button" class="btn btn-danger btn-sm" data-id="' + fields.contatos[i].id_contato + '" data-toggle="modal" data-target="#frmRemoverContatoModal">';
+                linha += '<i class="fa fa-trash"></i>';
+                linha += '</button>';
+                linha += '</td>';
+                linha += '</tr>';
+            }
+        }else{
+            linha += '<tr id="assesssor-contato-null">';
+            linha += '<td colspan="2" class="text-center">Nenhum contato registrado</td>';
+            linha += '</tr>';
+        }
+        linha += '</tbody>';
+        linha += '</table>';
+        linha += '</div>';
+        linha += '</div>';
+        linha += '</div>';
 
-        $("#tblAssessor tbody ").append(linha);
+        $("#accordion-assessor").append(linha);
     }
 
     function tabelaValor(fields) {
@@ -475,20 +528,20 @@ $(document).ready(function () {
 
     }
 
-    function tabelaEnderecoPalestrante(fields) {
+    function tabelaEndereco(fields) {
         $("#endereco-null").remove();
 
         var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
         linha += "<td>" + fields.tipo_endereco + "</td>";
         linha += "<td>" + fields.endereco + "</td>";
         linha += "<td class='text-right'>";
-        linha += "<button id='excluirEndereco' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
+        linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
         linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";
         linha += "</td>";
         linha += "</tr>";
 
-        $("#tblEnderecoPalestrante tbody ").append(linha);
+        $("#tblEndereco tbody ").append(linha);
     }
 
     //validação de campos
@@ -532,42 +585,48 @@ $(document).ready(function () {
     $('#nr_valor').mask('#.##0,00', {reverse: true});
 
     //Enventos de Modal
+    $('#frmEnderecoModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var rel = button.data('rel')
+        var modal = $(this)
+        modal.find('.modal-body input[name="id_relacao"]').val(rel)
+    });
     $('#frmRemoverBancoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('id')
         var modal = $(this)
         modal.find('.modal-body input[name="id_banco"]').val(recipient)
-    })
+    });
     $('#frmRemoverValorModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('id')
         var modal = $(this)
         modal.find('.modal-body input[name="id_valor"]').val(recipient)
-    })
+    });
     $('#frmRemoverDescricaoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('tipo')
         var modal = $(this)
         modal.find('.modal-body input[name="tipo_descricao"]').val(recipient)
-    })
+    });
     $('#frmRemoverContatoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('id')
         var modal = $(this)
         modal.find('.modal-body input[name="id"]').val(recipient)
-    })
+    });
     $('#frmRemoverEnderecoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('id')
         var modal = $(this)
         modal.find('.modal-body input[name="id"]').val(recipient)
-    })
+    });
     $('#frmRemoverAssessorModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('id')
         var modal = $(this)
         modal.find('.modal-body input[name="id"]').val(recipient)
-    })
+    });
 
     // //envio de imagem
     $("#ds_foto").change(function () {

@@ -11,6 +11,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div id="msg-error-assessor" class="alert alert-danger" role="alert" style="display: none">
+                        Não foi possível cadastrar o assessor, verifique se há contato cadastrado ou todos os dados estao certos.
+                    </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
                             <label for="nm_acessor">Nome Assessor(a)</label>

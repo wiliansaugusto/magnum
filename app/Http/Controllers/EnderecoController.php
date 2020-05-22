@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Cidade;
 use App\Endereco;
+use App\Estado;
 use App\TipoEndereco;
 use Illuminate\Http\Request;
 
@@ -36,8 +38,40 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
+        $cidade = Cidade::find(['nm_cidade' => $request->cidade])->first();
 
-        $endereco = Endereco::create($request->all());
+        if($request->id_relacao == "dadosContratuais"){
+            $dadosContratuais = DadosContratuais::where('id_palestrante', $request->id_palestrante)->first() == NULL
+                ? new DadosContratuais()
+                : DadosContratuais::where('id_palestrante', $request->id_palestrante)->first();
+
+            if($dadosContratuais->id_palestrante != $request->id_palestrante){
+                $dadosContratuais->id_palestrante = $request->id_palestrante;
+                $dadosContratuais = $dadosContratuais->save();
+            }
+
+            $endereco = Endereco::create([
+                "nm_endereco"           => $request->nm_endereco,
+                "ds_complemento"        => $request->ds_complemento,
+                "nm_bairro"             => $request->nm_bairro,
+                "id_cidade"             => $cidade->id,
+                "nr_endereco"           => $request->nr_endereco,
+                "id_dado_contratual"    => $dadosContratuais->id,
+                "id_tp_endereco"        => $request->id_tp_endereco,
+                "nr_cep"                => $request->nr_cep
+            ]);
+        }else{
+            $endereco = Endereco::create([
+                "nm_endereco"           => $request->nm_endereco,
+                "ds_complemento"        => $request->ds_complemento,
+                "nm_bairro"             => $request->nm_bairro,
+                "id_cidade"             => $cidade->id,
+                "nr_endereco"           => $request->nr_endereco,
+                "id_tp_endereco"        => $request->id_tp_endereco,
+                "id_palestrante"        => $request->id_palestrante,
+                "nr_cep"                => $request->nr_cep
+            ]);
+        }
 
         $enderecoReturn = array(
             'id_endereco' => $endereco->id,
@@ -45,7 +79,7 @@ class EnderecoController extends Controller
             'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco
         );
 
-        return response(json_encode($enderecoReturn), 200)
+        return response(json_encode($enderecoReturn), 500)
             ->header('Content-Type', 'application/json');
     }
 
