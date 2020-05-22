@@ -605,8 +605,8 @@
                                                             $data->dadosContratuais->nr_cpf : '') }}"/>
                                                             @if ($errors->has('nr_cpf'))
                                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('nr_cpf') }}</strong>
-                                        </span>
+                                                                    <strong>{{ $errors->first('nr_cpf') }}</strong>
+                                                                </span>
                                                             @endif
                                                         </div>
                                                         <div class="col-md-4">
@@ -619,8 +619,8 @@
                                                             $data->dadosContratuais->nr_rg : '') }}"/>
                                                             @if ($errors->has('nr_rg'))
                                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('nr_rg') }}</strong>
-                                        </span>
+                                                                    <strong>{{ $errors->first('nr_rg') }}</strong>
+                                                                </span>
                                                             @endif
                                                         </div>
                                                         <div class="col-md-4">
@@ -633,8 +633,8 @@
                                                             ($data->dadosContratuais->dt_nascimento != NULL ? $data->dadosContratuais->dt_nascimento : '') }}"/>
                                                             @if ($errors->has('dt_nascimento'))
                                                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('dt_nascimento') }}</strong>
-                                        </span>
+                                                                    <strong>{{ $errors->first('dt_nascimento') }}</strong>
+                                                                </span>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -646,12 +646,13 @@
                                                         <div class="col-md-2">
                                                             <button type="button" class="btn btn-primary btn-sm"
                                                                     data-toggle="modal"
-                                                                    data-target="#frmEnderecoPalestranteModal">
+                                                                    data-rel="dadosContratuais"
+                                                                    data-target="#frmEnderecoModal">
                                                                 <i class="fa fa-plus"></i> Endereço
                                                             </button>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <table id="tblEnderecoPalestrante"
+                                                            <table id="tblEndereco"
                                                                    class="table table-sm table-striped">
                                                                 <thead>
                                                                 <tr>
@@ -669,7 +670,7 @@
                                                                             <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}
                                                                             </td>
                                                                             <td class='text-right'>
-                                                                                <button id='excluirEndereco'
+                                                                                <button id='excluirEndereco-{{$endereco->id}}'
                                                                                         type='button'
                                                                                         class='btn btn-danger btn-sm'
                                                                                         data-id="{{$endereco->id}}"
@@ -1010,42 +1011,77 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <table class="table table-sm table-striped"
-                                                               id="tblAssessor">
-                                                            <thead>
-                                                            <tr>
-                                                                <th scope="col">Assessor</th>
-                                                                <th scope="col"></th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
+                                                        <div class="accordion" id="accordion-assessor" role="tablist" aria-multiselectable="true">
                                                             @if (sizeof($data->assessores) > 0)
                                                                 @foreach($data->assessores as $assessor)
-                                                                    <tr id="assessor-{{$assessor->id}}">
-                                                                        <td>{{$assessor->nm_acessor}}</td>
-                                                                        <td class='text-right'>
-                                                                            <button id='excluirAssessor'
-                                                                                    type='button'
-                                                                                    class='btn btn-danger btn-sm'
-                                                                                    data-id="{{$assessor->id}}"
-                                                                                    data-toggle='modal'
-                                                                                    data-target='#frmRemoverAssessorModal'>
-                                                                                <i class='fa fa-trash'></i>
-                                                                            </button>
+                                                                    @php
+                                                                        $assessorContatos = App\Contato::where('id_acessor', $assessor->id)->get();
+                                                                    @endphp
+                                                                    <div class="panel" id="painel-assessor-{{$assessor->id}}">
+                                                                        <div class="panel-heading">
+                                                                            <div class="col-md-11 mt-1">
+                                                                                <a role="tab" id="heading-{{$assessor->id}}" data-toggle="collapse"
+                                                                                   data-parent="#accordion-assessor" href="#collapseAssessor-{{$assessor->id}}" aria-expanded="true"
+                                                                                   aria-controls="collapseAssessor-{{$assessor->id}}">
+                                                                                    <h4 class="panel-title">{{$assessor->nm_acessor}}</h4>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <button id='excluirAssessor' type='button' class='btn btn-danger btn-sm' data-id="{{$assessor->id}}" data-toggle='modal' data-target='#frmRemoverAssessorModal'>
+                                                                                    <i class='fa fa-trash'></i>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+                                                                        <div id="collapseAssessor-{{$assessor->id}}" class="panel-collapse collapse in" role="tabpanel"
+                                                                             aria-labelledby="heading-{{$assessor->id}}">
+                                                                            <div class="panel-body p-3">
+                                                                                <table id="assessor-contato-null" class="table table-sm table-striped">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Tipo de Contato</th>
+                                                                                            <th>Contato</th>
+                                                                                            <th></th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        @if(sizeof($assessorContatos) > 0)
+                                                                                            @foreach($assessorContatos as $contato)
+                                                                                                <tr id="contato-{{$contato->id}}">
+                                                                                                    <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
+                                                                                                    <td>{{$contato->ds_contato}}</td>
+                                                                                                    <td class='text-right'>
+                                                                                                        <button id='excluirContato' type='button' class='btn btn-danger btn-sm' data-id="{{$contato->id}}" data-toggle='modal' data-target='#frmRemoverContatoModal'>
+                                                                                                            <i class='fa fa-trash'></i>
+                                                                                                        </button>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            @endforeach
+                                                                                        @else
+                                                                                            <tr id="contato-assesssor-null">
+                                                                                                <td colspan="3" class="text-center"> Nenhum
+                                                                                                    contato
+                                                                                                    registrado
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        @endif
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            @else
+                                                                <table class="table table-sm table-striped" id="tblAssessor">
+                                                                    <tr id="assesssor-null">
+                                                                        <td colspan="2" class="text-center"> Nenhum
+                                                                            assessor
+                                                                            registrado
                                                                         </td>
                                                                     </tr>
-                                                                @endforeach
-
-                                                            @else
-                                                                <tr id="assesssor-null">
-                                                                    <td colspan="2" class="text-center"> Nenhum
-                                                                        assessor
-                                                                        registrado
-                                                                    </td>
-                                                                </tr>
+                                                                </table>
                                                             @endif
-                                                            </tbody>
-                                                        </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

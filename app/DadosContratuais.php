@@ -25,4 +25,7 @@ class DadosContratuais extends Model
     public function dadosContratuaisPalestrante(){
         return $this->hasOne(Palestrante::class, 'id_palestrante', 'id');
     }
+    public function enderecos(){
+        return $this->hasMany(Endereco::class, 'id_dado_contratual', 'id');
+    }
 }

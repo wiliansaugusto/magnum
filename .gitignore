@@ -16,6 +16,7 @@ yarn-error.log
 .idea/modules.xml
 .idea/php.xml
 .idea/workspace.xml
+.idea/vcs.xml
 /node_modules
 /public/hot
 /public/storage
@@ -26,7 +27,7 @@ yarn-error.log
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
+composer.lock
 npm-debug.log
 yarn-error.log
-composer.lock
 
