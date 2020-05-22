@@ -236,7 +236,7 @@ $(document).ready(function () {
                 $('#frmRemoverValorModal').modal('toggle');
                 $('#tblValor tbody tr#' + id).remove();
                 if ($('#tblValor tbody tr').length <= 0) {
-                    $("#tblValor tbody ").html('<tr id="valor-null"><td colspan="3" class="text-center"> Nenhum valor registrado</td></tr>');
+                    $("#tblValor tbody ").html('<tr id="valor-null"><td colspan="4" class="text-center"> Nenhum valor registrado</td></tr>');
                 }
             },
             error: function () {
@@ -497,10 +497,12 @@ $(document).ready(function () {
 
     function tabelaValor(fields) {
         $("#valor-null").remove();
-
+        var obs = fields.ds_observacao === null ? "Não Cadastrado" : fields.ds_observacao ;
         var linha = "<tr id='" + fields.id_valor + "'>";
         linha += "<td>" + fields.nm_cidade + "</td>";
         linha += "<td>" + fields.nr_valor + "</td>";
+        linha += "<td>" + obs + "</td>";
+        linha += "<td>" + fields.nm_tipo_servico + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirValor' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_valor + "' data-toggle='modal' data-target='#frmRemoverValorModal'>";
         linha += "<i class='fa fa-trash'></i>";

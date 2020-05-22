@@ -75,11 +75,10 @@ class EnderecoController extends Controller
 
         $enderecoReturn = array(
             'id_endereco' => $endereco->id,
-            'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep,
+            'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . " - " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep,
             'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco
         );
-
-        return response(json_encode($enderecoReturn), 500)
+        return response(json_encode($enderecoReturn), 200)
             ->header('Content-Type', 'application/json');
     }
 

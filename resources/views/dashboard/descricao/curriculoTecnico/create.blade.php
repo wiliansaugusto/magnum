@@ -1,5 +1,6 @@
-<div class="modal fade" id="frmCurriculoTecModal" tabindex="-1" role="dialog" aria-labelledby="frmCurriculoTecModalLabelLabel"
-    aria-hidden="true">
+<div class="modal fade" id="frmCurriculoTecModal" tabindex="-1" role="dialog"
+     aria-labelledby="frmCurriculoTecModalLabelLabel"
+     aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,7 +16,7 @@
                             <div class="form-group">
                                 <label for="ds_curriculo_tecnico">Cadastro do Currículo Técnico*</label>
                                 <textarea class="form-control" id="ds_curriculo_tecnico" name="descricao" rows="4"
-                                    required></textarea>
+                                          required>{{ $data != NULL ? $data : '' }}</textarea>
                             </div>
                         </div>
                     </div>

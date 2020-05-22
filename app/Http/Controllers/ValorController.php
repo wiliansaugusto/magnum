@@ -41,6 +41,7 @@ class ValorController extends Controller
        $retorno = array(
            'id_valor' => $valor->id,
            'nr_valor' => $valor->nr_valor,
+           'ds_observacao' => $valor->ds_observacao,
            'nm_cidade' => Cidade::find($valor->id_cidade)->nm_cidade
        );
 

@@ -1,5 +1,5 @@
 <div class="modal fade" id="frmCurriculoModal" tabindex="-1" role="dialog" aria-labelledby="frmCurriculoModalLabel"
-    aria-hidden="true">
+     aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <label for="ds_curriculo">Cadastro do Curriculo Resumido*</label>
                                 <textarea class="form-control" name="descricao" id="ds_curriculo"
-                                    rows="4"></textarea>
+                                          rows="4">{{ $data != NULL ? $data : '' }}</textarea>
                             </div>
                         </div>
                     </div>
