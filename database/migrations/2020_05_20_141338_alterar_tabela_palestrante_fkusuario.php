@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarMgmTblPais extends Migration
+class AlterarTabelaPalestranteFkusuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CriarMgmTblPais extends Migration
      */
     public function up()
     {
-        Schema::create('mgm_tbl_pais', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string("nm_pais");
+        Schema::table('mgm_tbl_palestrante', function (Blueprint $table) {
+            $table->dropForeign(['id_usuario']);
+        });
+        Schema::table('mgm_tbl_palestrante', function (Blueprint $table) {
+            $table->foreign('id_usuario')->references('id')->on('mgm_tbl_usuario')->onDelete('cascade');
         });
     }
 
