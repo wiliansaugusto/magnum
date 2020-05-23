@@ -10,6 +10,7 @@ class Valor extends Model
 
     protected $fillable = [
         'nr_valor', 'id_cidade', 'ds_observacao', 'id_palestrante',
+        'id_tp_servico'
     ];
 
     public function palestrante()
@@ -22,4 +23,11 @@ class Valor extends Model
         return $this->belongsTo(
             'App\Cidade', 'id_cidade', 'id');
     }
+
+    public function tipoServico()
+    {
+        return $this->belongsTo(
+            'App\TiposDeServico', 'id_tp_servico', 'id');
+    }
+
 }
