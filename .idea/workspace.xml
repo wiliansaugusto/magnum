@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ef41369-a0f1-4dad-8367-e8e7dacb87b1" name="Default Changelist" comment="" />
+    <list default="true" id="0ef41369-a0f1-4dad-8367-e8e7dacb87b1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_20_084455_tbl_tipo_servico.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_20_084455_tbl_tipo_servico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_20_084526_alter_tbl_valor_tipo_servico.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_21_084526_alter_tbl_valor_tipo_servico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_20_141338_alterar_tabela_palestrante_fkusuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_22_141338_alterar_tabela_palestrante_fkusuario.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +47,8 @@
           <entry key="js" value="35" />
           <entry key="json" value="8" />
           <entry key="lock" value="1" />
-          <entry key="php" value="879" />
+          <entry key="log" value="1" />
+          <entry key="php" value="888" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
@@ -55,8 +61,8 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="9" />
           <entry key="JavaScript" value="35" />
-          <entry key="PHP" value="528" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PHP" value="537" />
+          <entry key="PLAIN_TEXT" value="5" />
           <entry key="htaccess" value="2" />
         </counts>
       </usages-collector>
@@ -64,13 +70,13 @@
         <counts>
           <entry key="config" value="1" />
           <entry key="css" value="193" />
-          <entry key="dummy" value="60" />
+          <entry key="dummy" value="62" />
           <entry key="env" value="18" />
           <entry key="gitignore" value="4" />
           <entry key="htaccess" value="12" />
           <entry key="js" value="6472" />
           <entry key="json" value="3" />
-          <entry key="php" value="24450" />
+          <entry key="php" value="24464" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -81,8 +87,8 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="6471" />
-          <entry key="PHP" value="10854" />
-          <entry key="PLAIN_TEXT" value="65" />
+          <entry key="PHP" value="10868" />
+          <entry key="PLAIN_TEXT" value="67" />
           <entry key="htaccess" value="12" />
         </counts>
       </usages-collector>
@@ -90,19 +96,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/descricao/chamada/create.blade.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_21_084526_alter_tbl_valor_tipo_servico.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state relative-caret-position="272">
+              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/composer.lock">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_20_084455_tbl_tipo_servico.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-87280" />
+            <state relative-caret-position="238">
+              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_14_034143_criar_mgm_tbl_pais.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="16" column="33" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_22_141338_alterar_tabela_palestrante_fkusuario.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="19" column="104" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="104" />
+              <folding>
+                <element signature="e#7#45#0#PHP" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -117,7 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dados</find>
       <find>bootstrap.min.css.map</find>
       <find>bootstrap.bundle.min.js.map</find>
       <find>run</find>
@@ -147,6 +175,7 @@
       <find>debu</find>
       <find>frmRemoverContato</find>
       <find>Asse</find>
+      <find>id_tp_servico</find>
     </findStrings>
     <replaceStrings>
       <replace>$modalPalestranteDel</replace>
@@ -166,9 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/dashboard/valor/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/subcategoria/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/idiomas/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/descricao/observacao/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/descricao/investimento/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/descricao/formaPagamento/create.blade.php" />
@@ -217,6 +243,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AcessorController.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/palestrante/form.blade.php" />
         <option value="$PROJECT_DIR$/public/js/core.js" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_05_20_084526_alter_tbl_valor_tipo_servico.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_05_20_084455_tbl_tipo_servico.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_05_21_084526_alter_tbl_valor_tipo_servico.php" />
       </list>
     </option>
   </component>
@@ -439,116 +468,6 @@
             <path>
               <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
               <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="assessor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="banco" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="categoria" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="configuracao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="descricao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="descricao" type="462c0819:PsiDirectoryNode" />
-              <item name="chamada" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="endereco" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="palestrante" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="subcategoria" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="usuario" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="valor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="magnum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="magnum" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -631,7 +550,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="474355000" />
+    <option name="totallyTimeSpent" value="476453000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -644,8 +563,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3161876" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3161876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -660,7 +580,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.32850242" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" visible="true" weight="0.63929147" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" visible="true" weight="0.63929147" />
       <window_info anchor="bottom" id="Log Viewer" order="12" />
       <window_info anchor="bottom" id="SOQL Query" order="13" sideWeight="0.49924356" weight="0.32850242" />
       <window_info anchor="bottom" id="Anonymous Apex" order="14" weight="0.32850242" />
@@ -709,40 +629,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_20_213136_alterar_tabela_valor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="91" lean-forward="true" selection-start-line="17" selection-start-column="91" selection-end-line="19" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_05_011130_alterar_tabela_usuario_softdelete.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_07_095220_adc_null_dados_contratuais.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_01_165151_alterar_mgm_tbl_usuario_camposdouser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" column="11" selection-start-line="15" selection-start-column="8" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_27_233121_add_tbl_dados_contratuuais_collumm_ins_municipal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_11_074752_mgm_tbl_valor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_20_212306_criar_tabela_cidade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
@@ -752,13 +638,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_11_080103_mgm_tbl_dados_contratuais.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_14_034143_criar_mgm_tbl_pais.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_14_040149_alterar_mgm_tbl_estado_fkpais.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -905,13 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_20_141338_alterar_tabela_palestrante_fkusuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="19" column="80" selection-start-line="19" selection-start-column="80" selection-end-line="19" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/palestrante/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -971,13 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/palestrante/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="1056" column="110" selection-start-line="1056" selection-start-column="110" selection-end-line="1056" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/assessor/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1190">
@@ -1009,16 +874,74 @@
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/contato/create.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/descricao/chamada/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-87280" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="27118" column="245" selection-start-line="27118" selection-start-column="245" selection-end-line="27118" selection-end-column="245" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_22_001321_alterar_tabela_valor_nrvalor.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_225140_alteracoes_tbl_valor.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/palestrante/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="1377" column="38" selection-start-line="1377" selection-start-column="38" selection-end-line="1377" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/descricao/chamada/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_14_034143_criar_mgm_tbl_pais.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_22_141338_alterar_tabela_palestrante_fkusuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="19" column="104" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="104" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_20_084455_tbl_tipo_servico.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_21_084526_alter_tbl_valor_tipo_servico.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        </state>
       </provider>
     </entry>
   </component>

@@ -15,9 +15,8 @@ class AlterTblValorTipoServico extends Migration
     {
         Schema::table('mgm_tbl_valor', function (Blueprint $table) {
             $table->unsignedBigInteger('id_tp_servico')->nullable();
-            $table->foreign('id_tp_servico')->references('id')
-            ->on('mgm_tbl_tipo_servico')->onDelete('cascade');
-
+            $table->foreign('id_tp_servico')->references('id')->on('mgm_tbl_tipo_servico')->onDelete('cascade');
+            
         });
     }
 
