@@ -22,7 +22,7 @@ class TipoServicoTableSeeder extends Seeder
             'Stand-up',
             'Peça de teatro',
             'Media training',
-            'aula show',
+            'Aula Show',
         ];
         foreach ($tipoServico as $servico){
             App\TiposDeServico::create([
