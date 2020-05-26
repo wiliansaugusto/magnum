@@ -14,7 +14,7 @@ class TblTipoServico extends Migration
     public function up()
     {
         Schema::create('mgm_tbl_tipo_servico', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('nm_tipo_servico')->nullable();
         });
