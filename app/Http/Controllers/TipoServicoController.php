@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\TiposDeServico;
+use App\Valor;
 use Illuminate\Http\Request;
 
 
@@ -83,6 +84,12 @@ class TipoServicoController extends Controller
     public function destroy($id)
     {
         $tipo = TiposDeServico::find($id);
+        $removerValores = Valor::where('id_tp_servico',$id)->get();
+        foreach ($removerValores as $removerValor)
+        {
+            $removerValor->delete();
+        }
+
         $tipo->delete();
         return redirect('dashboard/config');
     }

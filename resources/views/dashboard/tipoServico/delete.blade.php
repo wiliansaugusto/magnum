@@ -14,6 +14,7 @@
                 <div class="modal-body text-center">
                     <p>Tem certeza que você quer excluir o tipo de serviço:</p>
                     <h2 class="text-uppercase" style="font-weight: bold">{{$tipo->nm_tipo_servico}}</h2>
+                    <p>Todos os valores relacionados a esse tipo de serviço serão apagados</p>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
