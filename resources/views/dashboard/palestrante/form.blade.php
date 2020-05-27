@@ -964,6 +964,7 @@
                                                             </thead>
                                                             <tbody>
                                                             @if (sizeof($data->valores) > 0)
+
                                                                 @foreach($data->valores as $valor)
                                                                     <tr id="{{$valor->id}}">
                                                                         <td>{{$valor->cidade->nm_cidade}}</td>

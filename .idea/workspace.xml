@@ -2,14 +2,107 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef41369-a0f1-4dad-8367-e8e7dacb87b1" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TipoServicoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/tipoServico/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/tipoServico/delete.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/tipoServico/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Acessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Acessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Banco.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Banco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Categoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Cidade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cidade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contato.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/DadosContratuais.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DadosContratuais.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Endereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Endereco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Estado.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Estado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Idiomas.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Idiomas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/IdiomasPalestrante.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/IdiomasPalestrante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/NomeBanco.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/NomeBanco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Palestrante.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Palestrante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/PalestranteCategoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PalestranteCategoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SubCategoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SubCategoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TipoContato.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TipoContato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TipoEndereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TipoEndereco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Usuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_074752_mgm_tbl_valor.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_074752_mgm_tbl_valor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_075024_mgm_tbl_categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_075024_mgm_tbl_categoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_075138_mgm_tbl_usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_075138_mgm_tbl_usuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_075305_mgm_tbl_palestrante.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_075305_mgm_tbl_palestrante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_075433_mgm_tbl_palestrante_categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_075433_mgm_tbl_palestrante_categoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_075958_mgm_tbl_palestrante_valor.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_075958_mgm_tbl_palestrante_valor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_080103_mgm_tbl_dados_contratuais.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_080103_mgm_tbl_dados_contratuais.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_080232_mgm_tbl_acessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_080232_mgm_tbl_acessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_080326_mgm_tbl_palestrante_acessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_080326_mgm_tbl_palestrante_acessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_080447_mgm_tbl_tipo_contato.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_080447_mgm_tbl_tipo_contato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_080610_mgm_tbl_contato.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_080610_mgm_tbl_contato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_080749_mgm_tbl_acessor_contato.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_080749_mgm_tbl_acessor_contato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_080851_mgm_tbl_palestrante_contato.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_11_080851_mgm_tbl_palestrante_contato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_22_004604_alterar_tbl_palestrante.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_22_004604_alterar_tbl_palestrante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_22_134938_mgm_tbl_perfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_22_134938_mgm_tbl_perfil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_22_135219_alterar_usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_22_135219_alterar_usuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_24_050338_alteracao_tbl_palestrante.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_24_050338_alteracao_tbl_palestrante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_24_050338_alterar_tbl_palestrante_null.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_24_050338_alterar_tbl_palestrante_null.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_27_040304_alterar_tbl_palestrante_ranking.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_27_040304_alterar_tbl_palestrante_ranking.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_01_003612_mgm_tbl_sub_categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_01_003612_mgm_tbl_sub_categoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_03_222908_drop_tabelas.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_03_222908_drop_tabelas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_03_224706_mgm_tbl_nome_banco.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_03_224706_mgm_tbl_nome_banco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_03_225228_mgm_tbl_banco.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_03_225228_mgm_tbl_banco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_03_230020_mgm_tbl_palestrante_banco.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_03_230020_mgm_tbl_palestrante_banco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_03_231653_mgm_tbl_alterar_contato.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_03_231653_mgm_tbl_alterar_contato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_03_232117_mgm_tbl_adc_palestrante_categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_03_232117_mgm_tbl_adc_palestrante_categoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_04_032521_alteracoes_ondelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_04_032521_alteracoes_ondelete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_06_071009_alterar_tabela_contato_fk_null.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_06_071009_alterar_tabela_contato_fk_null.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_06_160605_delete_palestrante.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_06_160605_delete_palestrante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_07_012447_pk_acessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_07_012447_pk_acessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_09_052324_criar_tabela_tipo_endereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_09_052324_criar_tabela_tipo_endereco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_09_052530_criar_tabela_endereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_09_052530_criar_tabela_endereco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_10_025643_alterar_tabela_endereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_10_025643_alterar_tabela_endereco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_11_031452_alterar_tabela_palestrante_categoria_nullcolumn.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_11_031452_alterar_tabela_palestrante_categoria_nullcolumn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_15_041043_mgm_tbl_idiomas.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_15_041043_mgm_tbl_idiomas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_16_015824_mgm_tbl_idioma_palestrante.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_16_015824_mgm_tbl_idioma_palestrante.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_192750_alterar_tabela_palestrante_idresidencia.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_192750_alterar_tabela_palestrante_idresidencia.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_193640_alterar_tabela_dadoscontratuais_tipo_coluna.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_193640_alterar_tabela_dadoscontratuais_tipo_coluna.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_201834_alterar_tabela_palestrante_add_dadosvideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_201834_alterar_tabela_palestrante_add_dadosvideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_210212_exluir_tabelas.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_210212_exluir_tabelas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_212306_criar_tabela_cidade.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_212306_criar_tabela_cidade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_213136_alterar_tabela_valor.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_213136_alterar_tabela_valor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_20_222742_alterar_tabela_foreignkey_endereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_222742_alterar_tabela_foreignkey_endereco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_225140_alteracoes_tbl_valor.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_225140_alteracoes_tbl_valor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_22_160759_alteracao_tabela_valor_dsobs_null.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_22_160759_alteracao_tabela_valor_dsobs_null.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_23_174808_a_lterar_tabela_valor_fk_ondelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_23_174808_a_lterar_tabela_valor_fk_ondelete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_011745_alter_tbl_dados_contratuais_collumm_observacao.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_011745_alter_tbl_dados_contratuais_collumm_observacao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_01_165151_alterar_mgm_tbl_usuario_camposdouser.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_01_165151_alterar_mgm_tbl_usuario_camposdouser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_05_011130_alterar_tabela_usuario_softdelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_05_011130_alterar_tabela_usuario_softdelete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_14_010642_criar_mgm_tbl_estado.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_14_010642_criar_mgm_tbl_estado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_14_010839_alterar_mgm_tbl_cidade_fkestado.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_14_010839_alterar_mgm_tbl_cidade_fkestado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_14_011437_alterar_mgm_tbl_endereco_insercao_fks.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_14_011437_alterar_mgm_tbl_endereco_insercao_fks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_14_034143_criar_mgm_tbl_pais.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_14_034143_criar_mgm_tbl_pais.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_14_040149_alterar_mgm_tbl_estado_fkpais.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_14_040149_alterar_mgm_tbl_estado_fkpais.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_15_011438_alterar_mgm_tbl_endereco_idpalestrante_null.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_15_011438_alterar_mgm_tbl_endereco_idpalestrante_null.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_15_011641_alterar_mgm_tbl_endereco_idtipoendereco_null.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_15_011641_alterar_mgm_tbl_endereco_idtipoendereco_null.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_20_084455_tbl_tipo_servico.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_20_084455_tbl_tipo_servico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_20_141338_alterar_tabela_palestrante_fkusuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_20_141338_alterar_tabela_palestrante_fkusuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CidadeTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CidadeTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/NomesBancosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/NomesBancosTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TipoContatoTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TipoContatoTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TipoEnderecoTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TipoEnderecoTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TipoServicoTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TipoServicoTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/configuracao/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/configuracao/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Pais.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pais.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+>>>>>>> 6871f7b94362363261f21b6a0e9f713a81716a11
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +110,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+<<<<<<< HEAD
+    <execution />
+=======
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-2067862063">
@@ -108,6 +204,7 @@
         </entry>
       </file>
     </leaf>
+>>>>>>> 6871f7b94362363261f21b6a0e9f713a81716a11
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -116,6 +213,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+=======
   <component name="FindInProjectRecents">
     <findStrings>
       <find>bootstrap.bundle.min.js.map</find>
@@ -234,6 +336,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
+>>>>>>> 6871f7b94362363261f21b6a0e9f713a81716a11
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
@@ -330,12 +433,15 @@
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1346" />
-    <option name="height" value="698" />
+  <component name="ProjectId" id="1cRict6U4rn9XhQpOfpLTAqzbt9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+=======
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -463,38 +569,36 @@
       </pane>
       <pane id="Scope" />
     </panes>
+>>>>>>> 6871f7b94362363261f21b6a0e9f713a81716a11
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/tipoServico" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\contato" />
-      <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\home" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wokspace\magnum\resources\views\dashboard\tipoServico" />
       <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\usuario" />
       <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\palestrante" />
       <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\layouts" />
       <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\endereco" />
-      <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\contato" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\contato" />
+      <recent name="D:\Documents\Gerenciamento de Palestrantes\magnum\resources\views\dashboard\home" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
@@ -533,9 +637,14 @@
       <workItem from="1589061496038" duration="18637000" />
       <workItem from="1589339829910" duration="28669000" />
       <workItem from="1589914631801" duration="27840000" />
+      <workItem from="1590497924901" duration="15000" />
+      <workItem from="1590497959565" duration="1898000" />
+      <workItem from="1590528115787" duration="5519000" />
     </task>
     <servers />
   </component>
+<<<<<<< HEAD
+=======
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="480477000" />
   </component>
@@ -599,8 +708,9 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout-to-restore>
   </component>
+>>>>>>> 6871f7b94362363261f21b6a0e9f713a81716a11
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -612,9 +722,24 @@
       </list>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="WindowStateProjectService">
+    <state x="275" y="5" key="#Plugins" timestamp="1590497987715">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="5" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1590497987715" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590531236362">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590531236362" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1590526419591">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1590526419591" />
+=======
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_14_010642_criar_mgm_tbl_estado.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -927,6 +1052,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-141">
@@ -934,5 +1060,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 6871f7b94362363261f21b6a0e9f713a81716a11
+>>>>>>> 0b9c6fad7a5d506425a9ceb386a649c7374dd59c
   </component>
 </project>

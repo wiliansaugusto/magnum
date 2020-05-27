@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Cidade;
 use App\TiposDeServico;
 use App\Valor;
 use Illuminate\Http\Request;
 
-class ValorController extends Controller
+
+class TipoServicoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ValorController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -32,29 +32,19 @@ class ValorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-       $valor = Valor::create($request->all());
-
-       $retorno = array(
-           'id_valor' => $valor->id,
-           'nr_valor' => $valor->nr_valor,
-           'ds_observacao' => $valor->ds_observacao,
-           'nm_tipo_servico' => TiposDeServico::find($valor->id_tp_servico)->nm_tipo_servico,
-           'nm_cidade' => Cidade::find($valor->id_cidade)->nm_cidade
-       );
-        return response(json_encode($retorno), 200)
-            ->header('Content-Type', 'application/json');
-
+        $tipo = TiposDeServico::create($request->all());
+        return redirect('dashboard/config');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -65,7 +55,7 @@ class ValorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -76,8 +66,8 @@ class ValorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -88,13 +78,20 @@ class ValorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $retorno = Valor::destroy($id);
-        return response($retorno, 204)
-            ->header('Content-Type', 'application/json');
+        $tipo = TiposDeServico::find($id);
+        $removerValores = Valor::where('id_tp_servico',$id)->get();
+        foreach ($removerValores as $removerValor)
+        {
+            $removerValor->delete();
+        }
+
+        $tipo->delete();
+        return redirect('dashboard/config');
     }
+
 }

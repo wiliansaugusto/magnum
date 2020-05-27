@@ -13,10 +13,19 @@
             <div class="col-md-6 col-sm-12  ">
                 @include('auth.register')
             </div>
+            {{--Tipos de Serviço--}}
+            <div class=" col-md-6 col-sm-12 ">
+                 @include('dashboard.tipoServico.create')
+
+            </div>
         </div>
     </div>
     @php
         $usuarios = App\Usuario::select('id','nm_usuario','created_at')->get();
+        $tipos = App\TiposDeServico::all();
+
     @endphp
     @include('dashboard.usuario.list', ['usuarios' => $usuarios])
+    @include('dashboard.tipoServico.list',['tipos'=>$tipos])
+
 @endsection
