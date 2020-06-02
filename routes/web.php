@@ -27,6 +27,9 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::put('palestrante/update/{id}', 'PalestranteController@edit');
     Route::get('palestrante/{id}', 'PalestranteController@show');
 
+    Route::get('proposta/abertura', 'AberturaPropostaController@index');
+    Route::get('proposta', 'PropostaController@index');
+
     Route::resource('contato/', 'ContatoController');
 
     Route::resource('categoria/', 'CategoriaController');
@@ -39,11 +42,11 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::post('contato/delete/{id}', 'ContatoController@destroy');
     Route::post('endereco/delete/{id}', 'EnderecoController@destroy');
 
-//    Route::resource('assessor/', 'AcessorController');
     Route::post('assessor/', 'AcessorController@store');
     Route::post('assessor/delete/{id}','AcessorController@destroy');
 
     Route::post('descricao/', 'DescricaoController@store');
+    Route::post('descricao/conteudo', 'DescricaoController@descricaoPalestrante');
 
     Route::resource('endereco/', 'EnderecoController');
     Route::post('palestrante/update/{id}', 'PalestranteController@edit');
@@ -52,6 +55,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::resource('config/', 'ConfigurationController');
     Route::post('register/', 'ConfigurationController@register');
     Route::delete('usuario/{id}', 'ConfigurationController@deleteUsuario');
+
     Route::delete('tiposerv/{id}','TipoServicoController@destroy');
     Route::post('createTpServ','TipoServicoController@store');
 

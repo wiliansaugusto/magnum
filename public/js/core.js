@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    var editor, toolbar;
     //AJAX Request
     $('#frmContatoPalestrante').submit(function (event) {
         event.preventDefault();
@@ -66,96 +66,32 @@ $(document).ready(function () {
             }
         });
     });
-    $('#frmChamada').submit(function (event) {
+    $('#frmDescricao').submit(function (event) {
         event.preventDefault();
-        var data = $('#frmChamada').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=chamada";
+        var data = $('#frmDescricao').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        var tipoDescricao = $('#tipo_descricao').val();
         $.ajax({
             method: "POST",
             url: "/dashboard/descricao",
-            data: data
-        }).done(function (data) {
-            tabelDescricao(data, "Chamada", "chamada");
-            $('#frmChamada')[0].reset();
-            $('#frmChamadaModal').modal('toggle');
-        });
-    });
-    $('#frmCurriculo').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmCurriculo').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=curriculo";
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/descricao",
-            data: data
-        }).done(function (data) {
-            tabelDescricao(data, "Currículo Resumido", "curriculo");
-            $('#frmCurriculo')[0].reset();
-            $('#frmCurriculoModal').modal('toggle');
-        });
-    });
-    $('#frmCurriculoTec').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmCurriculoTec').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=curriculoTec";
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/descricao",
-            data: data
-        }).done(function (data) {
-            tabelDescricao(data, "Currículo Técnico", "curriculoTec");
-            $('#frmCurriculoTec')[0].reset();
-            $('#frmCurriculoTecModal').modal('toggle');
-        });
-    });
-    $('#frmEquip').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmEquip').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=equipamento";
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/descricao",
-            data: data
-        }).done(function (data) {
-            tabelDescricao(data, "Equipamento Necessário", "equipamento");
-            $('#frmEquip')[0].reset();
-            $('#frmEquipamentoModal').modal('toggle');
-        });
-    });
-    $('#frmFormaPagamento').submit(function (event) {
-
-        event.preventDefault();
-        var data = $('#frmFormaPagamento').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=pgto";
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/descricao",
-            data: data
-        }).done(function (data) {
-            tabelDescricao(data, "Forma de Pagamento", "pgto");
-            $('#frmFormaPagamento')[0].reset();
-            $('#frmFormaPagamentoModal').modal('toggle');
-        });
-    });
-    $('#frmInvestimento').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmInvestimento').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=investimento";
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/descricao",
-            data: data
-        }).done(function (data) {
-            tabelDescricao(data, "Investimento", "investimento");
-            $('#frmInvestimento')[0].reset();
-            $('#frmInvestimentoModal').modal('toggle');
-        });
-    });
-    $('#frmObs').submit(function (event) {
-        event.preventDefault();
-        var data = $('#frmObs').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&tipo_descricao=obs";
-        $.ajax({
-            method: "POST",
-            url: "/dashboard/descricao/",
-            data: data
-        }).done(function (data) {
-            tabelDescricao(data, "Observações", "obs");
-            $('#frmObs')[0].reset();
-            $('#frmObservacaoModal').modal('toggle');
+            data: data,
+            success: function (data) {
+                if (tipoDescricao === "chamada") {
+                    tabelDescricao(data, "Chamada", tipoDescricao);
+                }else if(tipoDescricao === "curriculo") {
+                    tabelDescricao(data, "Currículo Resumido", tipoDescricao);
+                }else if(tipoDescricao === "curriculoTec") {
+                    tabelDescricao(data, "Currículo Técnico", tipoDescricao);
+                }else if(tipoDescricao === "obs") {
+                    tabelDescricao(data, "Observações", tipoDescricao);
+                }
+                $('#frmDescricao')[0].reset();
+                $('#frmDescricaoModal').modal('toggle');
+            },
+            error: function () {
+                $('#msg-error-descricao').fadeIn(1000, function () {
+                    $(this).delay(3000).fadeOut(500);
+                });
+            }
         });
     });
     $('#frmEndereco').submit(function (event) {
@@ -248,7 +184,7 @@ $(document).ready(function () {
     });
     $("#frmRemoverDescricao").submit(function (event) {
         event.preventDefault();
-        var tipo = $('#tipo_descricao').val();
+        var tipo = $('#rm_tipo_descricao').val();
         var data = $('#frmRemoverDescricao').serialize() + "&id_palestrante=" + $("#id_palestrante").val() + "&descricao=";
         $.ajax({
             method: 'POST',
@@ -443,21 +379,21 @@ $(document).ready(function () {
         $("#tblContatoAssessor tbody ").html('<tr id="contato-assessor-null"><td colspan="3" class="text-center"> Nenhum contato registrado</td></tr>');
         $("#tblAssessor").remove();
 
-        var linha = '<div class="panel" id="painel-assessor-'+ fields.id +'">';
+        var linha = '<div class="panel" id="painel-assessor-' + fields.id + '">';
         linha += '<div class="panel-heading">';
         linha += '<div class="col-md-11 mt-1">';
-        linha += '<a role="tab" id="heading-'+ fields.id +'" data-toggle="collapse" data-parent="#accordion-assessor" href="#collapseAssessor-'+ fields.id +'" aria-expanded="true" aria-controls="collapseAssessor-'+ fields.id +'">';
+        linha += '<a role="tab" id="heading-' + fields.id + '" data-toggle="collapse" data-parent="#accordion-assessor" href="#collapseAssessor-' + fields.id + '" aria-expanded="true" aria-controls="collapseAssessor-' + fields.id + '">';
         linha += '<h4 class="panel-title">' + fields.nm_acessor + '</h4>';
         linha += '</a>';
         linha += '</div>';
         linha += '<div class="col-md-1">';
-        linha += '<button id="excluirAssessor" type="button" class="btn btn-danger btn-sm" data-id="'+ fields.id +'" data-toggle="modal" data-target="#frmRemoverAssessorModal">';
+        linha += '<button id="excluirAssessor" type="button" class="btn btn-danger btn-sm" data-id="' + fields.id + '" data-toggle="modal" data-target="#frmRemoverAssessorModal">';
         linha += '<i class="fa fa-trash"></i>';
         linha += '</button>';
         linha += '</div>';
         linha += '<div class="clearfix"></div>';
         linha += '</div>';
-        linha += '<div id="collapseAssessor-'+ fields.id +'" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-'+ fields.id +'">';
+        linha += '<div id="collapseAssessor-' + fields.id + '" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-' + fields.id + '">';
         linha += '<div class="panel-body p-3">';
         linha += '<table id="assessor-contato" class="table table-sm table-striped">';
         linha += '<thead>';
@@ -468,12 +404,12 @@ $(document).ready(function () {
         linha += '</tr>';
         linha += '</thead>';
         linha += '<tbody>';
-        if(fields.contatos.length > 0) {
-            for(var i = 0; i < fields.contatos.length; i++) {
+        if (fields.contatos.length > 0) {
+            for (var i = 0; i < fields.contatos.length; i++) {
                 console.log(fields.contatos[i]);
                 linha += '<tr id="contato-' + fields.contatos[i].id_contato + '">';
-                linha += '<td>'+ fields.contatos[i].nm_tipo_contato +'</td>';
-                linha += '<td>'+ fields.contatos[i].ds_contato +'</td>';
+                linha += '<td>' + fields.contatos[i].nm_tipo_contato + '</td>';
+                linha += '<td>' + fields.contatos[i].ds_contato + '</td>';
                 linha += '<td class="text-right">'
                 linha += '<button id="excluirContato" type="button" class="btn btn-danger btn-sm" data-id="' + fields.contatos[i].id_contato + '" data-toggle="modal" data-target="#frmRemoverContatoModal">';
                 linha += '<i class="fa fa-trash"></i>';
@@ -481,7 +417,7 @@ $(document).ready(function () {
                 linha += '</td>';
                 linha += '</tr>';
             }
-        }else{
+        } else {
             linha += '<tr id="assesssor-contato-null">';
             linha += '<td colspan="2" class="text-center">Nenhum contato registrado</td>';
             linha += '</tr>';
@@ -497,7 +433,7 @@ $(document).ready(function () {
 
     function tabelaValor(fields) {
         $("#valor-null").remove();
-        var obs = fields.ds_observacao === null ? "Não Cadastrado" : fields.ds_observacao ;
+        var obs = fields.ds_observacao === null ? "Não Cadastrado" : fields.ds_observacao;
         var linha = "<tr id='" + fields.id_valor + "'>";
         linha += "<td>" + fields.nm_cidade + "</td>";
         linha += "<td>" + fields.nr_valor + "</td>";
@@ -518,7 +454,7 @@ $(document).ready(function () {
         $("#" + campo).remove();
         var linha = "<tr id='" + campo + "'>";
         linha += "<td>" + tipo + "</td>";
-        linha += "<td class='text-truncate'>" + fields.descricao + "</td>";
+        linha += "<td class='text-truncate'>" + fields.descricao.replace(/(<([^>]+)>)/ig,"") + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirDescricao' type='button' class='btn btn-danger btn-sm' data-tipo='" + campo + "' data-toggle='modal' data-target='#frmRemoverDescricaoModal'>";
         linha += "<i class='fa fa-trash'></i>";
@@ -565,7 +501,7 @@ $(document).ready(function () {
 
         }
     });
-    $(document).on("input", "#ds_chamada", function () {
+    $(document).on("input", ".ds_chamada", function () {
         var limite = 300;
         var caracteresDigitados = $(this).val().length;
         var caracteresRestantes = limite - caracteresDigitados;
@@ -587,6 +523,65 @@ $(document).ready(function () {
     $('#nr_valor').mask('#.##0,00', {reverse: true});
 
     //Enventos de Modal
+    $('#frmDescricaoModal').on('show.bs.modal', function (event) {
+        var modal = $(this);
+        var button = $(event.relatedTarget);
+        var id = $("#id_palestrante").val();
+        var tipo = button.data('tipo');
+        var titulo = button.data('titulo');
+        var label = button.data('label');
+        var limit = button.data('limit');
+
+        $("#tipo_descricao").val(tipo);
+        $("#tituloDescricaoModal").text(titulo);
+
+        if (limit) {
+            $("#chrCont").css("display", "block");
+            $('textarea[name="descricao"]').removeClass("editor");
+            $('textarea[name="descricao"]').addClass("ds_chamada");
+            $('textarea[name="descricao"]').attr("maxlength", 300);
+        } else {
+            $("#chrCont").css("display", "none");
+            $('textarea[name="descricao"]').removeClass("ds_chamada");
+            $('textarea[name="descricao"]').addClass("editor");
+            $('textarea[name="descricao"]').removeAttr("maxlength");
+
+            Simditor.locale = 'pt-BR';
+            toolbar = ['bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul',
+                'blockquote', 'table', '|', 'indent', 'outdent', 'alignment'];
+
+            editor = new Simditor({
+                textarea: $('.editor'),
+                placeholder: '',
+                toolbar: toolbar,
+                pasteImage: false,
+                upload: false
+            });
+
+            editor.setValue("");
+        }
+
+        if (tipo !== undefined) {
+            var data = $("#frmDescricao").serialize() + "&id_palestrante=" + id;
+            $.ajax({
+                method: "POST",
+                url: "/dashboard/descricao/conteudo",
+                data: data,
+                success: function (data) {
+                    var cont = 300;
+                    if (tipo == "chamada") {
+                        $('textarea[name="descricao"]').val(data.descricao);
+                        if (data.descricao.length > 0) {
+                            cont = cont - data.descricao.length;
+                        }
+                    }else{
+                        editor.setValue(data.descricao);
+                    }
+                    $("#cont-char span").text(cont);
+                }
+            });
+        }
+    });
     $('#frmEnderecoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var rel = button.data('rel')
@@ -654,5 +649,22 @@ $(document).ready(function () {
             fileReader.readAsDataURL(file);
         }
     });
+
+    // (function() {
+    //     $(function() {
+    //         var $preview, toolbar;
+    //         Simditor.locale = 'pt-BR';
+    //         toolbar = ['bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'table', '|', 'indent', 'outdent', 'alignment'];
+    //
+    //         editor = new Simditor({
+    //             textarea: $('.editor'),
+    //             placeholder: '',
+    //             toolbar: toolbar,
+    //             pasteImage: false,
+    //             upload: false
+    //         });
+    //     });
+    //
+    // }).call(this);
 });
 

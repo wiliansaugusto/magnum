@@ -3,23 +3,26 @@
     <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="frmDescricaomodalLabel">
-                    Cadastrar Chamada
-                </h5>
+                <h5 id="tituloDescricaoModal" class="modal-title" id="frmDescricaomodalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <form method="POST" id="frmDescricao">
                 @csrf
-                <input type="hidden" name="tpDescricao" value=""/>
-                <div class="modal-body text-center">
+                <input type="hidden" id="tipo_descricao" name="tipo_descricao" value=""/>
+                <div class="modal-body">
+                    <div id="msg-error-descricao" class="alert alert-danger" role="alert" style="display: none">
+                        Não foi possível cadastrar a descrição!
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label id="lblDescricao"  for="decricao"></label>
-                                <textarea class="form-control" name="descricao"
+                                <textarea class="form-control editor" name="descricao"
                                     rows="4"></textarea>
                             </div>
                         </div>
-                        <div id="chrCont" class="col-md-12">
+                        <div id="chrCont" class="col-md-12" style="display: none;">
                             <p id="cont-char" class="text-right">Caracteres Restantes: <span>300</span></p>
                         </div>
                     </div>
