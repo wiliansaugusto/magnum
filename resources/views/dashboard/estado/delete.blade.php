@@ -1,24 +1,20 @@
-
-
-<div class="modal fade" id="modalCidadeDel{{$cidade->id}}" tabindex="-1" role="dialog"
-     aria-labelledby="TipoDel{{$cidade->id}}" aria-hidden="true">
+<div class="modal fade" id="modalEstadoDel{{$estado->id}}" tabindex="-1" role="dialog"
+     aria-labelledby="TipoDel{{$estado->id}}" aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered" role="dialog">
         <div class="modal-content">
             <form method="POST"
-                  action="/dashboard/cidade/{{$cidade->id}}">
+                  action="/dashboard/estado/{{$estado->id}}">
                 @csrf
                 @method('DELETE')
                 <div class="modal-header">
-                    <h5 class="modal-title" id="CidadeDel{{$cidade->id}}">
-                        Excluir Cidade
+                    <h5 class="modal-title" id="EstadoDel{{$estado->id}}">
+                        Excluir Estado
                     </h5>
                 </div>
                 <div class="modal-body text-center">
-                    <p>Tem certeza que você quer excluir a Cidade:</p>
-                    <h2 class="text-uppercase" style="font-weight: bold">{{$cidade->nm_cidade}} -
-                        {{ $cidade->id_estado == null ? 'Não Informado'
-                        : $cidade->estado->nm_estado }}</h2>
-
+                    <p>Tem certeza que você quer excluir o Estado:</p>
+                    <h2 class="text-uppercase" style="font-weight: bold">{{$estado->nm_estado}}</h2>
+                    <p>As cidades cadastradas a esse estado serão excluidas!</p>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
