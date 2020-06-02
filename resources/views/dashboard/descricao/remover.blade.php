@@ -17,7 +17,7 @@
                             <div id="msg-exDescricao" class="alert alert-danger" role="alert" style="display: none">
                                 Não foi possível excluir a Descrição selecionada!
                             </div>
-                            <input id="tipo_descricao" type="hidden" name="tipo_descricao" />
+                            <input id="rm_tipo_descricao" type="hidden" name="tipo_descricao" />
                             <h6>Deseja remover a Descrição Cadastrada!</h6>
                         </div>
                     </div>

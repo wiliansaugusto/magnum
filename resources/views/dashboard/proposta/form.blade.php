@@ -1092,38 +1092,34 @@
                                                     <div class="col-md-12">
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                                 data-toggle="modal"
-                                                                data-target="#frmChamadaModal">
+                                                                data-tipo="chamada"
+                                                                data-titulo="Descrição de Chamada para o site"
+                                                                data-limit="true"
+                                                                data-target="#frmDescricaoModal">
                                                             Chamada
                                                         </button>
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                                 data-toggle="modal"
-                                                                data-target="#frmCurriculoModal">
+                                                                data-tipo="curriculo"
+                                                                data-titulo="Descrição de Curriculo Resumido"
+                                                                data-limit="false"
+                                                                data-target="#frmDescricaoModal">
                                                             Currículo
                                                         </button>
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                                 data-toggle="modal"
-                                                                data-target="#frmCurriculoTecModal">
+                                                                data-tipo="curriculoTec"
+                                                                data-titulo="Descrição de Curriculo Tecnico"
+                                                                data-limit="false"
+                                                                data-target="#frmDescricaoModal">
                                                             Currículo Técnico
                                                         </button>
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                                 data-toggle="modal"
-                                                                data-target="#frmFormaPagamentoModal">
-                                                            Forma de Pagamento
-                                                        </button>
-
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                                data-toggle="modal"
-                                                                data-target="#frmInvestimentoModal">
-                                                            Investimento
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                                data-toggle="modal"
-                                                                data-target="#frmEquipamentoModal">
-                                                            Equipamentos Necessários
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                                data-toggle="modal"
-                                                                data-target="#frmObservacaoModal">
+                                                                data-tipo="obs"
+                                                                data-titulo="Descrição de Observações"
+                                                                data-limit="false"
+                                                                data-target="#frmDescricaoModal">
                                                             Observações
                                                         </button>
                                                     </div>
@@ -1149,7 +1145,7 @@
                                                                 @if($data->ds_chamada != NULL)
                                                                     <tr id="chamada">
                                                                         <td>Chamada</td>
-                                                                        <td class='text-truncate'>{{$data->ds_chamada}}</td>
+                                                                        <td class='text-truncate'>{{ strip_tags($data->ds_chamada) }}</td>
                                                                         <td class='text-right'>
                                                                             <button id='excluirDescricao'
                                                                                     type='button'
@@ -1166,7 +1162,7 @@
                                                                 @if($data->ds_curriculo != NULL)
                                                                     <tr id="curriculo">
                                                                         <td>Currículo Resumido</td>
-                                                                        <td class='text-truncate'>{{$data->ds_curriculo}}</td>
+                                                                        <td class='text-truncate'>{!!$data->ds_curriculo!!}</td>
                                                                         <td class='text-right'>
                                                                             <button id='excluirDescricao'
                                                                                     type='button'
@@ -1183,7 +1179,7 @@
                                                                 @if($data->ds_curriculo_tecnico != NULL)
                                                                     <tr id="curriculoTec">
                                                                         <td>Currículo Técnico</td>
-                                                                        <td class='text-truncate'>{{$data->ds_curriculo_tecnico}}
+                                                                        <td class='text-truncate'>{!!$data->ds_curriculo_tecnico!!}
                                                                         </td>
                                                                         <td class='text-right'>
                                                                             <button id='excluirDescricao'
@@ -1201,64 +1197,12 @@
                                                                 @if($data->ds_observacao != NULL)
                                                                     <tr id="obs">
                                                                         <td>Observações</td>
-                                                                        <td class='text-truncate'>{{$data->ds_observacao}}</td>
+                                                                        <td class='text-truncate'>{!!$data->ds_observacao!!}</td>
                                                                         <td class='text-right'>
                                                                             <button id='excluirDescricao'
                                                                                     type='button'
                                                                                     class='btn btn-danger btn-sm'
                                                                                     data-tipo="obs"
-                                                                                    data-toggle='modal'
-                                                                                    data-target='#frmRemoverDescricaoModal'>
-                                                                                <i class='fa fa-trash'></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                @endif
-
-                                                                @if($data->ds_investimento != NULL)
-                                                                    <tr id="investimento">
-                                                                        <td>Investimento</td>
-                                                                        <td class='text-truncate'>{{$data->ds_investimento}}</td>
-                                                                        <td class='text-right'>
-                                                                            <button id='excluirDescricao'
-                                                                                    type='button'
-                                                                                    class='btn btn-danger btn-sm'
-                                                                                    data-tipo="investimento"
-                                                                                    data-toggle='modal'
-                                                                                    data-target='#frmRemoverDescricaoModal'>
-                                                                                <i class='fa fa-trash'></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                @endif
-
-                                                                @if($data->ds_forma_pagamento != NULL)
-                                                                    <tr id="pgto">
-                                                                        <td>Forma de Pagamento</td>
-                                                                        <td class='text-truncate'>{{$data->ds_forma_pagamento}}</td>
-                                                                        <td class='text-right'>
-                                                                            <button id='excluirDescricao'
-                                                                                    type='button'
-                                                                                    class='btn btn-danger btn-sm'
-                                                                                    data-tipo="pgto"
-                                                                                    data-toggle='modal'
-                                                                                    data-target='#frmRemoverDescricaoModal'>
-                                                                                <i class='fa fa-trash'></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                @endif
-
-                                                                @if($data->ds_equipe_necessario != NULL)
-                                                                    <tr id="equipamento">
-                                                                        <td>Equipamento Necessário</td>
-                                                                        <td class='text-truncate'>{{$data->ds_equipe_necessario}}
-                                                                        </td>
-                                                                        <td class='text-right'>
-                                                                            <button id='excluirDescricao'
-                                                                                    type='button'
-                                                                                    class='btn btn-danger btn-sm'
-                                                                                    data-tipo="equipamento"
                                                                                     data-toggle='modal'
                                                                                     data-target='#frmRemoverDescricaoModal'>
                                                                                 <i class='fa fa-trash'></i>
@@ -1382,13 +1326,7 @@
     @include('dashboard.contato.create')
     @include('dashboard.assessor.create')
     @include('dashboard.endereco.create')
-    @include('dashboard.descricao.chamada.create',[ 'data'=>$data->ds_chamada] )
-    @include('dashboard.descricao.curriculo.create',[ 'data'=>$data->ds_curriculo] )
-    @include('dashboard.descricao.observacao.create',[ 'data'=>$data->ds_observacao] )
-    @include('dashboard.descricao.investimento.create',[ 'data' => $data->ds_investimento] )
-    @include('dashboard.descricao.formaPagamento.create',[ 'data'=>$data->ds_forma_pagamento] )
-    @include('dashboard.descricao.equipNecessario.create',[ 'data' => $data->ds_equipe_necessario ] )
-    @include('dashboard.descricao.curriculoTecnico.create',[ 'data'=>$data->ds_curriculo_tecnico ] )
+    @include('dashboard.descricao.form')
 
     @include('dashboard.banco.remover')
     @include('dashboard.valor.remover')

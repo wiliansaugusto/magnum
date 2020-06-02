@@ -26,6 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}" />
 </head>
 <body class="nav-md">
     <div class="container body">
@@ -51,6 +52,8 @@
                                 <li><a href="{{ url('/dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
                                 </li>
                                 <li><a href="/dashboard/palestrante"><i class="fa fa-users"></i> Palestrantes </a>
+                                </li>
+                                <li><a href="/dashboard/proposta"><i class="fa fa-file-text"></i> Proposta </a>
                                 </li>
                             </ul>
                         </div>
@@ -130,6 +133,9 @@
     <script src="{{ asset('lib/fastclick/lib/fastclick.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
     <script src="{{ asset('build/js/custom.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
     <script src="{{ asset('build/js/rocket-loader.min.js') }}" data-cf-settings="c024bab70492f018f6371c66-|49" defer=""></script>
+    <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('js/core.js') }}"></script>
 </body>
