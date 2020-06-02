@@ -4,6 +4,7 @@
     <div class="">
         {{--Cadastro de Usuario--}}
         <div class="clearfix"></div>
+
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="page-title">
@@ -20,17 +21,25 @@
                         <h3>Configuração de Valores</h3>
                     </div>
                 </div>
-                 @include('dashboard.tipoServico.create')
+                @include('dashboard.tipoServico.create')
 
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12  ">
+                @include('dashboard.cidade.create')
             </div>
         </div>
     </div>
     @php
         $usuarios = App\Usuario::select('id','nm_usuario','created_at')->get();
         $tipos = App\TiposDeServico::all();
+        $cidades = App\Cidade::all();
 
     @endphp
     @include('dashboard.usuario.list', ['usuarios' => $usuarios])
     @include('dashboard.tipoServico.list',['tipos'=>$tipos])
+    @include('dashboard.cidade.list',['cidades'=>$cidades])
 
 @endsection

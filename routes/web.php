@@ -59,6 +59,9 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::delete('tiposerv/{id}','TipoServicoController@destroy');
     Route::post('createTpServ','TipoServicoController@store');
 
+    Route::post('cidade','CidadesController@store');
+    Route::delete('cidade/{id}','CidadesController@destroy');
+
 
 //    Route::post('pesquisar/', 'PalestranteController@search');
 
