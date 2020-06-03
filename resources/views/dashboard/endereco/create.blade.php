@@ -15,6 +15,7 @@
                     <div id="msg-error-endereco" class="alert alert-danger" role="alert" style="display: none">
                         Não foi possível cadastrar um endereço nos dados cadastrais!
                     </div>
+                    <div class=nav>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-2">
                             <label for="nr_cep">CEP</label>
@@ -72,6 +73,7 @@
                                 @endforeach
                             </select>
                         </div>
+                    </div>
                     </div>
                 </div>
 

@@ -13,117 +13,166 @@ class EstadoTableSeeder extends Seeder
     {
         App\Estado::create([
             'nm_estado'=>'Acre',
-            'ds_sg_estado'=>'AC'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'AC',
+			'cod_ibge'=>'12'
         ]);
         App\Estado::create([
             'nm_estado'=>'Alagoas',
-            'ds_sg_estado'=>'AL'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'AL',
+			'cod_ibge'=>'27'
         ]);
         App\Estado::create([
             'nm_estado'=>'Amapá',
-            'ds_sg_estado'=>'AP'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'AP',
+			'cod_ibge'=>'16',
         ]);
         App\Estado::create([
             'nm_estado'=>'Amazonas',
-            'ds_sg_estado'=>'AM'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'AM',
+			'cod_ibge'=>'13'
         ]);
         App\Estado::create([
             'nm_estado'=>'Bahia',
-            'ds_sg_estado'=>'BA'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'BA',
+			'cod_ibge'=>'29'
         ]);
         App\Estado::create([
             'nm_estado'=>'Ceará',
-            'ds_sg_estado'=>'CE'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'CE',
+			'cod_ibge'=>'23'
         ]);
         App\Estado::create([
             'nm_estado'=>'Distrito Federal',
-            'ds_sg_estado'=>'DF'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'DF',
+			'cod_ibge'=>'53'
         ]);
         App\Estado::create([
             'nm_estado'=>'Espírito Santo',
-            'ds_sg_estado'=>'ES'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'ES',
+			'cod_ibge'=>'32'
         ]);
         App\Estado::create([
             'nm_estado'=>'Goiás',
-            'ds_sg_estado'=>'GO'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'GO',
+			'cod_ibge'=>'52'
         ]);
         App\Estado::create([
             'nm_estado'=>'Maranhão',
-            'ds_sg_estado'=>'MA'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'MA',
+			'cod_ibge'=>'21'
         ]);
         App\Estado::create([
             'nm_estado'=>'Mato Grosso',
-            'ds_sg_estado'=>'MT'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'MT',
+			'cod_ibge'=>'51'
         ]);
         App\Estado::create([
             'nm_estado'=>'Mato Grosso do Sul',
-            'ds_sg_estado'=>'MS'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'MS',
+			'cod_ibge'=>'50'
         ]);
         App\Estado::create([
             'nm_estado'=>'Minas Gerais',
-            'ds_sg_estado'=>'MG'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'MG',
+			'cod_ibge'=>'31'
         ]);
         App\Estado::create([
             'nm_estado'=>'Pará',
-            'ds_sg_estado'=>'PA'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'PA',
+			'cod_ibge'=>'15'
         ]);
         App\Estado::create([
             'nm_estado'=>'Paraíba',
-            'ds_sg_estado'=>'PB'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'PB',
+			'cod_ibge'=>'25'
         ]);
         App\Estado::create([
             'nm_estado'=>'Paraná',
-            'ds_sg_estado'=>'PR'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'PR',
+			'cod_ibge'=>'41'
         ]);
         App\Estado::create([
             'nm_estado'=>'Pernanbuco',
-            'ds_sg_estado'=>'PE'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'PE',
+			'cod_ibge'=>'26'
         ]);
         App\Estado::create([
             'nm_estado'=>'Piauí',
-            'ds_sg_estado'=>'PI'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'PI',
+			'cod_ibge'=>'22'
         ]);
         App\Estado::create([
             'nm_estado'=>'Rio de Janeiro',
-            'ds_sg_estado'=>'RJ'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'RJ',
+			'cod_ibge'=>'33'
         ]);
         App\Estado::create([
             'nm_estado'=>'Rio Grande do Norte',
-            'ds_sg_estado'=>'RN'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'RN',
+			'cod_ibge'=>'24'
         ]);
         App\Estado::create([
             'nm_estado'=>'Rio Grande do Sul',
-            'ds_sg_estado'=>'RS'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'RS',
+			'cod_ibge'=>'43'
         ]);
         App\Estado::create([
             'nm_estado'=>'Rondônia',
-            'ds_sg_estado'=>'RO'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'RO',
+			'cod_ibge'=>'11'
         ]);
         App\Estado::create([
             'nm_estado'=>'Roraima',
-            'ds_sg_estado'=>'RR'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'RR',
+			'cod_ibge'=>'14'
         ]);
         App\Estado::create([
             'nm_estado'=>'Santa Catarina',
-            'ds_sg_estado'=>'SC'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'SC',
+			'cod_ibge'=>'42'
         ]);
         App\Estado::create([
             'nm_estado'=>'São Paulo',
-            'ds_sg_estado'=>'SP'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'SP',
+			'cod_ibge'=>'35'
         ]);
         App\Estado::create([
             'nm_estado'=>'Sergipe',
-            'ds_sg_estado'=>'SE'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'SE',
+			'cod_ibge'=>'28'
         ]);
         App\Estado::create([
             'nm_estado'=>'Tocantins',
-            'ds_sg_estado'=>'TO'
+            'id_pais' =>'31',
+            'ds_sg_estado'=>'TO',
+			'cod_ibge'=>'17'
         ]);
 
-
-
-
-
-
     }
-}
+};
