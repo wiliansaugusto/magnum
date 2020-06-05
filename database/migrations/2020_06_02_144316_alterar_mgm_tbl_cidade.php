@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblTipoServico extends Migration
+class AlterarMgmTblCidade extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class TblTipoServico extends Migration
      */
     public function up()
     {
-        Schema::create('mgm_tbl_tipo_servico', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-            $table->string('nm_tipo_servico')->nullable();
+        Schema::table('mgm_tbl_cidade', function (Blueprint $table) {
+            //
+            $table->Integer('cod_ibge');
         });
     }
 
@@ -27,6 +26,8 @@ class TblTipoServico extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('mgm_tbl_tipo_servico');
+        Schema::table('mgm_tbl_cidade', function (Blueprint $table) {
+            //
+        });
     }
 }

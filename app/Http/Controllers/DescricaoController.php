@@ -41,7 +41,7 @@ class DescricaoController extends Controller
             $descricao->save();
             $descricao = Palestrante::find($request->id_palestrante);
             $retorno = array(
-                'descricao' => $descricao->ds_chamada,
+                'descricao' => strip_tags($descricao->ds_chamada),
                 'tipo_descricao' => $request->tipo_descricao
             );
         }elseif ($request->all()['tipo_descricao']== "curriculo"){
@@ -50,7 +50,7 @@ class DescricaoController extends Controller
             $descricao->save();
             $descricao = Palestrante::find($request->id_palestrante);
             $retorno = array(
-                'descricao'=> $descricao->ds_curriculo,
+                'descricao'=> strip_tags($descricao->ds_curriculo),
                 'tipo_descricao' => $request->tipo_descricao
             );
         }elseif ($request->all()['tipo_descricao'] == "curriculoTec"){
@@ -59,7 +59,7 @@ class DescricaoController extends Controller
             $descricao->save();
             $descricao = Palestrante::find($request->id_palestrante);
             $retorno = array(
-                'descricao'=> $descricao->ds_curriculo_tecnico,
+                'descricao'=> strip_tags($descricao->ds_curriculo_tecnico),
                 'tipo_descricao' => $request->tipo_descricao
             );
         }elseif ($request->all()['tipo_descricao']=="obs"){
@@ -68,7 +68,7 @@ class DescricaoController extends Controller
             $descricao->save();
             $descricao = Palestrante::find($request->id_palestrante);
             $retorno = array(
-                'descricao'=> $descricao->ds_observacao,
+                'descricao'=> strip_tags($descricao->ds_observacao),
                 'tipo_descricao' => $request->tipo_descricao
             );
         }

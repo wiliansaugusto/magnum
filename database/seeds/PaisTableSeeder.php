@@ -11,203 +11,248 @@ class PaisTableSeeder extends Seeder
      */
     public function run()
     {
-        $paises=[
-            'Afeganistão',
-            'África',
-            'Albânia',
-            'Alemanha',
-            'Andorra',
-            'Angola',
-            'Antígua',
-            'Arábia',
-            'Argélia',
-            'Argentina',
-            'Armênia',
-            'Austrália',
-            'Áustria',
-            'Azerbaidjão',
-            'Bahamas',
-            'Bangladesh',
-            'Barbados',
-            'Barein',
-            'Belarus',
-            'Bélgica',
-            'Belize',
-            'Benin',
-            'Bolívia',
-            'Bósnia',
-            'Botsuana',
-            'Brasil',
-            'Brunei',
-            'Bulgária',
-            'Burkina',
-            'Burundi',
-            'Butão',
-            'Cabo',
-            'Camarões',
-            'Camboja',
-            'Canadá',
-            'Catar',
-            'Cazaquistão',
-            'Chade',
-            'Chile',
-            'China',
-            'Chipre',
-            'Cingapura',
-            'Colômbia',
-            'Comores',
-            'Congo',
-            'Coréia do Norte',
-            'Coréia do Sul',
-            'Costa do Marfim',
-            'Costa Rica',
-            'Croácia',
-            'Cuba',
-            'Dinamarca',
-            'Djibuti',
-            'Dominica',
-            'Egito',
-            'El Salvador',
-            'Emirados Árabes Unidos',
-            'Equador',
-            'Eritréia',
-            'Eslováquia',
-            'Eslovênia',
-            'Espanha',
-            'Estados Unidos',
-            'Estônia',
-            'Etiópia',
-            'Fiji',
-            'Filipinas',
-            'Finlândia',
-            'França',
-            'Gabão',
-            'Gâmbia',
-            'Gana',
-            'Geórgia',
-            'Granada',
-            'Grécia',
-            'Guatemala',
-            'Guiana',
-            'Guiné',
-            'Guiné-Bissau',
-            'Guiné-Equatorial',
-            'Haiti',
-            'Holanda',
-            'Honduras',
-            'Hungria',
-            'Iêmen',
-            'Ilhas Marshall',
-            'Ilhas Salomão',
-            'Índia',
-            'Indonésia',
-            'Irã',
-            'Iraque',
-            'Irlanda',
-            'Islândia',
-            'Israel',
-            'Itália',
-            'Jamaica',
-            'Japão',
-            'Jordânia',
-            'Kiribati',
-            'Kuweit',
-            'Laos',
-            'Lesoto',
-            'Letônia',
-            'Líbano',
-            'Libéria',
-            'Líbia',
-            'Liechtenstein',
-            'Lituânia',
-            'Luxemburgo',
-            'Macedônia',
-            'Madagáscar',
-            'Malásia',
-            'Malauí',
-            'Maldivas',
-            'Mali',
-            'Malta',
-            'Marrocos',
-            'Maurício',
-            'Mauritânia',
-            'México',
-            'Micronésia',
-            'Moçambique',
-            'Mianmar',
-            'Moldávia',
-            'Mônaco',
-            'Mongólia',
-            'Montenegro',
-            'Namíbia',
-            'Nauru',
-            'Nepal',
-            'Nicarágua',
-            'Níger',
-            'Nigéria',
-            'Noruega',
-            'Nova Zelândia',
-            'Omã',
-            'Palau',
-            'Panamá',
-            'Papua Nova Guiné',
-            'Paquistão',
-            'Paraguai',
-            'Peru',
-            'Polônia',
-            'Portugal',
-            'Quênia',
-            'Quirguistão',
-            'Reino Unido',
-            'República Centro-Africana',
-            'República Democrática do Congo',
-            'República Dominicana',
-            'Romênia',
-            'Ruanda',
-            'Russia',
-            'San Marino',
-            'Santa Lúcia',
-            'São Cristóvão e Névis',
-            'São Tomé e Príncipe',
-            'São Vicente e Granadinas',
-            'Senegal',
-            'Serra Leoa',
-            'Sérvia',
-            'Seicheles',
-            'Síria',
-            'Somália',
-            'Sri Lanka',
-            'Suazilândia',
-            'Sudão',
-            'Suécia',
-            'Suíça',
-            'Suriname',
-            'Tadjiquistão',
-            'Tailândia',
-            'Tanzânia',
-            'Timor Leste',
-            'Togo',
-            'Tonga',
-            'Trinidad e Tobago',
-            'Tunísia',
-            'Turquia',
-            'Turcomenistão',
-            'Tuvalu',
-            'Ucrânia',
-            'Uganda',
-            'Uruguai',
-            'Uzbequistão',
-            'Vanuatu',
-            'Venezuela',
-            'Vietnã',
-            'Zâmbia',
-            'Zimbábue'];
-
-        foreach ($paises as $pais){
-            App\Pais::create([
-                'nm_pais'=>$pais
-            ]);
-    }
-
-    }
+        App\Pais::create([ 'cod_speed'=>'0132',	'nm_pais'=>'AFEGANISTAO',	'cod_siscomex'=>'013' ]);
+		App\Pais::create([ 'cod_speed'=>'7560',	'nm_pais'=>'AFRICA DO SUL',	'cod_siscomex'=>'756' ]);
+		App\Pais::create([ 'cod_speed'=>'0175',	'nm_pais'=>'ALBANIA',	'cod_siscomex'=>'017' ]);
+		App\Pais::create([ 'cod_speed'=>'0230',	'nm_pais'=>'ALEMANHA',	'cod_siscomex'=>'023' ]);
+		App\Pais::create([ 'cod_speed'=>'0370',	'nm_pais'=>'ANDORRA',	'cod_siscomex'=>'037' ]);
+		App\Pais::create([ 'cod_speed'=>'0400',	'nm_pais'=>'ANGOLA',	'cod_siscomex'=>'040' ]);
+		App\Pais::create([ 'cod_speed'=>'0418',	'nm_pais'=>'ANGUILLA',	'cod_siscomex'=>'041' ]);
+		App\Pais::create([ 'cod_speed'=>'0434',	'nm_pais'=>'ANTIGUA E BARBUDA',	'cod_siscomex'=>'043' ]);
+		App\Pais::create([ 'cod_speed'=>'0531',	'nm_pais'=>'ARABIA SAUDITA',	'cod_siscomex'=>'053' ]);
+		App\Pais::create([ 'cod_speed'=>'0590',	'nm_pais'=>'ARGELIA',	'cod_siscomex'=>'059' ]);
+		App\Pais::create([ 'cod_speed'=>'0639',	'nm_pais'=>'ARGENTINA',	'cod_siscomex'=>'063' ]);
+		App\Pais::create([ 'cod_speed'=>'0647',	'nm_pais'=>'ARMENIA',	'cod_siscomex'=>'064' ]);
+		App\Pais::create([ 'cod_speed'=>'0655',	'nm_pais'=>'ARUBA',	'cod_siscomex'=>'065' ]);
+		App\Pais::create([ 'cod_speed'=>'0698',	'nm_pais'=>'AUSTRALIA',	'cod_siscomex'=>'069' ]);
+		App\Pais::create([ 'cod_speed'=>'0728',	'nm_pais'=>'AUSTRIA',	'cod_siscomex'=>'072' ]);
+		App\Pais::create([ 'cod_speed'=>'0736',	'nm_pais'=>'AZERBAIDJAO',	'cod_siscomex'=>'073' ]);
+		App\Pais::create([ 'cod_speed'=>'0779',	'nm_pais'=>'BAHAMAS, ILHAS',	'cod_siscomex'=>'077' ]);
+		App\Pais::create([ 'cod_speed'=>'0817',	'nm_pais'=>'BANGLADESH',	'cod_siscomex'=>'081' ]);
+		App\Pais::create([ 'cod_speed'=>'0833',	'nm_pais'=>'BARBADOS',	'cod_siscomex'=>'083' ]);
+		App\Pais::create([ 'cod_speed'=>'0809',	'nm_pais'=>'BAREIN',	'cod_siscomex'=>'080' ]);
+		App\Pais::create([ 'cod_speed'=>'0850',	'nm_pais'=>'BELARUS',	'cod_siscomex'=>'085' ]);
+		App\Pais::create([ 'cod_speed'=>'0876',	'nm_pais'=>'BELGICA',	'cod_siscomex'=>'087' ]);
+		App\Pais::create([ 'cod_speed'=>'0884',	'nm_pais'=>'BELIZE',	'cod_siscomex'=>'088' ]);
+		App\Pais::create([ 'cod_speed'=>'2291',	'nm_pais'=>'BENIN',	'cod_siscomex'=>'229' ]);
+		App\Pais::create([ 'cod_speed'=>'0906',	'nm_pais'=>'BERMUDAS',	'cod_siscomex'=>'090' ]);
+		App\Pais::create([ 'cod_speed'=>'0973',	'nm_pais'=>'BOLIVIA',	'cod_siscomex'=>'097' ]);
+		App\Pais::create([ 'cod_speed'=>'0990',	'nm_pais'=>'BONAIRE, SAINT EUSTATIUS E SABA',	'cod_siscomex'=>'099' ]);
+		App\Pais::create([ 'cod_speed'=>'0981',	'nm_pais'=>'BOSNIA-HERZEGOVINA',	'cod_siscomex'=>'098' ]);
+		App\Pais::create([ 'cod_speed'=>'1015',	'nm_pais'=>'BOTSUANA',	'cod_siscomex'=>'101' ]);
+		App\Pais::create([ 'cod_speed'=>'1098',	'nm_pais'=>'BOUVET, ILHA',	'cod_siscomex'=>'102' ]);
+		App\Pais::create([ 'cod_speed'=>'1058',	'nm_pais'=>'BRASIL',	'cod_siscomex'=>'105' ]);
+		App\Pais::create([ 'cod_speed'=>'1082',	'nm_pais'=>'BRUNEI',	'cod_siscomex'=>'108' ]);
+		App\Pais::create([ 'cod_speed'=>'1112',	'nm_pais'=>'BULGARIA',	'cod_siscomex'=>'111' ]);
+		App\Pais::create([ 'cod_speed'=>'0310',	'nm_pais'=>'BURKINA FASO',	'cod_siscomex'=>'031' ]);
+		App\Pais::create([ 'cod_speed'=>'1155',	'nm_pais'=>'BURUNDI',	'cod_siscomex'=>'115' ]);
+		App\Pais::create([ 'cod_speed'=>'1198',	'nm_pais'=>'BUTAO',	'cod_siscomex'=>'119' ]);
+		App\Pais::create([ 'cod_speed'=>'1279',	'nm_pais'=>'CABO VERDE',	'cod_siscomex'=>'127' ]);
+		App\Pais::create([ 'cod_speed'=>'1457',	'nm_pais'=>'CAMAROES',	'cod_siscomex'=>'145' ]);
+		App\Pais::create([ 'cod_speed'=>'1414',	'nm_pais'=>'CAMBOJA',	'cod_siscomex'=>'141' ]);
+		App\Pais::create([ 'cod_speed'=>'1490',	'nm_pais'=>'CANADA',	'cod_siscomex'=>'149' ]);
+		App\Pais::create([ 'cod_speed'=>'1546',	'nm_pais'=>'CATAR',	'cod_siscomex'=>'154' ]);
+		App\Pais::create([ 'cod_speed'=>'1376',	'nm_pais'=>'CAYMAN',	'cod_siscomex'=>'137' ]);
+		App\Pais::create([ 'cod_speed'=>'1538',	'nm_pais'=>'CAZAQUISTAO',	'cod_siscomex'=>'153' ]);
+		App\Pais::create([ 'cod_speed'=>'7889',	'nm_pais'=>'CHADE',	'cod_siscomex'=>'788' ]);
+		App\Pais::create([ 'cod_speed'=>'1589',	'nm_pais'=>'CHILE',	'cod_siscomex'=>'158' ]);
+		App\Pais::create([ 'cod_speed'=>'1600',	'nm_pais'=>'CHINA',	'cod_siscomex'=>'160' ]);
+		App\Pais::create([ 'cod_speed'=>'1635',	'nm_pais'=>'CHIPRE',	'cod_siscomex'=>'163' ]);
+		App\Pais::create([ 'cod_speed'=>'5118',	'nm_pais'=>'CHRISTMAS, ILHA (NAVIDAD)',	'cod_siscomex'=>'511' ]);
+		App\Pais::create([ 'cod_speed'=>'7412',	'nm_pais'=>'CINGAPURA',	'cod_siscomex'=>'741' ]);
+		App\Pais::create([ 'cod_speed'=>'1651',	'nm_pais'=>'COCOS (KEELINGS)',	'cod_siscomex'=>'165' ]);
+		App\Pais::create([ 'cod_speed'=>'1694',	'nm_pais'=>'COLOMBIA',	'cod_siscomex'=>'169' ]);
+		App\Pais::create([ 'cod_speed'=>'1732',	'nm_pais'=>'COMORES',	'cod_siscomex'=>'173' ]);
+		App\Pais::create([ 'cod_speed'=>'1775',	'nm_pais'=>'CONGO',	'cod_siscomex'=>'177' ]);
+		App\Pais::create([ 'cod_speed'=>'1830',	'nm_pais'=>'COOK',	'cod_siscomex'=>'183' ]);
+		App\Pais::create([ 'cod_speed'=>'1872',	'nm_pais'=>'COREIA DO NORTE',	'cod_siscomex'=>'187' ]);
+		App\Pais::create([ 'cod_speed'=>'1902',	'nm_pais'=>'COREIA DO SUL',	'cod_siscomex'=>'190' ]);
+		App\Pais::create([ 'cod_speed'=>'1937',	'nm_pais'=>'COSTA DO MARFIM',	'cod_siscomex'=>'193' ]);
+		App\Pais::create([ 'cod_speed'=>'1961',	'nm_pais'=>'COSTA RICA',	'cod_siscomex'=>'196' ]);
+		App\Pais::create([ 'cod_speed'=>'1953',	'nm_pais'=>'CROACIA',	'cod_siscomex'=>'195' ]);
+		App\Pais::create([ 'cod_speed'=>'1996',	'nm_pais'=>'CUBA',	'cod_siscomex'=>'199' ]);
+		App\Pais::create([ 'cod_speed'=>'2003',	'nm_pais'=>'CURACAO',	'cod_siscomex'=>'200' ]);
+		App\Pais::create([ 'cod_speed'=>'2321',	'nm_pais'=>'DINAMARCA',	'cod_siscomex'=>'232' ]);
+		App\Pais::create([ 'cod_speed'=>'7838',	'nm_pais'=>'DJIBUTI',	'cod_siscomex'=>'783' ]);
+		App\Pais::create([ 'cod_speed'=>'2356',	'nm_pais'=>'DOMINICA',	'cod_siscomex'=>'235' ]);
+		App\Pais::create([ 'cod_speed'=>'2402',	'nm_pais'=>'EGITO',	'cod_siscomex'=>'240' ]);
+		App\Pais::create([ 'cod_speed'=>'6874',	'nm_pais'=>'EL SALVADOR',	'cod_siscomex'=>'687' ]);
+		App\Pais::create([ 'cod_speed'=>'2445',	'nm_pais'=>'EMIRADOS ARABES UNIDOS', 'cod_siscomex'=>'244' ]);
+		App\Pais::create([ 'cod_speed'=>'2399',	'nm_pais'=>'EQUADOR',	'cod_siscomex'=>'239' ]);
+		App\Pais::create([ 'cod_speed'=>'2437',	'nm_pais'=>'ERITREIA',	'cod_siscomex'=>'243' ]);
+		App\Pais::create([ 'cod_speed'=>'2470',	'nm_pais'=>'ESLOVAQUIA',	'cod_siscomex'=>'247' ]);
+		App\Pais::create([ 'cod_speed'=>'2461',	'nm_pais'=>'ESLOVENIA',	'cod_siscomex'=>'246' ]);
+		App\Pais::create([ 'cod_speed'=>'2453',	'nm_pais'=>'ESPANHA',	'cod_siscomex'=>'245' ]);
+		App\Pais::create([ 'cod_speed'=>'2496',	'nm_pais'=>'PaisS UNIDOS',	'cod_siscomex'=>'249' ]);
+		App\Pais::create([ 'cod_speed'=>'2518',	'nm_pais'=>'ESTONIA',	'cod_siscomex'=>'251' ]);
+		App\Pais::create([ 'cod_speed'=>'7544',	'nm_pais'=>'ESWATINI (ANTIGA SUAZILANDIA)',	'cod_siscomex'=>'754' ]);
+		App\Pais::create([ 'cod_speed'=>'2534',	'nm_pais'=>'ETIOPIA',	'cod_siscomex'=>'253' ]);
+		App\Pais::create([ 'cod_speed'=>'2550',	'nm_pais'=>'FALKLAND (MALVINAS)', 'cod_siscomex'=>'255' ]);
+		App\Pais::create([ 'cod_speed'=>'2593',	'nm_pais'=>'FAROE',	'cod_siscomex'=>'259' ]);
+		App\Pais::create([ 'cod_speed'=>'8702',	'nm_pais'=>'FIJI',	'cod_siscomex'=>'870' ]);
+		App\Pais::create([ 'cod_speed'=>'2674',	'nm_pais'=>'FILIPINAS',	'cod_siscomex'=>'267' ]);
+		App\Pais::create([ 'cod_speed'=>'2712',	'nm_pais'=>'FINLANDIA',	'cod_siscomex'=>'271' ]);
+		App\Pais::create([ 'cod_speed'=>'2755',	'nm_pais'=>'FRANCA',	'cod_siscomex'=>'275' ]);
+		App\Pais::create([ 'cod_speed'=>'2810',	'nm_pais'=>'GABAO',	'cod_siscomex'=>'281' ]);
+		App\Pais::create([ 'cod_speed'=>'2852',	'nm_pais'=>'GAMBIA',	'cod_siscomex'=>'285' ]);
+		App\Pais::create([ 'cod_speed'=>'2895',	'nm_pais'=>'GANA',	'cod_siscomex'=>'289' ]);
+		App\Pais::create([ 'cod_speed'=>'2917',	'nm_pais'=>'GEORGIA',	'cod_siscomex'=>'291' ]);
+		App\Pais::create([ 'cod_speed'=>'2933',	'nm_pais'=>'GIBRALTAR',	'cod_siscomex'=>'293' ]);
+		App\Pais::create([ 'cod_speed'=>'2976',	'nm_pais'=>'GRANADA',	'cod_siscomex'=>'297' ]);
+		App\Pais::create([ 'cod_speed'=>'3018',	'nm_pais'=>'GRECIA',	'cod_siscomex'=>'301' ]);
+		App\Pais::create([ 'cod_speed'=>'3050',	'nm_pais'=>'GROENLANDIA',	'cod_siscomex'=>'305' ]);
+		App\Pais::create([ 'cod_speed'=>'3093',	'nm_pais'=>'GUADALUPE',	'cod_siscomex'=>'309' ]);
+		App\Pais::create([ 'cod_speed'=>'3131',	'nm_pais'=>'GUAM',	'cod_siscomex'=>'313' ]);
+		App\Pais::create([ 'cod_speed'=>'3174',	'nm_pais'=>'GUATEMALA',	'cod_siscomex'=>'317' ]);
+		App\Pais::create([ 'cod_speed'=>'1504',	'nm_pais'=>'GUERNSEY, ILHA DO CANAL (INCLUI ALDERNEY E SARK)',	'cod_siscomex'=>'321' ]);
+		App\Pais::create([ 'cod_speed'=>'3379',	'nm_pais'=>'GUIANA',	'cod_siscomex'=>'337' ]);
+		App\Pais::create([ 'cod_speed'=>'3255',	'nm_pais'=>'GUIANA FRANCESA',	'cod_siscomex'=>'325' ]);
+		App\Pais::create([ 'cod_speed'=>'3298',	'nm_pais'=>'GUINE',	'cod_siscomex'=>'329' ]);
+		App\Pais::create([ 'cod_speed'=>'3344',	'nm_pais'=>'GUINE-BISSAU',	'cod_siscomex'=>'334' ]);
+		App\Pais::create([ 'cod_speed'=>'3310',	'nm_pais'=>'GUINE-EQUATORIAL',	'cod_siscomex'=>'331' ]);
+		App\Pais::create([ 'cod_speed'=>'3417',	'nm_pais'=>'HAITI',	'cod_siscomex'=>'341' ]);
+		App\Pais::create([ 'cod_speed'=>'5738',	'nm_pais'=>'HOLANDA (PAISES BAIXOS)',	'cod_siscomex'=>'573' ]);
+		App\Pais::create([ 'cod_speed'=>'3450',	'nm_pais'=>'HONDURAS',	'cod_siscomex'=>'345' ]);
+		App\Pais::create([ 'cod_speed'=>'3514',	'nm_pais'=>'HONG KONG',	'cod_siscomex'=>'351' ]);
+		App\Pais::create([ 'cod_speed'=>'3557',	'nm_pais'=>'HUNGRIA',	'cod_siscomex'=>'355' ]);
+		App\Pais::create([ 'cod_speed'=>'3573',	'nm_pais'=>'IEMEN',	'cod_siscomex'=>'357' ]);
+		App\Pais::create([ 'cod_speed'=>'3611',	'nm_pais'=>'INDIA',	'cod_siscomex'=>'361' ]);
+		App\Pais::create([ 'cod_speed'=>'3654',	'nm_pais'=>'INDONESIA',	'cod_siscomex'=>'365' ]);
+		App\Pais::create([ 'cod_speed'=>'3727',	'nm_pais'=>'IRA',	'cod_siscomex'=>'372' ]);
+		App\Pais::create([ 'cod_speed'=>'3697',	'nm_pais'=>'IRAQUE',	'cod_siscomex'=>'369' ]);
+		App\Pais::create([ 'cod_speed'=>'3751',	'nm_pais'=>'IRLANDA',	'cod_siscomex'=>'375' ]);
+		App\Pais::create([ 'cod_speed'=>'3794',	'nm_pais'=>'ISLANDIA',	'cod_siscomex'=>'379' ]);
+		App\Pais::create([ 'cod_speed'=>'3832',	'nm_pais'=>'ISRAEL',	'cod_siscomex'=>'383' ]);
+		App\Pais::create([ 'cod_speed'=>'3867',	'nm_pais'=>'ITALIA',	'cod_siscomex'=>'386' ]);
+		App\Pais::create([ 'cod_speed'=>'3913',	'nm_pais'=>'JAMAICA',	'cod_siscomex'=>'391' ]);
+		App\Pais::create([ 'cod_speed'=>'3999',	'nm_pais'=>'JAPAO',	'cod_siscomex'=>'399' ]);
+		App\Pais::create([ 'cod_speed'=>'1508',	'nm_pais'=>'JERSEY, ILHA DO CANAL',	'cod_siscomex'=>'393' ]);
+		App\Pais::create([ 'cod_speed'=>'3964',	'nm_pais'=>'JOHNSTON',	'cod_siscomex'=>'396' ]);
+		App\Pais::create([ 'cod_speed'=>'4030',	'nm_pais'=>'JORDANIA',	'cod_siscomex'=>'403' ]);
+		App\Pais::create([ 'cod_speed'=>'4111',	'nm_pais'=>'KIRIBATI',	'cod_siscomex'=>'411' ]);
+		App\Pais::create([ 'cod_speed'=>'1988',	'nm_pais'=>'KUWEIT',	'cod_siscomex'=>'198' ]);
+		App\Pais::create([ 'cod_speed'=>'4200',	'nm_pais'=>'LAOS',	'cod_siscomex'=>'420' ]);
+		App\Pais::create([ 'cod_speed'=>'4260',	'nm_pais'=>'LESOTO',	'cod_siscomex'=>'426' ]);
+		App\Pais::create([ 'cod_speed'=>'4278',	'nm_pais'=>'LETONIA',	'cod_siscomex'=>'427' ]);
+		App\Pais::create([ 'cod_speed'=>'4316',	'nm_pais'=>'LIBANO',	'cod_siscomex'=>'431' ]);
+		App\Pais::create([ 'cod_speed'=>'4340',	'nm_pais'=>'LIBERIA',	'cod_siscomex'=>'434' ]);
+		App\Pais::create([ 'cod_speed'=>'4383',	'nm_pais'=>'LIBIA',	'cod_siscomex'=>'438' ]);
+		App\Pais::create([ 'cod_speed'=>'4405',	'nm_pais'=>'LIECHTENSTEIN',	'cod_siscomex'=>'440' ]);
+		App\Pais::create([ 'cod_speed'=>'4421',	'nm_pais'=>'LITUANIA',	'cod_siscomex'=>'442' ]);
+		App\Pais::create([ 'cod_speed'=>'4456',	'nm_pais'=>'LUXEMBURGO',	'cod_siscomex'=>'445' ]);
+		App\Pais::create([ 'cod_speed'=>'4472',	'nm_pais'=>'MACAU',	'cod_siscomex'=>'447' ]);
+		App\Pais::create([ 'cod_speed'=>'4421',	'nm_pais'=>'MACEDONIA',	'cod_siscomex'=>'449' ]);
+		App\Pais::create([ 'cod_speed'=>'4502',	'nm_pais'=>'MADAGASCAR',	'cod_siscomex'=>'450' ]);
+		App\Pais::create([ 'cod_speed'=>'4553',	'nm_pais'=>'MALASIA',	'cod_siscomex'=>'455' ]);
+		App\Pais::create([ 'cod_speed'=>'4588',	'nm_pais'=>'MALAVI',	'cod_siscomex'=>'458' ]);
+		App\Pais::create([ 'cod_speed'=>'4618',	'nm_pais'=>'MALDIVAS',	'cod_siscomex'=>'461' ]);
+		App\Pais::create([ 'cod_speed'=>'4642',	'nm_pais'=>'MALI',	'cod_siscomex'=>'464' ]);
+		App\Pais::create([ 'cod_speed'=>'4677',	'nm_pais'=>'MALTA',	'cod_siscomex'=>'467' ]);
+		App\Pais::create([ 'cod_speed'=>'3595',	'nm_pais'=>'MAN, ILHA DE',	'cod_siscomex'=>'359' ]);
+		App\Pais::create([ 'cod_speed'=>'4723',	'nm_pais'=>'MARIANAS DO NORTE',	'cod_siscomex'=>'472' ]);
+		App\Pais::create([ 'cod_speed'=>'4740',	'nm_pais'=>'MARROCOS',	'cod_siscomex'=>'474' ]);
+		App\Pais::create([ 'cod_speed'=>'4766',	'nm_pais'=>'MARSHALL, ILHAS',	'cod_siscomex'=>'476' ]);
+		App\Pais::create([ 'cod_speed'=>'4774',	'nm_pais'=>'MARTINICA',	'cod_siscomex'=>'477' ]);
+		App\Pais::create([ 'cod_speed'=>'4855',	'nm_pais'=>'MAURICIO',	'cod_siscomex'=>'485' ]);
+		App\Pais::create([ 'cod_speed'=>'4880',	'nm_pais'=>'MAURITANIA',	'cod_siscomex'=>'488' ]);
+		App\Pais::create([ 'cod_speed'=>'4936',	'nm_pais'=>'MEXICO',	'cod_siscomex'=>'493' ]);
+		App\Pais::create([ 'cod_speed'=>'0930',	'nm_pais'=>'MIANMAR',	'cod_siscomex'=>'093' ]);
+		App\Pais::create([ 'cod_speed'=>'4995',	'nm_pais'=>'MICRONESIA',	'cod_siscomex'=>'499' ]);
+		App\Pais::create([ 'cod_speed'=>'5053',	'nm_pais'=>'MOCAMBIQUE',	'cod_siscomex'=>'505' ]);
+		App\Pais::create([ 'cod_speed'=>'4944',	'nm_pais'=>'MOLDAVIA',	'cod_siscomex'=>'494' ]);
+		App\Pais::create([ 'cod_speed'=>'4952',	'nm_pais'=>'MONACO',	'cod_siscomex'=>'495' ]);
+		App\Pais::create([ 'cod_speed'=>'4979',	'nm_pais'=>'MONGOLIA',	'cod_siscomex'=>'497' ]);
+		App\Pais::create([ 'cod_speed'=>'4985',	'nm_pais'=>'MONTENEGRO',	'cod_siscomex'=>'498' ]);
+		App\Pais::create([ 'cod_speed'=>'5010',	'nm_pais'=>'MONTSERRAT',	'cod_siscomex'=>'501' ]);
+		App\Pais::create([ 'cod_speed'=>'5070',	'nm_pais'=>'NAMIBIA',	'cod_siscomex'=>'507' ]);
+		App\Pais::create([ 'cod_speed'=>'5088',	'nm_pais'=>'NAURU',	'cod_siscomex'=>'508' ]);
+		App\Pais::create([ 'cod_speed'=>'5177',	'nm_pais'=>'NEPAL',	'cod_siscomex'=>'517' ]);
+		App\Pais::create([ 'cod_speed'=>'5215',	'nm_pais'=>'NICARAGUA',	'cod_siscomex'=>'521' ]);
+		App\Pais::create([ 'cod_speed'=>'5258',	'nm_pais'=>'NIGER',	'cod_siscomex'=>'525' ]);
+		App\Pais::create([ 'cod_speed'=>'5282',	'nm_pais'=>'NIGERIA',	'cod_siscomex'=>'528' ]);
+		App\Pais::create([ 'cod_speed'=>'5312',	'nm_pais'=>'NIUE',	'cod_siscomex'=>'531' ]);
+		App\Pais::create([ 'cod_speed'=>'5355',	'nm_pais'=>'NORFOLK, ILHA',	'cod_siscomex'=>'535' ]);
+		App\Pais::create([ 'cod_speed'=>'5380',	'nm_pais'=>'NORUEGA',	'cod_siscomex'=>'538' ]);
+		App\Pais::create([ 'cod_speed'=>'5428',	'nm_pais'=>'NOVA CALEDONIA',	'cod_siscomex'=>'542' ]);
+		App\Pais::create([ 'cod_speed'=>'5487',	'nm_pais'=>'NOVA ZELANDIA',	'cod_siscomex'=>'548' ]);
+		App\Pais::create([ 'cod_speed'=>'5568',	'nm_pais'=>'OMA',	'cod_siscomex'=>'556' ]);
+		App\Pais::create([ 'cod_speed'=>'5665',	'nm_pais'=>'PACIFICO, ILHAS DO (POSSESSAO DOS EUA)',	'cod_siscomex'=>'566' ]);
+		App\Pais::create([ 'cod_speed'=>'5754',	'nm_pais'=>'PALAU',	'cod_siscomex'=>'575' ]);
+		App\Pais::create([ 'cod_speed'=>'5780',	'nm_pais'=>'PALESTINA',	'cod_siscomex'=>'578' ]);
+		App\Pais::create([ 'cod_speed'=>'5800',	'nm_pais'=>'PANAMA',	'cod_siscomex'=>'580' ]);
+		App\Pais::create([ 'cod_speed'=>'5452',	'nm_pais'=>'PAPUA NOVA GUINE',	'cod_siscomex'=>'545' ]);
+		App\Pais::create([ 'cod_speed'=>'5762',	'nm_pais'=>'PAQUISTAO',	'cod_siscomex'=>'576' ]);
+		App\Pais::create([ 'cod_speed'=>'5860',	'nm_pais'=>'PARAGUAI',	'cod_siscomex'=>'586' ]);
+		App\Pais::create([ 'cod_speed'=>'5894',	'nm_pais'=>'PERU',	'cod_siscomex'=>'589' ]);
+		App\Pais::create([ 'cod_speed'=>'5932',	'nm_pais'=>'PITCAIRN',	'cod_siscomex'=>'593' ]);
+		App\Pais::create([ 'cod_speed'=>'5991',	'nm_pais'=>'POLINESIA FRANCESA',	'cod_siscomex'=>'599' ]);
+		App\Pais::create([ 'cod_speed'=>'6033',	'nm_pais'=>'POLONIA',	'cod_siscomex'=>'603' ]);
+		App\Pais::create([ 'cod_speed'=>'6114',	'nm_pais'=>'PORTO RICO',	'cod_siscomex'=>'611' ]);
+		App\Pais::create([ 'cod_speed'=>'6076',	'nm_pais'=>'PORTUGAL',	'cod_siscomex'=>'607' ]);
+		App\Pais::create([ 'cod_speed'=>'6238',	'nm_pais'=>'QUENIA',	'cod_siscomex'=>'623' ]);
+		App\Pais::create([ 'cod_speed'=>'6254',	'nm_pais'=>'QUIRGUISTAO',	'cod_siscomex'=>'625' ]);
+		App\Pais::create([ 'cod_speed'=>'6289',	'nm_pais'=>'REINO UNIDO',	'cod_siscomex'=>'628' ]);
+		App\Pais::create([ 'cod_speed'=>'6408',	'nm_pais'=>'REPUBLICA CENTRO-AFRICANA',	'cod_siscomex'=>'640' ]);
+		App\Pais::create([ 'cod_speed'=>'8885',	'nm_pais'=>'REPUBLICA DEMOCRATICA DO CONGO',	'cod_siscomex'=>'888' ]);
+		App\Pais::create([ 'cod_speed'=>'6475',	'nm_pais'=>'REPUBLICA DOMINICANA',	'cod_siscomex'=>'647' ]);
+		App\Pais::create([ 'cod_speed'=>'7919',	'nm_pais'=>'REPUBLICA TCHECA',	'cod_siscomex'=>'791' ]);
+		App\Pais::create([ 'cod_speed'=>'6602',	'nm_pais'=>'REUNIAO',	'cod_siscomex'=>'660' ]);
+		App\Pais::create([ 'cod_speed'=>'6700',	'nm_pais'=>'ROMENIA',	'cod_siscomex'=>'670' ]);
+		App\Pais::create([ 'cod_speed'=>'6750',	'nm_pais'=>'RUANDA',	'cod_siscomex'=>'675' ]);
+		App\Pais::create([ 'cod_speed'=>'6769',	'nm_pais'=>'RUSSIA',	'cod_siscomex'=>'676' ]);
+		App\Pais::create([ 'cod_speed'=>'6858',	'nm_pais'=>'SAARA OCIDENTAL',	'cod_siscomex'=>'685' ]);
+		App\Pais::create([ 'cod_speed'=>'6777',	'nm_pais'=>'SALOMAO, ILHAS',	'cod_siscomex'=>'677' ]);
+		App\Pais::create([ 'cod_speed'=>'6904',	'nm_pais'=>'SAMOA',	'cod_siscomex'=>'690' ]);
+		App\Pais::create([ 'cod_speed'=>'6912',	'nm_pais'=>'SAMOA AMERICANA',	'cod_siscomex'=>'691' ]);
+		App\Pais::create([ 'cod_speed'=>'6971',	'nm_pais'=>'SAN MARINO',	'cod_siscomex'=>'697' ]);
+		App\Pais::create([ 'cod_speed'=>'7102',	'nm_pais'=>'SANTA HELENA',	'cod_siscomex'=>'710' ]);
+		App\Pais::create([ 'cod_speed'=>'7153',	'nm_pais'=>'SANTA LUCIA',	'cod_siscomex'=>'715' ]);
+		App\Pais::create([ 'cod_speed'=>'6955',	'nm_pais'=>'SAO CRISTOVAO E NEVES',	'cod_siscomex'=>'695' ]);
+		App\Pais::create([ 'cod_speed'=>'6980',	'nm_pais'=>'SAO MARTINHO, ILHA DE (PARTE FRANCESA)',	'cod_siscomex'=>'698' ]);
+		App\Pais::create([ 'cod_speed'=>'6998',	'nm_pais'=>'SAO MARTINHO, ILHA DE (PARTE HOLANDESA)',	'cod_siscomex'=>'699' ]);
+		App\Pais::create([ 'cod_speed'=>'7005',	'nm_pais'=>'SAO PEDRO E MIQUELON',	'cod_siscomex'=>'700' ]);
+		App\Pais::create([ 'cod_speed'=>'7200',	'nm_pais'=>'SAO TOME E PRINCIPE',	'cod_siscomex'=>'720' ]);
+		App\Pais::create([ 'cod_speed'=>'7056',	'nm_pais'=>'SAO VICENTE E GRANADINAS',	'cod_siscomex'=>'705' ]);
+		App\Pais::create([ 'cod_speed'=>'7315',	'nm_pais'=>'SEICHELES',	'cod_siscomex'=>'731' ]);
+		App\Pais::create([ 'cod_speed'=>'7285',	'nm_pais'=>'SENEGAL',	'cod_siscomex'=>'728' ]);
+		App\Pais::create([ 'cod_speed'=>'7358',	'nm_pais'=>'SERRA LEOA',	'cod_siscomex'=>'735' ]);
+		App\Pais::create([ 'cod_speed'=>'7370',	'nm_pais'=>'SERVIA',	'cod_siscomex'=>'737' ]);
+		App\Pais::create([ 'cod_speed'=>'7447',	'nm_pais'=>'SIRIA',	'cod_siscomex'=>'744' ]);
+		App\Pais::create([ 'cod_speed'=>'7480',	'nm_pais'=>'SOMALIA',	'cod_siscomex'=>'748' ]);
+		App\Pais::create([ 'cod_speed'=>'7501',	'nm_pais'=>'SRI LANKA',	'cod_siscomex'=>'750' ]);
+		App\Pais::create([ 'cod_speed'=>'7595',	'nm_pais'=>'SUDAO',	'cod_siscomex'=>'759' ]);
+		App\Pais::create([ 'cod_speed'=>'7600',	'nm_pais'=>'SUDÃO DO SUL',	'cod_siscomex'=>'760' ]);
+		App\Pais::create([ 'cod_speed'=>'7641',	'nm_pais'=>'SUECIA',	'cod_siscomex'=>'764' ]);
+		App\Pais::create([ 'cod_speed'=>'7676',	'nm_pais'=>'SUICA',	'cod_siscomex'=>'767' ]);
+		App\Pais::create([ 'cod_speed'=>'7706',	'nm_pais'=>'SURINAME',	'cod_siscomex'=>'770' ]);
+		App\Pais::create([ 'cod_speed'=>'7552',	'nm_pais'=>'SVALBARD E JAN MAYEN', 'cod_siscomex'=>'755' ]);
+		App\Pais::create([ 'cod_speed'=>'7722',	'nm_pais'=>'TADJIQUISTAO',	'cod_siscomex'=>'772' ]);
+		App\Pais::create([ 'cod_speed'=>'7765',	'nm_pais'=>'TAILANDIA',	'cod_siscomex'=>'776' ]);
+		App\Pais::create([ 'cod_speed'=>'1619',	'nm_pais'=>'TAIWAN',	'cod_siscomex'=>'161' ]);
+		App\Pais::create([ 'cod_speed'=>'7803',	'nm_pais'=>'TANZANIA',	'cod_siscomex'=>'780' ]);
+		App\Pais::create([ 'cod_speed'=>'7820',	'nm_pais'=>'TERRITORIO BRITANICO OCEANO INDICO',	'cod_siscomex'=>'782' ]);
+		App\Pais::create([ 'cod_speed'=>'7951',	'nm_pais'=>'TIMOR LESTE',	'cod_siscomex'=>'795' ]);
+		App\Pais::create([ 'cod_speed'=>'8001',	'nm_pais'=>'TOGO',	'cod_siscomex'=>'800' ]);
+		App\Pais::create([ 'cod_speed'=>'8109',	'nm_pais'=>'TONGA',	'cod_siscomex'=>'810' ]);
+		App\Pais::create([ 'cod_speed'=>'8052',	'nm_pais'=>'TOQUELAU',	'cod_siscomex'=>'805' ]);
+		App\Pais::create([ 'cod_speed'=>'8150',	'nm_pais'=>'TRINIDAD E TOBAGO',	'cod_siscomex'=>'815' ]);
+		App\Pais::create([ 'cod_speed'=>'8206',	'nm_pais'=>'TUNISIA',	'cod_siscomex'=>'820' ]);
+		App\Pais::create([ 'cod_speed'=>'8230',	'nm_pais'=>'TURCAS E CAICOS',	'cod_siscomex'=>'823' ]);
+		App\Pais::create([ 'cod_speed'=>'8249',	'nm_pais'=>'TURCOMENISTAO',	'cod_siscomex'=>'824' ]);
+		App\Pais::create([ 'cod_speed'=>'8273',	'nm_pais'=>'TURQUIA',	'cod_siscomex'=>'827' ]);
+		App\Pais::create([ 'cod_speed'=>'8281',	'nm_pais'=>'TUVALU',	'cod_siscomex'=>'828' ]);
+		App\Pais::create([ 'cod_speed'=>'8311',	'nm_pais'=>'UCRANIA',	'cod_siscomex'=>'831' ]);
+		App\Pais::create([ 'cod_speed'=>'8338',	'nm_pais'=>'UGANDA',	'cod_siscomex'=>'833' ]);
+		App\Pais::create([ 'cod_speed'=>'8451',	'nm_pais'=>'URUGUAI',	'cod_siscomex'=>'845' ]);
+		App\Pais::create([ 'cod_speed'=>'8478',	'nm_pais'=>'UZBEQUISTAO',	'cod_siscomex'=>'847' ]);
+		App\Pais::create([ 'cod_speed'=>'5517',	'nm_pais'=>'VANUATU',	'cod_siscomex'=>'551' ]); 
+		App\Pais::create([ 'cod_speed'=>'8486',	'nm_pais'=>'VATICANO',	'cod_siscomex'=>'848' ]);
+		App\Pais::create([ 'cod_speed'=>'8508',	'nm_pais'=>'VENEZUELA',	'cod_siscomex'=>'850' ]);
+		App\Pais::create([ 'cod_speed'=>'8583',	'nm_pais'=>'VIETNA',	'cod_siscomex'=>'858' ]);
+		App\Pais::create([ 'cod_speed'=>'8630',	'nm_pais'=>'VIRGENS, ILHAS (BRITANICAS)',	'cod_siscomex'=>'863' ]);
+		App\Pais::create([ 'cod_speed'=>'8664',	'nm_pais'=>'VIRGENS, ILHAS (EUA)',	'cod_siscomex'=>'866' ]);
+		App\Pais::create([ 'cod_speed'=>'8753',	'nm_pais'=>'WALLIS E FUTUNA, ILHAS',	'cod_siscomex'=>'875' ]);
+		App\Pais::create([ 'cod_speed'=>'8907',	'nm_pais'=>'ZAMBIA',	'cod_siscomex'=>'890' ]);
+		App\Pais::create([ 'cod_speed'=>'6653',	'nm_pais'=>'ZIMBABUE',	'cod_siscomex'=>'665' ]);
+	}
 }

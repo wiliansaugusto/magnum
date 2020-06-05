@@ -45,7 +45,7 @@
                                              aria-labelledby="nav-gerais-tab">
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
-                                                    <label for="nm_contratante">Contratante</label>
+                                                    <label for="nm_contratante">Cliente Final</label>
                                                     <input id="nm_contratante" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nm_contratante') ? 'is-invalid' : '' }}"
                                                            name="nm_contratante"
@@ -167,7 +167,7 @@
         </div>
     </div>
     </div>
-
+    @include("dashboard.solicitante.create")
 @endsection
 
 
