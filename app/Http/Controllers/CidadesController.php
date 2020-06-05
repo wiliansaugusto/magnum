@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Valor;
 use Illuminate\Http\Request;
 use App\Cidade;
 
@@ -89,8 +90,15 @@ class CidadesController extends Controller
     {
 
         $cidade = Cidade::find($id);
-        $cidade->delete();
-        return redirect('dashboard/config');
+        $valor = Valor::where('id_cidade', $id)->get();
+        if (sizeof($valor) > 0) {
+            return redirect('dashboard/config');
+
+        }else{
+            $cidade->delete();
+            return redirect('dashboard/config');
+
+        }
     }
 
 }

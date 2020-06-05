@@ -30,16 +30,22 @@
             <div class="col-md-6 col-sm-12  ">
                 @include('dashboard.cidade.create')
             </div>
+            <div class="col-md-6 col-sm-12  ">
+                @include('dashboard.estado.create')
+
+            </div>
         </div>
     </div>
     @php
         $usuarios = App\Usuario::select('id','nm_usuario','created_at')->get();
         $tipos = App\TiposDeServico::all();
         $cidades = App\Cidade::all();
+        $estados = App\Estado::all();
 
     @endphp
     @include('dashboard.usuario.list', ['usuarios' => $usuarios])
     @include('dashboard.tipoServico.list',['tipos'=>$tipos])
     @include('dashboard.cidade.list',['cidades'=>$cidades])
+    @include('dashboard.estado.list',['estados'=>$estados])
 
 @endsection

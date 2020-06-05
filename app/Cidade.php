@@ -14,7 +14,7 @@ class Cidade extends Model
     ];
     public $timestamps=false;
 
-    public function valores()
+    public function cidade()
     {
         return $this->hasMany('App\Valor', 'id_cidade');
     }
