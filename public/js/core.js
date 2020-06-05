@@ -287,6 +287,82 @@ $(document).ready(function () {
             }
         });
     });
+    $('#pesquisarPais').click(function (event) {
+        event.preventDefault();
+        var  data  = $("#estadoList").serialize();
+        var id = $("#pais").val();
+       $.ajax({
+            method: "POST",
+            url: "/dashboard/pesquisarpais/"+id,
+            data: data
+        }).done(function (data) {
+            if(data <=0){
+                $("#estadoResp").html(
+                       " <td id='estado_error'>Sem estados cadastrados</td>"
+                )
+            }else{
+                $("#estado_error").remove();
+                var estados = data;
+                var estadoInput = "<div class='col-md-10 col-sm-10'>";
+                estadoInput +="<form id='cidadeList'><label id='id_estado'>Estados</label> "+
+                    "<meta name='csrf-token' content='{{ csrf_token() }}'>"+
+                    "<select id='estado' name='nm_estado' class='form-control form-control-sm select-find'style='width: 100%' required>"+
+                    "<option select disabled>Selecionar Estado</option>";
+
+                        for (var i=0 ; i<estados.length ; i++) {
+                              estadoInput += "<option class='form-control form-control-sm' value='" + estados[i]['id'] + "'>" +
+                                 estados[i]['nm_estado'] +
+                                "</option>";
+                        }
+               estadoInput +="</select></div>"+
+                    "<div class='col-md-1 col-sm-1'>"+
+                    "<button type='button' id='pesquisarEstados' class='btn btn-primary btn-sm float-left' style='width: 100%'>"+
+                    "<i class='fa fa-search'></i></button></div></form></div>";
+                    $("#estadoResp").append(estadoInput);
+
+            }
+        });
+
+    });
+
+    $(document).on( 'click','#pesquisarEstados',function (event) {
+        event.preventDefault();
+        $("#tabelaCidade").remove();
+
+        var data = $("#cidadeList").serialize();
+        var idEstado = $("#estado").val();
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: "POST",
+            url: "/dashboard/pesquisarestados/"+ idEstado,
+            data: data
+        }).done(function (data) {
+            var cidade = data;
+            var cidadesInput = "<table id='tabelaCidade' class='table table-striped table-sm table-hover'>";
+            cidadesInput += "<thead class='thead-light'>";
+            cidadesInput += "<tr><th >Cidades</th><th>Estado</th><th></th></tr></thead><tbody>";
+
+            if (cidade <= 0) {
+                cidadesInput += "<tr><td colspan='3' class='text-center' >Sem Cidades Cadastradas</td></tr>";
+            } else {
+                for (var i = 0; i < cidade.length; i++) {
+                    console.log( cidade[i]['nm_cidade']);
+                    console.log( cidade[i]['id']);
+                    cidadesInput += "<tr>";
+                    cidadesInput += "<td colspan='2'>" + cidade[i]['nm_cidade'] + "</td>";
+                    cidadesInput += "<td class='text-right'><button type='button' class='btn btn-danger btn-sm ml-1'";
+                    cidadesInput += "data-toggle='modal'data-target='#modalCidadeDel"+cidade[i]['id']+"'><i class='fa fa-trash'></i></button></td></tr>";
+                }
+            }
+            cidadesInput += "</tbody></table>";
+            $("#cidadesResp").append(cidadesInput);
+
+
+    });
+
+});
     //Busca de CEP
     $("#nr_cep").focusout(function () {
         $.ajax({

@@ -29,7 +29,7 @@
                     @endif
                 </div>
                 <div class="col-md-4">
-                    <label for="ds_sg_estado">{{ __('Estados') }}</label>
+                    <label for="ds_sg_estado">{{ __('Sigla Estados') }}</label>
                     <input id="ds_sg_estado" type="text"
                            class="form-control form-control-sm{{ $errors->has('ds_sg_estado') ? ' is-invalid' : '' }}"
                            name="ds_sg_estado" value="{{ old('ds_sg_estado') }}"  autofocus

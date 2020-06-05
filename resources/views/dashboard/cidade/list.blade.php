@@ -10,10 +10,10 @@
             </div>
             <div class="modal-body">
 
-                <table class="table table-striped table-sm table-hover">
+                <table class="table table-striped table-sm table-hover " hidden>
                     <thead class="thead-light">
                     <tr>
-                        <th >Cidades</th>
+                        <th>Cidades</th>
                         <th>Estado</th>
                         <th></th>
                     </tr>
@@ -22,30 +22,48 @@
 
                     @if( sizeof($cidades) == 0)
                         <tr>
-                            <td colspan="3" class="text-center" >Sem Cidades Cadastradas</td>
+                            <td colspan="3" class="text-center">Sem Cidades Cadastradas</td>
                         </tr>
                     @else
-                    @foreach ($cidades as $cidade)
-
-                            <tr>
-                                <td>{{$cidade->nm_cidade}}</td>
-                                <td class={{$cidade->id_estado == null ? 'table-danger' : ''}}>
-                                    {{ $cidade->id_estado == null ? 'Não Informado'
-                                    : $cidade->estado->nm_estado }}</td>
-                                <td class=" text-right">
-                                    <button type="button" class="btn btn-danger btn-sm ml-1"
-                                            data-toggle="modal"
-                                            data-target="#modalCidadeDel{{$cidade->id}}"><i
-                                            class='fa fa-trash'></i></button>
-                                    @include('dashboard.cidade.delete',['cidade'=>$cidade])
-
-                                </td>
-                            </tr>
-                    @endforeach
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="col-md-10 col-sm-10">
+                                    <form id="estadoList" >
+                                        @csrf
+                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                    <label for="pais">Paises</label>
+                                    <select id="pais" name="nm_pais" class="form-control form-control-sm select-find"
+                                            style="width: 100%" required>
+                                        <option selected disabled>Seleciona Pais</option>
+                                        @foreach ($paises= App\Pais::All() as $pais)
+                                            <option class="form-control form-control-sm"
+                                                    value="{{$pais->id}}">
+                                                {{$pais->nm_pais}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-1 col-sm-1">
+                                    <button type="button" id="pesquisarPais" class="btn btn-primary btn-sm float-left" style="width: 100%">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                                </div>
                     @endif
+                    </form>
+
+                            <div class="form-group row d-flex justify-content-center" id="estadoResp">
+
+                            </div>
+                            <div class="form-group row d-flex justify-content-center" id="cidadesResp">
+                            </div>
+
                     </tbody>
                 </table>
+                @if(isset($cidade))
+                @include('dashboard.cidade.delete',['cidade'=>$cidade])
+                @endif
             </div>
         </div>
     </div>
 </div>
+

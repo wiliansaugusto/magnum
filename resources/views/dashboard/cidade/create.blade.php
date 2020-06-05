@@ -36,10 +36,13 @@
                             $estados = App\Estado::all();
                         @endphp
                         @foreach ( $estados as $estado)
-                            <option value="{{$estado->id}}">{{$estado->nm_estado }}</option>
+                            <option value="{{$estado->id}}">{{$estado->nm_estado }} -
+                                {{($estado->pais->nm_pais ?? 'Não Informado')}}</option>
                         @endforeach
                     </select>
                 </div>
+
+
             </div>
             <div class="ln_solid"></div>
             <div class="item form-group text-right">

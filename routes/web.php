@@ -64,6 +64,8 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 
     Route::post('estado','EstadosController@store');
     Route::delete('estado/{id}','EstadosController@destroy');
+    Route::post('pesquisarpais/{id}', 'EstadosController@pesquisarPais');
+    Route::post('pesquisarestados/{id}', 'EstadosController@pesquisarEstado');
 
 //    Route::post('pesquisar/', 'PalestranteController@search');
 
