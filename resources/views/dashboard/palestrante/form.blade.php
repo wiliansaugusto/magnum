@@ -824,12 +824,12 @@
                                                                 <div class="col-md-2">
                                                                     <button type="button" class="btn btn-primary btn-sm"
                                                                             data-toggle="modal"
-                                                                            data-target="#frmEnderecoPalestranteModal">
+                                                                            data-target="#frmEnderecoModal">
                                                                         <i class="fa fa-plus"></i> Endereço
                                                                     </button>
                                                                 </div>
                                                                 <div class="col-md-10">
-                                                                    <table id="tblEnderecoPalestrante"
+                                                                    <table id="tblEndereco"
                                                                            class="table table-sm table-striped">
                                                                         <thead>
                                                                         <tr>

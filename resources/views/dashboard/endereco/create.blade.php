@@ -15,7 +15,7 @@
                     <div id="msg-error-endereco" class="alert alert-danger" role="alert" style="display: none">
                         Não foi possível cadastrar um endereço nos dados cadastrais!
                     </div>
-                    <div class=nav>
+                    
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-2">
                             <label for="nr_cep">CEP</label>
@@ -43,19 +43,47 @@
                         </div>
                     </div>
                     <div class="form-group row d-flex justify-content-center">
-                        <div class="col-md-5">
+                    
+                        <div class="col-md-4">
+                            <label for="id_pais">País</label>
+                            @php
+                                $paises = App\Pais::all();
+                            @endphp
+
+                            <select id="id_pais" name="id_pais" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                @foreach ($paises as $pais)
+                                    <option value="{{$pais->id}}">
+                                        {{$pais->nm_pais}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="id_estado">Estado</label>
+                            <select id="id_estado" name="id_estado" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="id_cidade">Cidade</label>
+                            <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                
+                            </select>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    <div class="form-group row d-flex justify-content-center">
+                        <div class="col-md-12">
                             <label for="nm_bairro">Bairro</label>
                             <input id="nm_bairro" class="form-control form-control-sm" name="nm_bairro" type="text"
-                                   value="" />
-                        </div>
-                        <div class="col-md-5">
-                            <label for="nm_cidade">Cidade</label>
-                            <input id="nm_cidade" type="text" class="form-control form-control-sm" name="nm_cidade"
-                                   value="" />
-                        </div>
-                        <div class="col-md-2">
-                            <label for="nm_estado">Estado</label>
-                            <input id="nm_estado" type="text" class="form-control form-control-sm" name="nm_estado"
                                    value="" />
                         </div>
                     </div>
@@ -74,7 +102,7 @@
                             </select>
                         </div>
                     </div>
-                    </div>
+                    
                 </div>
 
                 <div class="modal-footer">
