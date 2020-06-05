@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
+                            <div id="text-editor" class="form-group">
                                 <textarea class="form-control editor" name="descricao"
                                     rows="4"></textarea>
                             </div>
@@ -31,7 +31,7 @@
                     <button type="submit" class="btn btn-primary btn-sm">
                         <i class="fa fa-save"></i> Salvar
                     </button>
-                    <button type="reset" class="btn btn-warning text-white btn-sm">
+                    <button id="ds_reset" type="reset" class="btn btn-warning text-white btn-sm">
                         <i class="fa fa-eraser"></i> Limpar
                     </button>
                     <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">

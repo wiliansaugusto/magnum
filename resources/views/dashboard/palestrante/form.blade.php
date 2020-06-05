@@ -1,11 +1,14 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            @if($action == "criar")
+                <h3>Cadastrar Palestrante</h3>
+            @else
                 <h3>Editar Palestrante</h3>
-            </div>
+            @endIf
         </div>
         <div class="clearfix"></div>
         <div class="row">
@@ -1372,6 +1375,7 @@
             </div>
         </div>
     </div>
+</div>
 
     @include('dashboard.banco.create')
     @include('dashboard.valor.create')
