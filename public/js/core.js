@@ -514,6 +514,10 @@ $(document).ready(function () {
         $(this).closest('.alert').fadeOut();
     });
 
+    $("#ds_reset").click(function () {
+        $(".simditor-body").html("");
+    });
+
     //Select2
     $('.select-find').select2({
         placeholder: "Buscar",
@@ -537,14 +541,15 @@ $(document).ready(function () {
 
         if (limit) {
             $("#chrCont").css("display", "block");
-            $('textarea[name="descricao"]').removeClass("editor");
-            $('textarea[name="descricao"]').addClass("ds_chamada");
-            $('textarea[name="descricao"]').attr("maxlength", 300);
+            $("#text-editor").html("");
+            $("#text-editor").html("<textarea id='ds_chamada' class='form-control ds_chamada' name='descricao'" +
+                "                                    rows='4' maxlength='300'></textarea>");
         } else {
             $("#chrCont").css("display", "none");
-            $('textarea[name="descricao"]').removeClass("ds_chamada");
-            $('textarea[name="descricao"]').addClass("editor");
-            $('textarea[name="descricao"]').removeAttr("maxlength");
+
+            $("#text-editor").html("");
+            $("#text-editor").html("<textarea class='form-control editor' name='descricao'" +
+                "rows='4'></textarea>");
 
             Simditor.locale = 'pt-BR';
             toolbar = ['bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul',
@@ -557,7 +562,6 @@ $(document).ready(function () {
                 pasteImage: false,
                 upload: false
             });
-
             editor.setValue("");
         }
 
@@ -652,9 +656,10 @@ $(document).ready(function () {
 
     // (function() {
     //     $(function() {
-    //         var $preview, toolbar;
+    //         var toolbar;
     //         Simditor.locale = 'pt-BR';
-    //         toolbar = ['bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'table', '|', 'indent', 'outdent', 'alignment'];
+    //         toolbar = ['bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul',
+    //             'blockquote', 'table', '|', 'indent', 'outdent', 'alignment'];
     //
     //         editor = new Simditor({
     //             textarea: $('.editor'),
