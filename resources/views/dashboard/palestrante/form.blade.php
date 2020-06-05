@@ -508,6 +508,59 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group row d-flex justufy-content-center">
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <label for="endereco">Endereços</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <button type="button" class="btn btn-primary btn-sm"
+                                                                        data-toggle="modal"
+                                                                        data-target="#frmEnderecoModal">
+                                                                    <i class="fa fa-plus"></i> Endereço
+                                                                </button>
+                                                                <div class="col-md-10">
+                                                                <table id="tblEndereco"
+                                                                       class="table table-sm table-striped">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Tipo de Endereço</th>
+                                                                        <th scope="col">Endereco</th>
+                                                                        <th scope="col"></th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    @if(sizeof($data->enderecos) > 0)
+                                                                        @foreach($data->enderecos as $endereco)
+                                                                            <tr id="{{$endereco->id}}">
+                                                                                <td>{{$endereco->tiposendereco->nm_tipo_endereco}}</td>
+                                                                                <td>{{$endereco->ds_endereco}}</td>
+                                                                                <td class='text-right'>
+                                                                                    <button id='excluirEndereco-{{$endereco->id}}'
+                                                                                            type='button'
+                                                                                            class='btn btn-danger btn-sm'
+                                                                                            data-id="{{$contato->id}}"
+                                                                                            data-toggle='modal'
+                                                                                            data-target='#frmRemoverEnderecoModal'>
+                                                                                        <i
+                                                                                            class='fa fa-trash'></i>
+                                                                                    </button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    @else
+                                                                        <tr id="endeeco-null">
+                                                                            <td colspan="3" class="text-center"> Nenhum
+                                                                                endereço
+                                                                                registrado
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endif
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+
                                                     </div>
                                                     <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
                                                          aria-labelledby="nav-profile-tab">

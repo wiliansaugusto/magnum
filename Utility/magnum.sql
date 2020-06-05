@@ -2,7 +2,7 @@
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           10.1.35-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win32
--- HeidiSQL Versão:              11.0.0.5mgm_tbl_proposta919
+-- HeidiSQL Versão:              11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -11,17 +11,73 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+
+-- Copiando estrutura do banco de dados para bd_magnum
+CREATE DATABASE IF NOT EXISTS `bd_magnum` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `bd_magnum`;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_acessor
+CREATE TABLE IF NOT EXISTS `mgm_tbl_acessor` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_acessor` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `id_tipo_acessor` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_acessor_id_palestrante_foreign` (`id_palestrante`),
+  KEY `mgm_tbl_acessor_id_tipo_acessor_foreign` (`id_tipo_acessor`),
+  CONSTRAINT `mgm_tbl_acessor_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_acessor_id_tipo_acessor_foreign` FOREIGN KEY (`id_tipo_acessor`) REFERENCES `mgm_tbl_tipo_acessor` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_acessor: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_acessor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_acessor` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_banco
+CREATE TABLE IF NOT EXISTS `mgm_tbl_banco` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nr_conta` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nr_agencia` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_nm_banco` bigint(20) unsigned NOT NULL,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_banco_id_nm_banco_foreign` (`id_nm_banco`),
+  KEY `mgm_tbl_banco_id_palestrante_foreign` (`id_palestrante`),
+  CONSTRAINT `mgm_tbl_banco_id_nm_banco_foreign` FOREIGN KEY (`id_nm_banco`) REFERENCES `mgm_tbl_nome_banco` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_banco_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_banco: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_banco` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_banco` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_categoria
+CREATE TABLE IF NOT EXISTS `mgm_tbl_categoria` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_categoria: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_categoria` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_categoria` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_cidade
+CREATE TABLE IF NOT EXISTS `mgm_tbl_cidade` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_cidade` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_estado` bigint(20) unsigned DEFAULT NULL,
+  `cod_ibge` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_cidade_id_estado_foreign` (`id_estado`),
+  CONSTRAINT `mgm_tbl_cidade_id_estado_foreign` FOREIGN KEY (`id_estado`) REFERENCES `mgm_tbl_estado` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5571 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_cidade: ~5.550 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_cidade` DISABLE KEYS */;
@@ -5598,21 +5654,125 @@ INSERT INTO `mgm_tbl_cidade` (`id`, `nm_cidade`, `id_estado`, `cod_ibge`) VALUES
 	(5570, 'Brasília', 7, 5300108);
 /*!40000 ALTER TABLE `mgm_tbl_cidade` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_cliente
+CREATE TABLE IF NOT EXISTS `mgm_tbl_cliente` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_cliente` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `ind_cliente` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'C = Cliente\\n\nS = Solicitante\\n',
+  `tipo_cliente` char(1) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'F = Pessoa Física \r\nJ = Pessoa Jurídica\r\nO = Outros',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `cpf` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cnpj` varchar(14) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `obs_cliente` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_cliente: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_cliente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_cliente` ENABLE KEYS */;
 
--- Copiando dados para a tabela bd_magnum.mgm_tbl_contato: ~0 rows (aproximadamente)
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_contato
+CREATE TABLE IF NOT EXISTS `mgm_tbl_contato` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ds_contato` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_tp_contato` bigint(20) unsigned NOT NULL,
+  `id_palestrante` bigint(20) unsigned DEFAULT NULL,
+  `id_acessor` bigint(20) unsigned DEFAULT NULL,
+  `id_cliente` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_contato_id_palestrante_foreign` (`id_palestrante`),
+  KEY `mgm_tbl_contato_id_acessor_foreign` (`id_acessor`),
+  KEY `mgm_tbl_contato_id_tp_contato_foreign` (`id_tp_contato`),
+  KEY `mgm_tbl_contato_id_cliente_foreign` (`id_cliente`),
+  CONSTRAINT `mgm_tbl_contato_id_acessor_foreign` FOREIGN KEY (`id_acessor`) REFERENCES `mgm_tbl_acessor` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_contato_id_cliente_foreign` FOREIGN KEY (`id_cliente`) REFERENCES `mgm_tbl_cliente` (`id`),
+  CONSTRAINT `mgm_tbl_contato_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_contato_id_tp_contato_foreign` FOREIGN KEY (`id_tp_contato`) REFERENCES `mgm_tbl_tipo_contato` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Copiando dados para a tabela bd_magnum.mgm_tbl_contato: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_contato` DISABLE KEYS */;
+INSERT INTO `mgm_tbl_contato` (`id`, `ds_contato`, `created_at`, `updated_at`, `id_tp_contato`, `id_palestrante`, `id_acessor`, `id_cliente`) VALUES
+	(1, '13 992856955', '2020-06-05 14:54:58', '2020-06-05 14:54:58', 1, 1, NULL, NULL),
+	(2, 'user@user.com.br', '2020-06-05 14:55:14', '2020-06-05 14:55:14', 2, 1, NULL, NULL);
 /*!40000 ALTER TABLE `mgm_tbl_contato` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_dados_contratuais
+CREATE TABLE IF NOT EXISTS `mgm_tbl_dados_contratuais` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_razao_social` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nr_cnpj` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nr_cpf` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nr_insc_estadual` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nr_rg` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dt_nascimento` date DEFAULT NULL,
+  `ds_observacao` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nr_insc_municipal` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nm_completo` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_dados_contratuais_id_palestrante_foreign` (`id_palestrante`),
+  CONSTRAINT `mgm_tbl_dados_contratuais_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_dados_contratuais: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_dados_contratuais` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_dados_contratuais` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_endereco
+CREATE TABLE IF NOT EXISTS `mgm_tbl_endereco` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_endereco` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_complemento` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nm_bairro` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nm_cidade` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nm_estado` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nr_endereco` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_palestrante` bigint(20) unsigned DEFAULT NULL,
+  `id_tp_endereco` bigint(20) unsigned DEFAULT NULL,
+  `nr_cep` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id_dado_contratual` bigint(20) unsigned DEFAULT NULL,
+  `id_cidade` bigint(20) unsigned DEFAULT NULL,
+  `id_evento` bigint(20) unsigned DEFAULT NULL,
+  `id_cliente` bigint(20) unsigned DEFAULT NULL,
+  `obs_endereco` longtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_endereco_id_tp_endereco_foreign` (`id_tp_endereco`),
+  KEY `mgm_tbl_endereco_id_palestrante_foreign` (`id_palestrante`),
+  KEY `mgm_tbl_endereco_id_dado_contratual_foreign` (`id_dado_contratual`),
+  KEY `mgm_tbl_endereco_id_cidade_foreign` (`id_cidade`),
+  KEY `mgm_tbl_endereco_id_evento_foreign` (`id_evento`),
+  KEY `mgm_tbl_endereco_id_cliente_foreign` (`id_cliente`),
+  CONSTRAINT `mgm_tbl_endereco_id_cidade_foreign` FOREIGN KEY (`id_cidade`) REFERENCES `mgm_tbl_cidade` (`id`),
+  CONSTRAINT `mgm_tbl_endereco_id_cliente_foreign` FOREIGN KEY (`id_cliente`) REFERENCES `mgm_tbl_cliente` (`id`),
+  CONSTRAINT `mgm_tbl_endereco_id_dado_contratual_foreign` FOREIGN KEY (`id_dado_contratual`) REFERENCES `mgm_tbl_dados_contratuais` (`id`),
+  CONSTRAINT `mgm_tbl_endereco_id_evento_foreign` FOREIGN KEY (`id_evento`) REFERENCES `mgm_tbl_evento` (`id`),
+  CONSTRAINT `mgm_tbl_endereco_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_endereco_id_tp_endereco_foreign` FOREIGN KEY (`id_tp_endereco`) REFERENCES `mgm_tbl_tipo_endereco` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_endereco: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_endereco` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_endereco` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_estado
+CREATE TABLE IF NOT EXISTS `mgm_tbl_estado` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_estado` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ds_sg_estado` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_pais` bigint(20) unsigned DEFAULT NULL,
+  `cod_ibge` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_estado_id_pais_foreign` (`id_pais`),
+  CONSTRAINT `mgm_tbl_estado_id_pais_foreign` FOREIGN KEY (`id_pais`) REFERENCES `mgm_tbl_pais` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_estado: ~27 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_estado` DISABLE KEYS */;
@@ -5646,9 +5806,36 @@ INSERT INTO `mgm_tbl_estado` (`id`, `nm_estado`, `ds_sg_estado`, `id_pais`, `cod
 	(27, 'Tocantins', 'TO', 31, 17);
 /*!40000 ALTER TABLE `mgm_tbl_estado` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_evento
+CREATE TABLE IF NOT EXISTS `mgm_tbl_evento` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_evento` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tema_evento` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tema_palestra_evento` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dt_evento_inicio` datetime DEFAULT NULL,
+  `dt_evento_fim` datetime DEFAULT NULL,
+  `obs_data_evento` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `qtde_participantes_evento` bigint(20) DEFAULT NULL,
+  `perfil_participante_evento` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `objetivo_evento` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `id_tipo_evento` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_evento_id_tipo_evento` (`id_tipo_evento`),
+  CONSTRAINT `mgm_tbl_evento_id_tipo_evento` FOREIGN KEY (`id_tipo_evento`) REFERENCES `mgm_tbl_tipo_evento` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_evento: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_evento` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_evento` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_idiomas
+CREATE TABLE IF NOT EXISTS `mgm_tbl_idiomas` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ds_idioma` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_idiomas: ~98 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_idiomas` DISABLE KEYS */;
@@ -5753,9 +5940,33 @@ INSERT INTO `mgm_tbl_idiomas` (`id`, `ds_idioma`, `created_at`, `updated_at`) VA
 	(98, 'Zulu', '2020-06-02 17:08:51', '2020-06-02 17:08:51');
 /*!40000 ALTER TABLE `mgm_tbl_idiomas` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_idiomas_palestrante
+CREATE TABLE IF NOT EXISTS `mgm_tbl_idiomas_palestrante` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `id_idiomas` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_idiomas_palestrante_id_palestrante_foreign` (`id_palestrante`),
+  KEY `mgm_tbl_idiomas_palestrante_id_idiomas_foreign` (`id_idiomas`),
+  CONSTRAINT `mgm_tbl_idiomas_palestrante_id_idiomas_foreign` FOREIGN KEY (`id_idiomas`) REFERENCES `mgm_tbl_idiomas` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_idiomas_palestrante_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_idiomas_palestrante: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_idiomas_palestrante` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_idiomas_palestrante` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_nome_banco
+CREATE TABLE IF NOT EXISTS `mgm_tbl_nome_banco` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_banco` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cd_banco` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_nome_banco: ~11 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_nome_banco` DISABLE KEYS */;
@@ -5772,6 +5983,15 @@ INSERT INTO `mgm_tbl_nome_banco` (`id`, `nm_banco`, `cd_banco`, `created_at`, `u
 	(10, 'Banco Safra S.A.', 422, '2020-06-02 17:08:47', '2020-06-02 17:08:47'),
 	(11, 'Banco Rendimento S.A.', 633, '2020-06-02 17:08:47', '2020-06-02 17:08:47');
 /*!40000 ALTER TABLE `mgm_tbl_nome_banco` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_pais
+CREATE TABLE IF NOT EXISTS `mgm_tbl_pais` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_pais` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cod_speed` int(11) NOT NULL,
+  `cod_siscomex` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_pais: ~243 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_pais` DISABLE KEYS */;
@@ -6021,17 +6241,90 @@ INSERT INTO `mgm_tbl_pais` (`id`, `nm_pais`, `cod_speed`, `cod_siscomex`) VALUES
 	(243, 'ZIMBABUE', 6653, 665);
 /*!40000 ALTER TABLE `mgm_tbl_pais` ENABLE KEYS */;
 
--- Copiando dados para a tabela bd_magnum.mgm_tbl_palestrante: ~0 rows (aproximadamente)
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_palestrante
+CREATE TABLE IF NOT EXISTS `mgm_tbl_palestrante` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_palestrante` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ds_nacionalidade` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_ativo` char(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ds_visivel_site` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_chamada` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_curriculo` longtext COLLATE utf8mb4_unicode_ci,
+  `ds_curriculo_tecnico` longtext COLLATE utf8mb4_unicode_ci,
+  `ds_observacao` longtext COLLATE utf8mb4_unicode_ci,
+  `ds_investimento` longtext COLLATE utf8mb4_unicode_ci,
+  `ds_forma_pagamento` longtext COLLATE utf8mb4_unicode_ci,
+  `ds_equipe_necessario` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `rank_palestrante` int(11) DEFAULT NULL,
+  `id_usuario` bigint(20) unsigned NOT NULL,
+  `ds_titulo_video` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_url_video` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_descricao_video` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ds_sexo` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nm_completo_palestrante` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nr_rg_palestrante` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nr_cpf_palestrante` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dt_nascimento_palestrante` date DEFAULT NULL,
+  `cidade_palestrante` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_palestrante_id_usuario_foreign` (`id_usuario`),
+  CONSTRAINT `mgm_tbl_palestrante_id_usuario_foreign` FOREIGN KEY (`id_usuario`) REFERENCES `mgm_tbl_usuario` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Copiando dados para a tabela bd_magnum.mgm_tbl_palestrante: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_palestrante` DISABLE KEYS */;
+INSERT INTO `mgm_tbl_palestrante` (`id`, `nm_palestrante`, `ds_nacionalidade`, `ds_foto`, `ds_ativo`, `ds_visivel_site`, `ds_chamada`, `ds_curriculo`, `ds_curriculo_tecnico`, `ds_observacao`, `ds_investimento`, `ds_forma_pagamento`, `ds_equipe_necessario`, `created_at`, `updated_at`, `rank_palestrante`, `id_usuario`, `ds_titulo_video`, `ds_url_video`, `ds_descricao_video`, `ds_sexo`, `nm_completo_palestrante`, `nr_rg_palestrante`, `nr_cpf_palestrante`, `dt_nascimento_palestrante`, `cidade_palestrante`) VALUES
+	(1, 'José', NULL, NULL, 'n', 'n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-06-05 08:10:48', '2020-06-05 08:10:48', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `mgm_tbl_palestrante` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_palestrante_acessor
+CREATE TABLE IF NOT EXISTS `mgm_tbl_palestrante_acessor` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `id_acessor` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_palestrante_acessor_id_palestrante_foreign` (`id_palestrante`),
+  KEY `mgm_tbl_palestrante_acessor_id_acessor_foreign` (`id_acessor`),
+  CONSTRAINT `mgm_tbl_palestrante_acessor_id_acessor_foreign` FOREIGN KEY (`id_acessor`) REFERENCES `mgm_tbl_acessor` (`id`),
+  CONSTRAINT `mgm_tbl_palestrante_acessor_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_palestrante_acessor: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_palestrante_acessor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_palestrante_acessor` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_palestrante_categoria
+CREATE TABLE IF NOT EXISTS `mgm_tbl_palestrante_categoria` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `id_categoria` bigint(20) unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_subcategoria` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_palestrante_categoria_id_subcategoria_foreign` (`id_subcategoria`),
+  KEY `mgm_tbl_palestrante_categoria_id_palestrante_foreign` (`id_palestrante`),
+  KEY `mgm_tbl_palestrante_categoria_id_categoria_foreign` (`id_categoria`),
+  CONSTRAINT `mgm_tbl_palestrante_categoria_id_categoria_foreign` FOREIGN KEY (`id_categoria`) REFERENCES `mgm_tbl_categoria` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_palestrante_categoria_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_palestrante_categoria_id_subcategoria_foreign` FOREIGN KEY (`id_subcategoria`) REFERENCES `mgm_tbl_sub_categoria` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_palestrante_categoria: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_palestrante_categoria` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_palestrante_categoria` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_perfil
+CREATE TABLE IF NOT EXISTS `mgm_tbl_perfil` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_perfil` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_perfil: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_perfil` DISABLE KEYS */;
@@ -6039,17 +6332,68 @@ INSERT INTO `mgm_tbl_perfil` (`id`, `nm_perfil`) VALUES
 	(1, 'Administrador');
 /*!40000 ALTER TABLE `mgm_tbl_perfil` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_proposta
+CREATE TABLE IF NOT EXISTS `mgm_tbl_proposta` (
+  `id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `num_proposta` bigint(20) NOT NULL,
+  `status_proposta` char(1) COLLATE utf8_unicode_ci NOT NULL COMMENT '1 - Solicitada (Só para o site)\r\n2 - Em andamento\r\n3 – Aguardando retorno\r\n4 - Aprovada\r\n5 - Reprovada\r\n',
+  `obs_proposta` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `id_cliente` bigint(20) unsigned NOT NULL,
+  `id_evento` bigint(20) unsigned NOT NULL,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `id_tipo_servico` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_proposta_id_cliente` (`id_cliente`),
+  KEY `mgm_tbl_proposta_id_evento` (`id_evento`),
+  KEY `mgm_tbl_proposta_id_palestrante` (`id_palestrante`),
+  KEY `mgm_tbl_proposta_id_tipo_servico` (`id_tipo_servico`),
+  CONSTRAINT `mgm_tbl_proposta_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `mgm_tbl_cliente` (`id`),
+  CONSTRAINT `mgm_tbl_proposta_id_evento` FOREIGN KEY (`id_evento`) REFERENCES `mgm_tbl_evento` (`id`),
+  CONSTRAINT `mgm_tbl_proposta_id_palestrante` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`),
+  CONSTRAINT `mgm_tbl_proposta_id_tipo_servico` FOREIGN KEY (`id_tipo_servico`) REFERENCES `mgm_tbl_tipo_servico` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_proposta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_proposta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_proposta` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_sub_categoria
+CREATE TABLE IF NOT EXISTS `mgm_tbl_sub_categoria` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_sub_cat` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_categoria` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_sub_categoria_id_categoria_foreign` (`id_categoria`),
+  CONSTRAINT `mgm_tbl_sub_categoria_id_categoria_foreign` FOREIGN KEY (`id_categoria`) REFERENCES `mgm_tbl_categoria` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_sub_categoria: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_sub_categoria` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_sub_categoria` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_tipo_acessor
+CREATE TABLE IF NOT EXISTS `mgm_tbl_tipo_acessor` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nm_tipo_acessor` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_tipo_acessor: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_tipo_acessor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_tipo_acessor` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_tipo_contato
+CREATE TABLE IF NOT EXISTS `mgm_tbl_tipo_contato` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_tipo_contato` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_tipo_contato: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_tipo_contato` DISABLE KEYS */;
@@ -6061,6 +6405,15 @@ INSERT INTO `mgm_tbl_tipo_contato` (`id`, `nm_tipo_contato`, `created_at`, `upda
 	(5, 'WhatsApp', '2020-06-02 17:08:48', '2020-06-02 17:08:48');
 /*!40000 ALTER TABLE `mgm_tbl_tipo_contato` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_tipo_endereco
+CREATE TABLE IF NOT EXISTS `mgm_tbl_tipo_endereco` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nm_tipo_endereco` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_tipo_endereco: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_tipo_endereco` DISABLE KEYS */;
 INSERT INTO `mgm_tbl_tipo_endereco` (`id`, `nm_tipo_endereco`, `created_at`, `updated_at`) VALUES
@@ -6068,9 +6421,28 @@ INSERT INTO `mgm_tbl_tipo_endereco` (`id`, `nm_tipo_endereco`, `created_at`, `up
 	(2, 'Endereço de Correspondência', '2020-06-02 17:08:48', '2020-06-02 17:08:48');
 /*!40000 ALTER TABLE `mgm_tbl_tipo_endereco` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_tipo_evento
+CREATE TABLE IF NOT EXISTS `mgm_tbl_tipo_evento` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nm_tipo_evento` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_tipo_evento: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_tipo_evento` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_tipo_evento` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_tipo_servico
+CREATE TABLE IF NOT EXISTS `mgm_tbl_tipo_servico` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nm_tipo_servico` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sg_tipo_servico` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_tipo_servico: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_tipo_servico` DISABLE KEYS */;
@@ -6087,15 +6459,65 @@ INSERT INTO `mgm_tbl_tipo_servico` (`id`, `created_at`, `updated_at`, `nm_tipo_s
 	(10, '2020-06-02 17:13:56', '2020-06-02 17:13:56', 'Aula Show', 'AS');
 /*!40000 ALTER TABLE `mgm_tbl_tipo_servico` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_usuario
+CREATE TABLE IF NOT EXISTS `mgm_tbl_usuario` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ds_nickname` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_perfil` bigint(20) unsigned NOT NULL,
+  `nm_usuario` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `mgm_tbl_usuario_email_unique` (`email`),
+  KEY `mgm_tbl_usuario_id_perfil_foreign` (`id_perfil`),
+  CONSTRAINT `mgm_tbl_usuario_id_perfil_foreign` FOREIGN KEY (`id_perfil`) REFERENCES `mgm_tbl_perfil` (`id`),
+  CONSTRAINT `mgm_tbl_usuario_perfil_id_foreign` FOREIGN KEY (`id_perfil`) REFERENCES `mgm_tbl_perfil` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_usuario: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_usuario` DISABLE KEYS */;
 INSERT INTO `mgm_tbl_usuario` (`id`, `ds_nickname`, `created_at`, `updated_at`, `id_perfil`, `nm_usuario`, `email`, `email_verified_at`, `password`, `remember_token`, `deleted_at`) VALUES
-	(2, 'Master', '2020-06-02 17:13:46', '2020-06-02 17:13:46', 1, 'Master', 'master@master.com', NULL, '$2y$10$0T6LCMdKN69Dtr725dtuIOrTDNnbQZEqrz9v4kB.pcg9uZ139abVK', NULL, NULL);
+	(2, 'Master', '2020-06-02 17:13:46', '2020-06-02 17:13:46', 1, 'Master', 'master@master.com', NULL, '$2y$10$0T6LCMdKN69Dtr725dtuIOrTDNnbQZEqrz9v4kB.pcg9uZ139abVK', '7d4o6Lef7QZoukVYoJPesVeMJ5vWUJeSJO1phFIXHrzHfi2uNPlIuYxE5RTx', NULL);
 /*!40000 ALTER TABLE `mgm_tbl_usuario` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.mgm_tbl_valor
+CREATE TABLE IF NOT EXISTS `mgm_tbl_valor` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id_cidade` bigint(20) unsigned NOT NULL,
+  `ds_observacao` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_palestrante` bigint(20) unsigned NOT NULL,
+  `nr_valor` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_tp_servico` bigint(20) unsigned DEFAULT NULL,
+  `id_evento` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mgm_tbl_valor_id_palestrante_foreign` (`id_palestrante`),
+  KEY `mgm_tbl_valor_id_cidade_foreign` (`id_cidade`),
+  KEY `mgm_tbl_valor_id_tp_servico_foreign` (`id_tp_servico`),
+  KEY `mgm_tbl_valor_id_evento_foreign` (`id_evento`),
+  CONSTRAINT `mgm_tbl_valor_id_cidade_foreign` FOREIGN KEY (`id_cidade`) REFERENCES `mgm_tbl_cidade` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_valor_id_evento_foreign` FOREIGN KEY (`id_evento`) REFERENCES `mgm_tbl_evento` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_valor_id_palestrante_foreign` FOREIGN KEY (`id_palestrante`) REFERENCES `mgm_tbl_palestrante` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `mgm_tbl_valor_id_tp_servico_foreign` FOREIGN KEY (`id_tp_servico`) REFERENCES `mgm_tbl_tipo_servico` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.mgm_tbl_valor: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `mgm_tbl_valor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mgm_tbl_valor` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.migrations
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.migrations: ~72 rows (aproximadamente)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
@@ -6174,9 +6596,31 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(72, '2020_06_02_144316_alterar_mgm_tbl_cidade', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela bd_magnum.password_resets
+CREATE TABLE IF NOT EXISTS `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Copiando dados para a tabela bd_magnum.password_resets: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela bd_magnum.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Copiando dados para a tabela bd_magnum.users: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;

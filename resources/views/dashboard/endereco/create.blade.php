@@ -17,6 +17,55 @@
                     </div>
                     
                     <div class="form-group row d-flex justify-content-center">
+                    <div class="col-md-4">
+                            <label for="id_pais">País</label>
+                            @php
+                                $paises = App\Pais::all();
+                            @endphp
+
+                            <select id="id_pais" name="id_pais" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                @foreach ($paises as $pais)
+                                    <option value="{{$pais->id}}">
+                                        {{$pais->nm_pais}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="id_estado">Estado</label>
+                            @php
+                                $estados = App\Estado::all();
+                            @endphp
+
+                            <select id="id_estado" name="id_estado" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                @foreach ($estados as $estado)
+                                    <option value="{{$pais->id}}">
+                                        {{$estado->nm_estado}}
+                                    </option>
+                                @endforeach
+                                
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="id_cidade">Cidade</label>
+                            @php
+                                $cidades = App\Cidade::all();
+                            @endphp
+
+                            <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                @foreach ($cidades as $cidade)
+                                    <option value="{{$cidade->id}}">
+                                        {{$cidade->nm_cidade}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-md-2">
                             <label for="nr_cep">CEP</label>
                             <input id="nr_cep" class="form-control form-control-sm" name="nr_cep" type="text"
@@ -44,38 +93,8 @@
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                     
-                        <div class="col-md-4">
-                            <label for="id_pais">País</label>
-                            @php
-                                $paises = App\Pais::all();
-                            @endphp
-
-                            <select id="id_pais" name="id_pais" class="form-control form-control-sm select-find"
-                                    style="width: 100%" required>
-                                <option></option>
-                                @foreach ($paises as $pais)
-                                    <option value="{{$pais->id}}">
-                                        {{$pais->nm_pais}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="id_estado">Estado</label>
-                            <select id="id_estado" name="id_estado" class="form-control form-control-sm select-find"
-                                    style="width: 100%" required>
-                                <option></option>
-                                
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="id_cidade">Cidade</label>
-                            <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
-                                    style="width: 100%" required>
-                                <option></option>
-                                
-                            </select>
-                        </div>
+                        
+                        
                         
                         
                         
