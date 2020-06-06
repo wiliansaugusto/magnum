@@ -41,12 +41,12 @@
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
-                            <label for="id_cidade">Cidade</label>
+                            <label for="id_cidade_valor">Cidade</label>
                             @php
                                 $cidades = App\Cidade::all();
                             @endphp
 
-                            <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
+                            <select id="id_cidade_valor" name="id_cidade" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
                                 @foreach ($cidades as $item)
@@ -56,7 +56,6 @@
                                 @endforeach
                             </select>
                         </div>
-
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col md-12">

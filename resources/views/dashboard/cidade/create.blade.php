@@ -16,6 +16,38 @@
             @csrf
             <div class="form-group row d-flex justify-content-center">
                 <div class="col-md-6">
+                    <label for="id_pais_cidade">Pais</label>
+                    <select id="id_pais_cidade" name="id_pais" class="form-control form-control-sm select-find" required style="width: 100%">
+                        <option></option>
+                        @php
+                            $paises = App\Pais::all();
+                        @endphp
+                        @foreach ( $paises as $pais)
+                            <option value="{{$pais->id}}">{{$pais->nm_pais }}</option>
+                        @endforeach
+                    </select>
+
+                    @if ($errors->has('id_pais'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('id_pais') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-6">
+                    <label for="id_estado_cidade">Estado</label>
+                    <select id="id_estado_cidade" name="id_estado" class="form-control form-control-sm select-find" required style="width: 100%">
+                        <option></option>
+                    </select>
+
+                    @if ($errors->has('id_estado'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('id_estado') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row d-flex justify-content-center">
+                <div class="col-md-12">
                     <label for="nm_cidade">{{ __('Cidades') }}</label>
                     <input id="nm_cidade" type="text"
                            class="form-control form-control-sm{{ $errors->has('nm_cidade') ? ' is-invalid' : '' }}"
@@ -28,21 +60,6 @@
                         </span>
                     @endif
                 </div>
-                <div class="col-md-6">
-                    <label for="id_estado">Tipo Contato</label>
-                    <select id="id_estado" name="id_estado" class="form-control form-control-sm" required>
-                        <option selected disabled>Selecione o Estado</option>
-                        @php
-                            $estados = App\Estado::all();
-                        @endphp
-                        @foreach ( $estados as $estado)
-                            <option value="{{$estado->id}}">{{$estado->nm_estado }} -
-                                {{($estado->pais->nm_pais ?? 'Não Informado')}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-
             </div>
             <div class="ln_solid"></div>
             <div class="item form-group text-right">
