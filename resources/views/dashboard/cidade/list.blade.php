@@ -47,9 +47,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr id="listaCidadeNull">
-                            <td colspan="3" class="text-center">Sem Registros</td>
-                        </tr>
                     </tbody>
                 </table>
                 @if(isset($cidade))

@@ -131,6 +131,7 @@
     <script src="{{ asset('js/select2.min.js') }}"></script>
     <script src="{{ asset('lib/bootstrap/dist/js/bootstrap.bundle.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
     <script src="{{ asset('lib/fastclick/lib/fastclick.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
+    <script src="{{ asset('lib/datatables.net/js/jquery.dataTables.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
     <script src="{{ asset('build/js/custom.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
     <script src="{{ asset('build/js/rocket-loader.min.js') }}" data-cf-settings="c024bab70492f018f6371c66-|49" defer=""></script>
     <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>

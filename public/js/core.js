@@ -546,13 +546,14 @@ $(document).ready(function () {
             method: "GET",
             url: "/dashboard/cidade/buscaPorEstado/"+id_estado,
             success: function (data) {
-                if(data.length > 0){
-                    $("#listaCidadeNull").remove();
-                }
+                // if(data.length > 0){
+                //     $("#listaCidadeNull").remove();
+                // }
                 data.forEach(function(cidade){
                     tblCidade.append('<tr id="'+ cidade.id +'"><td>'+ cidade.nm_cidade +'</td>' +
                         '<td>remover</td></tr>');
                 });
+                $("#tblListaCidade").DataTable();
             }
         });
     });
