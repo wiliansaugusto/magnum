@@ -10,14 +10,18 @@ class Endereco extends Model
 
     protected $fillable = [
         "nm_endereco",
-        "ds_complemento", 
+        "ds_complemento",
         "nm_bairro",
-        "id_cidade",
         "nr_endereco",
-        "id_palestrante", 
+        "nr_cep",
+        "obs_endereco",
+        "id_evento",
+        "id_cliente",
+        "id_palestrante",
+        "id_cidade",
         "id_dado_contratual",
         "id_tp_endereco",
-        "nr_cep"
+
     ];
 
     public function tipoEndereco()

@@ -34,6 +34,7 @@
                 @include('dashboard.estado.create')
 
             </div>
+            
         </div>
     </div>
     @php

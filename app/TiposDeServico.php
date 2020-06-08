@@ -10,6 +10,7 @@ class TiposDeServico extends Model
 
     protected $fillable = [
         'nm_tipo_servico',
+        'sg_tipo_servico',
     ];
 
 

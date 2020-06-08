@@ -10,7 +10,7 @@ class Valor extends Model
 
     protected $fillable = [
         'nr_valor', 'id_cidade', 'ds_observacao', 'id_palestrante',
-        'id_tp_servico'
+        'id_tp_servico','id_evento'
     ];
 
     public function palestrante()

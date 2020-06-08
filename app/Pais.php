@@ -10,7 +10,9 @@ class Pais extends Model
     public $timestamps=false;
 
     protected $fillable = [
-        'nm_pais'
+        'nm_pais',
+        'cod_siscomex',
+        'cod_speed'
     ];
 
     public function estados()

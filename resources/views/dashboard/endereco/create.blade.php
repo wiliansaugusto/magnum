@@ -16,8 +16,9 @@
                         Não foi possível cadastrar um endereço nos dados cadastrais!
                     </div>
                     
+                    
                     <div class="form-group row d-flex justify-content-center">
-                    <div class="col-md-4">
+                        <div class="col-md-4">
                             <label for="id_pais">País</label>
                             @php
                                 $paises = App\Pais::all();
@@ -35,35 +36,20 @@
                         </div>
                         <div class="col-md-4">
                             <label for="id_estado">Estado</label>
-                            @php
-                                $estados = App\Estado::all();
-                            @endphp
-
+                           
                             <select id="id_estado" name="id_estado" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
-                                @foreach ($estados as $estado)
-                                    <option value="{{$pais->id}}">
-                                        {{$estado->nm_estado}}
-                                    </option>
-                                @endforeach
-                                
+                                                                
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="id_cidade">Cidade</label>
-                            @php
-                                $cidades = App\Cidade::all();
-                            @endphp
-
+                           
                             <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
-                                @foreach ($cidades as $cidade)
-                                    <option value="{{$cidade->id}}">
-                                        {{$cidade->nm_cidade}}
-                                    </option>
-                                @endforeach
+                                
                             </select>
                         </div>
                         <div class="col-md-2">

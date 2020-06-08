@@ -11,9 +11,10 @@ class Contato extends Model
     protected $fillable = [
         'id',
         'ds_contato',
-        'id_tp_contato', 
-        'id_palestrante', 
-        'id_acessor'
+        'id_tp_contato',
+        'id_palestrante',
+        'id_acessor',
+        "id_cliente"
     ];
 
     public function tiposContato()
