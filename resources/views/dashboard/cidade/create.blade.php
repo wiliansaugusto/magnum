@@ -23,7 +23,7 @@
                             $paises = App\Pais::all();
                         @endphp
                         @foreach ( $paises as $pais)
-                            <option value="{{$pais->id}}">{{$pais->nm_pais }}</option>
+                            <option value="{{$pais->id}}">{{$pais->nm_pais}}</option>
                         @endforeach
                     </select>
 

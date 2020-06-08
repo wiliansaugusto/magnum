@@ -523,6 +523,58 @@ $(document).ready(function () {
         placeholder: "Buscar",
     });
 
+    $("select[name='id_pais']").change(function(){
+        let id_pais = $(this).val();
+        let selecEstado = $("select[name='id_estado']");
+        $.ajax({
+            method: "GET",
+            url: "/dashboard/estado/buscar/" + id_pais,
+            success: function (data) {
+                selecEstado.html("<option></option>")
+                data.forEach(function(estado){
+                    selecEstado.append('<option value="'+ estado.id +'">'+ estado.nm_estado +'</option>');
+                });
+            }
+        });
+    })
+    $("select[name='id_estado']").change(function(){
+        let id_estado = $(this).val();
+        let selecCidade = $("select[name='id_cidade']");
+      
+        $.ajax({
+            method: "GET",
+            url: "/dashboard/cidade/buscaPorEstado/"+id_estado,
+            success: function (data) {
+                selecCidade.html("<option></option>")
+               
+                data.forEach(function(cidade){
+                    selecCidade.append('<option value="'+ cidade.id +'">'+ cidade.nm_cidade +'</option>');
+               
+                });
+            }
+        });
+    })
+    $("#pesquisarCidade").click(function(event){
+        event.preventDefault();
+
+        let id_estado = $("#estado_filtro").val();
+        let tblCidade = $("#tblListaCidade tbody");
+
+        $.ajax({
+            method: "GET",
+            url: "/dashboard/cidade/buscaPorEstado/"+id_estado,
+            success: function (data) {
+                if(data.length > 0){
+                    $("#listaCidadeNull").remove();
+                }
+                data.forEach(function(cidade){
+                    tblCidade.append('<tr id="'+ cidade.id +'"><td>'+ cidade.nm_cidade +'</td>' +
+                        '<td>remover</td></tr>');
+                });
+            }
+        });
+    });
+
     //MASK
     $('#nr_valor').mask('#.##0,00', {reverse: true});
 

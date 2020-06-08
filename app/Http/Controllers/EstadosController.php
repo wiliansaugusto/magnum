@@ -103,17 +103,10 @@ class EstadosController extends Controller
         return redirect('dashboard/config');
     }
 
-    public function pesquisarPais($id)
+    public function buscarPorPais($id)
     {
         $estados =  Estado::where("id_pais",$id)->get();
         return response(json_encode($estados), 200)
-            ->header('Content-Type', 'application/json');
-    }
-
-     public function pesquisarEstado($id)
-    {
-        $cidades =  Cidade::where("id_estado",$id)->get();
-        return response(json_encode($cidades), 200)
             ->header('Content-Type', 'application/json');
     }
 
