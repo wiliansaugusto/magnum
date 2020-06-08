@@ -530,8 +530,26 @@ $(document).ready(function () {
             method: "GET",
             url: "/dashboard/estado/buscar/" + id_pais,
             success: function (data) {
+                selecEstado.html("<option></option>")
                 data.forEach(function(estado){
                     selecEstado.append('<option value="'+ estado.id +'">'+ estado.nm_estado +'</option>');
+                });
+            }
+        });
+    })
+    $("select[name='id_estado']").change(function(){
+        let id_estado = $(this).val();
+        let selecCidade = $("select[name='id_cidade']");
+      
+        $.ajax({
+            method: "GET",
+            url: "/dashboard/cidade/buscaPorEstado/"+id_estado,
+            success: function (data) {
+                selecCidade.html("<option></option>")
+               
+                data.forEach(function(cidade){
+                    selecCidade.append('<option value="'+ cidade.id +'">'+ cidade.nm_cidade +'</option>');
+               
                 });
             }
         });
