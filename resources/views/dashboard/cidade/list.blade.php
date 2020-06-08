@@ -9,54 +9,47 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <table class="table table-striped table-sm table-hover " hidden>
+                <div class="row d-flex justify-content-center">
+                        <div class="col-md-5 col-sm-5">
+                            @csrf
+                            <label for="pais_filtro">Paises</label>
+                            <select id="pais_filtro" name="id_pais"
+                                    class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                @foreach ($paises= App\Pais::All() as $pais)
+                                    <option value="{{$pais->id}}">
+                                        {{$pais->nm_pais}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-5 col-sm-5">
+                            <label for="estado_filtro">Estados</label>
+                            <select id="estado_filtro" name="id_estado"
+                                    class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <label></label>
+                            <button type="submit" id="pesquisarCidade" class="btn btn-primary btn-sm float-left" style="width: 100%">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                </div>
+                <table id="tblListaCidade" class="table table-striped table-sm table-hover mt-2">
                     <thead class="thead-light">
                     <tr>
                         <th>Cidades</th>
-                        <th>Estado</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-
-                    @if( sizeof($cidades) == 0)
-                        <tr>
-                            <td colspan="3" class="text-center">Sem Cidades Cadastradas</td>
+                        <tr id="listaCidadeNull">
+                            <td colspan="3" class="text-center">Sem Registros</td>
                         </tr>
-                    @else
-                            <div class="form-group row d-flex justify-content-center">
-                                <div class="col-md-10 col-sm-10">
-                                    <form id="estadoList" >
-                                        @csrf
-                                        <meta name="csrf-token" content="{{ csrf_token() }}">
-                                    <label for="pais">Paises</label>
-                                    <select id="pais" name="nm_pais" class="form-control form-control-sm select-find"
-                                            style="width: 100%" required>
-                                        <option selected disabled>Seleciona Pais</option>
-                                        @foreach ($paises= App\Pais::All() as $pais)
-                                            <option class="form-control form-control-sm"
-                                                    value="{{$pais->id}}">
-                                                {{$pais->nm_pais}}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-md-1 col-sm-1">
-                                    <button type="button" id="pesquisarPais" class="btn btn-primary btn-sm float-left" style="width: 100%">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                                </div>
-                    @endif
-                    </form>
-
-                            <div class="form-group row d-flex justify-content-center" id="estadoResp">
-
-                            </div>
-                            <div class="form-group row d-flex justify-content-center" id="cidadesResp">
-                            </div>
-
                     </tbody>
                 </table>
                 @if(isset($cidade))

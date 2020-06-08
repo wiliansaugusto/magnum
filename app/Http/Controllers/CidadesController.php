@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Estado;
+use App\Pais;
 use App\Valor;
 use Illuminate\Http\Request;
 use App\Cidade;
@@ -99,6 +101,12 @@ class CidadesController extends Controller
             return redirect('dashboard/config');
 
         }
+    }
+
+    public function buscaPorEstado($id_estado){
+        $cidades =  Cidade::where("id_estado",$id_estado)->get();
+        return response(json_encode($cidades), 200)
+            ->header('Content-Type', 'application/json');
     }
 
 }
