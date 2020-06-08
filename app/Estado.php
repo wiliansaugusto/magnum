@@ -12,6 +12,7 @@ class Estado extends Model
         'nm_estado',
         'ds_sg_estado',
         'id_pais',
+        'cod_ibge'
     ];
     public $timestamps=false;
 

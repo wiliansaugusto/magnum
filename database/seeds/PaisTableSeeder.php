@@ -83,7 +83,7 @@ class PaisTableSeeder extends Seeder
 		App\Pais::create([ 'cod_speed'=>'2470',	'nm_pais'=>'ESLOVAQUIA',	'cod_siscomex'=>'247' ]);
 		App\Pais::create([ 'cod_speed'=>'2461',	'nm_pais'=>'ESLOVENIA',	'cod_siscomex'=>'246' ]);
 		App\Pais::create([ 'cod_speed'=>'2453',	'nm_pais'=>'ESPANHA',	'cod_siscomex'=>'245' ]);
-		App\Pais::create([ 'cod_speed'=>'2496',	'nm_pais'=>'PaisS UNIDOS',	'cod_siscomex'=>'249' ]);
+		App\Pais::create([ 'cod_speed'=>'2496',	'nm_pais'=>'ESTADOS UNIDOS',	'cod_siscomex'=>'249' ]);
 		App\Pais::create([ 'cod_speed'=>'2518',	'nm_pais'=>'ESTONIA',	'cod_siscomex'=>'251' ]);
 		App\Pais::create([ 'cod_speed'=>'7544',	'nm_pais'=>'ESWATINI (ANTIGA SUAZILANDIA)',	'cod_siscomex'=>'754' ]);
 		App\Pais::create([ 'cod_speed'=>'2534',	'nm_pais'=>'ETIOPIA',	'cod_siscomex'=>'253' ]);
@@ -245,7 +245,7 @@ class PaisTableSeeder extends Seeder
 		App\Pais::create([ 'cod_speed'=>'8338',	'nm_pais'=>'UGANDA',	'cod_siscomex'=>'833' ]);
 		App\Pais::create([ 'cod_speed'=>'8451',	'nm_pais'=>'URUGUAI',	'cod_siscomex'=>'845' ]);
 		App\Pais::create([ 'cod_speed'=>'8478',	'nm_pais'=>'UZBEQUISTAO',	'cod_siscomex'=>'847' ]);
-		App\Pais::create([ 'cod_speed'=>'5517',	'nm_pais'=>'VANUATU',	'cod_siscomex'=>'551' ]); 
+		App\Pais::create([ 'cod_speed'=>'5517',	'nm_pais'=>'VANUATU',	'cod_siscomex'=>'551' ]);
 		App\Pais::create([ 'cod_speed'=>'8486',	'nm_pais'=>'VATICANO',	'cod_siscomex'=>'848' ]);
 		App\Pais::create([ 'cod_speed'=>'8508',	'nm_pais'=>'VENEZUELA',	'cod_siscomex'=>'850' ]);
 		App\Pais::create([ 'cod_speed'=>'8583',	'nm_pais'=>'VIETNA',	'cod_siscomex'=>'858' ]);
