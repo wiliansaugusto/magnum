@@ -14,9 +14,10 @@ class MgmAlterarPais extends Migration
     public function up()
     {
         Schema::table('mgm_tbl_pais', function (Blueprint $table) {
-            $table->Integer('cod_speed');
-            $table->Integer('cod_siscomex');
-            
+          
+            $table->integer("cod_siscomex")->lenght(11)->nullable($value = true)	;
+            $table->integer("cod_speed")->lenght(11)->nullable($value = true)	;
+
         });
     }
 

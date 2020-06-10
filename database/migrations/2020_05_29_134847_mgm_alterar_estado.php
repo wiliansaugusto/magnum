@@ -14,8 +14,8 @@ class MgmAlterarEstado extends Migration
     public function up()
     {
         Schema::table('mgm_tbl_estado', function (Blueprint $table) {
-            $table->Integer('cod_ibge');
-          
+            $table->integer("cod_ibge")->lenght(11)->nullable($value = true);
+
         });
     }
 
