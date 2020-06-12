@@ -61,10 +61,13 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 
     Route::post('cidade','CidadesController@store');
     Route::delete('cidade/{id}','CidadesController@destroy');
+    Route::put('cidade','CidadesController@update');
     Route::get('cidade/buscaPorEstado/{id_estado}','CidadesController@buscaPorEstado');
+    Route::get('cidade/busca/{id}','CidadesController@buscaCidade');
 
     Route::post('estado','EstadosController@store');
     Route::delete('estado/{id}','EstadosController@destroy');
+    Route::put('estado','EstadosController@update');
 //    Route::post('pais/pesquisar/{id}', 'EstadosController@pesquisarPaisPorId');
     Route::get('estado/buscar/{id}', 'EstadosController@buscarPorPais');
 

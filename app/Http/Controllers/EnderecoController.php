@@ -38,7 +38,7 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
-        $cidade = Cidade::find(['nm_cidade' => $request->cidade])->first();
+        $cidade = Cidade::find($request->id_cidade)->first();
 
         if($request->id_relacao == "dadosContratuais"){
             $dadosContratuais = DadosContratuais::where('id_palestrante', $request->id_palestrante)->first() == NULL

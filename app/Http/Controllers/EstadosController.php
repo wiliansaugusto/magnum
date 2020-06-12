@@ -72,9 +72,13 @@ class EstadosController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $estado = Estado::find($request->id);
+        $estado->nm_estado = $request->nm_estado;
+        $estado->save();
+
+        return redirect('dashboard/config');
     }
 
     /**

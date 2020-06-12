@@ -77,9 +77,13 @@ class CidadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $cidade = Cidade::find($request->id);
+        $cidade->nm_cidade = $request->nm_cidade;
+        $cidade->save();
+
+        return redirect('dashboard/config');
     }
 
     /**
@@ -106,6 +110,12 @@ class CidadesController extends Controller
     public function buscaPorEstado($id_estado){
         $cidades =  Cidade::where("id_estado",$id_estado)->get();
         return response(json_encode($cidades), 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    public function buscaCidade($id){
+        $cidade =  Cidade::find($id);
+        return response(json_encode($cidade), 200)
             ->header('Content-Type', 'application/json');
     }
 
