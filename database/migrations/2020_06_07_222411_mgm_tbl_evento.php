@@ -25,9 +25,7 @@ class MgmTblEvento extends Migration
             $table->string('perfil_participante_evento',100);
             $table->longText('objetivo_evento');
             $table->unsignedBigInteger('id_tipo_evento');
-            $table->foreign('id_tipo_evento')->references('id')
-                ->on('mgm_tbl_tipo_evento')->onDelete('cascade');
-
+           
 
         });
     }
