@@ -13,7 +13,14 @@ class MgmTblEnderecoSetFieldsNull extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('mgm_tbl_endereco', function (Blueprint $table) {
+
+            $table->unsignedBigInteger('id_cliente')->nullable()->change();
+            $table->string("ds_complemento")->nullable()->change();
+
+
+        });
+
     }
 
     /**

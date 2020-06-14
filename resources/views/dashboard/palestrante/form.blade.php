@@ -559,14 +559,14 @@
                                                                         @if(sizeof($data->enderecos) > 0)
                                                                             @foreach($data->enderecos as $endereco)
                                                                                 <tr id="{{$endereco->id}}">
-                                                                                    <td>{{$endereco->tiposendereco->nm_tipo_endereco}}</td>
-                                                                                    <td>{{$endereco->ds_endereco}}</td>
+                                                                                    <td>{{$endereco->tipoEndereco->nm_tipo_endereco}}</td>
+                                                                                    <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
                                                                                     <td class='text-right'>
                                                                                         <button
                                                                                             id='excluirEndereco-{{$endereco->id}}'
                                                                                             type='button'
                                                                                             class='btn btn-danger btn-sm'
-                                                                                            data-id="{{$contato->id}}"
+                                                                                            data-id="{{$endereco->id}}"
                                                                                             data-toggle='modal'
                                                                                             data-target='#frmRemoverEnderecoModal'>
                                                                                             <i

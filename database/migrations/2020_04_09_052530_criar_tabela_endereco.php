@@ -16,7 +16,7 @@ class CriarTabelaEndereco extends Migration
         Schema::create('mgm_tbl_endereco', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("nm_endereco");
-            $table->string("ds_complemento")->nulllable();
+            $table->string("ds_complemento")->nullable();
             $table->string("nm_bairro");
             $table->string("nm_cidade");
             $table->string("nm_estado");
