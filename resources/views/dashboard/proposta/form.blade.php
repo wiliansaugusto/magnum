@@ -4,7 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Editar Palestrante</h3>
+                <h3>Editar Proposta</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -17,12 +17,12 @@
                         </div>
                     @endif
                     @if($action == "criar")
-                        <form method="POST" action="/dashboard/palestrante/" id="palestrante"
+                        <form method="POST" action="/dashboard/proposta/" id="proposta"
                               enctype="multipart/form-data">
                             @csrf
                     @else
-                        <form method="POST" action="/dashboard/palestrante/update/{{$data->id}}"
-                              id="palestrante"
+                        <form method="POST" action="/dashboard/proposta/update/{{$data->id}}"
+                              id="proposta"
                               enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
