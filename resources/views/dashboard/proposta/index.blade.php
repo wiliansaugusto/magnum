@@ -7,9 +7,10 @@
                 <h3>Proposta</h3>
             </div>
             <div class="title_right text-right align-content-center">
-                <a href="/dashboard/proposta/abertura" class="btn btn-primary"><i class="fa fa-plus "></i>
+            <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#frmNomeAberturaPropostaModal"><i class="fa fa-plus "></i>
                     Proposta
-                </a>
+                </button>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -78,4 +79,5 @@
             </div>
         </div>
     </div>
+    @include('dashboard.proposta.create')
 @endsection

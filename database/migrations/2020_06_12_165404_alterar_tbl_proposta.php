@@ -15,8 +15,9 @@ class AlterarTblProposta extends Migration
     {
         Schema::table('mgm_tbl_proposta', function (Blueprint $table) {
             //
-           $table->decimal(10,2)->nullable($value = true);;
+           $table->decimal('vlr_total_proposta',10,2)->nullable($value = true);;
            $table->longText('mensagem_proposta')->nullable($value = true);;
+           
         });
     }
 

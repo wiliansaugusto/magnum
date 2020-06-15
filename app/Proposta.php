@@ -11,10 +11,12 @@ class Proposta extends Model
     protected $fillable = [
         "num_proposta",
         "status_proposta",
-        "obs_evento",
+        "obs_proposta",
         "id_evento",
         "id_cliente",
         "id_palestrante",
-        "id_tipo_servico"
+        "id_tipo_servico",
+        "vlr_total_proposta",
+        "mensagem_proposta"
     ];
 }

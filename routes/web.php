@@ -26,10 +26,16 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::delete('palestrante/{id}', 'PalestranteController@destroy');
     Route::put('palestrante/update/{id}', 'PalestranteController@edit');
     Route::get('palestrante/{id}', 'PalestranteController@show');
-
-    Route::get('proposta/abertura', 'AberturaPropostaController@index');
-    Route::get('proposta', 'PropostaController@index');
-
+        
+    Route::post('aberturaproposta/','AberturaPropostaController@salvarProposta');
+    Route::resource('proposta/', 'PropostaController');
+    Route::get('proposta/', 'PropostaController@index');
+    Route::get('proposta/{id}/novo', 'PropostaController@create');
+    Route::get('palestrante/{id}/edit', 'PalestranteController@show');
+    Route::delete('proposta/{id}', 'PropostaController@destroy');
+    Route::put('proposta/update/{id}', 'PropostaController@edit');
+    Route::get('proposta/{id}', 'PropostaController@show');
+    
     Route::resource('contato/', 'ContatoController');
 
     Route::resource('categoria/', 'CategoriaController');

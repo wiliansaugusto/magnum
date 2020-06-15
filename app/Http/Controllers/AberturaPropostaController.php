@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Palestrante;
+use App\TipoContato;
+use App\Evento;
+use App\Cliente;
+use App\TipoDeServico;
+use App\Proposta;
+
 class AberturaPropostaController extends Controller
 {
     /**
@@ -21,9 +28,11 @@ class AberturaPropostaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
+        $data = Proposta::find($id);
+        return view('dashboard.proposta.abertura.form')->with(['data'=>$data, 'action'=>"criar"]);
     }
 
     /**
@@ -35,6 +44,7 @@ class AberturaPropostaController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
@@ -48,6 +58,12 @@ class AberturaPropostaController extends Controller
         //
     }
 
+    public function salvarProposta(Request $request)
+    {
+        $data = Proposta::create($request->all());
+
+        return redirect("dashboard/proposta/{$data->id}/novo");
+    }
     /**
      * Show the form for editing the specified resource.
      *

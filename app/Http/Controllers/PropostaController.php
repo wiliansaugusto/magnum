@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Proposta;
+use app\PropostaItem;
 use Illuminate\Http\Request;
 
 class PropostaController extends Controller
@@ -13,13 +15,13 @@ class PropostaController extends Controller
      */
     public function index()
     {
-//        if ($request->has('search')) {
-//            $palestrantes = Palestrante::where('nm_palestrante', 'LIKE', '%' . $request['search'] . '%')->paginate(10)->appends('search', $request['search']);
-//        } else {
-//            $palestrantes = Palestrante::where('id', '>', 0)->orderByDesc('id')->paginate(10);
-//        }
-//        return view('dashboard.proposta.index')->with('palestrantes', $palestrantes);
-        return view('dashboard.proposta.index');
+       if ($request->has('search')) {
+            $propostas = Proposta::where('nm_solicitante', 'LIKE', '%' . $request['search'] . '%')->paginate(10)->appends('search', $request['search']);
+        } else {
+            $propostas = Proposta::where('id', '>', 0)->orderByDesc('id')->paginate(10);
+        }
+        return view('dashboard.proposta.index')->with('prpostaas', $propostas);
+        
     }
 
     /**
@@ -27,11 +29,11 @@ class PropostaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $data = Proposta::find($id);
+        return view('dashboard.proposta.form')->with(['data'=>$data, 'action'=>"criar"]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -41,6 +43,20 @@ class PropostaController extends Controller
     public function store(Request $request)
     {
         //
+        $proposta = $request->all()['id_proposta'];
+        $proposta = Proposta::find($request->id_proposta);
+        $proposta->status_proposta = $request->status_proposta;
+        $proposta->obs_proposta = $request->obs_proposta;
+        $proposta->id_evento = $request->id_evento;
+        $proposta->id_cliente = $request->id_cliente;
+        $proposta->id_palestrante = $request->id_palestrante;
+        $proposta->id_tipo_servico = $request->id_tipo_servico;
+        $proposta->vlr_total_proposta = $request->vlr_total_proposta;
+        $proposta->mensagem_proposta = $request->mensagem_proposta;
+        $proposta->save();
+
+        
+        return redirect('dashboard/proposta/abertura'.$id_proposta.'/novo');
     }
 
     /**
@@ -51,7 +67,8 @@ class PropostaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Proposta::find($id);
+        return view('dashboard.prposta.form')->with(['data'=>$data, 'action'=>"editar"]);
     }
 
     /**
@@ -63,6 +80,18 @@ class PropostaController extends Controller
     public function edit($id)
     {
         //
+        $proposta = $request->all()['id_proposta'];
+        $proposta = Proposta::find($request->id_proposta);
+        $proposta->status_proposta = $request->status_proposta;
+        $proposta->obs_proposta = $request->obs_proposta;
+        $proposta->id_evento = $request->id_evento;
+        $proposta->id_cliente = $request->id_cliente;
+        $proposta->id_palestrante = $request->id_palestrante;
+        $proposta->id_tipo_servico = $request->id_tipo_servico;
+        $proposta->vlr_total_proposta = $request->vlr_total_proposta;
+        $proposta->mensagem_proposta = $request->mensagem_proposta;
+        $proposta->save();
+
     }
 
     /**
@@ -75,6 +104,10 @@ class PropostaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $proposta = Palestrante::find($request->id);
+        $roposta->delete();
+
+        return redirect("/dashboard/palestrante");
     }
 
     /**
@@ -86,5 +119,18 @@ class PropostaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+
+        $search = $request->get('search');
+
+
+        $propostas = Proposta::where('nm_palestrante', 'LIKE', '%' . $search . '%')->paginate(5); //busca com operador LIKE SQL
+
+        //return view('dashboard.palestrante.index')->with(compact('palestrantes','search'));
+        return view('dashboard.proposta.index', ['propostas' => $propostas, 'search' => $search]);
+
     }
 }

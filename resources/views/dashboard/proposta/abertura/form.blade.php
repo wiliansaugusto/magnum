@@ -6,6 +6,9 @@
             <div class="title_left">
                 <h3>Abertura de Proposta</h3>
             </div>
+            <div class="title_center ">
+                <h3 style='color:red'>Nrº</h3>
+            </div>
         </div>
         <div class="clearfix"></div>
         <div class="row">
@@ -17,7 +20,7 @@
                         </div>
                     @endif
                     <form method="POST" action="/dashboard/proposta/abertura"
-                          id="palestrante"
+                          id="proposta"
                           enctype="multipart/form-data">
                         @csrf
 
