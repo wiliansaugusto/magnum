@@ -186,8 +186,8 @@
                                                                             class="form-check-input {{ $errors->has('ds_ativo') ? 'is-invalid' : '' }}"
                                                                             type="radio" name="ds_ativo" id="ds_ativo1"
                                                                             value="s"
-                                                                        @if ($data->ds_ativo == 's' || old('ds_ativo') == 's')
-                                                                            "checked"  @endif/>
+                                                                            {{ $data->ds_ativo == 's' ? 'checked' : (old('ds_ativo') == 's' ? 'checked' : '') }}
+                                                                        />
                                                                         <label class="form-check-label"
                                                                                for="ds_ativo1">Sim</label>
                                                                     </div>
@@ -197,8 +197,8 @@
                                                                             type="radio" name="ds_ativo"
                                                                             id="ds_disponivel2"
                                                                             value="n"
-                                                                        @if ($data->ds_ativo == 'n' || old('ds_ativo') == 'n')
-                                                                            "checked"  @endif />
+                                                                        {{ $data->ds_ativo == 'n' ? 'checked' : (old('ds_ativo') == 'n' ? 'checked' : '') }}
+                                                                        />
                                                                         <label class="form-check-label"
                                                                                for="ds_disponivel2">Não</label>
                                                                     </div>
@@ -217,8 +217,8 @@
                                                                             type="radio" name="ds_visivel_site"
                                                                             id="ds_visivel_site"
                                                                             value="s"
-                                                                        @if ($data->ds_visivel_site == 's' || old('ds_visivel_site') == 's')
-                                                                            "checked"  @endif />
+                                                                            {{ $data->ds_visivel_site == 's' ? 'checked' : (old('ds_visivel_site') == 's' ? 'checked' : '') }}
+                                                                        />
                                                                         <label class="form-check-label"
                                                                                for="ds_visivel_site">Sim</label>
                                                                     </div>
@@ -228,8 +228,8 @@
                                                                             type="radio" name="ds_visivel_site"
                                                                             id="ds_visivel_site2"
                                                                             value="n"
-                                                                        @if ($data->ds_visivel_site == 'ns' || old('ds_visivel_site') == 'n')
-                                                                            "checked"  @endif>
+                                                                            {{ $data->ds_visivel_site == 'n' ? 'checked' : (old('ds_visivel_site') == 'n' ? 'checked' : '') }}
+                                                                         />
                                                                         <label class="form-check-label"
                                                                                for="ds_visivel_site2">Não</label>
                                                                     </div>
@@ -247,37 +247,36 @@
                                                                         <input type="radio" id="star5"
                                                                                name="rank_palestrante"
                                                                                value="5"
-                                                                        @if ($data->rank_palestrante == '5' || old('rank_palestrante') == '5')
-                                                                            "checked"  @endif>
+                                                                               {{$data->rank_palestrante == '5' ? 'checked' : (old('rank_palestrante') == '5' ? "checked" : '') }}
+                                                                            />
                                                                         <label for="star5" title="text">5
                                                                             stars</label>
                                                                         <input type="radio" id="star4"
                                                                                name="rank_palestrante"
                                                                                value="4"
-                                                                        @if ($data->rank_palestrante == '4' || old('rank_palestrante') == '4')
-                                                                            "checked"  @endif>
+                                                                            {{$data->rank_palestrante == '4' ? 'checked' : (old('rank_palestrante') == '4' ? "checked" : '') }}
+                                                                        />
                                                                         <label for="star4" title="text">4
                                                                             stars</label>
                                                                         <input type="radio" id="star3"
                                                                                name="rank_palestrante"
                                                                                value="3"
-                                                                        @if ($data->rank_palestrante == '3' || old('rank_palestrante') == '3')
-                                                                            "checked"  @endif>
+                                                                            {{$data->rank_palestrante == '3' ? 'checked' : (old('rank_palestrante') == '3' ? "checked" : '') }}
+                                                                        />
                                                                         <label for="star3" title="text">3
                                                                             stars</label>
                                                                         <input type="radio" id="star2"
                                                                                name="rank_palestrante"
                                                                                value="2"
-                                                                        @if ($data->rank_palestrante == '2' || old('rank_palestrante') == '2')
-                                                                            "checked"  @endif>
+                                                                            {{$data->rank_palestrante == '2' ? 'checked' : (old('rank_palestrante') == '2' ? "checked" : '') }}
+                                                                        />
                                                                         <label for="star2" title="text">2
                                                                             stars</label>
                                                                         <input type="radio" id="star1"
                                                                                name="rank_palestrante"
                                                                                value="1"
-                                                                        @if ($data->rank_palestrante == '1' || old('rank_palestrante') == '1')
-                                                                            "checked"  @endif}>
-
+                                                                            {{$data->rank_palestrante == '1' ? 'checked' : (old('rank_palestrante') == '1' ? "checked" : '') }}
+                                                                        />
                                                                         <label for="star1" title="text">1
                                                                             star</label>
                                                                     </div>
@@ -349,8 +348,8 @@
                                             ($data->dt_nascimento_palestrante != NULL ? $data->dt_nascimento_palestrante : '')}}"/>
                                                                     @if ($errors->has('dt_nascimento_palestrante'))
                                                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('dt_nascimento_palestrante') }}</strong>
-                                        </span>
+                                                                            <strong>{{ $errors->first('dt_nascimento_palestrante') }}</strong>
+                                                                        </span>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -400,8 +399,8 @@
                                                                     </select>
                                                                     @if ($errors->has('idiomas'))
                                                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('idiomas') }}</strong>
-                                        </span>
+                                                                            <strong>{{ $errors->first('idiomas') }}</strong>
+                                                                        </span>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -473,8 +472,8 @@
                                                                     </select>
                                                                     @if ($errors->has('categorias'))
                                                                         <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('categorias') }}</strong>
-                                                </span>
+                                                                            <strong>{{ $errors->first('categorias') }}</strong>
+                                                                        </span>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -546,7 +545,7 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="col-md-10">
-                                                                    <table id="tblEndereco"
+                                                                    <table id="tblEnderecoPalestrante"
                                                                            class="table table-sm table-striped">
                                                                         <thead>
                                                                         <tr>
@@ -576,7 +575,7 @@
                                                                                 </tr>
                                                                             @endforeach
                                                                         @else
-                                                                            <tr id="endeeco-null">
+                                                                            <tr id="endereco-null-palestrante">
                                                                                 <td colspan="3" class="text-center">
                                                                                     Nenhum
                                                                                     endereço
@@ -740,7 +739,7 @@
                                                                         </button>
                                                                     </div>
                                                                     <div class="col-md-10">
-                                                                        <table id="tblEndereco"
+                                                                        <table id="tblEnderecoContratual"
                                                                                class="table table-sm table-striped">
                                                                             <thead>
                                                                             <tr>
@@ -771,7 +770,7 @@
                                                                                     </tr>
                                                                                 @endforeach
                                                                             @else
-                                                                                <tr id="endereco-null">
+                                                                                <tr id="endereco-null-contratual">
                                                                                     <td colspan="3" class="text-center">
                                                                                         Nenhum
                                                                                         endereço
@@ -928,7 +927,7 @@
                                                                         </button>
                                                                     </div>
                                                                     <div class="col-md-10">
-                                                                        <table id="tblEndereco"
+                                                                        <table id="tblEnderecoContatual"
                                                                                class="table table-sm table-striped">
                                                                             <thead>
                                                                             <tr>
@@ -958,7 +957,7 @@
                                                                                     </tr>
                                                                                 @endforeach
                                                                             @else
-                                                                                <tr id="endereco-null">
+                                                                                <tr id="endereco-null-contatual">
                                                                                     <td colspan="3" class="text-center">
                                                                                         Nenhum
                                                                                         endereço

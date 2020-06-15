@@ -38,6 +38,7 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $cidade = Cidade::find($request->id_cidade)->first();
 
         if($request->id_relacao == "dadosContratuais"){
@@ -67,17 +68,28 @@ class EnderecoController extends Controller
                 "nm_bairro"             => $request->nm_bairro,
                 "id_cidade"             => $cidade->id,
                 "nr_endereco"           => $request->nr_endereco,
-                "id_tp_endereco"        => $request->id_tp_endereco,
+                "id_tp_endereco"        => $request->nm_endereco== null ? 2 : $request->id_tp_endereco,
                 "id_palestrante"        => $request->id_palestrante,
                 "nr_cep"                => $request->nr_cep
             ]);
         }
 
-        $enderecoReturn = array(
-            'id_endereco' => $endereco->id,
-            'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . " - " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . Cidade::find($endereco->id_cidade)->nm_cidade ." - ". Estado::find($endereco->id_estad)->nm_estado . " - " . $endereco->nr_cep,
-            'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco
-        );
+        if($request->nm_endereco == null){
+            $enderecoReturn = array(
+                'id_endereco' => $endereco->id,
+                'endereco' => Cidade::find($endereco->id_cidade)->nm_cidade ." - ". Estado::find($request->id_estado)->nm_estado,
+                'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco,
+                'registro' => $endereco->id_palestrante == null ? ($endereco->id_dado_contratual == null? '' : 'contratual') : 'palestrante'
+            );
+        }else{
+            $enderecoReturn = array(
+                'id_endereco' => $endereco->id,
+                'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . " - " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . Cidade::find($endereco->id_cidade)->nm_cidade ." - ". Estado::find($request->id_estado)->nm_estado . " - " . $endereco->nr_cep,
+                'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco,
+                'registro' => $endereco->id_palestrante == null ? ($endereco->id_dado_contratual == null? '' : 'contratual') : 'palestrante'
+            );
+        }
+
         return response(json_encode($enderecoReturn), 200)
             ->header('Content-Type', 'application/json');
     }

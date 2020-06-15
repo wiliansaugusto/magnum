@@ -73,7 +73,9 @@ class PalestranteController extends Controller
         $palestrante->cidade_palestrante = $request->cidade_palestrante;
         $palestrante->save();
 
-        $dadosContratuais = new DadosContratuais();
+        $dadosContratuais = DadosContratuais::where('id_palestrante', $id_palestrante)->first() == NULL ? new DadosContratuais()
+            : DadosContratuais::where('id_palestrante', $id_palestrante)->first();
+
         $dadosContratuais->nm_razao_social = $request->nm_razao_social;
         $dadosContratuais->nr_cnpj = $request->nr_cnpj;
         $dadosContratuais->nr_cpf = $request->nr_cpf;

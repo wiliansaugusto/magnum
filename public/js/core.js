@@ -467,19 +467,39 @@ $(document).ready(function () {
     }
 
     function tabelaEndereco(fields) {
-        $("#endereco-null").remove();
+        debugger;
+        if(fields.registro == 'palestrantre') {
+            $("#endereco-null-palestrante").remove();
 
-        var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
-        linha += "<td>" + fields.tipo_endereco + "</td>";
-        linha += "<td>" + fields.endereco + "</td>";
-        linha += "<td class='text-right'>";
-        linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
-        linha += "<i class='fa fa-trash'></i>";
-        linha += "</button>";
-        linha += "</td>";
-        linha += "</tr>";
+            var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
+            linha += "<td>" + fields.tipo_endereco + "</td>";
+            linha += "<td>" + fields.endereco + "</td>";
+            linha += "<td class='text-right'>";
+            linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
+            linha += "<i class='fa fa-trash'></i>";
+            linha += "</button>";
+            linha += "</td>";
+            linha += "</tr>";
 
-        $("#tblEndereco tbody ").append(linha);
+            $("#tblEnderecoPalestrante tbody ").append(linha);
+
+        }else if(fields.registro == 'palestrantre') {
+            $("#endereco-null-contratual").remove();
+
+            var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
+            linha += "<td>" + fields.tipo_endereco + "</td>";
+            linha += "<td>" + fields.endereco + "</td>";
+            linha += "<td class='text-right'>";
+            linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
+            linha += "<i class='fa fa-trash'></i>";
+            linha += "</button>";
+            linha += "</td>";
+            linha += "</tr>";
+
+            $("#tblEnderecoContratual tbody ").append(linha);
+        }else{
+            return;
+        }
     }
 
     //validação de campos
