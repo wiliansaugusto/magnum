@@ -13,14 +13,14 @@ class PropostaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
        if ($request->has('search')) {
             $propostas = Proposta::where('nm_solicitante', 'LIKE', '%' . $request['search'] . '%')->paginate(10)->appends('search', $request['search']);
         } else {
             $propostas = Proposta::where('id', '>', 0)->orderByDesc('id')->paginate(10);
         }
-        return view('dashboard.proposta.index')->with('prpostaas', $propostas);
+        return view('dashboard.proposta.index')->with('propostas', $propostas);
         
     }
 

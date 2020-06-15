@@ -36,7 +36,7 @@
                                         </button>
                                     </div>
                                     <div class="col-md-1 col-sm-1">
-                                        <br/>
+                                        <br/>   
                                         <a href="/dashboard/proposta"
                                            class="btn btn-warning btn-sm text-white float-right" style="width: 100%">
                                             <i class="fa fa-eraser"></i>
