@@ -13,14 +13,7 @@ class AlterarTblValor extends Migration
      */
     public function up()
     {
-        Schema::table('mgm_tbl_valor', function (Blueprint $table) {
-            //
-            $table->unsignedBigInteger('id_evento')->nullable($value = true);
-            $table->foreign('id_evento')->references('id')
-                ->on('mgm_tbl_evento')->onDelete('cascade');
 
-
-        });
     }
 
     /**
@@ -30,8 +23,6 @@ class AlterarTblValor extends Migration
      */
     public function down()
     {
-        Schema::table('mgl_tbl_valor', function (Blueprint $table) {
-            //
-        });
+
     }
 }

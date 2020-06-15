@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var editor, toolbar;
+    var editor, toolbar, tabela;
     //AJAX Request
     $('#frmContatoPalestrante').submit(function (event) {
         event.preventDefault();
@@ -77,11 +77,11 @@ $(document).ready(function () {
             success: function (data) {
                 if (tipoDescricao === "chamada") {
                     tabelDescricao(data, "Chamada", tipoDescricao);
-                }else if(tipoDescricao === "curriculo") {
+                } else if (tipoDescricao === "curriculo") {
                     tabelDescricao(data, "Currículo Resumido", tipoDescricao);
-                }else if(tipoDescricao === "curriculoTec") {
+                } else if (tipoDescricao === "curriculoTec") {
                     tabelDescricao(data, "Currículo Técnico", tipoDescricao);
-                }else if(tipoDescricao === "obs") {
+                } else if (tipoDescricao === "obs") {
                     tabelDescricao(data, "Observações", tipoDescricao);
                 }
                 $('#frmDescricao')[0].reset();
@@ -454,7 +454,7 @@ $(document).ready(function () {
         $("#" + campo).remove();
         var linha = "<tr id='" + campo + "'>";
         linha += "<td>" + tipo + "</td>";
-        linha += "<td class='text-truncate'>" + fields.descricao.replace(/(<([^>]+)>)/ig,"") + "</td>";
+        linha += "<td class='text-truncate'>" + fields.descricao.replace(/(<([^>]+)>)/ig, "") + "</td>";
         linha += "<td class='text-right'>";
         linha += "<button id='excluirDescricao' type='button' class='btn btn-danger btn-sm' data-tipo='" + campo + "' data-toggle='modal' data-target='#frmRemoverDescricaoModal'>";
         linha += "<i class='fa fa-trash'></i>";
@@ -523,7 +523,7 @@ $(document).ready(function () {
         placeholder: "Buscar",
     });
 
-    $("select[name='id_pais']").change(function(){
+    $("select[name='id_pais']").change(function () {
         let id_pais = $(this).val();
         let selecEstado = $("select[name='id_estado']");
         $.ajax({
@@ -531,54 +531,88 @@ $(document).ready(function () {
             url: "/dashboard/estado/buscar/" + id_pais,
             success: function (data) {
                 selecEstado.html("<option></option>")
-                data.forEach(function(estado){
-                    selecEstado.append('<option value="'+ estado.id +'">'+ estado.nm_estado +'</option>');
+                data.forEach(function (estado) {
+                    selecEstado.append('<option value="' + estado.id + '">' + estado.nm_estado + '</option>');
                 });
             }
         });
     })
-    $("select[name='id_estado']").change(function(){
+    $("select[name='id_estado']").change(function () {
         let id_estado = $(this).val();
         let selecCidade = $("select[name='id_cidade']");
-      
+
         $.ajax({
             method: "GET",
-            url: "/dashboard/cidade/buscaPorEstado/"+id_estado,
+            url: "/dashboard/cidade/buscaPorEstado/" + id_estado,
             success: function (data) {
                 selecCidade.html("<option></option>")
-               
-                data.forEach(function(cidade){
-                    selecCidade.append('<option value="'+ cidade.id +'">'+ cidade.nm_cidade +'</option>');
-               
-                });
-            }
-        });
-    })
-    $("#pesquisarCidade").click(function(event){
-        event.preventDefault();
 
-        let id_estado = $("#estado_filtro").val();
-        let tblCidade = $("#tblListaCidade tbody");
+                data.forEach(function (cidade) {
+                    selecCidade.append('<option value="' + cidade.id + '">' + cidade.nm_cidade + '</option>');
 
-        $.ajax({
-            method: "GET",
-            url: "/dashboard/cidade/buscaPorEstado/"+id_estado,
-            success: function (data) {
-                if(data.length > 0){
-                    $("#listaCidadeNull").remove();
-                }
-                data.forEach(function(cidade){
-                    tblCidade.append('<tr id="'+ cidade.id +'"><td>'+ cidade.nm_cidade +'</td>' +
-                        '<td>remover</td></tr>');
                 });
             }
         });
     });
+    $("#pesquisarCidade").click(function () {
 
-    //MASK
+        let id_estado = $("#estado_filtro").val();
+        let tblCidade = $("#tblListaCidade tbody");
+        $.ajax({
+            method: "GET",
+            url: "/dashboard/cidade/buscaPorEstado/" + id_estado,
+            success: function (data) {
+                tblCidade.html("");
+                data.forEach(function (cidade) {
+                    tblCidade.append('<tr id="' + cidade.id + '"><td>' + cidade.nm_cidade + '</td>' +
+                        '<td class="text-right">' +
+                        '<button class="btn btn-sm btn-primary" data-id="' + cidade.id + '" data-cidade="' + cidade.nm_cidade + '" data-estado="' + cidade.id_estado + '" data-toggle="modal" data-target="#frmCidadeEditModal">' +
+                        '<i class="fa fa-edit"></i>' +
+                        '</button>' +
+                        '</td></tr>');
+                });
+                getPagination("#tblListaCidade");
+                $("#regLinha").show();
+                $("#pgList").show();
+            }
+        });
+    });
+    $("#pesquisarEstado").click(function () {
+
+        let id_pais = $("#pais_filtro_estado").val();
+        let tblEstado = $("#tblListaEstado tbody");
+        $.ajax({
+            method: "GET",
+            url: "/dashboard/estado/buscar/" + id_pais,
+            success: function (data) {
+                console.log(data);
+                debugger;
+                tblEstado.html("");
+
+                data.forEach(function (estado) {
+                    tblEstado.append('<tr id="' + estado.id + '"><td>' + estado.nm_estado + '</td>' +
+                        '<td class="text-right">' +
+                        '<button class="btn btn-sm btn-primary" data-id="' + estado.id + '" data-estado="' + estado.nm_estado + '" data-pais="' + estado.id_pais + '" data-toggle="modal" data-target="#frmEstadoEditModal">' +
+                        '<i class="fa fa-edit"></i>' +
+                        '</button>' +
+                        '</td></tr>');
+                });
+                getPagination("#tblListaEstado");
+                if (data.length <= 0) {
+                    $("#regLinhaEstado").hide();
+                    $("#pgListEstado").hide();
+                } else {
+                    $("#regLinhaEstado").show();
+                    $("#pgListEstado").show();
+                }
+            }
+        });
+    });
+
+//MASK
     $('#nr_valor').mask('#.##0,00', {reverse: true});
 
-    //Enventos de Modal
+//Enventos de Modal
     $('#frmDescricaoModal').on('show.bs.modal', function (event) {
         var modal = $(this);
         var button = $(event.relatedTarget);
@@ -630,7 +664,7 @@ $(document).ready(function () {
                         if (data.descricao.length > 0) {
                             cont = cont - data.descricao.length;
                         }
-                    }else{
+                    } else {
                         editor.setValue(data.descricao);
                     }
                     $("#cont-char span").text(cont);
@@ -643,6 +677,40 @@ $(document).ready(function () {
         var rel = button.data('rel')
         var modal = $(this)
         modal.find('.modal-body input[name="id_relacao"]').val(rel)
+    });
+    $('#frmEstadoEditModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var nm_estado = button.data('estado')
+        var id_pais = button.data('pais')
+        var modal = $(this)
+
+        modal.find('.modal-body input[name="id"]').val(id)
+        modal.find('.modal-body input[name="nm_estado"]').val(nm_estado)
+        modal.find('.modal-body input[name="id_pais"]').val(id_pais)
+    });
+    $('#frmEnderecoModal').on('show.bs.modal', function (event) {
+        $("#select2-id_pais-container").html('<span class="select2-selection__placeholder">Buscar</span>');
+        $("#select2-id_estado-container").html('<span class="select2-selection__placeholder">Buscar</span>');
+        $("#select2-id_cidade-container").html('<span class="select2-selection__placeholder">Buscar</span>');
+    });
+    $('#modalEstados').on('show.bs.modal', function (event) {
+        let tblEstado = $("#tblListaEstado tbody");
+        tblEstado.html("");
+        $("#regLinhaEstado").hide();
+        $("#pgListEstado").hide();
+        $("#select2-pais_filtro_estado-container").html('<span class="select2-selection__placeholder">Buscar</span>');
+    });
+    $('#frmCidadeEditModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var nm_cidade = button.data('cidade')
+        var id_estado = button.data('estado')
+        var modal = $(this)
+
+        modal.find('.modal-body input[name="id"]').val(id)
+        modal.find('.modal-body input[name="nm_cidade"]').val(nm_cidade)
+        modal.find('.modal-body input[name="id_estado"]').val(id_estado)
     });
     $('#frmRemoverBancoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
@@ -681,7 +749,7 @@ $(document).ready(function () {
         modal.find('.modal-body input[name="id"]').val(recipient)
     });
 
-    // //envio de imagem
+// //envio de imagem
     $("#ds_foto").change(function () {
         const file = $(this)[0].files[0];
         const fileReader = new FileReader();
@@ -706,22 +774,6 @@ $(document).ready(function () {
         }
     });
 
-    // (function() {
-    //     $(function() {
-    //         var toolbar;
-    //         Simditor.locale = 'pt-BR';
-    //         toolbar = ['bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul',
-    //             'blockquote', 'table', '|', 'indent', 'outdent', 'alignment'];
-    //
-    //         editor = new Simditor({
-    //             textarea: $('.editor'),
-    //             placeholder: '',
-    //             toolbar: toolbar,
-    //             pasteImage: false,
-    //             upload: false
-    //         });
-    //     });
-    //
-    // }).call(this);
-});
+})
+;
 

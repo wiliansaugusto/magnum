@@ -10,34 +10,47 @@
             </div>
             <div class="modal-body">
                 <div class="row d-flex justify-content-center">
-                        <div class="col-md-5 col-sm-5">
-                            @csrf
-                            <label for="pais_filtro">Paises</label>
-                            <select id="pais_filtro" name="id_pais"
-                                    class="form-control form-control-sm select-find"
-                                    style="width: 100%" required>
-                                <option></option>
-                                @foreach ($paises= App\Pais::All() as $pais)
-                                    <option value="{{$pais->id}}">
-                                        {{$pais->nm_pais}}
-                                    </option>
-                                @endforeach
+                    <div class="col-md-5 col-sm-5">
+                        @csrf
+                        <label for="pais_filtro">Paises</label>
+                        <select id="pais_filtro" name="id_pais"
+                                class="form-control form-control-sm select-find"
+                                style="width: 100%" required>
+                            <option></option>
+                            @foreach ($paises= App\Pais::All() as $pais)
+                                <option value="{{$pais->id}}">
+                                    {{$pais->nm_pais}}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <label for="estado_filtro">Estados</label>
+                        <select id="estado_filtro" name="id_estado"
+                                class="form-control form-control-sm select-find"
+                                style="width: 100%" required>
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <label></label>
+                        <button type="submit" id="pesquisarCidade" class="btn btn-primary btn-sm float-left"
+                                style="width: 100%">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="regLinha" style="display: none">
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-md-4 col-sm-4">
+                            <label for="maxRows">Registros por linha</label>
+                            <select class="form-control form-control-sm" name="state" id="maxRows">
+                                <option value="10" selected>10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
                             </select>
                         </div>
-                        <div class="col-md-5 col-sm-5">
-                            <label for="estado_filtro">Estados</label>
-                            <select id="estado_filtro" name="id_estado"
-                                    class="form-control form-control-sm select-find"
-                                    style="width: 100%" required>
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="col-md-2 col-sm-2">
-                            <label></label>
-                            <button type="submit" id="pesquisarCidade" class="btn btn-primary btn-sm float-left" style="width: 100%">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+                    </div>
                 </div>
                 <table id="tblListaCidade" class="table table-striped table-sm table-hover mt-2">
                     <thead class="thead-light">
@@ -47,16 +60,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr id="listaCidadeNull">
-                            <td colspan="3" class="text-center">Sem Registros</td>
-                        </tr>
                     </tbody>
                 </table>
-                @if(isset($cidade))
-                @include('dashboard.cidade.delete',['cidade'=>$cidade])
-                @endif
+                <div id="pgList" class='pagination-container' style="display: none">
+                    <nav aria-label="Page navigation tblcidades">
+                        <ul class="pagination">
+                            <li class="page-item" data-page="prev">
+                                <a class="page-link" href="#"> Anterior <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="page-item" data-page="next" id="prev">
+                                <a class="page-link" href="#"> Proximo <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
 </div>
-

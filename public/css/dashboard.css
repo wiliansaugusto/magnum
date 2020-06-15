@@ -231,3 +231,8 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.form-default{
+    border: 1px solid #aaaaaa !important;
+    margin-left: 6px !important;
+}

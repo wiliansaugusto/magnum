@@ -2571,7 +2571,8 @@ table.jambo_table tbody tr.selected td {
 }
 
 .dataTables_paginate a {
-    background: #ff0000
+    background: #ff0000;
+    cursor: pointer;
 }
 
 .dataTables_wrapper {
@@ -2597,13 +2598,13 @@ table.jambo_table tbody tr.selected td {
 }
 
 .dataTables_length {
-    width: 40%;
-    float: left
+    /*width: 40%;*/
+    /*float: left*/
 }
 
 .dataTables_filter {
-    width: 50%;
-    float: right;
+    /*width: 50%;*/
+    /*float: right;*/
     text-align: right
 }
 

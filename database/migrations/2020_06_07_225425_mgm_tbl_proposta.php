@@ -16,8 +16,8 @@ class MgmTblProposta extends Migration
         Schema::create('mgm_tbl_proposta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('num_proposta');
-            $table->char('status_proposta',1)->nullable($value = true);;
-            $table->string('obs_proposta',200)->nullable($value = true);;
+            $table->char('status_proposta',1)->nullable($value = true);
+            $table->string('obs_proposta',200)->nullable($value = true);
             $table->unsignedBigInteger('id_evento');
             $table->foreign('id_evento')->references('id')
                 ->on('mgm_tbl_evento')->onDelete('cascade');

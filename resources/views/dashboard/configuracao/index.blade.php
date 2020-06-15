@@ -27,6 +27,13 @@
         </div>
         <div class="clearfix"></div>
         <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="page-title">
+                    <div class="title_left" style="width: 100%">
+                        <h3>Configuração de Endereço</h3>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-6 col-sm-12  ">
                 @include('dashboard.cidade.create')
             </div>
@@ -34,7 +41,7 @@
                 @include('dashboard.estado.create')
 
             </div>
-            
+
         </div>
     </div>
     @php
@@ -46,7 +53,9 @@
     @endphp
     @include('dashboard.usuario.list', ['usuarios' => $usuarios])
     @include('dashboard.tipoServico.list',['tipos'=>$tipos])
-    @include('dashboard.cidade.list',['cidades'=>$cidades])
-    @include('dashboard.estado.list',['estados'=>$estados])
+    @include('dashboard.cidade.list')
+    @include('dashboard.cidade.edit')
+    @include('dashboard.estado.list')
+    @include('dashboard.estado.edit')
 
 @endsection
