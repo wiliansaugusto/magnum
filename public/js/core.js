@@ -759,8 +759,10 @@ $(document).ready(function () {
     $('#frmRemoverEnderecoModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var recipient = button.data('id')
+        var rel = button.data('rel')
         var modal = $(this)
         modal.find('.modal-body input[name="id"]').val(recipient)
+        modal.find('.modal-body input[name="rel"]').val(rel)
     });
     $('#frmRemoverAssessorModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
