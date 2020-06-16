@@ -540,7 +540,8 @@
                                                                 <div class="col-md-2">
                                                                     <button type="button" class="btn btn-primary btn-sm"
                                                                             data-toggle="modal"
-                                                                            data-target="#frmEnderecoModal">
+                                                                            data-target="#frmEnderecoModal"
+                                                                            data-rel="palestrante">
                                                                         <i class="fa fa-plus"></i> Endereço
                                                                     </button>
                                                                 </div>
@@ -559,7 +560,11 @@
                                                                             @foreach($data->enderecos as $endereco)
                                                                                 <tr id="{{$endereco->id}}">
                                                                                     <td>{{$endereco->tipoEndereco->nm_tipo_endereco}}</td>
-                                                                                    <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
+                                                                                    @if($endereco->nm_endereco != NULL)
+                                                                                        <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
+                                                                                    @else
+                                                                                    {{ $endereco->nm_cidade ." - ". $endereco->nm_estado}}</td>
+                                                                                    @endif
                                                                                     <td class='text-right'>
                                                                                         <button
                                                                                             id='excluirEndereco-{{$endereco->id}}'
@@ -922,7 +927,8 @@
                                                                         <button type="button"
                                                                                 class="btn btn-primary btn-sm"
                                                                                 data-toggle="modal"
-                                                                                data-target="#frmEnderecoModal">
+                                                                                data-target="#frmEnderecoModal"
+                                                                                data-rel="dadosContratuais">
                                                                             <i class="fa fa-plus"></i> Endereço
                                                                         </button>
                                                                     </div>
