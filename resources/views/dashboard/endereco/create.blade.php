@@ -78,14 +78,6 @@
                         </div>
                     </div>
                     <div class="form-group row d-flex justify-content-center">
-                    
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                    <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
                             <label for="nm_bairro">Bairro</label>
                             <input id="nm_bairro" class="form-control form-control-sm" name="nm_bairro" type="text"
