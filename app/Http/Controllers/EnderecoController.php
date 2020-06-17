@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cidade;
+use App\DadosContratuais;
 use App\Endereco;
 use App\Estado;
-use App\Pais;
 use App\TipoEndereco;
 use Illuminate\Http\Request;
 
@@ -56,7 +56,7 @@ class EnderecoController extends Controller
                 "nm_endereco"           => $request->nm_endereco,
                 "ds_complemento"        => $request->ds_complemento,
                 "nm_bairro"             => $request->nm_bairro,
-                "id_cidade"             => $cidade->id,
+                "id_cidade"             => $request->id_cidade,
                 "nr_endereco"           => $request->nr_endereco,
                 "id_dado_contratual"    => $dadosContratuais->id,
                 "id_tp_endereco"        => $request->id_tp_endereco,
@@ -67,7 +67,7 @@ class EnderecoController extends Controller
                 "nm_endereco"           => $request->nm_endereco,
                 "ds_complemento"        => $request->ds_complemento,
                 "nm_bairro"             => $request->nm_bairro,
-                "id_cidade"             => $cidade->id,
+                "id_cidade"             => $request->id_cidade,
                 "nr_endereco"           => $request->nr_endereco,
                 "id_tp_endereco"        => $request->nm_endereco== null ? 2 : $request->id_tp_endereco,
                 "id_palestrante"        => $request->id_palestrante,

@@ -237,6 +237,7 @@ $(document).ready(function () {
         event.preventDefault();
         var data = $('#frmRemoverEndereco').serialize();
         var id = $('#id_endereco').val();
+        var rel = $('#rel').val();
 
         $.ajax({
             method: 'POST',
@@ -246,8 +247,15 @@ $(document).ready(function () {
                 $('#frmRemoverEnderecoModal').modal('toggle');
                 $('#endereco-' + id).remove();
 
-                if ($('#tblEndereco tbody tr').length <= 0) {
-                    $("#tblEndereco tbody ").html('<tr id="endereco-null"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
+                if(rel = "palestrante") {
+                    if ($('#tblEnderecoPalestrante tbody tr').length <= 0) {
+                        $("#tblEnderecoPalestrante tbody ").html('<tr id="endereco-null-palestrante"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
+                    }
+                }
+                if(rel = "contratual") {
+                    if ($('#tblEnderecoContratual tbody tr').length <= 0) {
+                        $("#tblEnderecoContratual tbody ").html('<tr id="endereco-null-contratual"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
+                    }
                 }
             },
 
@@ -269,7 +277,6 @@ $(document).ready(function () {
             url: "/dashboard/assessor/delete/" + id,
             data: data,
             success: function () {
-                debugger;
                 $('#frmRemoverAssessorModal').modal('toggle');
                 $('#painel-assessor-' + id).remove();
                 if ($('#accordion-assessor div.panel').length <= 0) {
@@ -469,14 +476,14 @@ $(document).ready(function () {
 
     function tabelaEndereco(fields) {
         debugger;
-        if(fields.registro == 'palestrantre') {
+        if(fields.registro == 'palestrante') {
             $("#endereco-null-palestrante").remove();
 
             var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
             linha += "<td>" + fields.tipo_endereco + "</td>";
             linha += "<td>" + fields.endereco + "</td>";
             linha += "<td class='text-right'>";
-            linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
+            linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-rel='palestrante' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
             linha += "<i class='fa fa-trash'></i>";
             linha += "</button>";
             linha += "</td>";
@@ -484,14 +491,14 @@ $(document).ready(function () {
 
             $("#tblEnderecoPalestrante tbody ").append(linha);
 
-        }else if(fields.registro == 'palestrantre') {
+        }else if(fields.registro == 'contratual') {
             $("#endereco-null-contratual").remove();
 
             var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
             linha += "<td>" + fields.tipo_endereco + "</td>";
             linha += "<td>" + fields.endereco + "</td>";
             linha += "<td class='text-right'>";
-            linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
+            linha += "<button id='excluirEndereco-" + fields.id_endereco + "' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_endereco + "' data-rel='contratual' data-toggle='modal' data-target='#frmRemoverEnderecoModal'>";
             linha += "<i class='fa fa-trash'></i>";
             linha += "</button>";
             linha += "</td>";

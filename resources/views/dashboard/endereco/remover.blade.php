@@ -18,6 +18,7 @@ aria-labelledby="frmRemoverEnderecoModalLabel"    aria-hidden="true">
                                 Não foi possível excluir o endereço cadastrado!
                             </div>
                             <input id="id_endereco" type="hidden" name="id" />
+                            <input id="rel" type="hidden" name="rel" />
                             <h6>Deseja remover o endereço!</h6>
                         </div>
                     </div>

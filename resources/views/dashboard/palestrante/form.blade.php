@@ -558,12 +558,12 @@
                                                                         <tbody>
                                                                         @if(sizeof($data->enderecos) > 0)
                                                                             @foreach($data->enderecos as $endereco)
-                                                                                <tr id="{{$endereco->id}}">
+                                                                                <tr id="endereco-{{$endereco->id}}">
                                                                                     <td>{{$endereco->tipoEndereco->nm_tipo_endereco}}</td>
                                                                                     @if($endereco->nm_endereco != NULL)
                                                                                         <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
                                                                                     @else
-                                                                                    {{ $endereco->nm_cidade ." - ". $endereco->nm_estado}}</td>
+                                                                                        <td>{{ $endereco->cidade->nm_cidade ." - ". $endereco->cidade->estado->nm_estado}}</td>
                                                                                     @endif
                                                                                     <td class='text-right'>
                                                                                         <button
@@ -571,6 +571,7 @@
                                                                                             type='button'
                                                                                             class='btn btn-danger btn-sm'
                                                                                             data-id="{{$endereco->id}}"
+                                                                                            data-rel='palestrante'
                                                                                             data-toggle='modal'
                                                                                             data-target='#frmRemoverEnderecoModal'>
                                                                                             <i
@@ -754,12 +755,12 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            @if(sizeof($data->enderecos) > 0)
-                                                                                @foreach($data->enderecos as $endereco)
+                                                                            @if(sizeof($data->dadosContratuais->enderecos) > 0)
+                                                                                @foreach($data->dadosContratuais->enderecos as $endereco)
                                                                                     <tr id="endereco-{{$endereco->id}}">
                                                                                         <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}
                                                                                         </td>
-                                                                                        <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}
+                                                                                        <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->cidade->nm_cidade ." - ". $endereco->cidade->estado->nm_estado . " - " . $endereco->nr_cep}}
                                                                                         </td>
                                                                                         <td class='text-right'>
                                                                                             <button
@@ -768,6 +769,7 @@
                                                                                                 class='btn btn-danger btn-sm'
                                                                                                 data-id="{{$endereco->id}}"
                                                                                                 data-toggle='modal'
+                                                                                                data-rel='contratual'
                                                                                                 data-target='#frmRemoverEnderecoModal'>
                                                                                                 <i class='fa fa-trash'></i>
                                                                                             </button>
@@ -933,7 +935,7 @@
                                                                         </button>
                                                                     </div>
                                                                     <div class="col-md-10">
-                                                                        <table id="tblEnderecoContatual"
+                                                                        <table id="tblEnderecoContratual"
                                                                                class="table table-sm table-striped">
                                                                             <thead>
                                                                             <tr>
@@ -943,8 +945,8 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            @if(sizeof($data->enderecos) > 0)
-                                                                                @foreach($data->enderecos as $endereco)
+                                                                            @if(sizeof($data->dadosContratuais->enderecos) > 0)
+                                                                                @foreach($data->dadosContratuais->enderecos as $endereco)
                                                                                     <tr id="endereco-{{$endereco->id}}">
                                                                                         <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}
                                                                                         </td>
@@ -956,6 +958,7 @@
                                                                                                     class='btn btn-danger btn-sm'
                                                                                                     data-id="{{$endereco->id}}"
                                                                                                     data-toggle='modal'
+                                                                                                    data-rel='contratual'
                                                                                                     data-target='#frmRemoverEnderecoModal'>
                                                                                                 <i class='fa fa-trash'></i>
                                                                                             </button>

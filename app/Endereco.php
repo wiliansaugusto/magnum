@@ -41,6 +41,6 @@ class Endereco extends Model
 
     public function cidade()
     {
-        return $this->hasMany('App\Cidade', 'id_cidade', 'id');
+        return $this->belongsTo('App\Cidade', 'id_cidade');
     }
 }
