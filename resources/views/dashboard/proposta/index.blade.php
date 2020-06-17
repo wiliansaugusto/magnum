@@ -22,7 +22,7 @@
                             <form action="" method="GET">
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-md-10 col-sm-10">
-                                        <label for="search-palestrantre">Procurar Proposta</label>
+                                        <label for="search-proposta">Procurar Proposta</label>
                                         <input type="search" id="search-proposta"
                                                class="form-control form-control-sm"
                                                name="search"
@@ -49,28 +49,38 @@
                             <table class="table table-striped table-sm table-hover">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th style="width: 60%">Proposta</th>
+                                    <th> Nrº Proposta</th>
+                                    <th style="width: 40%"> Solicitante</th>
                                     <th>Data da Alteração</th>
                                     <th>Usuário Alteração</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>654654654</td>
-                                    <td>16/06/2020</td>
-                                    <td>Master</td>
-                                    <td class=" text-right">
-                                        <a href=""
-                                           class="btn btn-primary btn-sm ml-1"><i
-                                                    class='fa fa-edit'></i></a>
+                                @foreach ($propostas as $proposta)
+                                    @php
+                                        $usuario = App\Usuario::withTrashed()
+                                                    ->where('id',$proposta->id_usuario)
+                                                    ->first();
+                                    @endphp
+                                    <tr>
+                                        <td>{{$proposta->num_proposta}}</td>
+                                        <td>{{$proposta->nm_solicitante}}</td>
+                                        <td>{{date_format($proposta->updated_at,"d/m/Y H:i:s")}}</td>
+                                        <td>{{$usuario->nm_usuario}}</td>
+                                        <td class=" text-right">
+                                            <a href="/dashboard/proposta/{{$proposta->id}}/edit"
+                                               class="btn btn-primary btn-sm ml-1"><i
+                                                        class='fa fa-edit'></i></a>
 
-                                        <button type="button" class="btn btn-danger btn-sm ml-1"
-                                                data-toggle="modal"
-                                                data-target="#modalPropostaDel"><i
-                                                    class='fa fa-trash'></i></button>
-                                    </td>
-                                </tr>
+                                            <button type="button" class="btn btn-danger btn-sm ml-1"
+                                                    data-toggle="modal"
+                                                    data-target="#modalPropostaDel{{$proposta->id}}"><i
+                                                        class='fa fa-trash'></i></button>
+                                            @include('dashboard.proposta.delete',['proposta'=>$proposta])
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

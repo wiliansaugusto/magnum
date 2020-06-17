@@ -15,6 +15,7 @@ class Proposta extends Model
         "obs_proposta",
         "id_evento",
         "id_cliente",
+        "id_usuario",
         "id_palestrante",
         "id_tipo_servico",
         "vlr_total_proposta",

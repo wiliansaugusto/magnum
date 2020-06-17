@@ -31,6 +31,7 @@ class PropostaRequest extends FormRequest
             'id_evento' => 'nullable',
             'id_cliente' => 'nullable',
             'id_palestrante' => 'nullable',
+            'id_usuario' => 'nullable',
             'id_tipo_servico' => 'nullable',
             'vlr_total_proposta' => 'nullable',
             'mensagem_proposta' => 'nullable'
