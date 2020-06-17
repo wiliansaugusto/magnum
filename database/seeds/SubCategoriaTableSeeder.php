@@ -15,35 +15,35 @@ class SubCategoriaTableSeeder extends Seeder
         
         App\SubCategoria::create([
             'id_categoria'=>'1',
-            'nm_sub_cat'=>'Aprendendo a aprender',
+            'nm_sub_cat'=>'Aprendendo a aprender'
         ]);
         App\SubCategoria::create([
             'id_categoria'=>'1',
-            'nm_sub_cat'=>'Matemática Simples',
+            'nm_sub_cat'=>'Matemática Simples'
         ]);
         App\SubCategoria::create([
             'id_categoria'=>'2',
-            'nm_sub_cat'=>'Seja a Águia dos negócios ',
+            'nm_sub_cat'=>'Seja a Águia dos negócios '
         ]);
         App\SubCategoria::create([
             'id_categoria'=>'2',
-            'nm_sub_cat'=>'Vencendo um dia por vez',
+            'nm_sub_cat'=>'Vencendo um dia por vez'
         ]);
         App\SubCategoria::create([
             'id_categoria'=>'3',
-            'nm_sub_cat'=>'Saúde nas Finanças',
+            'nm_sub_cat'=>'Saúde nas Finanças'
         ]);
         App\SubCategoria::create([
             'id_categoria'=>'3',
-            'nm_sub_cat'=>'Poupar liberta',
+            'nm_sub_cat'=>'Poupar liberta'
         ]);
         App\SubCategoria::create([
             'id_categoria'=>'4',
-            'nm_sub_cat'=>'Banco de Dados de A à Z',
+            'nm_sub_cat'=>'Banco de Dados de A à Z'
         ]);
         App\SubCategoria::create([
             'id_categoria'=>'4',
-            'nm_sub_cat'=>'Desenvolva em JavaScript',
+            'nm_sub_cat'=>'Desenvolva em JavaScript'
         ]);
     }
 }
