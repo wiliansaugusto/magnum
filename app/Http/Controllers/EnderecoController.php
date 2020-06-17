@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cidade;
 use App\Endereco;
 use App\Estado;
+use App\Pais;
 use App\TipoEndereco;
 use Illuminate\Http\Request;
 
