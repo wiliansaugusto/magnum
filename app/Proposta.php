@@ -10,6 +10,7 @@ class Proposta extends Model
 
     protected $fillable = [
         "num_proposta",
+        "nm_solicitante",
         "status_proposta",
         "obs_proposta",
         "id_evento",

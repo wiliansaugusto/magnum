@@ -18,16 +18,16 @@ class MgmTblProposta extends Migration
             $table->bigInteger('num_proposta');
             $table->char('status_proposta',1)->nullable($value = true);
             $table->string('obs_proposta',200)->nullable($value = true);
-            $table->unsignedBigInteger('id_evento');
+            $table->unsignedBigInteger('id_evento')->nullable($value = true);
             $table->foreign('id_evento')->references('id')
                 ->on('mgm_tbl_evento')->onDelete('cascade');
-            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedBigInteger('id_cliente')->nullable($value = true);
             $table->foreign('id_cliente')->references('id')
                 ->on('mgm_tbl_cliente')->onDelete('cascade');
-            $table->unsignedBigInteger('id_palestrante');
+            $table->unsignedBigInteger('id_palestrante')->nullable($value = true);
             $table->foreign('id_palestrante')->references('id')
                 ->on('mgm_tbl_palestrante')->onDelete('cascade');
-            $table->unsignedBigInteger('id_tipo_servico');
+            $table->unsignedBigInteger('id_tipo_servico')->nullable($value = true);
             $table->foreign('id_tipo_servico')->references('id')
                 ->on('mgm_tbl_tipo_servico')->onDelete('cascade');
             $table->timestamps();

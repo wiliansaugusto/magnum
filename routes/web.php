@@ -27,7 +27,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::put('palestrante/update/{id}', 'PalestranteController@edit');
     Route::get('palestrante/{id}', 'PalestranteController@show');
         
-    Route::post('aberturaproposta/','AberturaPropostaController@salvarProposta');
+    Route::post('proposta/abertura/','AberturaPropostaController@salvarProposta');
     Route::resource('proposta/', 'PropostaController');
     Route::get('proposta/', 'PropostaController@index');
     Route::get('proposta/{id}/novo', 'PropostaController@create');

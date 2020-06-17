@@ -5,6 +5,7 @@
             <form id="frmNomeAberturaProposta" method="POST" action="/dashboard/proposta/abertura">
                 <input id="num_proposta" type="hidden" name="num_proposta" value="0000001"/>
                 <input id="status_proposta" type="hidden" name="status_proposta" value="1"/>
+
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                 @csrf
                 <div class="modal-header">
@@ -20,7 +21,7 @@
                                 <div class="col-md-12">
                                     <label for="nome_solicitante">Nome do Solicitante*</label>
                                     <input id="nome_solicitante" type="text" class="form-control form-control-sm"
-                                           name="nm_solicitante" value="" autofocus required>
+                                           name="nm_solicitante" autofocus required>
                                 </div>
                             </div>
                         </div>
