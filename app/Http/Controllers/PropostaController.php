@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Proposta;
 use App\PropostaItem;
+use App\Cliente;
+use App\Evento;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropostaRequest;
 
@@ -61,8 +63,14 @@ class PropostaController extends Controller
         $proposta->nm_solicitante = $request->nm_solicitante;
         $proposta->save();
 
+        //$cliente = $request ->all()['id_cliente'] ;
+
+        $evento = $request->all()['id_evento'];
+        $evento = Evento::find($request->id_evento);
+
+
         
-        return redirect('dashboard/proposta/abertura'.$id_proposta.'/novo');
+        return redirect('dashboard/proposta/'.$id_proposta.'/novo');
     }
 
     /**
