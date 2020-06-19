@@ -12,10 +12,16 @@
                     </button>
                 </div>
                 <div>
-                    <h3 class="modal-title" id="frmContatoModalLabel">Dados do Evento</h3>
-                    <input id="id_usuario" name="id_usuario" value="{{ Auth::user()->id }}"/>
-                    <input id="nm_evento" type="text" name="nm_evento" />
-                    <input id="tema_Evento" type="text" name="tema_evento" />
+                    <h2 class="modal-title" id="frmContatoModalLabel">Dados do Evento</h2>
+                    <input id="id_usuario" name="id_usuario" type="hidden" value="{{ Auth::user()->id }}"/>
+                    <div>
+                        <label for="nm_evento">Evento</label>
+                        <input id="nm_evento" type="text" name="nm_evento" />
+                    </div>
+                    <div>
+                        <label for="tema_evento">Tema do Evento</label>
+                        <input id="tema_Evento" type="text" name="tema_evento" />
+                    </div>
 
                 </div>
                 <div class="modal-body">

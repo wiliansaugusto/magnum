@@ -300,7 +300,7 @@
             </div>
         </div>
     </div>
-    @include("dashboard.solicitante.create")
+    @include("dashboard.evento.create")
 @endsection
 
 

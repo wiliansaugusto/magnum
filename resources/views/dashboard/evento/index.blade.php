@@ -64,7 +64,7 @@
                                                     ->first();
                                     @endphp
                                     <tr>
-                                        <td>{{$evento->id_evento}}</td>
+                                        <td>{{$evento->id}}</td>
                                         <td>{{$evento->nm_solicitante}}</td>
                                         <td>{{date_format($evento->updated_at,"d/m/Y H:i:s")}}</td>
                                         <td>{{$usuario->nm_usuario}}</td>
