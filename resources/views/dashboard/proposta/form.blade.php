@@ -19,7 +19,7 @@
                             Campos inseridos incorretamente ou em branco
                         </div>
                     @endif
-                    <form method="POST" action="/dashboard/proposta/abertura"
+                    <form method="POST" action="/dashboard/proposta"
                           id="proposta"
                           enctype="multipart/form-data">
                         @csrf
@@ -305,7 +305,7 @@
             </div>
         </div>
     </div>
-    @include("dashboard.solicitante.create")
+    @include("dashboard.proposta.create")
 @endsection
 
 

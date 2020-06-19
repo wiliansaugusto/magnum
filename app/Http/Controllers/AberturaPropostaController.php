@@ -20,7 +20,7 @@ class AberturaPropostaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.proposta.abertura.form');
+        return view('dashboard.proposta.form');
     }
 
     /**
@@ -32,7 +32,7 @@ class AberturaPropostaController extends Controller
     {
         //
         $data = Proposta::find($id);
-        return view('dashboard.proposta.abertura.form')->with(['data'=>$data, 'action'=>"criar"]);
+        return view('dashboard.proposta.form')->with(['data'=>$data, 'action'=>"criar"]);
     }
 
     /**
@@ -61,7 +61,7 @@ class AberturaPropostaController extends Controller
     public function salvarProposta(Request $request)
     {
         $data = Proposta::create($request->all());
-        //dd($data);
+        dd($data);
         $data->num_proposta =  str_pad($data->id, 7, "0", STR_PAD_LEFT);
         $data->save();
         //dd($data->nm_solicitante, $request, $data->id, $data->num_proposta);
