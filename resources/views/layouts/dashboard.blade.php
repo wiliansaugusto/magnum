@@ -127,7 +127,6 @@
         </div>
     </div>
 
-    {{--<script src="{{ asset('lib/jquery/dist/jquery.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>--}}
     <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
     <script src="{{ asset('lib/bootstrap/dist/js/bootstrap.bundle.min.js') }}" type="c024bab70492f018f6371c66-text/javascript"></script>
