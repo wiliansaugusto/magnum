@@ -79,4 +79,15 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 
 //    Route::post('pesquisar/', 'PalestranteController@search');
 
+    Route::resource('evento/', 'EventoController'); 
+
+    Route::get    ('evento/', 'EventoController@index');
+    Route::post   ('evento/','EventoController@salvarEvento');
+    Route::get    ('evento/{id}/novo', 'EventoController@create');
+    Route::get    ('evento/{id}/edit', 'EventoController@show');
+    Route::delete ('evento/{id}', 'EventoController@destroy');
+//    Route::put    ('evento/update/{id}', 'EventoController@edit');
+    Route::get    ('evento/{id}', 'EventoController@show');
+    
+
 });

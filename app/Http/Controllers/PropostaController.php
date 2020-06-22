@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Proposta;
 use App\PropostaItem;
+use App\Cliente;
+use App\Evento;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropostaRequest;
 
@@ -37,6 +39,18 @@ class PropostaController extends Controller
 
         return view('dashboard.proposta.form')->with(['data'=>$data, 'action'=>"criar"]);
     }
+
+    public function salvarProposta(Request $request)
+    {
+        $data = Proposta::create($request->all());
+        //dd($data);
+        $data->num_proposta =  str_pad($data->id, 7, "0", STR_PAD_LEFT);
+        $data->save();
+        //dd($data->nm_solicitante, $request, $data->id, $data->num_proposta);
+
+        return redirect("dashboard/proposta/{$data->id}/novo");
+
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -45,7 +59,8 @@ class PropostaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        dd($request);
         $proposta = $request->all()['id_proposta'];
         $proposta = Proposta::find($request->id_proposta);
         $proposta->status_proposta = $request->status_proposta;
@@ -61,8 +76,33 @@ class PropostaController extends Controller
         $proposta->nm_solicitante = $request->nm_solicitante;
         $proposta->save();
 
+        //$cliente = $request ->all()['id_cliente'] ;
+
+        $evento = $request->all()['id_evento'];
+        $evento = Evento::find($request->id_evento);
+        $evento->nm_evento = $request->nm_evento;
+        $evento->tema_evento = $request->tema_evento;
+        $evento->dt_evento_inico = $request->dt_evento_inicio;
+        $evento->dt_evento_fim = $request->dt_evento_fim;
+        $evento->obs_data_evento = $request->obs_data_evento;
+        $evento->qtd_participantes_evento = $request->qtd_participantes_evento;
+        $evento->perfil_participante_evento = $request->perfil_participante_evento;
+        $evento->objetivo_evento = $request->objetivo_evento;
+        $evento->save();
+
+        $cliente = $request->all()['id_cliente'];
+        $cliente = Cliente::find($request->id_cliente);
+        $cliente->nm_cliente = $request->nm_cliente;
+        $cliente->ind_cliente = $request->ind_cliente;
+        $cliente->tipo_cliente = $request->tipo_cliente;
+        $cliente->cpf = $request->cpf;
+        $cliente->cnpj = $request->cnpj;
+        $cliente->obs_cliente = $request->obs_cliente;
+        $cliente->save();
         
-        return redirect('dashboard/proposta/abertura'.$id_proposta.'/novo');
+
+        
+        return redirect('dashboard/proposta/'.$id_proposta.'/novo');
     }
 
     /**
@@ -86,7 +126,7 @@ class PropostaController extends Controller
     public function edit($id)
     {
         //
-        $proposta = $request->all()['id_proposta'];
+        $proposta = $request->all()['id'];
         $proposta = Proposta::find($request->id_proposta);
         $proposta->status_proposta = $request->status_proposta;
         $proposta->nm_solicitante = $request->nm_solicitante;
@@ -99,6 +139,29 @@ class PropostaController extends Controller
         $proposta->vlr_total_proposta = $request->vlr_total_proposta;
         $proposta->mensagem_proposta = $request->mensagem_proposta;
         $proposta->save();
+
+        
+        $evento = $request->all()['id_evento'];
+        $evento = Evento::find($request->id_evento);
+        $evento->nm_evento = $request->nm_evento;
+        $evento->tema_evento = $request->tema_evento;
+        $evento->dt_evento_inico = $request->dt_evento_inicio;
+        $evento->dt_evento_fim = $request->dt_evento_fim;
+        $evento->obs_data_evento = $request->obs_data_evento;
+        $evento->qtd_participantes_evento = $request->qtd_participantes_evento;
+        $evento->perfil_participante_evento = $request->perfil_participante_evento;
+        $evento->objetivo_evento = $request->objetivo_evento;
+        $evento->save();
+
+        $cliente = $request->all()['id_cliente'];
+        $cliente = Cliente::find($request->id_cliente);
+        $cliente->nm_cliente = $request->nm_cliente;
+        $cliente->ind_cliente = $request->ind_cliente;
+        $cliente->tipo_cliente = $request->tipo_cliente;
+        $cliente->cpf = $request->cpf;
+        $cliente->cnpj = $request->cnpj;
+        $cliente->obs_cliente = $request->obs_cliente;
+        $cliente->save();
 
     }
 

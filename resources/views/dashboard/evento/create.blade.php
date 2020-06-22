@@ -1,25 +1,35 @@
-<div class="modal fade" id="frmNomeAberturaPropostaModal" tabindex="-1" role="dialog"
-     aria-labelledby="frmNomeAberturaPropostaModal" aria-hidden="true">
+<div class="modal fade" id="frmNomeAberturaEventoModal" tabindex="-1" role="dialog"
+     aria-labelledby="frmNomeAberturaEventoModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form id="frmNomeAberturaProposta" method="POST" action="/dashboard/proposta">
-                <input id="num_proposta" type="hidden" name="num_proposta" value="{{ Proposta::create()->id }}"/>
-                <input id="status_proposta" type="hidden" name="status_proposta" value="2"/>
-
-                <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
+            <form id="frmNomeAberturaEvento" method="POST" action="/dashboard/evento/">
+                
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Proposta</h5>
+                    <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Evento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                </div>
+                <div>
+                    <h2 class="modal-title" id="frmContatoModalLabel">Dados do Evento</h2>
+                    <input id="id_usuario" name="id_usuario" type="hidden" value="{{ Auth::user()->id }}"/>
+                    <div>
+                        <label for="nm_evento">Evento</label>
+                        <input id="nm_evento" type="text" name="nm_evento" />
+                    </div>
+                    <div>
+                        <label for="tema_evento">Tema do Evento</label>
+                        <input id="tema_Evento" type="text" name="tema_evento" />
+                    </div>
+
                 </div>
                 <div class="modal-body">
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-md-12">
-                                    <label for="nome_solicitante">Nome do Solicitante*</label>
+                                    <label for="nome_solicitante">Nome do Solicitante</label>
                                     <input id="nome_solicitante" type="text" class="form-control form-control-sm"
                                            name="nm_solicitante" autofocus required>
                                 </div>

@@ -4,10 +4,10 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Abertura de Proposta</h3>
+                <h3>Eventos</h3>
             </div>
             <div class="title_center ">
-                <h3 style='color:red'>Nrº  {{$data->num_proposta}}</h3>
+                <h3 style='color:red'>Nrº  {{$data->id_evento}}</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -19,8 +19,8 @@
                             Campos inseridos incorretamente ou em branco
                         </div>
                     @endif
-                    <form method="POST" action="/dashboard/proposta"
-                          id="proposta"
+                    <form method="POST" action="/dashboard/evento"
+                          id="evento"
                           enctype="multipart/form-data">
                         @csrf
 
@@ -31,11 +31,6 @@
                                 <div class="col-md-12">
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-gerais-tab"
-                                               data-toggle="tab"
-                                               href="#nav-gerais" role="tab" aria-controls="nav-gerais"
-                                               aria-selected="true">Dados Gerais</a>
-
                                             <a class="nav-item nav-link" id="nav-evento-tab"
                                                data-toggle="tab"
                                                href="#nav-evento" role="tab" aria-controls="nav-evento"
@@ -305,7 +300,7 @@
             </div>
         </div>
     </div>
-    @include("dashboard.proposta.create")
+    @include("dashboard.evento.create")
 @endsection
 
 
