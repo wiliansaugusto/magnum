@@ -20,6 +20,13 @@ class AlterarForeignKey extends Migration
 
         });
 
+        Schema::table('mgm_tbl_cliente', function (Blueprint $table) {
+            //
+            $table->foreign('id_usuario')->references('id')
+            ->on('mgm_tbl_usuario')->onDelete('cascade');
+
+        });
+
         
 
 
