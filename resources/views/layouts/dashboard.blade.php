@@ -56,6 +56,10 @@
                                 </li>
                                 <li><a href="/dashboard/proposta"><i class="fa fa-file-text"></i> Proposta </a>
                                 </li>
+                                <li><a href="/dashboard/evento"><i class="fa fa-file-text"></i> Eventos </a>
+                                </li>
+                                <li><a href="/dashboard/cliente"><i class="fa fa-users"></i> Clientes </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="menu_section">
