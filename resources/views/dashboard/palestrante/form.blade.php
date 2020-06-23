@@ -1058,7 +1058,6 @@
 
                                                                                 <tr id="{{$valor->id}}">
                                                                                     @php
-
                                                                                     $sg_estado = App\Cidade::find($valor->cidade->id);
                                                                                     @endphp
                                                                                     <td>{{$valor->cidade->nm_cidade}} - {{$sg_estado->estado->ds_sg_estado}} </td>

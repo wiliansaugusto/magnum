@@ -71,6 +71,7 @@ class PalestranteController extends Controller
         $palestrante->nr_cpf_palestrante = $request->nr_cpf_palestrante;
         $palestrante->dt_nascimento_palestrante = $request->dt_nascimento_palestrante;
         $palestrante->cidade_palestrante = $request->cidade_palestrante;
+        $palestrante->id_usuario = $request->id_usuario;
         $palestrante->save();
 
         $dadosContratuais = DadosContratuais::where('id_palestrante', $id_palestrante)->first() == NULL ? new DadosContratuais()
@@ -154,6 +155,9 @@ class PalestranteController extends Controller
         $palestrante->nr_cpf_palestrante = $request->nr_cpf_palestrante;
         $palestrante->dt_nascimento_palestrante = $request->dt_nascimento_palestrante;
         $palestrante->cidade_palestrante = $request->cidade_palestrante;
+        $palestrante->id_usuario = $request->id_usuario;
+
+
         $palestrante->save();
 
 
