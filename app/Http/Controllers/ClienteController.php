@@ -30,6 +30,18 @@ class ClienteController extends Controller
         return view('dashboard.cliente.form')->with(['data'=>$data, 'action'=>"criar"]);
     }
 
+    public function salvarCliente(Request $request)
+    {
+        $data = Cliente::create($request->all());
+        //dd($data);
+        //$data->num_proposta =  str_pad($data->id, 7, "0", STR_PAD_LEFT);
+        $data->save();
+        //dd($data->nm_solicitante, $request, $data->id, $data->num_proposta);
+
+        return redirect("dashboard/cliente/{$data->id}/novo");
+
+    }
+
         /**
      * Store a newly created resource in storage.
      *
@@ -84,7 +96,7 @@ class ClienteController extends Controller
         $cliente->obs_cliente = $request->obs_cliente;
         $cliente->save();
         
-        return redirect('dashboard/cliente/'.$id_palestrante.'/edit');
+        return redirect('dashboard/cliente/'.$id_cliente.'/edit');
     }
 
     /**

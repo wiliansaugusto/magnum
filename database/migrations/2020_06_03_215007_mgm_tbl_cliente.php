@@ -22,6 +22,7 @@ class MgmTblCliente extends Migration
             $table->string('cnpj', 14)->nullable($value = true);
             $table->string('obs_cliente', 200)->nullable($value = true);
             $table->timestamps();
+            $table->bigInteger('id_usuario',20);
         });
     }
 

@@ -80,17 +80,17 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="col-md-1">
-                                                                    <button id='excluirProposta' type='button'
+                                                                    <button id='excluirEvento' type='button'
                                                                             class='btn btn-danger btn-sm'
                                                                             data-id=""
                                                                             data-toggle='modal'
-                                                                            data-target='#frmRemoverPropostaModal'>
+                                                                            data-target='#frmRemoverEventoModal'>
                                                                         <i class='fa fa-trash'></i>
                                                                     </button>
                                                                 </div>
                                                                 <div class="clearfix"></div>
                                                             </div>
-                                                            <div id="collapseProposta"
+                                                            <div id="collapseEvento"
                                                                  class="panel-collapse collapse in" role="tabpanel"
                                                                  aria-labelledby="heading">
                                                                 <div class="panel-body p-3">
@@ -131,26 +131,26 @@
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-6">
-                                                    <label for="ds_tema_evento">Tema do Evento</label>
-                                                    <textarea id="ds_tema_evento" type="text"
-                                                              class="form-control form-control-sm {{ $errors->has('ds_tema_evento') ? 'is-invalid' : '' }}"
-                                                              name="ds_tema_evento">
+                                                    <label for="tema_evento">Tema do Evento</label>
+                                                    <textarea id="tema_evento" type="text"
+                                                              class="form-control form-control-sm {{ $errors->has('tema_evento') ? 'is-invalid' : '' }}"
+                                                              name="tema_evento">
                                                     </textarea>
-                                                    @if ($errors->has('ds_tema_evento'))
+                                                    @if ($errors->has('tema_evento'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('ds_tema_evento') }}</strong>
+                                                            <strong>{{ $errors->first('tema_evento') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="ds_tema_palestras">Tema das Palestras</label>
-                                                    <textarea id="ds_tema_palestras" type="text"
-                                                              class="form-control form-control-sm {{ $errors->has('ds_tema_palestras') ? 'is-invalid' : '' }}"
-                                                              name="ds_tema_palestras">
+                                                    <label for="tema_palestras">Tema das Palestras</label>
+                                                    <textarea id="tema_palestras" type="text"
+                                                              class="form-control form-control-sm {{ $errors->has('tema_palestras') ? 'is-invalid' : '' }}"
+                                                              name="tema_palestras">
                                                     </textarea>
-                                                    @if ($errors->has('ds_tema_palestras'))
+                                                    @if ($errors->has('tema_palestras'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('ds_tema_palestras') }}</strong>
+                                                            <strong>{{ $errors->first('tema_palestras') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>

@@ -545,7 +545,7 @@ $(document).ready(function () {
     $("#ds_reset").click(function () {
         $(".simditor-body").html("");
     });
-
+    
     //Select2
     $('.select-find').select2({
         placeholder: "Buscar",

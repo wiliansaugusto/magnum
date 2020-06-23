@@ -88,6 +88,13 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::delete ('evento/{id}', 'EventoController@destroy');
 //    Route::put    ('evento/update/{id}', 'EventoController@edit');
     Route::get    ('evento/{id}', 'EventoController@show');
-    
+
+    Route::get    ('cliente/', 'ClienteController@index');
+    Route::post   ('cliente/','ClienteController@salvarCliente');
+    Route::get    ('cliente/{id}/novo', 'ClienteController@create');
+    Route::get    ('cliente/{id}/edit', 'ClienteController@show');
+    Route::delete ('cliente/{id}', 'ClienteController@destroy');
+//    Route::put    ('evento/update/{id}', 'EventoController@edit');
+    Route::get    ('cliente/{id}', 'ClienteController@show');
 
 });
