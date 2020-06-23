@@ -442,7 +442,7 @@ $(document).ready(function () {
         $("#valor-null").remove();
         var obs = fields.ds_observacao === null ? "Não Cadastrado" : fields.ds_observacao;
         var linha = "<tr id='" + fields.id_valor + "'>";
-        linha += "<td>" + fields.nm_cidade + "</td>";
+        linha += "<td>" + fields.nm_cidade + " - "+ fields.ds_sg_estado  +"</td>";
         linha += "<td>" + fields.nr_valor + "</td>";
         linha += "<td>" + obs + "</td>";
         linha += "<td>" + fields.nm_tipo_servico + "</td>";

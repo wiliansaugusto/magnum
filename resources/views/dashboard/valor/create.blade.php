@@ -40,20 +40,38 @@
                         </div>
                     </div>
                     <div class="form-group row d-flex justify-content-center">
-                        <div class="col-md-12">
-                            <label for="id_cidade_valor">Cidade</label>
+                        <div class="col-md-4">
+                            <label for="id_pais">País</label>
                             @php
-                                $cidades = App\Cidade::all();
+                                $paises = App\Pais::all();
                             @endphp
 
-                            <select id="id_cidade_valor" name="id_cidade" class="form-control form-control-sm select-find"
+                            <select id="id_pais" name="id_pais" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
-                                @foreach ($cidades as $item)
-                                    <option value="{{$item->id}}">
-                                        {{$item->nm_cidade}}
+                                @foreach ($paises as $pais)
+                                    <option value="{{$pais->id}}">
+                                        {{$pais->nm_pais}}
                                     </option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="id_estado">Estado</label>
+
+                            <select id="id_estado" name="id_estado" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="id_cidade">Cidade</label>
+
+                            <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+
                             </select>
                         </div>
                     </div>

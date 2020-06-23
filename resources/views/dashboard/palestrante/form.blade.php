@@ -1055,8 +1055,13 @@
                                                                         @if (sizeof($data->valores) > 0)
 
                                                                             @foreach($data->valores as $valor)
+
                                                                                 <tr id="{{$valor->id}}">
-                                                                                    <td>{{$valor->cidade->nm_cidade}}</td>
+                                                                                    @php
+
+                                                                                    $sg_estado = App\Cidade::find($valor->cidade->id);
+                                                                                    @endphp
+                                                                                    <td>{{$valor->cidade->nm_cidade}} - {{$sg_estado->estado->ds_sg_estado}} </td>
                                                                                     <td>{{$valor->nr_valor}}</td>
                                                                                     <td>{{$valor->ds_observacao == null ?'Não Cadastrado':$valor->ds_observacao}}</td>
                                                                                     <td>{{ $valor->id_tp_servico == null ? 'Não Cadastrado'

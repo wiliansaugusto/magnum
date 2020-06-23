@@ -24,6 +24,7 @@ class Valor extends Model
             'App\Cidade', 'id_cidade', 'id');
     }
 
+
     public function tipoServico()
     {
         return $this->belongsTo(
