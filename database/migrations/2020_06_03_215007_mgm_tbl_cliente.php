@@ -22,7 +22,9 @@ class MgmTblCliente extends Migration
             $table->string('cnpj', 14)->nullable($value = true);
             $table->string('obs_cliente', 200)->nullable($value = true);
             $table->timestamps();
-            $table->bigInteger('id_usuario',20);
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')
+                ->on('mgm_tbl_usuario')->onDelete('cascade');
         });
     }
 

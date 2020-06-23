@@ -15,8 +15,8 @@
                     <div id="msg-error-endereco" class="alert alert-danger" role="alert" style="display: none">
                         Não foi possível cadastrar um endereço nos dados cadastrais!
                     </div>
-                    
-                    
+
+
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-4">
                             <label for="id_pais">País</label>
@@ -36,20 +36,20 @@
                         </div>
                         <div class="col-md-4">
                             <label for="id_estado">Estado</label>
-                           
+
                             <select id="id_estado" name="id_estado" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
-                                                                
+
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="id_cidade">Cidade</label>
-                           
+
                             <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
-                                
+
                             </select>
                         </div>
                         <div class="col-md-2">
@@ -87,8 +87,8 @@
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
                             <label for="tp_endereco">Tipo de Endereço</label>
-                            <select id="tp_endereco" name="id_tp_endereco" class="form-control form-control-sm">
-                                <option selected disabled>Selecione Tipo de Endereço</option>
+                            <select id="tp_endereco" name="id_tp_endereco" class="form-control form-control-sm" required >
+                                <option disabled>Selecione Tipo de Endereço</option>
                                 @php
                                     $tipoEndereco = new App\TipoEndereco();
                                     $result = $tipoEndereco::all();
@@ -99,7 +99,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <div class="modal-footer">

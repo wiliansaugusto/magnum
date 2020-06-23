@@ -15,7 +15,7 @@ class AlterarMgmTblCidade extends Migration
     {
         Schema::table('mgm_tbl_cidade', function (Blueprint $table) {
             //
-            $table->Integer('cod_ibge');
+            $table->Integer('cod_ibge')->nullable($value = true);
         });
     }
 

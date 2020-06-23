@@ -9,7 +9,6 @@ $(document).ready(function () {
             url: "/dashboard/contato",
             data: data
         }).done(function (data) {
-            debugger;
             tabelaContato(data);
             $("#frmContatoPalestrante")[0].reset();
             $('#frmContatoModal').modal('toggle');
@@ -475,7 +474,6 @@ $(document).ready(function () {
     }
 
     function tabelaEndereco(fields) {
-        debugger;
         if(fields.registro == 'palestrante') {
             $("#endereco-null-palestrante").remove();
 
@@ -545,7 +543,7 @@ $(document).ready(function () {
     $("#ds_reset").click(function () {
         $(".simditor-body").html("");
     });
-    
+
     //Select2
     $('.select-find').select2({
         placeholder: "Buscar",
@@ -594,7 +592,8 @@ $(document).ready(function () {
                 data.forEach(function (cidade) {
                     tblCidade.append('<tr id="' + cidade.id + '"><td>' + cidade.nm_cidade + '</td>' +
                         '<td class="text-right">' +
-                        '<button class="btn btn-sm btn-primary" data-id="' + cidade.id + '" data-cidade="' + cidade.nm_cidade + '" data-estado="' + cidade.id_estado + '" data-toggle="modal" data-target="#frmCidadeEditModal">' +
+                        '<button class="btn btn-sm btn-primary" data-id="' + cidade.id + '" data-cidade="' + cidade.nm_cidade + '" ' +
+                        'data-estado="' + cidade.id_estado + '" data-toggle="modal" data-target="#frmCidadeEditModal">' +
                         '<i class="fa fa-edit"></i>' +
                         '</button>' +
                         '</td></tr>');
@@ -614,13 +613,13 @@ $(document).ready(function () {
             url: "/dashboard/estado/buscar/" + id_pais,
             success: function (data) {
                 console.log(data);
-                debugger;
                 tblEstado.html("");
 
                 data.forEach(function (estado) {
                     tblEstado.append('<tr id="' + estado.id + '"><td>' + estado.nm_estado + '</td>' +
                         '<td class="text-right">' +
-                        '<button class="btn btn-sm btn-primary" data-id="' + estado.id + '" data-estado="' + estado.nm_estado + '" data-pais="' + estado.id_pais + '" data-toggle="modal" data-target="#frmEstadoEditModal">' +
+                        '<button class="btn btn-sm btn-primary" data-id="' + estado.id + '" data-estado="' + estado.nm_estado + '" ' +
+                        'data-pais="' + estado.id_pais + '" data-toggle="modal" data-target="#frmEstadoEditModal">' +
                         '<i class="fa fa-edit"></i>' +
                         '</button>' +
                         '</td></tr>');
