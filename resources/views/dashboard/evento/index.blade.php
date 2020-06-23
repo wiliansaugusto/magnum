@@ -10,7 +10,7 @@
             <button type="button" class="btn btn-primary" data-toggle="modal"
                         data-target="#frmNomeAberturaEventoModal"><i class="fa fa-plus "></i>
                     Evento
-                </button>
+            </button>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -49,8 +49,8 @@
                             <table class="table table-striped table-sm table-hover">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th> Nrº Evento</th>
-                                    <th style="width: 40%"> Solicitante</th>
+                                    <th> Nrº </th>
+                                    <th style="width: 35%"> Evento </th>
                                     <th>Data da Alteração</th>
                                     <th>Usuário Alteração</th>
                                     <th></th>
@@ -65,7 +65,7 @@
                                     @endphp
                                     <tr>
                                         <td>{{$evento->id}}</td>
-                                        <td>{{$evento->nm_solicitante}}</td>
+                                        <td>{{$evento->nm_evento}}</td>
                                         <td>{{date_format($evento->updated_at,"d/m/Y H:i:s")}}</td>
                                         <td>{{$usuario->nm_usuario}}</td>
                                         <td class=" text-right">
