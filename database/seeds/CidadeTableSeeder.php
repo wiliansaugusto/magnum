@@ -12,601 +12,701 @@ class CidadeTableSeeder extends Seeder
     public function run()
     {
 
-        $cidade = \App\Cidade::where('id', '1')->first();
+        $cidade = \App\Cidade::where('id', '1')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '1')->first();
         $cidade->cod_ibge = '3550308';
         $cidade->nm_cidade = "São Paulo";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '2')->first();
+        $cidade = \App\Cidade::where('id', '2')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '2')->first();
         $cidade->cod_ibge = '3304557';
         $cidade->nm_cidade = "Rio de Janeiro";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '3')->first();
+        $cidade = \App\Cidade::where('id', '3')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '3')->first();
         $cidade->cod_ibge = '5300108';
         $cidade->nm_cidade = "Brasília";
         $cidade->id_estado = '7';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '4')->first();
+        $cidade = \App\Cidade::where('id', '4')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '4')->first();
         $cidade->cod_ibge = '2927408';
         $cidade->nm_cidade = "Salvador";
         $cidade->id_estado = '5';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '5')->first();
+        $cidade = \App\Cidade::where('id', '5')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '5')->first();
         $cidade->cod_ibge = '2304400';
         $cidade->nm_cidade = "Fortaleza";
         $cidade->id_estado = '6';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '6')->first();
+        $cidade = \App\Cidade::where('id', '6')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '6')->first();
         $cidade->cod_ibge = '3106200';
         $cidade->nm_cidade = "Belo Horizonte";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '7')->first();
+        $cidade = \App\Cidade::where('id', '7')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '7')->first();
         $cidade->cod_ibge = '1302603';
         $cidade->nm_cidade = "Manaus";
         $cidade->id_estado = '4';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '8')->first();
+        $cidade = \App\Cidade::where('id', '8')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '8')->first();
         $cidade->cod_ibge = '4106902';
         $cidade->nm_cidade = "Curitiba";
         $cidade->id_estado = '16';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '9')->first();
+        $cidade = \App\Cidade::where('id', '9')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '9')->first();
         $cidade->cod_ibge = '2611606';
         $cidade->nm_cidade = "Recife";
         $cidade->id_estado = '17';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '10')->first();
+        $cidade = \App\Cidade::where('id', '10')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '10')->first();
         $cidade->cod_ibge = '5208707';
         $cidade->nm_cidade = "Goiânia";
         $cidade->id_estado = '9';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '11')->first();
+        $cidade = \App\Cidade::where('id', '11')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '11')->first();
         $cidade->cod_ibge = '1501402';
         $cidade->nm_cidade = "Belém";
         $cidade->id_estado = '14';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '12')->first();
+        $cidade = \App\Cidade::where('id', '12')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '12')->first();
         $cidade->cod_ibge = '4314902';
         $cidade->nm_cidade = "Porto Alegre";
         $cidade->id_estado = '21';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '13')->first();
+        $cidade = \App\Cidade::where('id', '13')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '13')->first();
         $cidade->cod_ibge = '3518800';
         $cidade->nm_cidade = "Guarulhos";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '14')->first();
+        $cidade = \App\Cidade::where('id', '14')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '14')->first();
         $cidade->cod_ibge = '3509502';
         $cidade->nm_cidade = "Campinas";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '15')->first();
+        $cidade = \App\Cidade::where('id', '15')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '15')->first();
         $cidade->cod_ibge = '2111300';
         $cidade->nm_cidade = "São Luís";
         $cidade->id_estado = '10';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '16')->first();
+        $cidade = \App\Cidade::where('id', '16')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '16')->first();
         $cidade->cod_ibge = '3304904';
         $cidade->nm_cidade = "São Gonçalo";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '17')->first();
+        $cidade = \App\Cidade::where('id', '17')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '17')->first();
         $cidade->cod_ibge = '2704302';
         $cidade->nm_cidade = "Maceió";
         $cidade->id_estado = '2';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '18')->first();
+        $cidade = \App\Cidade::where('id', '18')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '18')->first();
         $cidade->cod_ibge = '3301702';
         $cidade->nm_cidade = "Duque de Caxias";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '19')->first();
+        $cidade = \App\Cidade::where('id', '19')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '19')->first();
         $cidade->cod_ibge = '5002704';
         $cidade->nm_cidade = "Campo Grande";
         $cidade->id_estado = '12';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '20')->first();
+        $cidade = \App\Cidade::where('id', '20')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '20')->first();
         $cidade->cod_ibge = '2408102';
         $cidade->nm_cidade = "Natal";
         $cidade->id_estado = '20';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '21')->first();
+        $cidade = \App\Cidade::where('id', '21')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '21')->first();
         $cidade->cod_ibge = '2211001';
         $cidade->nm_cidade = "Teresina";
         $cidade->id_estado = '18';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '22')->first();
+        $cidade = \App\Cidade::where('id', '22')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '22')->first();
         $cidade->cod_ibge = '3548708';
         $cidade->nm_cidade = "São Bernardo do Campo";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '23')->first();
+        $cidade = \App\Cidade::where('id', '23')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '23')->first();
         $cidade->cod_ibge = '3303500';
         $cidade->nm_cidade = "Nova Iguaçu";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '24')->first();
+        $cidade = \App\Cidade::where('id', '24')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '24')->first();
         $cidade->cod_ibge = '2507507';
         $cidade->nm_cidade = "João Pessoa";
         $cidade->id_estado = '15';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '25')->first();
+        $cidade = \App\Cidade::where('id', '25')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '25')->first();
         $cidade->cod_ibge = '3549904';
         $cidade->nm_cidade = "São José dos Campos";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '26')->first();
+        $cidade = \App\Cidade::where('id', '26')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '26')->first();
         $cidade->cod_ibge = '2513851';
         $cidade->nm_cidade = "Santo André";
         $cidade->id_estado = '15';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '27')->first();
+        $cidade = \App\Cidade::where('id', '27')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '27')->first();
         $cidade->cod_ibge = '3543402';
         $cidade->nm_cidade = "Ribeirão Preto";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '28')->first();
+        $cidade = \App\Cidade::where('id', '28')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '28')->first();
         $cidade->cod_ibge = '2607901';
         $cidade->nm_cidade = "Jaboatão dos Guararapes";
         $cidade->id_estado = '17';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '29')->first();
+        $cidade = \App\Cidade::where('id', '29')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '29')->first();
         $cidade->cod_ibge = '3534401';
         $cidade->nm_cidade = "Osasco";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '30')->first();
+        $cidade = \App\Cidade::where('id', '30')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '30')->first();
         $cidade->cod_ibge = '3170206';
         $cidade->nm_cidade = "Uberlândia";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '31')->first();
+        $cidade = \App\Cidade::where('id', '31')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '31')->first();
         $cidade->cod_ibge = '3552205';
         $cidade->nm_cidade = "Sorocaba";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '32')->first();
+        $cidade = \App\Cidade::where('id', '32')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '32')->first();
         $cidade->cod_ibge = '3118601';
         $cidade->nm_cidade = "Contagem";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '33')->first();
+        $cidade = \App\Cidade::where('id', '33')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '33')->first();
         $cidade->cod_ibge = '2800308';
         $cidade->nm_cidade = "Aracaju";
         $cidade->id_estado = '26';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '34')->first();
+        $cidade = \App\Cidade::where('id', '34')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '34')->first();
         $cidade->cod_ibge = '2910800';
         $cidade->nm_cidade = "Feira de Santana";
         $cidade->id_estado = '5';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '35')->first();
+        $cidade = \App\Cidade::where('id', '35')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '35')->first();
         $cidade->cod_ibge = '5103403';
         $cidade->nm_cidade = "Cuiabá";
         $cidade->id_estado = '11';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '36')->first();
+        $cidade = \App\Cidade::where('id', '36')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '36')->first();
         $cidade->cod_ibge = '4209102';
         $cidade->nm_cidade = "Joinville";
         $cidade->id_estado = '24';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '37')->first();
+        $cidade = \App\Cidade::where('id', '37')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '37')->first();
         $cidade->cod_ibge = '5201405';
         $cidade->nm_cidade = "Aparecida de Goiânia";
         $cidade->id_estado = '9';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '38')->first();
+        $cidade = \App\Cidade::where('id', '38')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '38')->first();
         $cidade->cod_ibge = '4113700';
         $cidade->nm_cidade = "Londrina";
         $cidade->id_estado = '16';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '39')->first();
+        $cidade = \App\Cidade::where('id', '39')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '39')->first();
         $cidade->cod_ibge = '3136702';
         $cidade->nm_cidade = "Juiz de Fora";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '40')->first();
+        $cidade = \App\Cidade::where('id', '40')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '40')->first();
         $cidade->cod_ibge = '1500800';
         $cidade->nm_cidade = "Ananindeua";
         $cidade->id_estado = '14';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '41')->first();
+        $cidade = \App\Cidade::where('id', '41')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '41')->first();
         $cidade->cod_ibge = '1100205';
         $cidade->nm_cidade = "Porto Velho";
         $cidade->id_estado = '22';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '42')->first();
+        $cidade = \App\Cidade::where('id', '42')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '42')->first();
         $cidade->cod_ibge = '3551603';
         $cidade->nm_cidade = "Serra Negra";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '43')->first();
+        $cidade = \App\Cidade::where('id', '43')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '43')->first();
         $cidade->cod_ibge = '3303302';
         $cidade->nm_cidade = "Niterói";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '44')->first();
+        $cidade = \App\Cidade::where('id', '44')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '44')->first();
         $cidade->cod_ibge = '3300456';
         $cidade->nm_cidade = "Belford Roxo";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '45')->first();
+        $cidade = \App\Cidade::where('id', '45')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '45')->first();
         $cidade->cod_ibge = '4305108';
         $cidade->nm_cidade = "Caxias do Sul";
         $cidade->id_estado = '21';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '46')->first();
+        $cidade = \App\Cidade::where('id', '46')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '46')->first();
         $cidade->cod_ibge = '3301009';
         $cidade->nm_cidade = "Campos dos Goytacazes";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '47')->first();
+        $cidade = \App\Cidade::where('id', '47')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '47')->first();
         $cidade->cod_ibge = '1600303';
         $cidade->nm_cidade = "Macapá";
         $cidade->id_estado = '3';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '48')->first();
+        $cidade = \App\Cidade::where('id', '48')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '48')->first();
         $cidade->cod_ibge = '4205407';
         $cidade->nm_cidade = "Florianópolis";
         $cidade->id_estado = '24';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '49')->first();
+        $cidade = \App\Cidade::where('id', '49')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '49')->first();
         $cidade->cod_ibge = '3205200';
         $cidade->nm_cidade = "Vila Velha";
         $cidade->id_estado = '8';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '50')->first();
+        $cidade = \App\Cidade::where('id', '50')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '50')->first();
         $cidade->cod_ibge = '3529401';
         $cidade->nm_cidade = "Mauá";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '51')->first();
+        $cidade = \App\Cidade::where('id', '51')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '51')->first();
         $cidade->cod_ibge = '3305109';
         $cidade->nm_cidade = "São João de Meriti";
         $cidade->id_estado = '19';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '52')->first();
+        $cidade = \App\Cidade::where('id', '52')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '52')->first();
         $cidade->cod_ibge = '3549805';
         $cidade->nm_cidade = "São José do Rio Preto";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '53')->first();
+        $cidade = \App\Cidade::where('id', '53')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '53')->first();
         $cidade->cod_ibge = '3530607';
         $cidade->nm_cidade = "Mogi das Cruzes";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '54')->first();
+        $cidade = \App\Cidade::where('id', '54')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '54')->first();
         $cidade->cod_ibge = '3106705';
         $cidade->nm_cidade = "Betim";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '55')->first();
+        $cidade = \App\Cidade::where('id', '55')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '55')->first();
         $cidade->cod_ibge = '3548500';
         $cidade->nm_cidade = "Santos";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '56')->first();
+        $cidade = \App\Cidade::where('id', '56')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '56')->first();
         $cidade->cod_ibge = '3513801';
         $cidade->nm_cidade = "Diadema";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '57')->first();
+        $cidade = \App\Cidade::where('id', '57')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '57')->first();
         $cidade->cod_ibge = '4115200';
         $cidade->nm_cidade = "Maringá";
         $cidade->id_estado = '16';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '58')->first();
+        $cidade = \App\Cidade::where('id', '58')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '58')->first();
         $cidade->cod_ibge = '3525904';
         $cidade->nm_cidade = "Jundiaí";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '59')->first();
+        $cidade = \App\Cidade::where('id', '59')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '59')->first();
         $cidade->cod_ibge = '2504009';
         $cidade->nm_cidade = "Campina Grande";
         $cidade->id_estado = '15';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '60')->first();
+        $cidade = \App\Cidade::where('id', '60')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '60')->first();
         $cidade->cod_ibge = '3143302';
         $cidade->nm_cidade = "Montes Claros";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '61')->first();
+        $cidade = \App\Cidade::where('id', '61')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '61')->first();
         $cidade->cod_ibge = '5107206';
         $cidade->nm_cidade = "Rio Branco";
         $cidade->id_estado = '11';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '62')->first();
+        $cidade = \App\Cidade::where('id', '62')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '62')->first();
         $cidade->cod_ibge = '3155702';
         $cidade->nm_cidade = "Rio Piracicaba";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '63')->first();
+        $cidade = \App\Cidade::where('id', '63')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '63')->first();
         $cidade->cod_ibge = '3510609';
         $cidade->nm_cidade = "Carapicuíba";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '64')->first();
+        $cidade = \App\Cidade::where('id', '64')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '64')->first();
         $cidade->cod_ibge = '1400100';
         $cidade->nm_cidade = "Boa Vista";
         $cidade->id_estado = '23';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '65')->first();
+        $cidade = \App\Cidade::where('id', '65')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '65')->first();
         $cidade->cod_ibge = '2609600';
         $cidade->nm_cidade = "Olinda";
         $cidade->id_estado = '17';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '66')->first();
+        $cidade = \App\Cidade::where('id', '66')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '66')->first();
         $cidade->cod_ibge = '5201108';
         $cidade->nm_cidade = "Anápolis";
         $cidade->id_estado = '9';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '67')->first();
+        $cidade = \App\Cidade::where('id', '67')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '67')->first();
         $cidade->cod_ibge = '3201308';
         $cidade->nm_cidade = "Cariacica";
         $cidade->id_estado = '8';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '68')->first();
+        $cidade = \App\Cidade::where('id', '68')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '68')->first();
         $cidade->cod_ibge = '3506003';
         $cidade->nm_cidade = "Bauru";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '69')->first();
+        $cidade = \App\Cidade::where('id', '69')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '69')->first();
         $cidade->cod_ibge = '3523107';
         $cidade->nm_cidade = "Itaquaquecetuba";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '70')->first();
+        $cidade = \App\Cidade::where('id', '70')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '70')->first();
         $cidade->cod_ibge = '3551009';
         $cidade->nm_cidade = "São Vicente";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '71')->first();
+        $cidade = \App\Cidade::where('id', '71')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '71')->first();
         $cidade->cod_ibge = '3205309';
         $cidade->nm_cidade = "Vitória";
         $cidade->id_estado = '8';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '72')->first();
+        $cidade = \App\Cidade::where('id', '72')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '72')->first();
         $cidade->cod_ibge = '2303709';
         $cidade->nm_cidade = "Caucaia";
         $cidade->id_estado = '6';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '73')->first();
+        $cidade = \App\Cidade::where('id', '73')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '73')->first();
         $cidade->cod_ibge = '2604106';
         $cidade->nm_cidade = "Caruaru";
         $cidade->id_estado = '17';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '74')->first();
+        $cidade = \App\Cidade::where('id', '74')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '74')->first();
         $cidade->cod_ibge = '4202404';
         $cidade->nm_cidade = "Blumenau";
         $cidade->id_estado = '24';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '75')->first();
+        $cidade = \App\Cidade::where('id', '75')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '75')->first();
         $cidade->cod_ibge = '3516200';
         $cidade->nm_cidade = "Franca";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '76')->first();
+        $cidade = \App\Cidade::where('id', '76')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '76')->first();
         $cidade->cod_ibge = '4119905';
         $cidade->nm_cidade = "Ponta Grossa";
         $cidade->id_estado = '16';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '77')->first();
+        $cidade = \App\Cidade::where('id', '77')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '77')->first();
         $cidade->cod_ibge = '2611101';
         $cidade->nm_cidade = "Petrolina";
         $cidade->id_estado = '17';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '78')->first();
+        $cidade = \App\Cidade::where('id', '78')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '78')->first();
         $cidade->cod_ibge = '4304606';
         $cidade->nm_cidade = "Canoas";
         $cidade->id_estado = '21';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '79')->first();
+        $cidade = \App\Cidade::where('id', '79')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '79')->first();
         $cidade->cod_ibge = '4314407';
         $cidade->nm_cidade = "Pelotas";
         $cidade->id_estado = '21';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '80')->first();
+        $cidade = \App\Cidade::where('id', '80')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '80')->first();
         $cidade->cod_ibge = '2933307';
         $cidade->nm_cidade = "Vitória da Conquista";
         $cidade->id_estado = '5';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '81')->first();
+        $cidade = \App\Cidade::where('id', '81')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '81')->first();
         $cidade->cod_ibge = '3154606';
         $cidade->nm_cidade = "Ribeirão das Neves";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '82')->first();
+        $cidade = \App\Cidade::where('id', '82')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '82')->first();
         $cidade->cod_ibge = '3170107';
         $cidade->nm_cidade = "Uberaba";
         $cidade->id_estado = '13';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '83')->first();
+        $cidade = \App\Cidade::where('id', '83')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '83')->first();
         $cidade->cod_ibge = '3507605';
         $cidade->nm_cidade = "Bragança Paulista";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '84')->first();
+        $cidade = \App\Cidade::where('id', '84')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '84')->first();
         $cidade->cod_ibge = '4104808';
         $cidade->nm_cidade = "Cascavel";
         $cidade->id_estado = '16';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '85')->first();
+        $cidade = \App\Cidade::where('id', '85')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '85')->first();
         $cidade->cod_ibge = '4213807';
         $cidade->nm_cidade = "Praia Grande";
         $cidade->id_estado = '24';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '86')->first();
+        $cidade = \App\Cidade::where('id', '86')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '86')->first();
         $cidade->cod_ibge = '4125506';
         $cidade->nm_cidade = "São José dos Pinhais";
         $cidade->id_estado = '16';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '87')->first();
+        $cidade = \App\Cidade::where('id', '87')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '87')->first();
         $cidade->cod_ibge = '3518701';
         $cidade->nm_cidade = "Guarujá";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '88')->first();
+        $cidade = \App\Cidade::where('id', '88')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '88')->first();
         $cidade->cod_ibge = '3554102';
         $cidade->nm_cidade = "Taubaté";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '89')->first();
+        $cidade = \App\Cidade::where('id', '89')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '89')->first();
         $cidade->cod_ibge = '4313201';
         $cidade->nm_cidade = "Nova Petrópolis";
         $cidade->id_estado = '21';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '91')->first();
+        $cidade = \App\Cidade::where('id', '91')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '91')->first();
         $cidade->cod_ibge = '1506807';
         $cidade->nm_cidade = "Santarém";
         $cidade->id_estado = '14';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '92')->first();
+        $cidade = \App\Cidade::where('id', '92')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '92')->first();
         $cidade->cod_ibge = '2905701';
         $cidade->nm_cidade = "Camaçari";
         $cidade->id_estado = '5';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '90')->first();
+        $cidade = \App\Cidade::where('id', '90')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '90')->first();
         $cidade->cod_ibge = '3526902';
         $cidade->nm_cidade = "Limeira";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '93')->first();
+        $cidade = \App\Cidade::where('id', '93')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '93')->first();
         $cidade->cod_ibge = '4117602';
         $cidade->nm_cidade = "Palmas";
         $cidade->id_estado = '16';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '94')->first();
+        $cidade = \App\Cidade::where('id', '94')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '94')->first();
         $cidade->cod_ibge = '3552502';
         $cidade->nm_cidade = "Suzano";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '95')->first();
+        $cidade = \App\Cidade::where('id', '95')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '95')->first();
         $cidade->cod_ibge = '2408003';
         $cidade->nm_cidade = "Mossoró";
         $cidade->id_estado = '20';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '96')->first();
+        $cidade = \App\Cidade::where('id', '96')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '96')->first();
         $cidade->cod_ibge = '3552809';
         $cidade->nm_cidade = "Taboão da Serra";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '97')->first();
+        $cidade = \App\Cidade::where('id', '97')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '97')->first();
         $cidade->cod_ibge = '5108402';
         $cidade->nm_cidade = "Várzea Grande";
         $cidade->id_estado = '11';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '98')->first();
+        $cidade = \App\Cidade::where('id', '98')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '98')->first();
         $cidade->cod_ibge = '3552403';
         $cidade->nm_cidade = "Sumaré";
         $cidade->id_estado = '25';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '99')->first();
+        $cidade = \App\Cidade::where('id', '99')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '99')->first();
         $cidade->cod_ibge = '4316907';
         $cidade->nm_cidade = "Santa Maria";
         $cidade->id_estado = '21';
         $cidade->save();
 
-        $cidade = \App\Cidade::where('id', '100'
+        $cidade = \App\Cidade::where('id', '100')->first() == NULL ? new \App\Cidade()
+            : \App\Cidade::where('id', '100')->first();
         $cidade->cod_ibge = '4309209';
         $cidade->nm_cidade = "Gravataí";
         $cidade->id_estado = '21';

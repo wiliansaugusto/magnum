@@ -596,7 +596,7 @@
                                                         </div>
                                                         <div class="tab-pane fade" id="nav-contrato" role="tabpanel"
                                                              aria-labelledby="nav-profile-tab">
-                                                            @if(is_object($data->dadosContratuais))
+                                                            @if($data->dadosContratuais != NULL)
                                                                 <div
                                                                     class="form-group row d-flex justify-content-center">
                                                                     <div class="col-md-12">
@@ -945,27 +945,6 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            @if(sizeof($data->dadosContratuais->enderecos) > 0)
-                                                                                @foreach($data->dadosContratuais->enderecos as $endereco)
-                                                                                    <tr id="endereco-{{$endereco->id}}">
-                                                                                        <td>{{explode(" ",$endereco->tipoEndereco->nm_tipo_endereco)[2]}}
-                                                                                        </td>
-                                                                                        <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}
-                                                                                        </td>
-                                                                                        <td class='text-right'>
-                                                                                            <button id='excluirEndereco'
-                                                                                                    type='button'
-                                                                                                    class='btn btn-danger btn-sm'
-                                                                                                    data-id="{{$endereco->id}}"
-                                                                                                    data-toggle='modal'
-                                                                                                    data-rel='contratual'
-                                                                                                    data-target='#frmRemoverEnderecoModal'>
-                                                                                                <i class='fa fa-trash'></i>
-                                                                                            </button>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                @endforeach
-                                                                            @else
                                                                                 <tr id="endereco-null-contatual">
                                                                                     <td colspan="3" class="text-center">
                                                                                         Nenhum
@@ -973,7 +952,6 @@
                                                                                         registrado
                                                                                     </td>
                                                                                 </tr>
-                                                                            @endif
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
