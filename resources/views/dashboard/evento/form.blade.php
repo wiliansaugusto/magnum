@@ -29,106 +29,8 @@
                                 <input id="id_usuario" type="hidden" name="id_usuario"
                                        value="{{ Auth::user()->id }}"/>
                                 <div class="col-md-12">
-                                    <nav>
-                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link" id="nav-evento-tab"
-                                               data-toggle="tab"
-                                               href="#nav-evento" role="tab" aria-controls="nav-evento"
-                                               aria-selected="false">Dados do Evento</a>
-                                        </div>
-                                    </nav>
-                                    <div class="tab-content p-2" id="nav-tabContent">
-                                        <div class="tab-pane fade show active" id="nav-gerais"
-                                             role="tabpanel"
-                                             aria-labelledby="nav-gerais-tab">
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-12">
-                                                    <label for="nm_contratante">Cliente Final</label>
-                                                    <input id="nm_contratante" type="text"
-                                                           class="form-control form-control-sm {{$errors->has('nm_contratante') ? 'is-invalid' : '' }}"
-                                                           name="nm_contratante"
-                                                           value="{{old('nm_contratante') }}"/>
-                                                    @if ($errors->has('nm_contratante'))
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{$errors->first('nm_contratante')}}</strong>
-                                                        </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex justify-content-center mt-2">
-                                                <div class="col-md-2">
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#frmSolicitanteModal"
-                                                            style="width: 100%">
-                                                        <i class="fa fa-plus"></i> Solicitante
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="accordion" id="accordion-solicitante" role="tablist"
-                                                         aria-multiselectable="true">
-                                                        <div class="panel" id="painel-proposta">
-                                                            <div class="panel-heading">
-                                                                <div class="col-md-11 mt-1">
-                                                                    <a role="tab" id="heading"
-                                                                       data-toggle="collapse"
-                                                                       data-parent="#accordion-solicitante"
-                                                                       href="#collapseProposta"
-                                                                       aria-expanded="true"
-                                                                       aria-controls="collapseProposta">
-                                                                        <h4 class="panel-title">{{$data->nm_solicitante}}</h4>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-md-1">
-                                                                    <button id='excluirEvento' type='button'
-                                                                            class='btn btn-danger btn-sm'
-                                                                            data-id=""
-                                                                            data-toggle='modal'
-                                                                            data-target='#frmRemoverEventoModal'>
-                                                                        <i class='fa fa-trash'></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="clearfix"></div>
-                                                            </div>
-                                                            <div id="collapseEvento"
-                                                                 class="panel-collapse collapse in" role="tabpanel"
-                                                                 aria-labelledby="heading">
-                                                                <div class="panel-body p-3">
-                                                                    <table id="proposta-contato-null"
-                                                                           class="table table-sm table-striped">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th>Tipo de Contato</th>
-                                                                            <th>Contato</th>
-                                                                            <th></th>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                        <tr id="contato">
-                                                                            <td>Telefone</td>
-                                                                            <td>13974236026</td>
-                                                                            <td class='text-right'>
-                                                                                <button id='excluirContato'
-                                                                                        type='button'
-                                                                                        class='btn btn-danger btn-sm'
-                                                                                        data-id=""
-                                                                                        data-toggle='modal'
-                                                                                        data-target='#frmRemoverContatoModal'>
-                                                                                    <i class='fa fa-trash'></i>
-                                                                                </button>
-                                                                            </td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="nav-evento" role="tabpanel"
-                                             aria-labelledby="nav-evento-tab">
+                                    
+                                        
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-6">
                                                     <label for="tema_evento">Tema do Evento</label>
@@ -280,7 +182,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    
                                     <div class="ln_solid"></div>
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12 text-right">
@@ -292,7 +194,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </form>
