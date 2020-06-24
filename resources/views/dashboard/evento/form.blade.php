@@ -7,7 +7,7 @@
                 <h3>Eventos</h3>
             </div>
             <div class="title_center ">
-                <h3 style='color:red'>Nrº  {{$data->id_evento}}</h3>
+                <h3 style='color:red'>Nrº  {{$data->id}}</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -32,6 +32,13 @@
                                     
                                         
                                             <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-12">
+                                                <label for="nm_evento">Nome do Evento</label>
+                                                    <input id="nm_evento" type="text"
+                                                              class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
+                                                              name="nm_evento">
+                                                    </input>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <label for="tema_evento">Tema do Evento</label>
                                                     <textarea id="tema_evento" type="text"
@@ -189,7 +196,7 @@
                                             <button type="submit" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-save"></i> Salvar
                                             </button>
-                                            <a href="/dashboard/proposta" class="btn btn-danger btn-sm">
+                                            <a href="/dashboard/evento" class="btn btn-danger btn-sm">
                                                 <i class="fa fa-close"></i> Cancelar
                                             </a>
                                         </div>

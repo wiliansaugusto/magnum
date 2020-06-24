@@ -12,6 +12,7 @@ class Evento extends Model
         "id_usuario",
         "nm_evento",
         "tema_evento",
+        "tema_palestra",
         "dt_evento_inicio",
         "dt_evento_fim",
         "obs_data_evento",

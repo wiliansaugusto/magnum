@@ -17,6 +17,8 @@ class AlterarForeignKey extends Migration
             //
             $table->foreign('id_tipo_evento')->references('id')
             ->on('mgm_tbl_tipo_evento')->onDelete('cascade');
+            $table->foreign('id_usuario')->references('id')
+            ->on('mgm_tbl_usuario')->onDelete('cascade');
 
         });
 

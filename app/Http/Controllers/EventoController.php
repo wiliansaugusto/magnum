@@ -67,6 +67,7 @@ class EventoController extends Controller
         $evento = Evento::find($request->id_evento);
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
+        $evento->tema_palestra = $request->tema_palestra;
         $evento->dt_evento_inicio = $request->dt_evento_inicio;
         $evento->dt_evento_fim = $request->dt_evento_fim;
         $evento->obs_data_evento = $request->obs_data_evento;
@@ -104,6 +105,7 @@ class EventoController extends Controller
         $evento = Evento::find($request->id_evento);
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
+        $evento->tema_palestra = $request->tema_palestra;
         $evento->dt_evento_inicio = $request->dt_evento_inicio;
         $evento->dt_evento_fim = $request->dt_evento_fim;
         $evento->obs_data_evento = $request->obs_data_evento;
