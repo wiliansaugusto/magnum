@@ -41,12 +41,12 @@
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-4">
-                            <label for="id_pais">País</label>
+                            <label for="id_pais_valor">País</label>
                             @php
                                 $paises = App\Pais::all();
                             @endphp
 
-                            <select id="id_pais" name="id_pais" class="form-control form-control-sm select-find"
+                            <select id="id_pais_valor" name="id_pais" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
                                 @foreach ($paises as $pais)
@@ -57,18 +57,18 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="id_estado">Estado</label>
+                            <label for="id_estado_valor">Estado</label>
 
-                            <select id="id_estado" name="id_estado" class="form-control form-control-sm select-find"
+                            <select id="id_estado_valor" name="id_estado" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
 
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="id_cidade">Cidade</label>
+                            <label for="id_cidade_valor">Cidade</label>
 
-                            <select id="id_cidade" name="id_cidade" class="form-control form-control-sm select-find"
+                            <select id="id_cidade_valor" name="id_cidade" class="form-control form-control-sm select-find"
                                     style="width: 100%" required>
                                 <option></option>
 
