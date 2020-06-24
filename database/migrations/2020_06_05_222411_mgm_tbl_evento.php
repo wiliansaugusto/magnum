@@ -18,6 +18,7 @@ class MgmTblEvento extends Migration
             $table->timestamps();
             $table->String('nm_evento',60);
             $table->longText('tema_evento');
+            $table->longText('tema_palestra');
             $table->bigInteger('id_usuario');
             $table->date('dt_evento_inicio')->nullable($value = true);
             $table->date('dt_evento_fim')->nullable($value = true);
@@ -25,7 +26,7 @@ class MgmTblEvento extends Migration
             $table->bigInteger('qtd_participantes_evento')->nullable($value = true);
             $table->string('perfil_participante_evento',100)->nullable($value = true);
             $table->longText('objetivo_evento')->nullable($value = true);
-            $table->unsignedBigInteger('id_tipo_evento')->nullable($value = true);;
+            $table->unsignedBigInteger('id_tipo_evento')->nullable($value = true);
            
 
         });
