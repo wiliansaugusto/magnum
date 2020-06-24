@@ -48,8 +48,8 @@
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center">
-                            <div class="col-md-4">
-                                <label for="dt_evento_inicio">Data do Evento</label>
+                            <div class="col-md-6">
+                                <label for="dt_evento_inicio">Data Inicio do Evento</label>
                                 <input id="dt_evento_inicio" type="date"
                                             class="form-control form-control-sm {{ $errors->has('dt_evento_inicio') ? 'is-invalid' : '' }}"
                                             name="dt_evento_inicio"/>
@@ -59,7 +59,21 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
+                                <label for="dt_evento_fim">Data Fim do Evento</label>
+                                <input id="dt_evento_fim" type="date"
+                                            class="form-control form-control-sm {{ $errors->has('dt_evento_fim') ? 'is-invalid' : '' }}"
+                                            name="dt_evento_fim"/>
+                                @if ($errors->has('dt_evento_fim'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('dt_evento_fim') }}</strong>
+                                    </span>
+                                @endif
+                            </div>                           
+                        </div>
+                        <div class="form-group row d-flex justify-content-center">
+                            </div>
+                            <div class="col-md-6">
                                 <label for="tm_evento">Horario do Evento</label>
                                 <input id="tm_evento" type="text" data-mask="00:00"
                                             class="form-control form-control-sm {{ $errors->has('tm_evento') ? 'is-invalid' : '' }}"
@@ -70,7 +84,7 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label for="tm_duracao">Duração do evento</label>
                                 <input id="tm_duracao" type="text" data-mask="00:00"
                                             class="form-control form-control-sm {{ $errors->has('tm_duracao') ? 'is-invalid' : '' }}"
@@ -82,19 +96,23 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="form-group row d-flex justify-content-center">
                             <div class="col-md-4">
-                                <label for="id_pais">País</label>
-                                <select id="id_pais"
-                                        class="form-control form-control-sm select-find {{ $errors->has('id_pais') ? 'is-invalid' : '' }}"
-                                        name="id_pais" style="width: 100%">
-                                    <option></option>
-                                </select>
-                                @if ($errors->has('id_pais'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('id_pais') }}</strong>
-                                    </span>
-                                @endif
+                            <label for="id_pais">País</label>
+                            @php
+                                $paises = App\Pais::all();
+                            @endphp
+
+                            <select id="id_pais" name="id_pais" class="form-control form-control-sm select-find"
+                                    style="width: 100%" required>
+                                <option></option>
+                                @foreach ($paises as $pais)
+                                    <option value="{{$pais->id}}">
+                                        {{$pais->nm_pais}}
+                                    </option>
+                                @endforeach
+                            </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="id_estado">Estado</label>

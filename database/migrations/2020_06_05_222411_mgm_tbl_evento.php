@@ -19,7 +19,7 @@ class MgmTblEvento extends Migration
             $table->String('nm_evento',60);
             $table->longText('tema_evento');
             $table->longText('tema_palestra');
-            $table->bigInteger('id_usuario');
+            $table->unsignedbigInteger('id_usuario');
             $table->date('dt_evento_inicio')->nullable($value = true);
             $table->date('dt_evento_fim')->nullable($value = true);
             $table->longText('obs_data_evento')->nullable($value = true);

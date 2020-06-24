@@ -17,13 +17,19 @@ class AlterarForeignKey extends Migration
             //
             $table->foreign('id_tipo_evento')->references('id')
             ->on('mgm_tbl_tipo_evento')->onDelete('cascade');
+           
+        });
+
+       /* Schema::table('mgm_tbl_cliente', function (Blueprint $table) {
+            //
             $table->foreign('id_usuario')->references('id')
             ->on('mgm_tbl_usuario')->onDelete('cascade');
 
-        });
+        }); */
 
-        Schema::table('mgm_tbl_cliente', function (Blueprint $table) {
+        Schema::table('mgm_tbl_evento', function (Blueprint $table) {
             //
+           
             $table->foreign('id_usuario')->references('id')
             ->on('mgm_tbl_usuario')->onDelete('cascade');
 
