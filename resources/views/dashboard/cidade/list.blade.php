@@ -62,19 +62,15 @@
                     <tbody>
                     </tbody>
                 </table>
-                <div id="pgList" class='pagination-container' style="display: none">
-                    <nav aria-label="Page navigation tblcidades">
-                        <ul class="pagination">
-                            <li class="page-item" data-page="prev">
-                                <a class="page-link" href="#"> Anterior <span class="sr-only">(current)</span></a>
-                            </li>
-
-                            <li class="page-item" data-page="next" id="prev">
-                                <a class="page-link" href="#"> Proximo <span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+{{--                <div id="pgList" class='pagination-container' style="display: none">--}}
+{{--                    <nav aria-label="Page navigation tblcidades">--}}
+{{--                        <ul class="pagination">--}}
+{{--                            <li class="page-item" data-page="prev">--}}
+{{--                                <a class="page-link" href="#"> Anterior <span class="sr-only">(current)</span></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </nav>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

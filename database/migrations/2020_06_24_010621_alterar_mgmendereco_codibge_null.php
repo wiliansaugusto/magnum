@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class NullEnderecoTipo extends Migration
+class AlterarMgmenderecoCodibgeNull extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class NullEnderecoTipo extends Migration
      */
     public function up()
     {
-//        Schema::table('mgm_tbl_endereco', function (Blueprint $table) {
-//            $table->bigInteger('id_tp_endereco')->nullable($value = false)->change();
-//        });
+        Schema::table('mgm_tbl_cidade', function (Blueprint $table) {
+            $table->Integer('cod_ibge')->nullable()->change();
+        });
     }
 
     /**

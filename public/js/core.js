@@ -598,9 +598,9 @@ $(document).ready(function () {
                         '</button>' +
                         '</td></tr>');
                 });
-                getPagination("#tblListaCidade");
-                $("#regLinha").show();
-                $("#pgList").show();
+                // getPagination("#tblListaCidade");
+                // $("#regLinha").show();
+                // $("#pgList").show();
             }
         });
     });

@@ -15,7 +15,7 @@
               autocomplete="off">
             @csrf
             <div class="form-group row d-flex justify-content-center">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="nm_estado">{{ __('Estados') }}</label>
                     <input id="nm_estado" type="text"
                            class="form-control form-control-sm{{ $errors->has('nm_estado') ? ' is-invalid' : '' }}"
@@ -28,7 +28,7 @@
                         </span>
                     @endif
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="ds_sg_estado">{{ __('Sigla Estados') }}</label>
                     <input id="ds_sg_estado" type="text"
                            class="form-control form-control-sm{{ $errors->has('ds_sg_estado') ? ' is-invalid' : '' }}"
@@ -41,9 +41,9 @@
                         </span>
                     @endif
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <label for="id_pais">Pais</label>
-                    <select id="id_pais" name="id_pais" class="form-control form-control-sm" >
+                    <select id="id_pais_cad_estado" name="id_pais" class="form-control form-control-sm select-find" style="width: 100%">
                         <option selected disabled>Selecione o Pais</option>
                         @php
                             $paises = App\Pais::all();
