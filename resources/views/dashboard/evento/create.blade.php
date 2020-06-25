@@ -21,7 +21,7 @@
                                                 class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
                                                 name="nm_evento">
                                     </input>
-                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <label for="tema_evento">Tema do Evento</label>
                                 <textarea id="tema_evento" type="text"
@@ -72,7 +72,7 @@
                             </div>                           
                         </div>
                         <div class="form-group row d-flex justify-content-center">
-                            </div>
+                            
                             <div class="col-md-6">
                                 <label for="tm_evento">Horario do Evento</label>
                                 <input id="tm_evento" type="text" data-mask="00:00"
@@ -98,48 +98,20 @@
                         </div>
 
                         <div class="form-group row d-flex justify-content-center">
-                            <div class="col-md-4">
-                            <label for="id_pais">País</label>
-                            @php
-                                $paises = App\Pais::all();
-                            @endphp
-
-                            <select id="id_pais" name="id_pais" class="form-control form-control-sm select-find"
-                                    style="width: 100%" required>
-                                <option></option>
-                                @foreach ($paises as $pais)
-                                    <option value="{{$pais->id}}">
-                                        {{$pais->nm_pais}}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <div class="col-md-12 col-sm-12">
+                                <label for="endereco">Endereços</label>
                             </div>
-                            <div class="col-md-4">
-                                <label for="id_estado">Estado</label>
-                                <select id="id_estado"
-                                        class="form-control form-control-sm select-find {{ $errors->has('id_estado') ? 'is-invalid' : '' }}"
-                                        name="id_estado" style="width: 100%">
-                                    <option></option>
-                                </select>
-                                @if ($errors->has('id_estado'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('id_estado') }}</strong>
-                                    </span>
-                                @endif
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-primary btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#frmEnderecoModal"
+                                        data-rel="evento">
+                                    <i class="fa fa-plus"></i> Endereço
+                                </button>
                             </div>
-                            <div class="col-md-4">
-                                <label for="id_cidade">Cidade</label>
-                                <select id="id_cidade"
-                                        class="form-control form-control-sm select-find {{ $errors->has('id_cidade') ? 'is-invalid' : '' }}"
-                                        name="id_cidade" style="width: 100%">
-                                    <option></option>
-                                </select>
-                                @if ($errors->has('id_cidade'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('id_cidade') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                            <div class="col-md-10">
+                                <label for="endereco">Endereços</label>
+                            </div> 
                         </div>
                         <div class="form-group row d-flex justify-content-center">
                             <div class="col-md-4">
@@ -190,7 +162,7 @@
                             </div>
                         </div>
                     
-               
+                    </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
                         <i class="fa fa-save"></i> Salvar

@@ -66,7 +66,7 @@
                                     <tr>
                                         <td>{{$evento->id}}</td>
                                         <td>{{$evento->nm_evento}}</td>
-                                        <td>{{date_format($evento->updated_at,"d/m/Y H:i:s")}}</td>
+                                        <td>{{$evento->dt_evento_inicio}}</td>
                                         <td>{{$usuario->nm_usuario}}</td>
                                         <td class=" text-right">
                                             <a href="/dashboard/evento/{{$evento->id}}/edit"

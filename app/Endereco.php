@@ -43,4 +43,9 @@ class Endereco extends Model
     {
         return $this->belongsTo('App\Cidade', 'id_cidade');
     }
+
+    public function evento()
+    {
+        return $this->belongsTo('App\Evento', 'id', 'id_evento');
+    }
 }

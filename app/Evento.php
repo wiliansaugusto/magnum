@@ -22,4 +22,9 @@ class Evento extends Model
         "perfil_participante_evento",
         "objetivo_evento"
     ];
+
+    public function evento()
+    {
+        return $this->hasMany('App\Endereco', 'id_evento');
+    }
 }
