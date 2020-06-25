@@ -22,6 +22,8 @@ class MgmTblEvento extends Migration
             $table->unsignedbigInteger('id_usuario');
             $table->date('dt_evento_inicio')->nullable($value = true);
             $table->date('dt_evento_fim')->nullable($value = true);
+            $table->string("tm_evento" ,5)->nullable($value = true);
+            $table->string("tm_duracao", 5)->nullable($value = true);
             $table->longText('obs_data_evento')->nullable($value = true);
             $table->bigInteger('qtd_participantes_evento')->nullable($value = true);
             $table->string('perfil_participante_evento',100)->nullable($value = true);

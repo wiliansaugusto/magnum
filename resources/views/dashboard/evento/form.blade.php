@@ -92,7 +92,7 @@
                                 <label for="tm_evento">Horario do Evento</label>
                                 <input id="tm_evento" type="text" data-mask="00:00"
                                             class="form-control form-control-sm {{ $errors->has('tm_evento') ? 'is-invalid' : '' }}"
-                                            name="ds_tema_evento" placeholder="00:00"/>
+                                            name="tm_evento" />
                                 @if ($errors->has('tm_evento'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('tm_evento') }}</strong>
@@ -103,7 +103,7 @@
                                 <label for="tm_duracao">Duração do evento</label>
                                 <input id="tm_duracao" type="text" data-mask="00:00"
                                             class="form-control form-control-sm {{ $errors->has('tm_duracao') ? 'is-invalid' : '' }}"
-                                            name="tm_duracao" placeholder="00:00"/>
+                                            name="tm_duracao" />
                                 @if ($errors->has('tm_duracao'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('tm_duracao') }}</strong>

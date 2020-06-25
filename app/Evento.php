@@ -15,6 +15,8 @@ class Evento extends Model
         "tema_palestra",
         "dt_evento_inicio",
         "dt_evento_fim",
+        "tm_evento",
+        "tm_duracao",
         "obs_data_evento",
         "qtd_participantes_evento",
         "perfil_participante_evento",

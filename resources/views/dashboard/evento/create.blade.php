@@ -77,7 +77,7 @@
                                 <label for="tm_evento">Horario do Evento</label>
                                 <input id="tm_evento" type="text" data-mask="00:00"
                                             class="form-control form-control-sm {{ $errors->has('tm_evento') ? 'is-invalid' : '' }}"
-                                            name="ds_tema_evento" placeholder="00:00"/>
+                                            name="tm_evento" placeholder="00:00"/>
                                 @if ($errors->has('tm_evento'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('tm_evento') }}</strong>
