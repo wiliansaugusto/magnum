@@ -4,10 +4,10 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Eventos</h3>
+                <h3>Cliente</h3>
             </div>
             <div class="title_center ">
-                <h3 style='color:red'>Nrº  {{$data->id_cliente}}</h3>
+                <h3 style='color:red'>Nrº {{$data->id}}</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -28,44 +28,10 @@
                             <div class="col-md-12 col-sm-12">
                                 <input id="id_usuario" type="hidden" name="id_usuario"
                                        value="{{ Auth::user()->id }}"/>
-                                <div class="col-md-12">
-                                    <nav>
-                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link" id="nav-cliente-tab"
-                                               data-toggle="tab"
-                                               href="#nav-cliente" role="tab" aria-controls="nav-cliente"
-                                               aria-selected="false">Dados do cliente</a>
-                                        </div>
-                                    </nav>
-                                    <div class="tab-content p-2" id="nav-tabContent">
-                                        <div class="tab-pane fade show active" id="nav-gerais"
-                                             role="tabpanel"
-                                             aria-labelledby="nav-gerais-tab">
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-12">
-                                                    <label for="nm_cliente">Cliente</label>
-                                                    <input id="nm_cliente" type="text"
-                                                           class="form-control form-control-sm {{$errors->has('nm_cliente') ? 'is-invalid' : '' }}"
-                                                           name="nm_cliente"
-                                                           value="{{old('nm_cliente') }}"/>
-                                                    @if ($errors->has('nm_cliente'))
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{$errors->first('nm_cliente')}}</strong>
-                                                        </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="form-group row d-flex justify-content-center mt-2">
-                                                <div class="col-md-2">
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#frmClienteModal"
-                                                            style="width: 100%">
-                                                        <i class="fa fa-plus"></i> Cliente
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="accordion" id="accordion-cliente" role="tablist"
+                                <div class="col-md-12">                                  
+                                    <div class="form-group row d-flex justify-content-center mt-2">
+                                        <div class="col-md-10">
+                                            <div class="accordion" id="accordion-cliente" role="tablist"
                                                          aria-multiselectable="true">
                                                         <div class="panel" id="painel-cliente">
                                                             <div class="panel-heading">

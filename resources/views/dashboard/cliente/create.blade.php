@@ -33,21 +33,23 @@
 
                                 <div class="colmd-4 form-control form-control-sm">
                                     <label for="tipo_cliente">Tipo do cliente</label>
-                                    <input id="tipo_cliente" type="radio" name="tipo_cliente" value="F"/> Fisíca
-                                    <input id="tipo_cliente" type="radio" name="tipo_cliente" value="J"/> Juridica
-                                    <input id="tipo_cliente" type="radio" name="tipo_cliente" value="O"/> Outra
+                                    <input id="tipo_cliente" class="fa" type="radio" name="tipo_cliente" value="F"/> Fisíca
+                                    <input id="tipo_cliente" class="fa" type="radio" name="tipo_cliente" value="J"/> Juridica
+                                    <input id="tipo_cliente" class="fa" type="radio" name="tipo_cliente" value="O"/> Outra
                                 </div>
 
-                                <label for="cpf_cliente">Cpf do cliente</label>
-                                <input id="cpf_cliente" type="text" 
-                                   class="form-control form-control-sm" name="cpf_cliente" />
+                                <label for="cpf">Cpf do cliente</label>
+                                <input id="cpf" type="text" data-mask="999.999.999-99"
+                                   class="form-control form-control-sm" name="cpf" placeholder="999.999.999-99"/>
 
-                                   <label for="cnpj_cliente">Cnpj do cliente</label>
-                                <input id="cnpj_cliente" type="text" 
-                                   class="form-control form-control-sm" name="cnpj_cliente" />
-                                   <label for="obs_cliente">Tema do cliente</label>
-                                <input id="tema_cliente" type="textarea" 
-                                   class="form-control form-control-sm" name="tema_cliente" />
+                                   <label for="cnpj">Cnpj do cliente</label>
+                                <input id="cnpj" type="text" data-mask="99.999.999/9999-99"
+                                   class="form-control form-control-sm" name="cnpj" placeholder="99.999.999/9999-99"/>
+
+                                   <label for="obs_cliente">Observação do cliente</label>
+                                <textarea id="obs_cliente"  
+                                   class="form-control form-control-sm" name="obs_cliente" >
+                                </textarea>
                             </div>
                         </div>   
                     </div>

@@ -69,7 +69,7 @@
                                         <td>{{$cliente->id}}</td>
                                         <td>{{$cliente->nm_cliente}}</td>
                                         <td>{{$cliente->tipo_cliente}}</td>
-                                        <td>{{$cliente->ind_cliente}}</td>
+                                        <td>{{$cliente->ind_cliente }}</td>
                                         <td>{{date_format($cliente->updated_at,"d/m/Y H:i:s")}}</td>
                                         <td>{{$usuario->nm_usuario}}</td>
                                         <td class=" text-right">

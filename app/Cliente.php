@@ -14,7 +14,8 @@ class Cliente extends Model
         "tipo_cliente",
         "cpf",
         "cnpj",
-        "obs_cliente"
+        "obs_cliente",
+        "id_usuario"
         
     ];
 }

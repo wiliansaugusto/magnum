@@ -98,34 +98,7 @@
                         </div>
 
                         <div class="form-group row d-flex justify-content-center">
-                            <div class="col-md-12 col-sm-12">
-                                <label for="endereco">Endereços</label>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-primary btn-sm"
-                                        data-toggle="modal"
-                                        data-target="#frmEnderecoModal"
-                                        data-rel="evento">
-                                    <i class="fa fa-plus"></i> Endereço
-                                </button>
-                            </div>
-                            <div class="col-md-10">
-                                <label for="endereco">Endereços</label>
-                            </div> 
-                        </div>
-                        <div class="form-group row d-flex justify-content-center">
                             <div class="col-md-4">
-                                <label for="nm_local">Local do Evento</label>
-                                <input id="nm_local" type="text"
-                                        class="form-control form-control-sm {{ $errors->has('nm_local') ? 'is-invalid' : '' }}"
-                                        name="nm_local" />
-                                @if ($errors->has('nm_local'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('nm_local') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-md-2">
                                 <label for="nr_partic">Número Participantes</label>
                                 <input id="nr_partic" type="number"
                                         class="form-control form-control-sm {{ $errors->has('nr_partic') ? 'is-invalid' : '' }}"
@@ -136,7 +109,7 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <label for="nr_verba">Verba Disponivél</label>
                                 <input id="nr_verba" type="text"
                                         class="form-control form-control-sm {{ $errors->has('nr_verba') ? 'is-invalid' : '' }}"
