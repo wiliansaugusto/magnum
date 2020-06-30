@@ -4,7 +4,11 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Abertura de Proposta</h3>
+            @if($action == "criar")
+                    <h3>Cadastrar Proposta</h3>
+                @else
+                    <h3>Editar Proposta</h3>
+                @endIf
             </div>
             <div class="title_center ">
                 <h3 style='color:red'>Nrº  {{$data->num_proposta}}</h3>
@@ -28,6 +32,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <input id="id_usuario" type="hidden" name="id_usuario"
                                        value="{{ Auth::user()->id }}"/>
+                                    
                                 <div class="col-md-12">
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">

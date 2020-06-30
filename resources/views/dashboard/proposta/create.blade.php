@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <form id="frmNomeAberturaProposta" method="POST" action="/dashboard/proposta">
-                <input id="num_proposta" type="hidden" name="num_proposta" value= {{$proposta->id}} /> 
+                <input id="num_proposta" type="text" name="num_proposta" value=000121 /> 
                 <input id="status_proposta" type="hidden" name="status_proposta" value="2"/>
 
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
@@ -20,8 +20,16 @@
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-md-12">
                                     <label for="nome_solicitante">Nome do Solicitante*</label>
-                                    <input id="nome_solicitante" type="text" class="form-control form-control-sm"
-                                           name="nm_solicitante" autofocus required>
+                                    <select id="tp_endereco" name="id_tp_endereco" class="form-control form-control-sm" required >
+                                <option selected disabled>Selecione Solicitante</option>
+                                @php
+                                    $clientes = new App\Cliente();
+                                    $result = $clientes::all();
+                                @endphp
+                                @foreach ( $result as $tipo)
+                                    <option value="{{$tipo->id}}">{{$tipo->nm_cliente}}</option>
+                                @endforeach
+                            </select>
                                 </div>
                             </div>
                         </div>

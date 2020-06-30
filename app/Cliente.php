@@ -18,4 +18,9 @@ class Cliente extends Model
         "id_usuario"
         
     ];
+
+    public function clientes()
+    {
+        return $this->hasMany(Cliente::class, 'id');
+    }
 }
