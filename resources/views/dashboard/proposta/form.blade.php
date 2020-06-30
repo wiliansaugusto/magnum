@@ -53,6 +53,9 @@
                                              aria-labelledby="nav-gerais-tab">
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
+                                                    <input id="id_proposta" type="hidden" name="id_proposta" value="{{$data->id}}"/>
+                                                </div>
+                                                <div class="col-md-12">
                                                     <label for="nm_contratante">Cliente Final</label>
                                                     <input id="nm_contratante" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nm_contratante') ? 'is-invalid' : '' }}"
@@ -173,46 +176,46 @@
                                                     <input id="nm_evento" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
                                                            name="nm_evento"/>
-                                                    @if ($errors->has('nr_verba'))
+                                                    @if ($errors->has('nm_evento'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('nm_evento') }}</strong>
                                                         </span>
                                                     @endif                                                    
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="ds_tema_evento">Tema do Evento</label>
-                                                    <textarea id="ds_tema_evento" type="text"
-                                                              class="form-control form-control-sm {{ $errors->has('ds_tema_evento') ? 'is-invalid' : '' }}"
-                                                              name="ds_tema_evento">
+                                                    <label for="tema_evento">Tema do Evento</label>
+                                                    <textarea id="tema_evento" type="text"
+                                                              class="form-control form-control-sm {{ $errors->has('tema_evento') ? 'is-invalid' : '' }}"
+                                                              name="tema_evento">
                                                     </textarea>
-                                                    @if ($errors->has('ds_tema_evento'))
+                                                    @if ($errors->has('tema_evento'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('ds_tema_evento') }}</strong>
+                                                            <strong>{{ $errors->first('tema_evento') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="ds_tema_palestras">Tema das Palestras</label>
-                                                    <textarea id="ds_tema_palestras" type="text"
-                                                              class="form-control form-control-sm {{ $errors->has('ds_tema_palestras') ? 'is-invalid' : '' }}"
-                                                              name="ds_tema_palestras">
+                                                    <label for="tema_palestras">Tema das Palestras</label>
+                                                    <textarea id="tema_palestras" type="text"
+                                                              class="form-control form-control-sm {{ $errors->has('tema_palestras') ? 'is-invalid' : '' }}"
+                                                              name="tema_palestras">
                                                     </textarea>
-                                                    @if ($errors->has('ds_tema_palestras'))
+                                                    @if ($errors->has('tema_palestras'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('ds_tema_palestras') }}</strong>
+                                                            <strong>{{ $errors->first('tema_palestras') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-4">
-                                                    <label for="dt_evento">Data do Evento</label>
-                                                    <input id="dt_evento" type="date"
-                                                              class="form-control form-control-sm {{ $errors->has('dt_evento') ? 'is-invalid' : '' }}"
-                                                              name="dt_evento"/>
-                                                    @if ($errors->has('dt_evento'))
+                                                    <label for="dt_evento_inicio">Data do Evento</label>
+                                                    <input id="dt_evento_inicio" type="date"
+                                                              class="form-control form-control-sm {{ $errors->has('dt_evento_inicio') ? 'is-invalid' : '' }}"
+                                                              name="dt_evento_inicio"/>
+                                                    @if ($errors->has('dt_evento_inicio'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('dt_evento') }}</strong>
+                                                            <strong>{{ $errors->first('dt_evento_inicio') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
@@ -220,7 +223,7 @@
                                                     <label for="tm_evento">Horario do Evento</label>
                                                     <input id="tm_evento" type="text" data-mask="00:00"
                                                               class="form-control form-control-sm {{ $errors->has('tm_evento') ? 'is-invalid' : '' }}"
-                                                              name="ds_tema_evento" placeholder="00:00"/>
+                                                              name="tm_evento" placeholder="00:00"/>
                                                     @if ($errors->has('tm_evento'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('tm_evento') }}</strong>
@@ -242,10 +245,19 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <label for="id_pais">País</label>
+                                                    @php
+                                                        $paises = App\Pais::all();
+                                                    @endphp   
                                                     <select id="id_pais"
                                                            class="form-control form-control-sm select-find {{ $errors->has('id_pais') ? 'is-invalid' : '' }}"
                                                            name="id_pais" style="width: 100%">
+                                                           
                                                         <option></option>
+                                                        @foreach ($paises as $pais)
+                                                            <option value="{{$pais->id}}">
+                                                                {{$pais->nm_pais}}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                     @if ($errors->has('id_pais'))
                                                         <span class="invalid-feedback" role="alert">
@@ -350,6 +362,13 @@
         </div>
     </div>
     @include("dashboard.proposta.create")
+    @include('dashboard.contato.create')
+    @include('dashboard.endereco.create')
+    @include('dashboard.descricao.form')
+
+    @include('dashboard.contato.remover')
+    @include('dashboard.endereco.remover')
+    @include('dashboard.descricao.remover')
 @endsection
 
 
