@@ -15,7 +15,7 @@ class AlterarMgmTblContato extends Migration
     {
         Schema::table('mgm_tbl_contato', function (Blueprint $table) {
             //
-            $table->bigIncrements('id_proposta');
+            $table->unsignedbigIncrements('id_proposta');
             $table->foreign('id_proposta')->references('id')
         ->on('mgm_tbl_prposta')->onDelete('cascade');
             
