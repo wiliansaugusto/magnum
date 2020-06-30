@@ -35,6 +35,6 @@ class MgmTblPrefilPublicoEvento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mgm_tbl_perfil_publico_evevnto');
+        Schema::dropIfExists('mgm_tbl_perfil_publico_evento');
     }
 }

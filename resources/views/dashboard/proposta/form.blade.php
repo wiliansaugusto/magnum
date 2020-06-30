@@ -104,32 +104,60 @@
                                                                  class="panel-collapse collapse in" role="tabpanel"
                                                                  aria-labelledby="heading">
                                                                 <div class="panel-body p-3">
-                                                                    <table id="proposta-contato-null"
+                                                                <div class="form-group row d-flex justify-content-center">
+                                                                <div class="col-md-12 col-sm-12">
+                                                                    <label for="contatos">Contatos</label>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <button type="button" class="btn btn-primary btn-sm"
+                                                                            data-toggle="modal"
+                                                                            data-target="#frmContatoModal">
+                                                                        <i class="fa fa-plus"></i> Contato
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <table id="tblContato"
                                                                            class="table table-sm table-striped">
                                                                         <thead>
                                                                         <tr>
-                                                                            <th>Tipo de Contato</th>
-                                                                            <th>Contato</th>
-                                                                            <th></th>
+                                                                            <th scope="col">Tipo de Contato</th>
+                                                                            <th scope="col">Contato</th>
+                                                                            <th scope="col"></th>
                                                                         </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                        <tr id="contato">
-                                                                            <td>Telefone</td>
-                                                                            <td>13974236026</td>
-                                                                            <td class='text-right'>
-                                                                                <button id='excluirContato'
-                                                                                        type='button'
-                                                                                        class='btn btn-danger btn-sm'
-                                                                                        data-id=""
-                                                                                        data-toggle='modal'
-                                                                                        data-target='#frmRemoverContatoModal'>
-                                                                                    <i class='fa fa-trash'></i>
-                                                                                </button>
-                                                                            </td>
-                                                                        </tr>
+                                                                        @if(sizeof($data->contatos) > 0)
+                                                                            @foreach($data->contatos as $contato)
+                                                                                <tr id="{{$contato->id}}">
+                                                                                    <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
+                                                                                    <td>{{$contato->ds_contato}}</td>
+                                                                                    <td class='text-right'>
+                                                                                        <button
+                                                                                            id='excluirContato-{{$contato->id}}'
+                                                                                            type='button'
+                                                                                            class='btn btn-danger btn-sm'
+                                                                                            data-id="{{$contato->id}}"
+                                                                                            data-toggle='modal'
+                                                                                            data-target='#frmRemoverContatoModal'>
+                                                                                            <i
+                                                                                                class='fa fa-trash'></i>
+                                                                                        </button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            @endforeach
+                                                                        @else
+                                                                            <tr id="contato-null">
+                                                                                <td colspan="3" class="text-center">
+                                                                                    Nenhum
+                                                                                    contato
+                                                                                    registrado
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endif
                                                                         </tbody>
                                                                     </table>
+                                                                </div>
+                                                            </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -140,6 +168,17 @@
                                         <div class="tab-pane fade" id="nav-evento" role="tabpanel"
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-12">
+                                                    <label for="nm_evento">Nome do Evento</label>
+                                                    <input id="nm_evento" type="text"
+                                                           class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
+                                                           name="nm_evento"/>
+                                                    @if ($errors->has('nr_verba'))
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $errors->first('nm_evento') }}</strong>
+                                                        </span>
+                                                    @endif                                                    
+                                                </div>
                                                 <div class="col-md-6">
                                                     <label for="ds_tema_evento">Tema do Evento</label>
                                                     <textarea id="ds_tema_evento" type="text"

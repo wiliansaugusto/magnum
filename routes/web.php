@@ -31,7 +31,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::resource('proposta/', 'PropostaController');
     Route::get('proposta/', 'PropostaController@index');
     Route::get('proposta/{id}/novo', 'PropostaController@create');
-    Route::get('palestrante/{id}/edit', 'PalestranteController@show');
+    Route::get('palestrante/{id}/edit', 'PropostaController@show');
     Route::delete('proposta/{id}', 'PropostaController@destroy');
     Route::put('proposta/update/{id}', 'PropostaController@edit');
     Route::get('proposta/{id}', 'PropostaController@show');

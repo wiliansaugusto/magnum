@@ -22,4 +22,32 @@ class Proposta extends Model
         "vlr_total_proposta",
         "mensagem_proposta"
     ];
+
+    public function usuario()
+    {
+        return $this->hasMany(Usuario::class, 'id_usuario');
+    }
+
+    public function evento()
+    {
+        return $this->hasMany(Evento::class, 'id_evento');
+    }
+
+    public function cliente()
+    {
+        return $this->hasMany(Cliente::class, 'id_cliente');
+    }
+
+    public function solicitante()
+    {
+        return $this->hasMany(Cliente::class, 'id_cliente');
+    }
+    public function contatos()
+    {
+        return $this->hasMany(
+            Contato::class, 'id_proposta', 'id');
+    }
+
+
+
 }

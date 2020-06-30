@@ -163,6 +163,8 @@ class PropostaController extends Controller
         $cliente->obs_cliente = $request->obs_cliente;
         $cliente->save();
 
+        return redirect('dashboard/prpoposta/'.$id_proposta.'/edit');
+
     }
 
     /**
