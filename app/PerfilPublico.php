@@ -15,4 +15,7 @@ class PerfilPublico extends Model
         "obs"
      ];
     
+     public function publico(){
+        return $this->hasMany('id');
+    }
 }

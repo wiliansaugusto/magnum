@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <form id="frmNomeAberturaProposta" method="POST" action="/dashboard/proposta/abertura">
-                <input id="num_proposta" type="text" name="num_proposta" value="000121" /> 
+                <input id="num_proposta" type="hidden" name="num_proposta" value="000121" /> 
                 <input id="status_proposta" type="hidden" name="status_proposta" value="2"/>
 
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
@@ -19,8 +19,12 @@
                         <div class="col-md-12">
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-md-12">
-                                    <label for="nm_solicitante">Nome do Solicitante*</label>
-                                    <input id="nm_solicitante" type="text" name="nm_solicitante">
+                                    <label for="nm_contratante">Nome do Contratante</label>
+                                    <input id="nm_contratante" type="text" name="nm_contratante" class="form-control form-control-sm">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="nm_solicitante">Nome do Solicitante</label>
+                                    <input id="nm_solicitante" type="text" name="nm_solicitante" class="form-control form-control-sm">
                                 </div>
                             </div>
                         </div>

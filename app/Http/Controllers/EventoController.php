@@ -36,7 +36,7 @@ class EventoController extends Controller
      */
     public function create($id)
     {
-        //
+        dd($data);
         $data = Evento::find($id);
         //dd($data);
 
@@ -47,9 +47,9 @@ class EventoController extends Controller
     {
         $data = Evento::create($request->all());
         //dd($data);
-        //$data->num_proposta =  str_pad($data->id, 7, "0", STR_PAD_LEFT);
+        
         $data->save();
-        //dd($data->nm_solicitante, $request, $data->id, $data->num_proposta);
+        
 
         return redirect("dashboard/evento/{$data->id}/novo");
 
@@ -63,7 +63,7 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        $evento = $request->all()['id_evento'];
+        $evento = $request->all()['id'];
         $evento = Evento::find($request->id_evento);
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
@@ -103,7 +103,7 @@ class EventoController extends Controller
     public function edit($id)
     {
         //
-        $evento = $request->all()['id_evento'];
+        $evento = $request->all()['id'];
         $evento = Evento::find($request->id_evento);
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;

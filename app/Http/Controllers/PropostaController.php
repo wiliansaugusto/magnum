@@ -60,10 +60,11 @@ class PropostaController extends Controller
     public function store(Request $request)
     {
         
-        dd($request);
+        //dd($request);
         $proposta = $request->all()['id_proposta'];
         $proposta = Proposta::find($request->id_proposta);
         $proposta->status_proposta = $request->status_proposta;
+        $proposta->nm_contratante = $request->nm_contratante;
         $proposta->nm_solicitante = $request->nm_solicitante;
         $proposta->obs_proposta = $request->obs_proposta;
         $proposta->id_evento = $request->id_evento;
@@ -80,6 +81,7 @@ class PropostaController extends Controller
 
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
+        $evento->id_usuario = $request->id_usuario;
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
         $evento->tema_palestra = $request->tema_palestra;
@@ -95,6 +97,7 @@ class PropostaController extends Controller
 
         $cliente = $request->all()['id_cliente'];
         $cliente = Cliente::find($request->id_cliente);
+        $cliente->id_usuario = $request->id_usuario;
         $cliente->nm_cliente = $request->nm_cliente;
         $cliente->ind_cliente = $request->ind_cliente;
         $cliente->tipo_cliente = $request->tipo_cliente;
@@ -133,6 +136,7 @@ class PropostaController extends Controller
         $proposta = Proposta::find($request->id_proposta);
         $proposta->status_proposta = $request->status_proposta;
         $proposta->nm_solicitante = $request->nm_solicitante;
+        $proposta->nm_contratante = $request->nm_contratante;
         $proposta->obs_proposta = $request->obs_proposta;
         $proposta->id_evento = $request->id_evento;
         $proposta->id_cliente = $request->id_cliente;

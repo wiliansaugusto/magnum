@@ -23,8 +23,13 @@ class Evento extends Model
         "objetivo_evento"
     ];
 
-    public function evento()
+    public function eventoEndereco()
     {
         return $this->hasMany('App\Endereco', 'id_evento');
+    }
+
+    public function eventoProposta()
+    {
+        return $this->hasMany('App\Proposta', 'id_evento');
     }
 }

@@ -45,6 +45,12 @@
                                                data-toggle="tab"
                                                href="#nav-evento" role="tab" aria-controls="nav-evento"
                                                aria-selected="false">Dados do Evento</a>
+
+                                               <a class="nav-item nav-link" id="nav-propostaItem-tab"
+                                               data-toggle="tab"
+                                               href="#nav-propostaItem" role="tab" aria-controls="nav-propostaItem"
+                                               aria-selected="false">Itens da Proposta</a>
+
                                         </div>
                                     </nav>
                                     <div class="tab-content p-2" id="nav-tabContent">
@@ -56,11 +62,11 @@
                                                     <input id="id_proposta" type="hidden" name="id_proposta" value="{{$data->id}}"/>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label for="nm_contratante">Cliente Final</label>
+                                                    <label for="nm_contratante">Solicitante</label>
                                                     <input id="nm_contratante" type="text"
                                                            class="form-control form-control-sm {{$errors->has('nm_contratante') ? 'is-invalid' : '' }}"
                                                            name="nm_contratante"
-                                                           value="{{old('nm_contratante') }}"/>
+                                                           value="{{ $data->nm_contratante }}"/>
                                                     @if ($errors->has('nm_contratante'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{$errors->first('nm_contratante')}}</strong>
@@ -115,7 +121,7 @@
                                                                     <button type="button" class="btn btn-primary btn-sm"
                                                                             data-toggle="modal"
                                                                             data-target="#frmContatoModal">
-                                                                        <i class="fa fa-plus"></i> Contato
+                                                                        <i class="fa fa-plus"></i> Contato!
                                                                     </button>
                                                                 </div>
                                                                 <div class="col-md-10">
@@ -171,6 +177,10 @@
                                         <div class="tab-pane fade" id="nav-evento" role="tabpanel"
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-12">
+                                                    <input id="id_evento" type="hidden" name="id_evevnto" value=""/>
+                                                    
+                                                </div>
                                                 <div class="col-md-12">
                                                     <label for="nm_evento">Nome do Evento</label>
                                                     <input id="nm_evento" type="text"
@@ -317,7 +327,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="nr_verba">Verba Disponivél</label>
-                                                    <input id="nr_verba" type="text"
+                                                    <input id="nr_verba" type="text" data-mask="999.999,99" placeholder="R$ 999.999,99"
                                                            class="form-control form-control-sm {{ $errors->has('nr_verba') ? 'is-invalid' : '' }}"
                                                            name="nr_verba"/>
                                                     @if ($errors->has('nr_verba'))
@@ -327,17 +337,38 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="id_publico_perfil">Perfil do Público</label>
-                                                    <select id="id_publico_perfil"
-                                                            class="form-control form-control-sm select-find {{ $errors->has('id_publico_perfil') ? 'is-invalid' : '' }}"
-                                                            name="id_publico_perfil" style="width: 100%">
+                                                <label for="id_pais">Perfil Publico</label>
+                                                    @php
+                                                        $perfilpublicos = App\PerfilPublico::all();
+                                                    @endphp   
+                                                    <select id="id_perfilpublico"
+                                                           class="form-control form-control-sm select-find {{ $errors->has('id_perfilpublico') ? 'is-invalid' : '' }}"
+                                                           name="id_perfilpublico" style="width: 100%">
+                                                           
                                                         <option></option>
+                                                        @foreach ($perfilpublicos as $perfilpublico)
+                                                            <option value="{{$perfilpublico->id}}">
+                                                                {{$perfilpublico->nm_perfil_publico}}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
-                                                    @if ($errors->has('id_publico_perfil'))
+                                                    @if ($errors->has('id_perfilpublico'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('id_publico_perfil') }}</strong>
+                                                            <strong>{{ $errors->first('id_perfilpublico') }}</strong>
                                                         </span>
                                                     @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade show active" id="nav-propostaItem"
+                                             role="tabpanel"
+                                             aria-labelledby="nav-propostaItem-tab">
+                                            <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-12">
+                                                    <input id="id_proposta" type="text" name="id_proposta" value="{{$data->id}}"/>
+                                                </div >
+                                                <div class="col-md-12">
+                                                    <label>Hum la la la la </label>
                                                 </div>
                                             </div>
                                         </div>
