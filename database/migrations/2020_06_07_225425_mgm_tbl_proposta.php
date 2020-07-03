@@ -27,9 +27,6 @@ class MgmTblProposta extends Migration
             $table->unsignedBigInteger('id_cliente')->nullable($value = true);
             $table->foreign('id_cliente')->references('id')
                 ->on('mgm_tbl_cliente')->onDelete('cascade');
-            $table->unsignedBigInteger('id_solicitante')->nullable($value = true);
-            $table->foreign('id_solicitante')->references('id')
-                ->on('mgm_tbl_cliente')->onDelete('cascade');
             $table->unsignedBigInteger('id_palestrante')->nullable($value = true);
             $table->foreign('id_palestrante')->references('id')
                 ->on('mgm_tbl_palestrante')->onDelete('cascade');

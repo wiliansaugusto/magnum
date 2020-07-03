@@ -15,13 +15,13 @@ class MgmTblPropostaItem extends Migration
     {
         Schema::create('mgm_tbl_proposta_item', function (Blueprint $table) {
             //
-            $table->bigIncrements('id_proposta', 'id_proposta_item');
-            $table->bigInteger('id_proposta_item');
+            $table->bigIncrements( 'id_proposta_item');
+            $table->unsignedbigInteger('id_proposta');
             $table->string('nm_tipo_servico',200)->nullable($value = true);;
             $table->decimal('vlr_servico_item',10,2)->nullable($value = true);;
             $table->bigInteger('id_palestrante')->nullable($value = true);;
             $table->foreign('id_proposta')->references('id')->on('mgm_tbl_proposta');
-            
+                      
         });
     }
 
