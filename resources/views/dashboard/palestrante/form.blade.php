@@ -1113,6 +1113,8 @@
                                                                             @foreach($data->assessores as $assessor)
                                                                                 @php
                                                                                     $assessorContatos = App\Contato::where('id_acessor', $assessor->id)->get();
+                                                                                    $tipoContato = App\TipoAcessor::find($assessor->id_tp_acessor);
+
                                                                                 @endphp
                                                                                 <div class="panel"
                                                                                      id="painel-assessor-{{$assessor->id}}">
@@ -1125,7 +1127,7 @@
                                                                                                href="#collapseAssessor-{{$assessor->id}}"
                                                                                                aria-expanded="true"
                                                                                                aria-controls="collapseAssessor-{{$assessor->id}}">
-                                                                                                <h4 class="panel-title">{{$assessor->nm_acessor}}</h4>
+                                                                                                <h4 class="panel-title">{{$assessor->nm_acessor}} - {{$tipoContato == null ? 'Não Informado':$tipoContato->nm_tp_acessor}} </h4>
                                                                                             </a>
                                                                                         </div>
                                                                                         <div class="col-md-1">
