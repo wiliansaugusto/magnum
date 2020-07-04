@@ -128,20 +128,20 @@
                                                                     <select id="ds_nacionalidade"
                                                                             name="ds_nacionalidade"
                                                                             class="form-control form-control-sm
-                                                    {{ $errors->has('ds_nacionalidade') ? 'is-invalid' : '' }}">
+                                                                                    {{ $errors->has('ds_nacionalidade') ? 'is-invalid' : '' }}">
                                                                         <option class="form-control form-control-sm"
-                                                                                {{$data->ds_nacionalidade == "" ? 'selected' : old('ds_nacionalidade') }}
+                                                                                {{$data->ds_nacionalidade == "" ? 'selected' : '' }}
                                                                                 disabled>
                                                                             Selecionar Nacionalidade*
                                                                         </option>
                                                                         <option class="form-control form-control-sm"
                                                                                 value="Brasileiro"
-                                                                            {{ $data->ds_nacionalidade == 'Brasileiro' ? 'selected' : ''}}>
+                                                                            {{ $data->ds_nacionalidade == 'Brasileiro' ? 'selected' : (old('ds_nacionalidade') == 'Brasileiro' ? 'selected' : '') }}>
                                                                             Brasileiro
                                                                         </option>
                                                                         <option class="form-control form-control-sm"
                                                                                 value="Estrangeiro"
-                                                                            {{ $data->ds_nacionalidade == 'Estrangeiro' ? 'selected' : ''}}>
+                                                                            {{ $data->ds_nacionalidade == 'Estrangeiro' ? 'selected' : (old('ds_nacionalidade') == 'Estrangeiro' ? 'selected' : '')}}>
                                                                             Estrangeiro
                                                                         </option>
                                                                     </select>
@@ -156,25 +156,25 @@
                                                                     <select id="ds_sexo" name="ds_sexo"
                                                                             class="form-control form-control-sm {{ $errors->has('ds_sexo') ? 'is-invalid' : '' }}">
                                                                         <option class="form-control form-control-sm "
-                                                                                {{$data->ds_sexo == "" ? 'selected' : old('ds_sexo') }}
+                                                                                {{$data->ds_sexo == "" ? 'selected' : (old('ds_sexo') == '' ? 'selected' : '') }}
                                                                                 disabled>
                                                                             Selecionar Sexo
                                                                         </option>
                                                                         <option class="form-control form-control-sm"
                                                                                 value="Feminino"
-                                                                            {{ $data->ds_sexo == 'Feminino' ? 'selected' : ''}}>
+                                                                            {{ $data->ds_sexo == 'Feminino' ? 'selected' : (old('ds_sexo') == 'Feminino' ? 'selected' : '') }}>
                                                                             Feminino
                                                                         </option>
                                                                         <option class="form-control form-control-sm"
                                                                                 value="Masculino"
-                                                                            {{ $data->ds_sexo == 'Masculino' ? 'selected' : ''}}>
+                                                                            {{ $data->ds_sexo == 'Masculino' ? 'selected' : (old('ds_sexo') == 'Masculino' ? 'selected' : '') }}>
                                                                             Masculino
                                                                         </option>
                                                                     </select>
                                                                     @if ($errors->has('ds_sexo'))
                                                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('ds_sexo') }}</strong>
-                                        </span>
+                                                                            <strong>{{ $errors->first('ds_sexo') }}</strong>
+                                                                        </span>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -561,7 +561,7 @@
                                                                                 <tr id="endereco-{{$endereco->id}}">
                                                                                     <td>{{$endereco->tipoEndereco->nm_tipo_endereco}}</td>
                                                                                     @if($endereco->nm_endereco != NULL)
-                                                                                        <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->nm_cidade ." - ". $endereco->nm_estado . " - " . $endereco->nr_cep}}</td>
+                                                                                        <td>{{$endereco->nm_endereco . " " . $endereco->nr_endereco . " " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . $endereco->cidade->nm_cidade ." - ". $endereco->cidade->estado->nm_estado . " - " . $endereco->nr_cep}}</td>
                                                                                     @else
                                                                                         <td>{{ $endereco->cidade->nm_cidade ." - ". $endereco->cidade->estado->nm_estado}}</td>
                                                                                     @endif
@@ -945,7 +945,7 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <tr id="endereco-null-contatual">
+                                                                                <tr id="endereco-null-contratual">
                                                                                     <td colspan="3" class="text-center">
                                                                                         Nenhum
                                                                                         endereço

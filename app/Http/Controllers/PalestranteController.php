@@ -89,29 +89,52 @@ class PalestranteController extends Controller
         $dadosContratuais->id_palestrante = $id_palestrante;
         $dadosContratuais->save();
 
+        $idiomasSalvos = IdiomasPalestrante::where('id_palestrante', $id_palestrante);
+        $idiomasSalvos->delete();
+        $categoriasSalvas = PalestranteCategoria::where('id_palestrante', $id_palestrante);
+        $categoriasSalvas->delete();
+
         $idiomas = $request->all()['idiomas'];
         $categorias = $request->all()['categorias'];
 
-
         foreach ($idiomas as $idioma) {
-            $salvaIdioma = new IdiomasPalestrante();
-            $salvaIdioma->id_idiomas = $idioma;
-            $salvaIdioma->id_palestrante = $id_palestrante;
-            $salvaIdioma->save();
+            $idiomaPalestrante = IdiomasPalestrante::where('id_palestrante', $id_palestrante)
+                ->where('id_idiomas', $idioma)->first();
+
+            if (empty($idiomaPalestrante)) {
+                $salvaIdioma = new IdiomasPalestrante();
+                $salvaIdioma->id_idiomas = $idioma;
+                $salvaIdioma->id_palestrante = $id_palestrante;
+                $salvaIdioma->save();
+            }
         }
 
 
         foreach ($categorias as $categoria) {
-            $salvaCategoria = new PalestranteCategoria();
+
             $tipoCat = explode("-", $categoria)[0];
             $catId = explode("-", $categoria)[1];
+
             if ($tipoCat == "cat") {
-                $salvaCategoria->id_categoria = $catId;
+                $categoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
+                    ->where('id_categoria', $catId)->first();
+                if (empty($categoriaPalestrante)) {
+                    $salvaCategoria = new PalestranteCategoria();
+                    $salvaCategoria->id_categoria = $catId;
+                    $salvaCategoria->id_palestrante = $id_palestrante;
+                    $salvaCategoria->save();
+                }
             } else {
-                $salvaCategoria->id_subcategoria = $catId;
+                $subcategoriaPalestrante = PalestranteCategoria::where('id_palestrante', $id_palestrante)
+                    ->where('id_subcategoria', $catId)->first();
+
+                if (empty($subcategoriaPalestrante)) {
+                    $salvaCategoria = new PalestranteCategoria();
+                    $salvaCategoria->id_subcategoria = $catId;
+                    $salvaCategoria->id_palestrante = $id_palestrante;
+                    $salvaCategoria->save();
+                }
             }
-            $salvaCategoria->id_palestrante = $id_palestrante;
-            $salvaCategoria->save();
         }
 
         return redirect('dashboard/palestrante/'.$id_palestrante.'/novo');
