@@ -21,6 +21,26 @@
                                    value="" required autofocus>
                         </div>
                     </div>
+                    <div class="form-group row d-flex justify-content-center">
+                        <div class="col-md-12">
+                            <label for="id_tp_acessor">Tipo de Assesor(a)</label>
+                            <select id="id_tp_acessor" name="id_tp_acessor" class="form-control form-control-sm select-find" required style="width: 100%">
+                                <option></option>
+                                @php
+                                    $tiposAcessores = App\TipoAcessor::all();
+                                @endphp
+                                @foreach ( $tiposAcessores as $tipoAcessor)
+                                    <option value="{{$tipoAcessor->id}}">{{$tipoAcessor->nm_tp_acessor}}</option>
+                                @endforeach
+                            </select>
+
+                            @if ($errors->has('id_pais'))
+                                <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('id_pais') }}</strong>
+                        </span>
+                            @endif
+                        </div>
+                    </div>
                     <div id="tableAssessor" class="form-group row d-flex justify-content-center">
                         <div class="col-md-3">
                             <button type="button"

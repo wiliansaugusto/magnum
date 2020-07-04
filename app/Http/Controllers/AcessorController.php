@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Contato;
+use App\TipoAcessor;
 use App\TipoContato;
 use Illuminate\Http\Request;
 use App\Acessor;
@@ -43,7 +44,7 @@ class AcessorController extends Controller
     {
         if(sizeof($request->all()['id_contato']) > 0) {
             $assessor = Acessor::create($request->all());
-
+            $nm_tp_acessor = TipoAcessor::find( $request->id_tp_acessor);
             foreach ($request->all()['id_contato'] as $id_contato) {
                 $contato = Contato::find($id_contato);
                 $contato->id_acessor = $assessor->id;
@@ -64,12 +65,14 @@ class AcessorController extends Controller
                 );
                 $contatos[] = $array;
             }
+
             $data = array(
                 "id" => $assessor->id,
                 "id_palestrante" => $assessor->id_palestrante,
                 "nm_acessor" => $assessor->nm_acessor,
-                "contatos" => $contatos
-            );
+                "contatos" => $contatos,
+                'nm_tp_acessor' => $nm_tp_acessor->nm_tp_acessor
+        );
 
             return response(json_encode($data), 200)
                 ->header('Content-Type', 'application/json');
@@ -123,10 +126,10 @@ class AcessorController extends Controller
     {
         $removeAssessor = Acessor::find($id);
         $removerContatos = Contato::where('id_acessor',$id)->get();
-        foreach ($removerContatos as $removerContato) 
+        foreach ($removerContatos as $removerContato)
         {
         $removerContato->delete();
-        }      
+        }
         $removeAssessor->delete();
         }
 }
