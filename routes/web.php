@@ -26,7 +26,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::delete('palestrante/{id}', 'PalestranteController@destroy');
     Route::put('palestrante/update/{id}', 'PalestranteController@edit');
     Route::get('palestrante/{id}', 'PalestranteController@show');
-        
+
     Route::post('proposta/abertura/','AberturaPropostaController@salvarProposta');
     Route::resource('proposta/', 'PropostaController');
     Route::get('proposta/', 'PropostaController@index');
@@ -35,7 +35,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::delete('proposta/{id}', 'PropostaController@destroy');
     Route::put('proposta/update/{id}', 'PropostaController@edit');
     Route::get('proposta/{id}', 'PropostaController@show');
-    
+
     Route::resource('contato/', 'ContatoController');
 
     Route::resource('categoria/', 'CategoriaController');
@@ -79,7 +79,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 
 //    Route::post('pesquisar/', 'PalestranteController@search');
 
-    Route::resource('evento/', 'EventoController'); 
+    Route::resource('evento/', 'EventoController');
 
     Route::get    ('evento/', 'EventoController@index');
     Route::post   ('evento/','EventoController@salvarEvento');
@@ -96,5 +96,9 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::delete ('cliente/{id}', 'ClienteController@destroy');
 //    Route::put    ('evento/update/{id}', 'EventoController@edit');
     Route::get    ('cliente/{id}', 'ClienteController@show');
+
+    Route::post('createTpAcessor/','TipoAcessorController@store');
+    Route::delete('tipoacessor/{id}','TipoAcessorController@destroy');
+
 
 });

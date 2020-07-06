@@ -14,7 +14,7 @@ class TiposDeServico extends Model
     ];
 
 
-    public function tipoServico()
+    public function tipoAcessor()
     {
         return $this->belongsTo(
             'App\Valor', 'id_tp_servico','id');

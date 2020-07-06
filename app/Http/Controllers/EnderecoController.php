@@ -85,7 +85,7 @@ class EnderecoController extends Controller
         }else{
             $enderecoReturn = array(
                 'id_endereco' => $endereco->id,
-                'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . " - " . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . Cidade::find($endereco->id_cidade)->nm_cidade ." - ". Estado::find($request->id_estado)->nm_estado . " - " . $endereco->nr_cep,
+                'endereco' => $endereco->nm_endereco . " " . $endereco->nr_endereco . ($endereco->ds_complemento != NULL ? "- " . $endereco->ds_complemento : '') . ", " . $endereco->nm_bairro . ", " . Cidade::find($endereco->id_cidade)->nm_cidade ." - ". Estado::find($request->id_estado)->nm_estado . " - " . $endereco->nr_cep,
                 'tipo_endereco' => TipoEndereco::find($endereco->id_tp_endereco)->nm_tipo_endereco,
                 'registro' => $endereco->id_palestrante == null ? ($endereco->id_dado_contratual == null? '' : 'contratual') : 'palestrante'
             );

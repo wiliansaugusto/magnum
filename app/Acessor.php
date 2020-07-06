@@ -12,7 +12,9 @@ class Acessor extends Model
         'id',
         'nm_acessor',
         'id_palestrante',
-        'id_acessor'
+        'id_acessor',
+        'id_tp_acessor',
+        'nm_tp_acessor'
     ];
 
     public function contatos()
@@ -23,5 +25,9 @@ class Acessor extends Model
     public function palestrante()
     {
         return $this->belongsTo(Palestrante::class, 'id_palestrante', 'id');
+    }
+    public function tiposAcessor()
+    {
+        return $this->belongsTo(TipoAcessor::class,'id_tp_acessor', 'id');
     }
 }

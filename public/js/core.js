@@ -57,6 +57,9 @@ $(document).ready(function () {
                 tabelaAssessor(data);
 
                 $("#frmAssessor")[0].reset();
+                $("#select2-id_tp_acessor-container").empty();
+
+
                 $('#frmAssessorModal').modal('toggle');
             },
             error: function () {
@@ -128,6 +131,10 @@ $(document).ready(function () {
             success: function (data) {
                 tabelaValor(data);
                 $("#frmValor")[0].reset();
+                $("#select2-id_tp_servico-container").empty();
+                $("#select2-id_pais_valor-container").empty();
+                $("#select2-id_estado_valor-container").empty();
+                $("#select2-id_cidade_valor-container").empty();
                 $('#frmValorModal').modal('toggle');
             },
             error: function () {
@@ -390,7 +397,7 @@ $(document).ready(function () {
         linha += '<div class="panel-heading">';
         linha += '<div class="col-md-11 mt-1">';
         linha += '<a role="tab" id="heading-' + fields.id + '" data-toggle="collapse" data-parent="#accordion-assessor" href="#collapseAssessor-' + fields.id + '" aria-expanded="true" aria-controls="collapseAssessor-' + fields.id + '">';
-        linha += '<h4 class="panel-title">' + fields.nm_acessor + '</h4>';
+        linha += '<h4 class="panel-title">' + fields.nm_acessor + ' - '+ fields.nm_tp_acessor +'</h4>';
         linha += '</a>';
         linha += '</div>';
         linha += '<div class="col-md-1">';
