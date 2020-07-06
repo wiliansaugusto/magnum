@@ -80,7 +80,6 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 //    Route::post('pesquisar/', 'PalestranteController@search');
 
     Route::resource('evento/', 'EventoController');
-
     Route::get    ('evento/', 'EventoController@index');
     Route::post   ('evento/','EventoController@salvarEvento');
     Route::get    ('evento/{id}/novo', 'EventoController@create');
@@ -100,5 +99,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::post('createTpAcessor/','TipoAcessorController@store');
     Route::delete('tipoacessor/{id}','TipoAcessorController@destroy');
 
+    Route::post('solicitante/{id}/novo', 'SolicitanteController@store');
+    Route::post('solicitante/delete/{id}','SolicitanteController@destroy');
 
 });

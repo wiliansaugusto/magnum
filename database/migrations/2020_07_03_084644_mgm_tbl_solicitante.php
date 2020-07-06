@@ -16,7 +16,7 @@ class MgmTblSolicitante extends Migration
         Schema::create('mgm_tbl_solicitante', function (Blueprint $table) {
            
             $table->bigIncrements('id');
-            $table->string('nm_acessor', 150);
+            $table->string('nm_solicitante', 150);
             $table->timestamps('');
             
 

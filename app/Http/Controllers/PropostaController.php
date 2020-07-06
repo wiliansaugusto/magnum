@@ -105,6 +105,10 @@ class PropostaController extends Controller
         $cliente->cnpj = $request->cnpj;
         $cliente->obs_cliente = $request->obs_cliente;
         $cliente->save();
+
+        $solicitante = $request->all()['id_solicitante'];
+        $solicitante->id_solicitante = $request->id_solicitante;
+        $solicitante->nm_solicitante = $request->nm_solicitante;
         
 
         

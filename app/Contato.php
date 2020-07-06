@@ -15,7 +15,8 @@ class Contato extends Model
         'id_palestrante',
         'id_acessor',
         "id_cliente",
-        "id_proposta"
+        "id_proposta",
+        "id_solicitante"
     ];
 
     public function tiposContato()
@@ -28,12 +29,19 @@ class Contato extends Model
         return $this->belongsTo(Palestrante::class,'id_palestrante', 'id');
     }
 
-    public function assesor(){
+    public function assesor()
+    {
         return $this->belongsTo('App\Acessor' , 'id_acessor','id');
     }
 
-    public function proposta(){
+    public function proposta()
+    {
         return $this->belongsTo('App\Proposta' , 'id_proposta','id');
+    }
+
+    public function solicitante()
+    {
+        return $this->belongsTo('App\Solicitante', 'id');
     }
 
 }
