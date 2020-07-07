@@ -21,11 +21,7 @@
                                 <div class="col-md-12">
                                     <label for="nm_contratante">Nome do Contratante</label>
                                     <input id="nm_contratante" type="text" name="nm_contratante" class="form-control form-control-sm">
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="nm_solicitante">Nome do Solicitante</label>
-                                    <input id="nm_solicitante" type="text" name="nm_solicitante" class="form-control form-control-sm">
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     </div>

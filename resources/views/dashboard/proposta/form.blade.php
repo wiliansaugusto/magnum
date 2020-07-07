@@ -74,106 +74,38 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="form-group row d-flex justify-content-center mt-2">
-                                                <div class="col-md-2">
-                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#frmSolicitanteModal"
-                                                            style="width: 100%">
-                                                        <i class="fa fa-plus"></i> Solicitante
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="accordion" id="accordion-solicitante" role="tablist"
-                                                         aria-multiselectable="true">
-                                                        <div class="panel" id="painel-proposta">
-                                                            <div class="panel-heading">
-                                                                <div class="col-md-11 mt-1">
-                                                                    <a role="tab" id="heading"
-                                                                       data-toggle="collapse"
-                                                                       data-parent="#accordion-solicitante"
-                                                                       href="#collapseProposta"
-                                                                       aria-expanded="true"
-                                                                       aria-controls="collapseProposta">
-                                                                        <h4 class="panel-title">{{$data->nm_solicitante}}</h4>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-md-1">
-                                                                    <button id='excluirProposta' type='button'
-                                                                            class='btn btn-danger btn-sm'
-                                                                            data-id=""
-                                                                            data-toggle='modal'
-                                                                            data-target='#frmRemoverPropostaModal'>
-                                                                        <i class='fa fa-trash'></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="clearfix"></div>
-                                                            </div>
-                                                            <div id="collapseProposta"
-                                                                 class="panel-collapse collapse in" role="tabpanel"
-                                                                 aria-labelledby="heading">
-                                                                <div class="panel-body p-3">
-                                                                <div class="form-group row d-flex justify-content-center">
-                                                                <div class="col-md-12 col-sm-12">
-                                                                    <label for="contatos">Contatos</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <button type="button" class="btn btn-primary btn-sm"
-                                                                            data-toggle="modal"
-                                                                            data-target="#frmContatoModal">
-                                                                        <i class="fa fa-plus"></i> Contato
-                                                                    </button>
-                                                                </div>
-                                                                <div class="col-md-10">
-                                                                    <table id="tblContato"
-                                                                           class="table table-sm table-striped">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th scope="col">Tipo de Contato</th>
-                                                                            <th scope="col">Contato</th>
-                                                                            <th scope="col"></th>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                        @if(sizeof($data->contatos) > 0)
-                                                                            @foreach($data->contatos as $contato)
-                                                                                <tr id="{{$contato->id}}">
-                                                                                    <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
-                                                                                    <td>{{$contato->ds_contato}}</td>
-                                                                                    <td class='text-right'>
-                                                                                        <button
-                                                                                            id='excluirContato-{{$contato->id}}'
-                                                                                            type='button'
-                                                                                            class='btn btn-danger btn-sm'
-                                                                                            data-id="{{$contato->id}}"
-                                                                                            data-toggle='modal'
-                                                                                            data-target='#frmRemoverContatoModal'>
-                                                                                            <i
-                                                                                                class='fa fa-trash'></i>
-                                                                                        </button>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            @endforeach
-                                                                        @else
-                                                                            <tr id="contato-null">
-                                                                                <td colspan="3" class="text-center">
-                                                                                    Nenhum
-                                                                                    contato
-                                                                                    registrado
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endif
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-12">
+                                                    <label for="status_proposta">Status Proposta</label>
+                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="1">
+                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="2">Em Andamento
+                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="3">Aguardando Retorno
+                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="4">Aprovada
+                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="5">Reprovada
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="form-group row d-flex justify-content-center">
+                                                                <div class="col-md-2">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <button type="button"
+                                                                                class="btn btn-primary btn-sm"
+                                                                                data-toggle="modal"
+                                                                                data-target="#frmSolicitanteModal">
+                                                                            <i class="fa fa-plus"></i> Solicitante
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <div class="accordion" id="accordion-solicitante"
+                                                                         role="tablist" aria-multiselectable="true">
+                                                                        
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                            </div>
+                                            <div class="form-group row d-flex justify-content-center">
+                                            <textarea class="col-md-12">{{$data}}</textarea>
+                                            </div>                      
                                         <div class="tab-pane fade" id="nav-evento" role="tabpanel"
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">

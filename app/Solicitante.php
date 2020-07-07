@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Acessor extends Model
+class Solicitante extends Model
 {
     protected $table = 'mgm_tbl_solicitante';
 

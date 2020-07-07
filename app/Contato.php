@@ -41,7 +41,7 @@ class Contato extends Model
 
     public function solicitante()
     {
-        return $this->belongsTo('App\Solicitante', 'id');
+        return $this->belongsTo(Solicitante::class, 'id_solicitante','id');
     }
 
 }

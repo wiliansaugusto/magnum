@@ -79,7 +79,7 @@ class PropostaController extends Controller
 
         //$cliente = $request ->all()['id_cliente'] ;
 
-        $evento = $request->all()['id_evento'];
+        /*$evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->id_usuario = $request->id_usuario;
         $evento->nm_evento = $request->nm_evento;
@@ -104,11 +104,14 @@ class PropostaController extends Controller
         $cliente->cpf = $request->cpf;
         $cliente->cnpj = $request->cnpj;
         $cliente->obs_cliente = $request->obs_cliente;
-        $cliente->save();
+        $cliente->save();    */
 
         $solicitante = $request->all()['id_solicitante'];
         $solicitante->id_solicitante = $request->id_solicitante;
         $solicitante->nm_solicitante = $request->nm_solicitante;
+        $solicitante->save();
+
+        
         
 
         

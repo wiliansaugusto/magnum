@@ -41,7 +41,7 @@ class Proposta extends Model
 
     public function solicitante()
     {
-        return $this->hasMany(Cliente::class, 'id_cliente');
+        return $this->hasMany(Solicitante::class, 'id_solicitante', 'id');
     }
     public function contatos()
     {
