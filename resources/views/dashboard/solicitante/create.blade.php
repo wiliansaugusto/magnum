@@ -16,8 +16,8 @@
                     </div>
                     <div class="form-group row d-flex justify-content-center">
                         <div class="col-md-12">
-                            <label for="nm_acessor">Nome Solicitante(a)</label>
-                            <input id="nm_acessor" type="text" class="form-control form-control-sm" name="nm_acessor"
+                            <label for="nm_solicitante">Nome Solicitante(a)</label>
+                            <input id="nm_solicitante" type="text" class="form-control form-control-sm" name="nm_solicitante"
                                    value="" required autofocus>
                         </div>
                     </div>

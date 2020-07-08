@@ -37,6 +37,8 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::get('proposta/{id}', 'PropostaController@show');
 
     Route::resource('contato/', 'ContatoController');
+    Route::get('contato/{id}/novo', 'ContatoController@store');
+    Route::delete('contato/{id}', 'ContatoController@destroy');
 
     Route::resource('categoria/', 'CategoriaController');
     Route::post('categoria/', 'CategoriaController@store');

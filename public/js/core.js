@@ -69,6 +69,46 @@ $(document).ready(function () {
             }
         });
     });
+    $('#frmContatoSolicitante').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmContatoSolicitante').serialize();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/contato",
+            data: data,
+            success: function (data) {
+                tabelaContatosolicitante(data);
+                $("#frmContatoSolicitante")[0].reset();
+                $('#frmContatoSolicitanteModal').modal('toggle');
+            },
+            error: function () {
+
+            }
+        });
+    });
+    $('#frmSolicitante').submit(function (event) {
+        event.preventDefault();
+        var data = $('#frmsolicitante').serialize() + "&id=" + $("#id").val();
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/solicitante",
+            data: data,
+            success: function (data) {
+                tabelaAssessor(data);
+
+                $("#frmSolicitante")[0].reset();
+                $("#select2-id_tp_solicitante-container").empty();
+
+
+                $('#frmSolicitanteModal').modal('toggle');
+            },
+            error: function () {
+                $('#msg-error-solicitante').fadeIn(1000, function () {
+                    $(this).delay(3000).fadeOut(500);
+                });
+            }
+        });
+    });
     $('#frmDescricao').submit(function (event) {
         event.preventDefault();
         var data = $('#frmDescricao').serialize() + "&id_palestrante=" + $("#id_palestrante").val();

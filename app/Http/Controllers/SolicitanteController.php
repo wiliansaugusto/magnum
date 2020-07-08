@@ -41,6 +41,7 @@ class AcessorController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         if(sizeof($request->all()['id_contato']) > 0) {
             $solicitante = Solicitante::create($request->all());
             //$nm_tp_acessor = TipoAcessor::find( $request->id_tp_acessor);

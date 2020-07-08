@@ -18,9 +18,5 @@ class Solicitante extends Model
     {
         return $this->hasMany(Contato::class , 'id_solicitante','id');
     }
-
-    /*public function tiposAcessor()
-    {
-        return $this->belongsTo(TipoAcessor::class,'id_tp_acessor', 'id');
-    }*/
+    
 }

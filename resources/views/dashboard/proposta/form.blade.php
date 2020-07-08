@@ -61,6 +61,40 @@
                                                 <div class="col-md-12">
                                                     <input id="id_proposta" type="hidden" name="id_proposta" value="{{$data->id}}"/>
                                                 </div>
+                                            </div>
+                                            <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-12">
+                                                    <label for="status_propostatxt">Status Proposta &nbsp</label>
+                                                    <label for="status_proposta">
+                                                    @switch ($data->status_proposta)
+                                                        @case(1)
+                                                            <span><strong>Aberta</strong></span>
+                                                            @break
+                                                        @case(2)
+                                                            <span>Em Andamento</strong></span>
+                                                            @break
+                                                        @case(3)
+                                                            <span>Aguardando Retorno</strong></span>
+                                                            @break
+                                                        @case(4)
+                                                            <span>Aprovada</strong></span>
+                                                            @break
+                                                        @default
+                                                            <span>Reprovada</strong></span>
+                                                    @endswitch
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <div class="col-md-12 ">&nbsp&nbsp                                                   
+                                                    <input type="radio" name="status_proposta" value="1">Aberta &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="2">Em Andamento &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="3">Aguardando Retorno &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="4">Aprovada &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="5">Reprovada
+                                                </div>
+                                            </div>
+                                            <div class="form-group row d-flex justify-content-center">                                            
                                                 <div class="col-md-12">
                                                     <label for="nm_contratante">Solicitante</label>
                                                     <input id="nm_contratante" type="text"
@@ -75,37 +109,120 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-12">
-                                                    <label for="status_proposta">Status Proposta</label>
-                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="1">
-                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="2">Em Andamento
-                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="3">Aguardando Retorno
-                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="4">Aprovada
-                                                    <input type="radio" name="status_proposta" class="form-control form-control-sm" value="5">Reprovada
+                                                <div class="col-md-2">
+                                                    <div class="form-check form-check-inline">
+                                                        <button type="button"
+                                                                class="btn btn-primary btn-sm"
+                                                                data-toggle="modal"
+                                                                data-target="#frmSolicitanteModal">
+                                                            <i class="fa fa-plus"></i> Solicitante
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="accordion" id="accordion-solicitante"
+                                                            role="tablist" aria-multiselectable="true">   
+                                                        @if (sizeof($data->solicitantes) > 0)
+                                                            @foreach($data->solicitantes as $solicitante)
+                                                                @php
+                                                                    $solicitanteContatos = App\Contato::where('id_solicitante', $solicitante->id)->get();
+                                                                    $tipoContato = App\Tiposolicitante::find($solicitante->id_tp_solicitante);
+                                                                @endphp
+                                                        <div class="panel" id="painel-solicitante-{{$solicitante->id}}">
+                                                            <div class="panel-heading">
+                                                                <div class="col-md-11 mt-1">
+                                                                    <a role="tab"
+                                                                        id="heading-{{$solicitante->id}}"
+                                                                        data-toggle="collapse"
+                                                                        data-parent="#accordion-solicitante"
+                                                                        href="#collapseSolicitante-{{$solicitante->id}}"
+                                                                        aria-expanded="true"
+                                                                        aria-controls="collapseSolicitante-{{$solicitante->id}}">
+                                                                        <h4 class="panel-title">{{$solicitante->nm_solicitante}} - {{$tipoContato == null ? 'Não Informado':$tipoContato->nm_tp_solicitante}} </h4>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    <button id='excluirSolicitante'
+                                                                        type='button'
+                                                                        class='btn btn-danger btn-sm'
+                                                                        data-id="{{$solicitante->id}}"
+                                                                        data-toggle='modal'
+                                                                        data-target='#frmRemoverSolicitanteModal'>
+                                                                        <i class='fa fa-trash'></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                            <div
+                                                                id="collapseSolicitante-{{$solicitante->id}}"
+                                                                class="panel-collapse collapse in"
+                                                                role="tabpanel"
+                                                                aria-labelledby="heading-{{$solicitante->id}}">
+                                                                <div class="panel-body p-3">
+                                                                    <table
+                                                                        id="solicitante-contato-null"
+                                                                        class="table table-sm table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Tipo de Contato </th>
+                                                                                <th>Contato</th>
+                                                                                <th></th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @if(sizeof($solicitanteContatos) > 0)
+                                                                                @foreach($solicitanteContatos as $contato)
+                                                                                    <tr id="contato-{{$contato->id}}">
+                                                                                        <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
+                                                                                        <td>{{$contato->ds_contato}}</td>
+                                                                                        <td class='text-right'>
+                                                                                            <button
+                                                                                                id='excluirContato'
+                                                                                                type='button'
+                                                                                                class='btn btn-danger btn-sm'
+                                                                                                data-id="{{$contato->id}}"
+                                                                                                data-toggle='modal'
+                                                                                                data-target='#frmRemoverContatoModal'>
+                                                                                                <i class='fa fa-trash'></i>
+                                                                                            </button>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                @endforeach
+                                                                            @else
+                                                                                <tr id="contato-assesssor-null">
+                                                                                    <td colspan="3"
+                                                                                        class="text-center">
+                                                                                        Nenhum
+                                                                                        contato
+                                                                                        registrado
+                                                                                    </td>
+                                                                                </tr>
+                                                                            @endif
+                                                                            </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    @else
+                                                        <table class="table table-sm table-striped"
+                                                                id="tblSolicitante">
+                                                            <tr id="assesssor-null">
+                                                                <td colspan="2" class="text-center">
+                                                                    Nenhum
+                                                                    solicitante
+                                                                    registrado
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    @endif                                                 
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
-                                                                <div class="col-md-2">
-                                                                    <div class="form-check form-check-inline">
-                                                                        <button type="button"
-                                                                                class="btn btn-primary btn-sm"
-                                                                                data-toggle="modal"
-                                                                                data-target="#frmSolicitanteModal">
-                                                                            <i class="fa fa-plus"></i> Solicitante
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-10">
-                                                                    <div class="accordion" id="accordion-solicitante"
-                                                                         role="tablist" aria-multiselectable="true">
-                                                                        
-                                                                        
-                                                                    </div>
-                                                                </div>
+                                                <textarea class="col-md-12">{{$data}}</textarea>
                                             </div>
-                                            <div class="form-group row d-flex justify-content-center">
-                                            <textarea class="col-md-12">{{$data}}</textarea>
-                                            </div>                      
+                                    </div>                      
                                         <div class="tab-pane fade" id="nav-evento" role="tabpanel"
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
@@ -328,10 +445,12 @@
     @include('dashboard.contato.create')
     @include('dashboard.endereco.create')
     @include('dashboard.descricao.form')
+    @include('dashboard.solicitante.create')
 
     @include('dashboard.contato.remover')
     @include('dashboard.endereco.remover')
     @include('dashboard.descricao.remover')
+    @include('dashboard.solicitante.remover')
 @endsection
 
 
