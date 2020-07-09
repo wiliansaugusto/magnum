@@ -38,10 +38,11 @@ class Contato extends Model
     {
         return $this->belongsTo('App\Proposta' , 'id_proposta','id');
     }
-
+    
     public function solicitante()
     {
-        return $this->belongsTo(Solicitante::class, 'id_solicitante','id');
+        return $this->belongsTo(Solicitante::class, 'id', 'id_solicitante');
     }
+    
 
 }

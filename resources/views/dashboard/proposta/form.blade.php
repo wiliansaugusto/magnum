@@ -122,11 +122,11 @@
                                                 <div class="col-md-10">
                                                     <div class="accordion" id="accordion-solicitante"
                                                             role="tablist" aria-multiselectable="true">   
-                                                        @if (sizeof($data->solicitantes) > 0)
+                                                            @if (sizeof($data->solicitante) > 0)
                                                             @foreach($data->solicitantes as $solicitante)
                                                                 @php
                                                                     $solicitanteContatos = App\Contato::where('id_solicitante', $solicitante->id)->get();
-                                                                    $tipoContato = App\Tiposolicitante::find($solicitante->id_tp_solicitante);
+                                                                    $tipoContato = App\TipoContato::find($solicitante->id_tp_contato);
                                                                 @endphp
                                                         <div class="panel" id="painel-solicitante-{{$solicitante->id}}">
                                                             <div class="panel-heading">
@@ -207,7 +207,7 @@
                                                     @else
                                                         <table class="table table-sm table-striped"
                                                                 id="tblSolicitante">
-                                                            <tr id="assesssor-null">
+                                                            <tr id="solicitante-null">
                                                                 <td colspan="2" class="text-center">
                                                                     Nenhum
                                                                     solicitante

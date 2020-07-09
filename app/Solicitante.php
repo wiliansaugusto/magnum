@@ -14,9 +14,10 @@ class Solicitante extends Model
         
     ];
 
+    
     public function contatos()
     {
-        return $this->hasMany(Contato::class , 'id_solicitante','id');
-    }
-    
+        return $this->hasMany('App\Contato' , 'id_solicitante','id');
+    }  
+       
 }

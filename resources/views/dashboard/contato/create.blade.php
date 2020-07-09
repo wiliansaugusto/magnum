@@ -12,16 +12,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row d-flex justify-content-center">
-                        <div id="nr_contatoPalestrante" class="col-md-8">
-                            <label for="contatoPalestrante">Contato</label>
-                            <input id="contatoPalestrante" type="text"
+                        <div id="nr_contato" class="col-md-8">
+                            <label for="contato">Contato</label>
+                            <input id="contato" type="text"
                                    class="form-control form-control-sm"
                                    name="ds_contato" value="" required
                                    autofocus />
                         </div>
                         <div class="col-md-4">
-                            <label for="tipo_contato_palestrante">Tipo Contato</label>
-                            <select id="tipo_contato_palestrante" name="id_tp_contato" class="form-control form-control-sm">
+                            <label for="tipo_contato">Tipo Contato</label>
+                            <select id="tipo_contato" name="id_tp_contato" class="form-control form-control-sm">
                                 <option selected disabled>Selecione Tipo de Contato</option>
                                 @php
                                     $tipoContato = new App\TipoContato();

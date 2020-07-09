@@ -106,8 +106,8 @@ class PropostaController extends Controller
         $cliente->obs_cliente = $request->obs_cliente;
         $cliente->save();    */
 
-        $solicitante = $request->all()['id_solicitante'];
-        $solicitante->id_solicitante = $request->id_solicitante;
+        $solicitante = $request->all()['id'];
+        //$solicitante->id = $request->id_solicitante;
         $solicitante->nm_solicitante = $request->nm_solicitante;
         $solicitante->save();
 
@@ -154,7 +154,7 @@ class PropostaController extends Controller
         $proposta->mensagem_proposta = $request->mensagem_proposta;
         $proposta->save();
 
-        
+        /*
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->nm_evento = $request->nm_evento;
@@ -179,6 +179,12 @@ class PropostaController extends Controller
         $cliente->cnpj = $request->cnpj;
         $cliente->obs_cliente = $request->obs_cliente;
         $cliente->save();
+        */
+
+        $solicitante = $request->all()['id'];
+        //$solicitante->id = $request->id_solicitante;
+        $solicitante->nm_solicitante = $request->nm_solicitante;
+        $solicitante->save();
 
         return redirect('dashboard/prpoposta/'.$id_proposta.'/edit');
 
