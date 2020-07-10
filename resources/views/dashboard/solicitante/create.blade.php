@@ -27,7 +27,7 @@
                                     class="btn btn-primary"
                                     data-toggle="modal"
                                     data-target="#frmContatoSolicitanteModal">
-                                Adicionar Contato
+                                Adicionar Contato!
                             </button>
                         </div>
                         <div class="col-md-9">

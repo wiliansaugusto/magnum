@@ -220,6 +220,22 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-12" >    
+                                                    <label for='mensagem_proposta'>Mensagem Proposta</label>
+                                                    <textarea class="form-control form-control-sm">{{$data->mensagem_proposta}}</textarea>
+                                                </div>
+                                            </div>                                            
+                                            <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-8">
+                                                    <label for='obs_proposta'>Obeservação</label>
+                                                    <input id='obs_proposta' class="form-control form-control-sm" type='text' name='obs_proposta' value='{{$data->obs_proposta}}'/>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for='vlr_total_proposta'>Total R$</label>
+                                                    <input id='vlr_total_proposta' data-mask="999.999,99" placeholder="R$ 999.999,99" class="form-control form-control-sm" type='text' name='vlr_total_proposta' value='{{$data->vlr_total_proposta}}'/>
+                                                </div>  
+                                            </div>
+                                            <div class="form-group row d-flex justify-content-center">
                                                 <textarea class="col-md-12">{{$data}}</textarea>
                                             </div>
                                     </div>                      

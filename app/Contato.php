@@ -14,9 +14,9 @@ class Contato extends Model
         'id_tp_contato',
         'id_palestrante',
         'id_acessor',
-        "id_cliente",
-        "id_proposta",
-        "id_solicitante"
+        'id_cliente',
+        'id_proposta',
+        'id_solicitante'
     ];
 
     public function tiposContato()
@@ -41,7 +41,7 @@ class Contato extends Model
     
     public function solicitante()
     {
-        return $this->belongsTo(Solicitante::class, 'id', 'id_solicitante');
+        return $this->belongsTo(Solicitante::class, 'id_solicitante', 'id');
     }
     
 

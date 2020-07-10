@@ -19,5 +19,5 @@ class Solicitante extends Model
     {
         return $this->hasMany('App\Contato' , 'id_solicitante','id');
     }  
-       
+     
 }
