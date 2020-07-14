@@ -685,6 +685,8 @@ $(document).ready(function () {
 
 //MASK
     $('#nr_valor').mask('#.##0,00', {reverse: true});
+    $('#vlr_total_proposta').mask('#.##0,00', {reverse: true});
+    $('#vlr_verba_evento').mask('#.##0,00', {reverse: true});
 
 //Enventos de Modal
     $('#frmDescricaoModal').on('show.bs.modal', function (event) {

@@ -22,6 +22,16 @@ class MgmTblPropostaSolicitante extends Migration
             $table->foreign('id_proposta')->references('id')->on('mgm_tbl_proposta');
             $table->foreign('id_solicitante')->references('id')->on('mgm_tbl_solicitante');
         });
+
+        Schema::table('mgm_tbl_proposta', function (Blueprint $table) {
+            // Alterando Tipo do campo vlr_total_proposta de Decimal -> varchar
+            $table->string('vlr_total_proposta')->change();
+        });
+
+        Schema::table('mgm_tbl_evento', function (Blueprint $table) {
+            // Adicionando campo de verba do evento
+            $table->string('vlr_verba_evento');
+        });
     }
 
     /**

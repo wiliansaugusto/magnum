@@ -232,7 +232,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for='vlr_total_proposta'>Total R$</label>
-                                                    <input id='vlr_total_proposta' data-mask="999.999,99" placeholder="R$ 999.999,99" class="form-control form-control-sm" type='text' name='vlr_total_proposta' value='{{$data->vlr_total_proposta}}'/>
+                                                    <input id='vlr_total_proposta' class="form-control form-control-sm" type='text' name='vlr_total_proposta' value='{{$data->vlr_total_proposta}}'/>
                                                 </div>  
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
@@ -391,13 +391,12 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label for="nr_verba">Verba Disponivél</label>
-                                                    <input id="nr_verba" type="text" data-mask="999.999,99" placeholder="R$ 999.999,99"
-                                                           class="form-control form-control-sm {{ $errors->has('nr_verba') ? 'is-invalid' : '' }}"
-                                                           name="nr_verba"/>
-                                                    @if ($errors->has('nr_verba'))
+                                                    <label for="vlr_verba_evento">Verba Disponivél</label>
+                                                    <input id="vlr_verba_evento" type="text" class="form-control form-control-sm {{ $errors->has('vlr_verba_evento') ? 'is-invalid' : '' }}"
+                                                           name="vlr_verba_evento"/>
+                                                    @if ($errors->has('vlr_verba_evento'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('nr_verba') }}</strong>
+                                                            <strong>{{ $errors->first('vlr_verba_evento') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>
