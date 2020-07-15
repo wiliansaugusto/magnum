@@ -36,7 +36,7 @@ class EventoController extends Controller
      */
     public function create($id)
     {
-        dd($data);
+        //dd($data);
         $data = Evento::find($id);
         //dd($data);
 

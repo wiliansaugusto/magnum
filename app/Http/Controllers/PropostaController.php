@@ -79,7 +79,7 @@ class PropostaController extends Controller
 
         //$cliente = $request ->all()['id_cliente'] ;
 
-        $evento = $request->all()['id'];
+        $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->id_usuario = $request->id_usuario;
         $evento->nm_evento = $request->nm_evento;

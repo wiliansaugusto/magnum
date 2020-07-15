@@ -243,7 +243,7 @@
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
-                                                    <input id="id_evento" type="hidden" name="id_evevnto" value=""/>
+                                                    <input id="id_evento" type="hidden" name="id_evento" value="{{ App\Evento::all()->id }}"/>
                                                     
                                                 </div>
                                                 <div class="col-md-12">
