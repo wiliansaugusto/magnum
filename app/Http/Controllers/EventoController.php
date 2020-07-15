@@ -64,7 +64,7 @@ class EventoController extends Controller
     public function store(Request $request)
     {
         $evento = $request->all()['id'];
-        $evento = Evento::find($request->id_evento);
+        $evento = Evento::find($request->id);
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
         $evento->tema_palestra = $request->tema_palestra;
@@ -76,6 +76,7 @@ class EventoController extends Controller
         $evento->qtd_participantes_evento = $request->qtd_participantes_evento;
         $evento->perfil_participante_evento = $request->perfil_participante_evento;
         $evento->objetivo_evento = $request->objetivo_evento;
+        $evento->vlr_verba_evento = $request->vlr_verba_evento;
         $evento->save();
 
         return redirect('dashboard/evento');
@@ -104,7 +105,7 @@ class EventoController extends Controller
     {
         //
         $evento = $request->all()['id'];
-        $evento = Evento::find($request->id_evento);
+        $evento = Evento::find($request->id);
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
         $evento->tema_palestra = $request->tema_palestra;
@@ -116,6 +117,7 @@ class EventoController extends Controller
         $evento->qtd_participantes_evento = $request->qtd_participantes_evento;
         $evento->perfil_participante_evento = $request->perfil_participante_evento;
         $evento->objetivo_evento = $request->objetivo_evento;
+        $evento->vlr_verba_evento = $request->vlr_verba_evento;
         $evento->save();
     }
 

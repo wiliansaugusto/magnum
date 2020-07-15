@@ -79,7 +79,7 @@ class PropostaController extends Controller
 
         //$cliente = $request ->all()['id_cliente'] ;
 
-        /*$evento = $request->all()['id_evento'];
+        $evento = $request->all()['id'];
         $evento = Evento::find($request->id_evento);
         $evento->id_usuario = $request->id_usuario;
         $evento->nm_evento = $request->nm_evento;
@@ -93,6 +93,7 @@ class PropostaController extends Controller
         $evento->qtd_participantes_evento = $request->qtd_participantes_evento;
         $evento->perfil_participante_evento = $request->perfil_participante_evento;
         $evento->objetivo_evento = $request->objetivo_evento;
+        $evento->vlr_verba_evento = $request->vlr_verba_evento;
         $evento->save();
 
         $cliente = $request->all()['id_cliente'];
@@ -104,7 +105,7 @@ class PropostaController extends Controller
         $cliente->cpf = $request->cpf;
         $cliente->cnpj = $request->cnpj;
         $cliente->obs_cliente = $request->obs_cliente;
-        $cliente->save();    */
+        $cliente->save();    
 
         $solicitante = $request->all()['id'];
         //$solicitante->id = $request->id_solicitante;
@@ -154,7 +155,7 @@ class PropostaController extends Controller
         $proposta->mensagem_proposta = $request->mensagem_proposta;
         $proposta->save();
 
-        /*
+        dd($request);
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->nm_evento = $request->nm_evento;
@@ -168,6 +169,7 @@ class PropostaController extends Controller
         $evento->qtd_participantes_evento = $request->qtd_participantes_evento;
         $evento->perfil_participante_evento = $request->perfil_participante_evento;
         $evento->objetivo_evento = $request->objetivo_evento;
+        $evento->vlr_verba_evento = $request->vlr_verba_evento;
         $evento->save();
 
         $cliente = $request->all()['id_cliente'];
@@ -179,7 +181,7 @@ class PropostaController extends Controller
         $cliente->cnpj = $request->cnpj;
         $cliente->obs_cliente = $request->obs_cliente;
         $cliente->save();
-        */
+        
 
         $solicitante = $request->all()['id'];
         //$solicitante->id = $request->id_solicitante;

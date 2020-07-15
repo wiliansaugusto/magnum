@@ -20,7 +20,8 @@ class Evento extends Model
         "obs_data_evento",
         "qtd_participantes_evento",
         "perfil_participante_evento",
-        "objetivo_evento"
+        "objetivo_evento",
+        "vlr_verba_evento"
     ];
 
     public function eventoEndereco()
