@@ -71,7 +71,7 @@ $(document).ready(function () {
     });
     $('#frmContatoSolicitante').submit(function (event) {
         event.preventDefault();
-        var data = $('#frmContatoSolicitante').serialize();
+        var data = $('#frmContatoSolicitante').serialize() ;
         $.ajax({
             method: "POST",
             url: "/dashboard/contato",
@@ -88,7 +88,7 @@ $(document).ready(function () {
     });
     $('#frmSolicitante').submit(function (event) {
         event.preventDefault();
-        var data = $('#frmsolicitante').serialize() + "&id=" + $("#id").val();
+        var data = $('#frmsolicitante').serialize() + "&id_solicitante=" + $("#id_solicitante").val();
         $.ajax({
             method: "POST",
             url: "/dashboard/solicitante",
@@ -687,6 +687,7 @@ $(document).ready(function () {
     $('#nr_valor').mask('#.##0,00', {reverse: true});
     $('#vlr_total_proposta').mask('#.##0,00', {reverse: true});
     $('#vlr_verba_evento').mask('#.##0,00', {reverse: true});
+    
 
 //Enventos de Modal
     $('#frmDescricaoModal').on('show.bs.modal', function (event) {

@@ -18,6 +18,11 @@ class Solicitante extends Model
     public function contatos()
     {
         return $this->hasMany('App\Contato' , 'id_solicitante','id');
-    }  
+    }
+    
+    public function proposta()
+    {
+        return $this->belongsTo('App\proposta', 'id_solicitante', 'id');
+    }
      
 }

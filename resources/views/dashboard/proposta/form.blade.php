@@ -243,7 +243,8 @@
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
-                                                    <input id="id_evento" type="hidden" name="id_evento" value="{{ App\Evento::all()->id }}"/>
+                                                    <input id="id_evento" type="hidden" name="id_evento" value=""/>
+                                                    <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}" />
                                                     
                                                 </div>
                                                 <div class="col-md-12">
@@ -381,7 +382,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="nr_partic">Número Participantes</label>
-                                                    <input id="nr_partic" type="number"
+                                                    <input id="nr_partic" type="number" data-mask="###.000"
                                                            class="form-control form-control-sm {{ $errors->has('nr_partic') ? 'is-invalid' : '' }}"
                                                            name="nr_partic"/>
                                                     @if ($errors->has('nr_partic'))
@@ -429,10 +430,7 @@
                                              aria-labelledby="nav-propostaItem-tab">
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
-                                                    <input id="id_proposta" type="text" name="id_proposta" value="{{$data->id}}"/>
-                                                </div >
-                                                <div class="col-md-12">
-                                                    <label>Hum la la la la </label>
+                                                    <label>Itens da proposta </label>
                                                 </div>
                                             </div>
                                         </div>

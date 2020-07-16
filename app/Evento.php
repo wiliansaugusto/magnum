@@ -29,8 +29,13 @@ class Evento extends Model
         return $this->hasMany('App\Endereco', 'id_evento');
     }
 
+    /*public function propostas(
+    {
+        return $this->belongsToMany('App\Proposta', 'id_proposta', 'id');
+    }
+    )*/
     public function eventoProposta()
     {
-        return $this->hasMany('App\Proposta', 'id_evento');
+        return $this->hasMany('App\Proposta', 'id_evento', 'id');
     }
 }

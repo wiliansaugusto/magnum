@@ -29,9 +29,9 @@ class Proposta extends Model
         return $this->hasMany(Usuario::class, 'id_usuario');
     }
 
-    public function evento()
+    public function eventos()
     {
-        return $this->hasMany(Evento::class, 'id');
+        return $this->belongsToMany(Evento::class, 'id_evento', 'id');
     }
 
     public function cliente()
@@ -41,7 +41,7 @@ class Proposta extends Model
 
     public function solicitante()
     {
-        return $this->hasMany(Solicitante::class, 'id_solicitante');
+        return $this->hasMany(Solicitante::class, 'id');
     }
     public function contatos()
     {

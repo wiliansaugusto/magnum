@@ -35,6 +35,7 @@ class PropostaController extends Controller
     public function create($id)
     {
         $data = Proposta::find($id);
+        
         //dd($data);
 
         return view('dashboard.proposta.form')->with(['data'=>$data, 'action'=>"criar"]);
@@ -77,8 +78,7 @@ class PropostaController extends Controller
         $proposta->nm_solicitante = $request->nm_solicitante;
         $proposta->save();
 
-        //$cliente = $request ->all()['id_cliente'] ;
-
+        //dd($request->all());
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->id_usuario = $request->id_usuario;
@@ -107,7 +107,7 @@ class PropostaController extends Controller
         $cliente->obs_cliente = $request->obs_cliente;
         $cliente->save();    
 
-        $solicitante = $request->all()['id'];
+        $solicitante = $request->all()['id_solicitante'];
         //$solicitante->id = $request->id_solicitante;
         $solicitante->nm_solicitante = $request->nm_solicitante;
         $solicitante->save();
