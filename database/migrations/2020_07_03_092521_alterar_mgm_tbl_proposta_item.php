@@ -17,6 +17,7 @@ class AlterarMgmTblPropostaItem extends Migration
             //Adicionando solicitante e chave estrangeira no proposta Item
             $table->unsignedbigInteger('id_solicitante')->nullable($value = true);
             $table->foreign('id_solicitante')->references('id')->on('mgm_tbl_solicitante');
+            $table->integer('num_item_proposta')->lenght(3);
         });
 
         Schema::table('mgm_tbl_contato', function (Blueprint $table) {
@@ -41,6 +42,7 @@ class AlterarMgmTblPropostaItem extends Migration
         
             $table->dropForeign('mgm_tbl_proposta_id_evento_foreign');
             $table->dropColumn('id_evento');
+            
         });
 
         Schema::table('mgm_tbl_proposta', function (Blueprint $table) {

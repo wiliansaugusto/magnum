@@ -48,6 +48,11 @@ class Proposta extends Model
         return $this->hasMany(Contato::class, 'id_proposta', 'id');
     }
 
+    public function Propostaitens()
+    {
+        return $this->belongsToMany(PropostaItem::class, 'id_proposta', 'id');
+    }
+
 
 
 }

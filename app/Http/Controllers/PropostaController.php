@@ -79,13 +79,15 @@ class PropostaController extends Controller
         $proposta->save();
 
         //dd($request->all());
+        //$enunciado->questionario()->associate($questionario);
+
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->id_usuario = $request->id_usuario;
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
         $evento->tema_palestra = $request->tema_palestra;
-        $evento->dt_evento_inico = $request->dt_evento_inicio;
+        $evento->dt_evento_inicio = $request->dt_evento_inicio;
         $evento->dt_evento_fim = $request->dt_evento_fim;
         $evento->tm_evento = $request->tm_evento;
         $evento->tm_duracao = $request->tm_duracao;
@@ -161,7 +163,7 @@ class PropostaController extends Controller
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
         $evento->tema_palestra = $request->tema_palestra;
-        $evento->dt_evento_inico = $request->dt_evento_inicio;
+        $evento->dt_evento_inicio = $request->dt_evento_inicio;
         $evento->dt_evento_fim = $request->dt_evento_fim;
         $evento->tm_evento = $request->tm_evento;
         $evento->tm_duracao = $request->tm_duracao;
