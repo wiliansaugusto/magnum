@@ -441,109 +441,63 @@
                                                 <textarea class="col-md-12">{{$data}}</textarea>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade show active" id="nav-propostaItem"
-                                             role="tabpanel"
-                                             aria-labelledby="nav-propostaItem-tab">
-                                             <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <button type="button"
-                                                                class="btn btn-primary btn-sm"
-                                                                data-toggle="modal"
-                                                                data-target="#frmItemPropostaModal">
-                                                            <i class="fa fa-plus"></i> Item Proposta
-                                                        </button>
-                                                    </div>
+                                    <div class="tab-pane fade show active" id="nav-propostaItem"
+                                            role="tabpanel" aria-labelledby="nav-propostaItem-tab">
+                                        <div class="form-group row d-flex justify-content-center">
+                                            <div class="col-md-2">
+                                                <div class="form-check form-check-inline">
+                                                    <button type="button"
+                                                            class="btn btn-primary btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#frmPropostaItemModal">
+                                                        <i class="fa fa-plus"></i> Item Proposta
+                                                    </button>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <div class="accordion" id="accordion-itemProposta"
-                                                            role="tablist" aria-multiselectable="true">   
-                                                            @if (sizeof($data->itemProposta) > 0)
-                                                            @foreach($data->itensProposta as $itemProposta)
-                                                                @php
-                                                                    $solicitanteContatos = App\Contato::where('id_itemProposta', $itemProposta->id)->get();
-                                                                    $tipoContato = App\TipoContato::find($itemProposta->id_tp_contato);
-                                                                @endphp
-                                                        <div class="panel" id="painel-itemProposta-{{$itemProposta->id}}">
-                                                            <div class="panel-heading">
-                                                                <div class="col-md-11 mt-1">
-                                                                    <a role="tab"
-                                                                        id="heading-{{$itemProposta->id}}"
-                                                                        data-toggle="collapse"
-                                                                        data-parent="#accordion-itemProposta"
-                                                                        href="#collapseitemProposta-{{$itemProposta->id}}"
-                                                                        aria-expanded="true"
-                                                                        aria-controls="collapseitemProposta-{{$itemProposta->id}}">
-                                                                        <h4 class="panel-title">{{$itemProposta->nm_itemProposta}} - {{$tipoContato == null ? 'Não Informado':$tipoContato->nm_tp_itemProposta}} </h4>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-md-1">
-                                                                    <button id='excluiritemProposta'
-                                                                        type='button'
-                                                                        class='btn btn-danger btn-sm'
-                                                                        data-id="{{$itemProposta->id}}"
-                                                                        data-toggle='modal'
-                                                                        data-target='#frmRemoverItemPropostaModal'>
-                                                                        <i class='fa fa-trash'></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="accordion" id="accordion-itemProposta"
+                                                        role="tablist" aria-multiselectable="true">
+                                                    @if (sizeof($data->solicitante) > 0)
+                                                        @foreach($data->solicitantes as $solicitante)
+                                                    <div class="panel" id="painel-propostaItem-{{$propostaItem->id}}">
+                                                        <div class="panel-heading">
+                                                            <div class="col-md-11 mt-1">
+                                                                <a role="tab"
+                                                                    id="heading-{{$propostaItem->id}}"
+                                                                    data-toggle="collapse"
+                                                                    data-parent="#accordion-propostaItem"
+                                                                    href="#collapsePropostaItem-{{$propostaItem->id}}"
+                                                                    aria-expanded="true"
+                                                                    aria-controls="collapsePropostaItem-{{$propostaItem->id}}">
+                                                                </a>
                                                             </div>
-                                                            <div
-                                                                id="collapseitemProposta-{{$itemProposta->id}}"
+                                                            <div class="col-md-1">
+                                                                <button id='excluirPropostaItem'
+                                                                    type='button'
+                                                                    class='btn btn-danger btn-sm'
+                                                                    data-id="{{$PropostaItem->id}}"
+                                                                    data-toggle='modal'
+                                                                    data-target='#frmRemoverPropostaItemModal'>
+                                                                    <i class='fa fa-trash'></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div
+                                                                id="collapseSolicitante-{{$solicitante->id}}"
                                                                 class="panel-collapse collapse in"
                                                                 role="tabpanel"
-                                                                aria-labelledby="heading-{{$itemProposta->id}}">
+                                                                aria-labelledby="heading-{{$propostaItem->id}}">
                                                                 <div class="panel-body p-3">
-                                                                    <table
-                                                                        id="itemProposta-contato-null"
-                                                                        class="table table-sm table-striped">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>Tipo de Contato </th>
-                                                                                <th>Contato</th>
-                                                                                <th></th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            @if(sizeof($itemPropostaContatos) > 0)
-                                                                                @foreach($itemPropostaContatos as $contato)
-                                                                                    <tr id="contato-{{$contato->id}}">
-                                                                                        <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
-                                                                                        <td>{{$contato->ds_contato}}</td>
-                                                                                        <td class='text-right'>
-                                                                                            <button
-                                                                                                id='excluirContato'
-                                                                                                type='button'
-                                                                                                class='btn btn-danger btn-sm'
-                                                                                                data-id="{{$contato->id}}"
-                                                                                                data-toggle='modal'
-                                                                                                data-target='#frmRemoverContatoModal'>
-                                                                                                <i class='fa fa-trash'></i>
-                                                                                            </button>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                @endforeach
-                                                                            @else
-                                                                                <tr id="contato-itemProposta-null">
-                                                                                    <td colspan="3"
-                                                                                        class="text-center">
-                                                                                        Nenhum
-                                                                                        contato
-                                                                                        registrado
-                                                                                    </td>
-                                                                                </tr>
-                                                                            @endif
-                                                                            </tbody>
-                                                                    </table>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                     @else
                                                         <table class="table table-sm table-striped"
-                                                                id="tblItemProposta">
-                                                            <tr id="itemProposta-null">
+                                                                id="tblPorpostaItem">
+                                                            <tr id="PorpostaItem-null">
                                                                 <td colspan="2" class="text-center">
                                                                     Nenhum
                                                                     Item
@@ -552,12 +506,10 @@
                                                             </tr>
                                                         </table>
                                                     @endif                                                 
-                                                    </div>
+                                                    </div>                                                                                                        
                                                 </div>
                                             </div>
-                                            
                                         </div>
-                                                                                
                                     </div>
                                     <div class="ln_solid"></div>
                                     <div class="row">
@@ -579,12 +531,12 @@
         </div>
     </div>
     @include("dashboard.proposta.create")
+    @include("dashboard.propostaItem.create")
     @include('dashboard.contato.create')
     @include('dashboard.endereco.create')
     @include('dashboard.descricao.form')
     @include('dashboard.solicitante.create')
 
-    @include('dashboard.contato.remover')
     @include('dashboard.endereco.remover')
     @include('dashboard.descricao.remover')
     @include('dashboard.solicitante.remover')

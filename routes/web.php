@@ -36,6 +36,15 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::put('proposta/update/{id}', 'PropostaController@edit');
     Route::get('proposta/{id}', 'PropostaController@show');
 
+    //Route::post('proposta/abertura/','AberturaPropostaController@salvarProposta');
+    Route::resource('propostaItem/', 'PropostaItemController');
+    Route::get('propostaItem/', 'PropostaItemController@index');
+    Route::get('propostaItem/{id}/novo', 'PropostaItemController@create');
+    Route::get('propostaItem/{id}/edit', 'PropostaItemController@show');
+    Route::delete('propostaItem/{id}', 'PropostaItemController@destroy');
+    Route::put('propostaItem/update/{id}', 'PropostaItemController@edit');
+    Route::get('propostaItem/{id}', 'PropostaItemController@show');
+
     Route::resource('contato/', 'ContatoController');
     Route::get('contato/{id}/novo', 'ContatoController@store');
     Route::delete('contato/{id}', 'ContatoController@destroy');
