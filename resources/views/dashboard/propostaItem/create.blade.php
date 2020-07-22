@@ -22,6 +22,7 @@
                         <label for="id_categoria">Categoria Palestrante</label>
                         @php
                             $categorias = App\Categoria::all();
+                            
                         @endphp   
                         <select id="id_categoria"
                                 class="form-control form-control-sm select-find {{ $errors->has('id_categoria') ? 'is-invalid' : '' }}"
@@ -40,7 +41,24 @@
                             </span>
                         @endif
                     </div>
-                
+
+                    <div class="col-md-6">
+                        <label for="id_sub_categoria">Sub Categoria Palestrante</label>
+                          
+                        <select id="id_sub_categoria"
+                                class="form-control form-control-sm select-find {{ $errors->has('id_sub_categoria') ? 'is-invalid' : '' }}"
+                                name="id_sub_categoria" style="width: 100%">
+                                
+                            <option></option>
+                            
+                        </select>
+                        @if ($errors->has('id_sub_categoria'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('id_sub_categoria') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    
                     <div class="col-md-6">
                             <label for="id_palestrante">Palestrante</label>
                             @php

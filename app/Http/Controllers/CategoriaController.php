@@ -105,6 +105,7 @@ class CategoriaController extends Controller
     {
         $sub = new Categoria();
         $sub->subCategorias()->find($id);
+      
     }
 
     /**
@@ -182,6 +183,14 @@ class CategoriaController extends Controller
                 "Categoria removida com sucesso ");
             return redirect('dashboard/categoria');
         }
+    }
+
+    public function buscaSubCategoria($id){
+        $subcategoria = new Categoria(); 
+        $subCategoria -> subCategorias()->find($id);
+        dd($subCategoria);
+        return response(json_encode($subCategoria), 200)
+            ->header('Content-Type', 'application/json');
     }
     public function verificarVazio($params)
     {

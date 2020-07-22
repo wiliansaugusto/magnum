@@ -3,7 +3,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <form id="frmNomeAberturaProposta" method="POST" action="/dashboard/proposta/abertura">
-                <input id="num_proposta" type="hidden" name="num_proposta" value="000121" /> 
+                
+                <input id="num_proposta" type="hidden" name="num_proposta" value="0000" /> 
                 <input id="status_proposta" type="hidden" name="status_proposta" value="2"/>
 
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>

@@ -651,6 +651,21 @@ $(document).ready(function () {
             }
         });
     });
+    //Select Categoria
+    $("select[name='id_categoria']").change(function () {
+        let id_categoria = $(this).val();
+        let selecSubCategoria = $("select[name='id_subcategoria']");
+        $.ajax({
+            method: "GET",
+            url: "/dashboard/categoria/buscar/" + id_categoria,
+            success: function (data) {
+                selecSubCategoria.html("<option></option>")
+                data.forEach(function (subcategoria) {
+                    selecSubCategoria.append('<option value="' + subcategoria.id + '">' + subcategoria.nm_sub_cat + '</option>');
+                });
+            }
+        });
+    })
     $("#pesquisarEstado").click(function () {
 
         let id_pais = $("#pais_filtro_estado").val();

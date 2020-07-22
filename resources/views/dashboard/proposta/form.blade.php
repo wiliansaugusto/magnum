@@ -240,12 +240,7 @@
                                         <div class="tab-pane fade" id="nav-evento" role="tabpanel"
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
-                                               <div class="col-md-12">
-                                                    <label for="id_evento">ID Evento</label>
-                                                    <input id="id_evento" type="text"
-                                                           class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
-                                                           name="id_evento" value="{{ $data->id }}"/>
-                                                </div>
+                                               
                                                 <div class="col-md-12">
                                                     <label for="nm_evento">Nome do Evento</label>
                                                     <input id="nm_evento" type="text"
@@ -436,10 +431,7 @@
                                                         </span>
                                                     @endif
                                                 </div>
-                                            </div>
-                                            <div class="form-group row d-flex justify-content-center">
-                                                <textarea class="col-md-12">{{$data}}</textarea>
-                                            </div>
+                                            </div>                                            
                                         </div>
                                     <div class="tab-pane fade show active" id="nav-propostaItem"
                                             role="tabpanel" aria-labelledby="nav-propostaItem-tab">
@@ -510,9 +502,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-group row d-flex justify-content-center">
+                                                <textarea class="col-md-12">{{$data}}</textarea>
+                                    </div>
+                                    <div class="row">
                                     </div>
                                     <div class="ln_solid"></div>
-                                    <div class="row">
                                         <div class="col-md-12 col-sm-12 text-right">
                                             <button type="submit" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-save"></i> Salvar

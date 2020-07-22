@@ -53,6 +53,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::post('categoria/', 'CategoriaController@store');
     Route::delete('categoria/{id}', 'CategoriaController@destroy');
     Route::post('categoria/update/{id}', 'CategoriaController@update');
+    Route::get('categoria/buscar/{id}','CategoriaController@buscaSubCategoria');
 
     Route::resource('banco/', 'BancoController');
     Route::post('banco/delete/{id}', 'BancoController@destroy');
