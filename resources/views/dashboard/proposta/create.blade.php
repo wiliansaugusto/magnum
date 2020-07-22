@@ -10,7 +10,7 @@
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Proposta</h5>
+                    <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Proposta </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

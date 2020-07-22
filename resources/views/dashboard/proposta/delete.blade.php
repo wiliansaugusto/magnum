@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <p>Tem certeza que você quer excluir a proposta:</p>
-                    <h2 class="text-uppercase" style="font-weight: bold">{{$proposta->num_proposta}} | {{$proposta->nm_solicitante}}</h2>
+                    <h2 class="text-uppercase" style="font-weight: bold">{{$proposta->num_proposta}} | {{$proposta->nm_contratante}}</h2>
                     <p>Todas as informações serão excluidas definitivamente</p>
                 </div>
                 <div class="modal-footer">

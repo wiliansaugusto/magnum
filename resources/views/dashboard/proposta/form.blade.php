@@ -502,9 +502,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group row d-flex justify-content-center">
-                                                <textarea class="col-md-12">{{$data}}</textarea>
-                                    </div>
+                                       
                                     <div class="row">
                                     </div>
                                     <div class="ln_solid"></div>

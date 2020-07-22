@@ -18,8 +18,8 @@
                 </div>
 
                 <div class="form-group row d-flex justify-content-center">
-                    <div class="col-md-6">
-                        <label for="id_categoria">Categoria Palestrante</label>
+                    <div class="col-md-4">
+                        <label for="id_categoria">Categoria </label>
                         @php
                             $categorias = App\Categoria::all();
                             
@@ -42,8 +42,8 @@
                         @endif
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="id_sub_categoria">Sub Categoria Palestrante</label>
+                    <div class="col-md-4">
+                        <label for="id_sub_categoria">Sub Categoria </label>
                           
                         <select id="id_sub_categoria"
                                 class="form-control form-control-sm select-find {{ $errors->has('id_sub_categoria') ? 'is-invalid' : '' }}"
@@ -59,7 +59,7 @@
                         @endif
                     </div>
                     
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                             <label for="id_palestrante">Palestrante</label>
                             @php
                                 $palestrantes = App\Palestrante::all();
@@ -80,8 +80,8 @@
                                     <strong>{{ $errors->first('id_palestrante') }}</strong>
                                 </span>
                             @endif
-                        </div>
                     </div>
+                </div>
                                             
                 <div class="form-group row d-flex justify-content-center">
                     <div class="col-md-6">                            

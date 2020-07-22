@@ -43,9 +43,10 @@ class PropostaController extends Controller
 
     public function salvarProposta(Request $request)
     {
-        
-        $data = Proposta::create($request->all());
+        $data = Evento::salvarEvento($request->all());
         //dd($data);
+        $data = Proposta::create($request->all());
+        dd($data);
         $data->num_proposta =  str_pad($data->id, 7, "0", STR_PAD_LEFT);
         $data->save();
         //dd($data->nm_solicitante, $request, $data->id, $data->num_proposta);
