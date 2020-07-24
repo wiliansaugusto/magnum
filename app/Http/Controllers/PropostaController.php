@@ -80,9 +80,16 @@ class PropostaController extends Controller
         $proposta->nm_solicitante = $request->nm_solicitante;
         $proposta->save();
 
-        //dd($request->all());
+        if($proposta->id_evento == null){
+            $proposta->id_evento = Evento::create('id');
+            $proposta->save();
+        }else{
+            $proposta->id_evento = Evento::find('id');
+            $proposta->save();
+        }
         //$enunciado->questionario()->associate($questionario);
-
+        dd($request->all());
+        
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->id_usuario = $request->id_usuario;

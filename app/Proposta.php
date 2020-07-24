@@ -31,7 +31,7 @@ class Proposta extends Model
 
     public function eventos()
     {
-        return $this->belongsToMany(Evento::class, 'id_evento', 'id');
+        return $this->belongsToMany(Evento::class, 'id', 'id_evento');
     }
 
     public function cliente()

@@ -9,6 +9,7 @@ class Evento extends Model
     protected $table = 'mgm_tbl_evento';
 
     protected $fillable = [
+        "id",
         "id_usuario",
         "nm_evento",
         "tema_evento",

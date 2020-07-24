@@ -242,6 +242,7 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                
                                                 <div class="col-md-12">
+                                                    <input id="id_evento" type="text" name="id_evento" value='{{$data->id_evento}}'></input>
                                                     <label for="nm_evento">Nome do Evento</label>
                                                     <input id="nm_evento" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
