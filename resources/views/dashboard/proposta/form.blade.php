@@ -243,6 +243,8 @@
                                                
                                                 <div class="col-md-12">
                                                     <input id="id_evento" type="text" name="id_evento" value='{{$data->id_evento}}'></input>
+                                                    <input id="id_usuario" type="text" name="id_evento" value='{{$data->id_usuario}}'></input>
+                                                    
                                                     <label for="nm_evento">Nome do Evento</label>
                                                     <input id="nm_evento" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"

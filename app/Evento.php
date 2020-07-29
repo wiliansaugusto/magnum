@@ -37,6 +37,6 @@ class Evento extends Model
     )*/
     public function eventoProposta()
     {
-        return $this->hasMany('App\Proposta', 'id_evento', 'id');
+        return $this->hasOne(Proposta::class, 'id_evento');
     }
 }

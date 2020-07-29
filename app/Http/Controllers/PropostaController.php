@@ -44,6 +44,7 @@ class PropostaController extends Controller
     public function salvarProposta(Request $request)
     {
         $data = Evento::salvarEvento($request->all());
+        $data->id_evento = $data->id;
         //dd($data);
         $data = Proposta::create($request->all());
         dd($data);
@@ -80,15 +81,16 @@ class PropostaController extends Controller
         $proposta->nm_solicitante = $request->nm_solicitante;
         $proposta->save();
 
+
         if($proposta->id_evento == null){
-            $proposta->id_evento = Evento::create('id');
-            $proposta->save();
-        }else{
-            $proposta->id_evento = Evento::find('id');
+            $proposta->id_evento = Evento::create([
+                'id_usuario' => ' $request->id_usuario '
+            ]);
+            //dd($proposta);
             $proposta->save();
         }
         //$enunciado->questionario()->associate($questionario);
-        dd($request->all());
+        //dd($request->all());
         
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
@@ -107,6 +109,7 @@ class PropostaController extends Controller
         $evento->vlr_verba_evento = $request->vlr_verba_evento;
         $evento->save();
 
+        /*
         $cliente = $request->all()['id_cliente'];
         $cliente = Cliente::find($request->id_cliente);
         $cliente->id_usuario = $request->id_usuario;
@@ -116,18 +119,21 @@ class PropostaController extends Controller
         $cliente->cpf = $request->cpf;
         $cliente->cnpj = $request->cnpj;
         $cliente->obs_cliente = $request->obs_cliente;
-        $cliente->save();    
+        $cliente->save();
+        */
 
+        /*
         $solicitante = $request->all()['id_solicitante'];
         //$solicitante->id = $request->id_solicitante;
         $solicitante->nm_solicitante = $request->nm_solicitante;
         $solicitante->save();
+        */
 
         
         
 
         
-        return redirect('dashboard/proposta/'.$id_proposta.'/edit');
+        return redirect("dashboard/proposta/{$data->id}/edit");
     }
 
     /**
@@ -166,6 +172,14 @@ class PropostaController extends Controller
         $proposta->mensagem_proposta = $request->mensagem_proposta;
         $proposta->save();
 
+        if($proposta->id_evento == null){
+            $proposta->id_evento = Evento::create([
+                'id_usuario' => ' $request->id_usuario '
+            ]);
+            //dd($proposta);
+            $proposta->save();
+        }
+
         dd($request);
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
@@ -199,7 +213,7 @@ class PropostaController extends Controller
         $solicitante->nm_solicitante = $request->nm_solicitante;
         $solicitante->save();
 
-        return redirect('dashboard/prpoposta/'.$id_proposta.'/edit');
+        return redirect('dashboard/prpoposta/{$data->id}/edit");
 
     }
 
