@@ -84,9 +84,9 @@ class PropostaController extends Controller
 
         if($proposta->id_evento == null){
             $proposta->id_evento = Evento::create([
-                'id_usuario' => ' $request->id_usuario '
+                'id_usuario' => '$request->id_usuario'
             ]);
-            //dd($proposta);
+            dd($proposta);
             $proposta->save();
         }
         //$enunciado->questionario()->associate($questionario);
@@ -127,13 +127,9 @@ class PropostaController extends Controller
         //$solicitante->id = $request->id_solicitante;
         $solicitante->nm_solicitante = $request->nm_solicitante;
         $solicitante->save();
-        */
-
+        */ 
         
-        
-
-        
-        return redirect("dashboard/proposta/{$data->id}/edit");
+        return redirect("dashboard/proposta/{$proposta->id}/edit");
     }
 
     /**
@@ -213,7 +209,7 @@ class PropostaController extends Controller
         $solicitante->nm_solicitante = $request->nm_solicitante;
         $solicitante->save();
 
-        return redirect('dashboard/prpoposta/{$data->id}/edit");
+        return redirect('dashboard/prpoposta/{$data->id}/edit');
 
     }
 
