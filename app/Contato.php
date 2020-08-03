@@ -16,7 +16,8 @@ class Contato extends Model
         'id_acessor',
         'id_cliente',
         'id_proposta',
-        'id_solicitante'
+        'id_solicitante',
+        'id_usuario'
     ];
 
     public function tiposContato()
@@ -33,16 +34,19 @@ class Contato extends Model
     {
         return $this->belongsTo('App\Acessor' , 'id_acessor','id');
     }
-
+    public function usuario()
+    {
+        return $this->belongsTo('App\Usuario' , 'id_usuario','id');
+    }
     public function proposta()
     {
         return $this->belongsTo('App\Proposta' , 'id_proposta','id');
     }
-    
+
     public function solicitante()
     {
         return $this->belongsTo(Solicitante::class, 'id_solicitante', 'id');
     }
-    
+
 
 }

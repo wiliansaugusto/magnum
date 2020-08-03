@@ -4,7 +4,6 @@
     <div class="">
         {{--Cadastro de Usuario--}}
         <div class="clearfix"></div>
-
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="page-title">
@@ -54,12 +53,26 @@
                 @include('dashboard.tipoAcessor.create')
             </div>
             <div class="col-md-6 col-sm-12  ">
-
-
+                <div class="page-title">
+                    <div class="title_left" style="width: 100%">
+                        <h2>Configuração de Forma de Pagamento</h2>
+                    </div>
+                </div>
+                @include('dashboard.formapgto.create')
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12  ">
+                <div class="page-title">
+                    <div class="title_left" style="width: 100%">
+                        <h2>Configuração de Equipamento Padrão</h2>
+                    </div>
+                </div>
+                @include('dashboard.equipamentos.create')
             </div>
         </div>
     </div>
-
 
 
     @php
@@ -68,6 +81,8 @@
         $cidades = App\Cidade::all();
         $estados = App\Estado::all();
         $acessores = App\TipoAcessor::all();
+        $formaPgtos = App\CamposProposta::where('tp_campo','formapgto')->orderBy('id', 'DESC')->get();
+        $equipamentos = App\CamposProposta::where('tp_campo','equipamentos')->orderBy('id', 'DESC')->get();
 
     @endphp
     @include('dashboard.usuario.list', ['usuarios' => $usuarios])
@@ -77,6 +92,8 @@
     @include('dashboard.estado.list')
     @include('dashboard.estado.edit')
     @include('dashboard.tipoAcessor.list',['acessor'=>$acessores])
+    @include('dashboard.formapgto.list',['formaPgtos'=>$formaPgtos])
+    @include('dashboard.equipamentos.list',['equipamentos'=>$equipamentos])
 
 
 @endsection

@@ -42,6 +42,7 @@ class ContatoController extends Controller
             'nm_tipo_contato' => TipoContato::find($contato->id_tp_contato)->nm_tipo_contato,
             'ds_contato' => $contato->ds_contato
         );
+
         return response(json_encode($contatoReturn), 200)
             ->header('Content-Type', 'application/json');
     }

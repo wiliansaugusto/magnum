@@ -55,14 +55,16 @@
                                 <li><a href="/dashboard/palestrante"><i class="fa fa-users"></i> Palestrantes </a>
                                 </li>
                                 <li><a href="/dashboard/proposta"><i class="fa fa-file-text"></i> Proposta </a>
-                              
+                                </li>
+                                <li><a href="/dashboard/palestrantepdf"><i class="fas fa-file-pdf"></i> Palestrantes->Pdf </a>
+                                </li>
                               <!-- *** Desabilitado temporáriamente, até definição do projeto!   ***
                                 </li>
                                     <li><a href="/dashboard/evento"><i class="fa fa-file-text"></i> Eventos </a>
                                 </li>
                                 <li>
-                                   <a href="/dashboard/cliente"><i class="fa fa-users"></i> Clientes </a> 
-                                </li> 
+                                   <a href="/dashboard/cliente"><i class="fa fa-users"></i> Clientes </a>
+                                </li>
                                  -->
                             </ul>
                         </div>

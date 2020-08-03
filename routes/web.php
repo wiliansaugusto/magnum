@@ -114,4 +114,18 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::post('solicitante/', 'SolicitanteController@store');
     Route::post('solicitante/delete/{id}','SolicitanteController@destroy');
 
+
+    // Rota para PDF
+    Route::get('gerarPdf/{id}','PdfController@gerarPdf');
+    Route::post('gerarpdf/','PdfController@gerarPdf');
+     Route::get('palestrantepdf/','PdfController@index');
+
+     //rotas para itens do pdf
+    Route::delete('formapgto/{id}','CamposPropostaController@destroy');
+    Route::post('createformapgto','CamposPropostaController@salvarFormaPgto');
+
+    Route::post('createequipamentos','CamposPropostaController@salvarEquipamentos');
+
+
+
 });

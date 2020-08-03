@@ -12,7 +12,7 @@ class Usuario extends Authenticatable
     protected $table = 'mgm_tbl_usuario';
 
     protected $fillable = [
-        'nm_usuario', 'email', 'password', 'ds_nickname', 'id_perfil',
+        'nm_usuario', 'email', 'password', 'ds_nickname', 'id_perfil','ds_assinatura_img'
     ];
 
     protected $dates = ['deleted_at'];
@@ -29,5 +29,9 @@ class Usuario extends Authenticatable
     public function palestrantes()
     {
         return $this->belongsTo(Palestrante::class, 'id_usuario', 'id');
+    }
+    public function contatos()
+    {
+        return $this->hasMany('App\Contato','id');
     }
 }
