@@ -242,7 +242,9 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                
                                                 <div class="col-md-12">
+                                                    <label for="nm_evento"> ID Evento</label>
                                                     <input id="id_evento" type="text" name="id_evento" value='{{$data->id_evento}}'></input>
+                                                    <label for="nm_evento">ID Usuário</label>
                                                     <input id="id_usuario" type="text" name="id_evento" value='{{$data->id_usuario}}'></input>
                                                     
                                                     <label for="nm_evento">Nome do Evento</label>
