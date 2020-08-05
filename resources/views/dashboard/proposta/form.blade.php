@@ -87,11 +87,16 @@
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <div class="col-md-12 ">&nbsp&nbsp                                                   
-                                                    <input type="radio" name="status_proposta" value="1">Aberta &nbsp&nbsp
-                                                    <input type="radio" name="status_proposta" value="2">Em Andamento &nbsp&nbsp
-                                                    <input type="radio" name="status_proposta" value="3">Aguardando Retorno &nbsp&nbsp
-                                                    <input type="radio" name="status_proposta" value="4">Aprovada &nbsp&nbsp
-                                                    <input type="radio" name="status_proposta" value="5">Reprovada
+                                                    <input type="radio" name="status_proposta" value="1"
+                                                    {{$data->status_proposta == '1' ? 'checked' : (old('status_proposta') == '1' ? "checked" : '') }}>Aberta &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="2"
+                                                    {{$data->status_proposta == '2' ? 'checked' : (old('status_proposta') == '2' ? "checked" : '') }}>Em Andamento &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="3"
+                                                    {{$data->status_proposta == '3' ? 'checked' : (old('status_proposta') == '3' ? "checked" : '') }}>Aguardando Retorno &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="4"
+                                                    {{$data->status_proposta == '4' ? 'checked' : (old('status_proposta') == '4' ? "checked" : '') }}>Aprovada &nbsp&nbsp
+                                                    <input type="radio" name="status_proposta" value="5"
+                                                    {{$data->status_proposta == '5' ? 'checked' : (old('status_proposta') == '5' ? "checked" : '') }}>Reprovada
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">                                            
@@ -242,15 +247,18 @@
                                             <div class="form-group row d-flex justify-content-center">
                                                
                                                 <div class="col-md-12">
+                                                    
                                                     <label for="nm_evento"> ID Evento</label>
                                                     <input id="id_evento" type="text" name="id_evento" value='{{$data->id_evento}}'></input>
                                                     <label for="nm_evento">ID Usuário</label>
-                                                    <input id="id_usuario" type="text" name="id_evento" value='{{$data->id_usuario}}'></input>
+                                                    <input id="id_usuario" type="text" name="id_usuario" value='{{$data->id_usuario}}'></input>
                                                     
                                                     <label for="nm_evento">Nome do Evento</label>
                                                     <input id="nm_evento" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
-                                                           name="nm_evento"/>
+                                                           name="nm_evento"
+                                                           value="{{ (old('nm_evento') != NULL) ? old('nm_evento') :
+                                                ($data->nm_evento != NULL ? $data->nm_evento : '') }}"/>
                                                     @if ($errors->has('nm_evento'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('nm_evento') }}</strong>
@@ -262,6 +270,8 @@
                                                     <textarea id="tema_evento" type="text"
                                                               class="form-control form-control-sm {{ $errors->has('tema_evento') ? 'is-invalid' : '' }}"
                                                               name="tema_evento">
+                                                              {{ (old('tema_evento') != NULL) ? old('tema_evento') :
+                                                ($data->tema_evento != NULL ? $data->tema_evento : '') }}
                                                     </textarea>
                                                     @if ($errors->has('tema_evento'))
                                                         <span class="invalid-feedback" role="alert">
@@ -287,7 +297,9 @@
                                                     <label for="dt_evento_inicio">Data do Evento</label>
                                                     <input id="dt_evento_inicio" type="date"
                                                               class="form-control form-control-sm {{ $errors->has('dt_evento_inicio') ? 'is-invalid' : '' }}"
-                                                              name="dt_evento_inicio"/>
+                                                              name="dt_evento_inicio"
+                                                              value="{{(old('dt_evento_inicio') != NULL) ? old('dt_evento_inicio') :
+                                            ($data->dt_evento_inicio != NULL ? $data->dt_evento_inicio : '')}}"/>
                                                     @if ($errors->has('dt_evento_inicio'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('dt_evento_inicio') }}</strong>
@@ -298,7 +310,9 @@
                                                     <label for="tm_evento">Horario do Evento</label>
                                                     <input id="tm_evento" type="text" data-mask="00:00"
                                                               class="form-control form-control-sm {{ $errors->has('tm_evento') ? 'is-invalid' : '' }}"
-                                                              name="tm_evento" placeholder="00:00"/>
+                                                              name="tm_evento" placeholder="00:00"
+                                                              value="{{(old('tm_evento') != NULL) ? old('tm_evento') :
+                                            ($data->tm_evento != NULL ? $data->tm_evento : '')}}"/>
                                                     @if ($errors->has('tm_evento'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('tm_evento') }}</strong>
@@ -394,13 +408,13 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label for="nr_partic">Número Participantes</label>
-                                                    <input id="nr_partic" type="number" data-mask="###.000"
-                                                           class="form-control form-control-sm {{ $errors->has('nr_partic') ? 'is-invalid' : '' }}"
-                                                           name="nr_partic"/>
-                                                    @if ($errors->has('nr_partic'))
+                                                    <label for="qtd_participantes_evento">Número Participantes</label>
+                                                    <input id="qtd_participantes_evento" type="number" data-mask="###.000"
+                                                           class="form-control form-control-sm {{ $errors->has('qtd_participantes_evento') ? 'is-invalid' : '' }}"
+                                                           name="qtd_participantes_evento"/>
+                                                    @if ($errors->has('qtd_participantes_evento'))
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $errors->first('nr_partic') }}</strong>
+                                                            <strong>{{ $errors->first('qtd_participantes_evento') }}</strong>
                                                         </span>
                                                     @endif
                                                 </div>

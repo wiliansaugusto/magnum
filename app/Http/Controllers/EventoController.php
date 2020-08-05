@@ -36,10 +36,8 @@ class EventoController extends Controller
      */
     public function create($id)
     {
-        //dd($data);
         $data = Evento::find($id);
-        //dd($data);
-
+        
         return view('dashboard.evento.form')->with(['data'=>$data, 'action'=>"criar"]);
     }
 
