@@ -2,7 +2,7 @@
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form id="frmContatoPalestrante" method="POST" enctype="multipart/form-data">
+            <form id="frmContato" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="frmContatoModalLabel">Cadastrar Contato</h5>
@@ -11,6 +11,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" name="id" value=""/>
+                    <input type="hidden" id="rel" name="rel" value=""/>
                     <div class="form-group row d-flex justify-content-center">
                         <div id="nr_contato" class="col-md-8">
                             <label for="contato">Contato</label>

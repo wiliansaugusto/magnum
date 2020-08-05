@@ -329,7 +329,7 @@
                                                                     <input id="nr_rg_palestrante" type="text"
                                                                            class="form-control form-control-sm {{ $errors->has('nr_rg_palestrante') ? 'is-invalid' : '' }}"
                                                                            name="nr_rg_palestrante"
-                                                                           data-mask="00.000.000-0"
+                                                                           maxlength="20"
                                                                            value="{{(old('nr_rg_palestrante') != NULL) ? old('nr_rg_palestrante') :
                                             ($data->nr_rg_palestrante != NULL ? $data->nr_rg_palestrante : '')}}"/>
                                                                     @if ($errors->has('nr_rg_palestrante'))
@@ -485,7 +485,8 @@
                                                                 <div class="col-md-2">
                                                                     <button type="button" class="btn btn-primary btn-sm"
                                                                             data-toggle="modal"
-                                                                            data-target="#frmContatoModal">
+                                                                            data-target="#frmContatoModal"
+                                                                            data-rel="palestrantre">
                                                                         <i class="fa fa-plus"></i> Contato
                                                                     </button>
                                                                 </div>
@@ -506,6 +507,17 @@
                                                                                     <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
                                                                                     <td>{{$contato->ds_contato}}</td>
                                                                                     <td class='text-right'>
+                                                                                        <button type="button"
+                                                                                           class="btn btn-primary btn-sm ml-1"
+                                                                                            data-acao="editar"
+                                                                                           data-id="{{$contato->id}}"
+                                                                                            data-contato="{{$contato->ds_contato}}"
+                                                                                            data-tipo="{{$contato->tiposContato->id}}"
+                                                                                            data-toggle='modal'
+                                                                                            data-target="#frmContatoModal"
+                                                                                            data-rel="palestrantre">
+                                                                                            <i class='fa fa-edit'></i>
+                                                                                        </button>
                                                                                         <button
                                                                                             id='excluirContato-{{$contato->id}}'
                                                                                             type='button'
@@ -704,7 +716,7 @@
                                                                         <label for="nr_rg">RG</label>
                                                                         <input id="nr_rg" type="text"
                                                                                class="form-control form-control-sm {{ $errors->has('nr_rg') ? 'is-invalid' : '' }}"
-                                                                               name="nr_rg" data-mask="00.000.000-0"
+                                                                               name="nr_rg" maxlength="20"
                                                                                value="{{ old('nr_rg') != NULL ? old('nr_rg') :
                                                             ($data->dadosContratuais->nr_rg != NULL ?
                                                             $data->dadosContratuais->nr_rg : '') }}"/>
@@ -898,7 +910,7 @@
                                                                         <input id="nr_rg" type="text"
                                                                                class="form-control form-control-sm {{$errors->has('nr_rg') ? 'is-invalid' : '' }}"
                                                                                name="nr_rg" value="{{ old('nr_rg') }}"
-                                                                               data-mask="00.000.000-0"/>
+                                                                               maxlength="20"/>
                                                                         @if ($errors->has('nr_rg'))
                                                                             <span class="invalid-feedback" role="alert">
                                                                             <strong>{{$errors->first('nr_rg')}}</strong>
@@ -1221,6 +1233,7 @@
                                                                             data-tipo="chamada"
                                                                             data-titulo="Descrição de Chamada para o site"
                                                                             data-limit="true"
+                                                                            data-backdrop="static"
                                                                             data-target="#frmDescricaoModal">
                                                                         Chamada
                                                                     </button>
@@ -1229,6 +1242,7 @@
                                                                             data-tipo="curriculo"
                                                                             data-titulo="Descrição de Curriculo Resumido"
                                                                             data-limit="false"
+                                                                            data-backdrop="static"
                                                                             data-target="#frmDescricaoModal">
                                                                         Currículo
                                                                     </button>
@@ -1237,6 +1251,7 @@
                                                                             data-tipo="curriculoTec"
                                                                             data-titulo="Descrição de Curriculo Tecnico"
                                                                             data-limit="false"
+                                                                            data-backdrop="static"
                                                                             data-target="#frmDescricaoModal">
                                                                         Currículo Técnico
                                                                     </button>
@@ -1245,6 +1260,7 @@
                                                                             data-tipo="obs"
                                                                             data-titulo="Descrição de Observações"
                                                                             data-limit="false"
+                                                                            data-backdrop="static"
                                                                             data-target="#frmDescricaoModal">
                                                                         Observações
                                                                     </button>

@@ -1,16 +1,22 @@
 $(document).ready(function () {
     var editor, toolbar, tabela;
     //AJAX Request
-    $('#frmContatoPalestrante').submit(function (event) {
+    $('#frmContato').submit(function (event) {
         event.preventDefault();
-        var data = $('#frmContatoPalestrante').serialize() + "&id_palestrante=" + $("#id_palestrante").val();
+        var data = $('#frmContato').serialize(),
+            rel = $("#rel").val();
+
+        if(rel === "palestrante"){
+            data = data + "&id_palestrante=" + $("#id_palestrante").val()
+        }
+
         $.ajax({
             method: "POST",
             url: "/dashboard/contato",
             data: data
         }).done(function (data) {
             tabelaContato(data);
-            $("#frmContatoPalestrante")[0].reset();
+            $("#frmContato")[0].reset();
             $('#frmContatoModal').modal('toggle');
 
         });
@@ -293,12 +299,12 @@ $(document).ready(function () {
                 $('#frmRemoverEnderecoModal').modal('toggle');
                 $('#endereco-' + id).remove();
 
-                if(rel = "palestrante") {
+                if (rel = "palestrante") {
                     if ($('#tblEnderecoPalestrante tbody tr').length <= 0) {
                         $("#tblEnderecoPalestrante tbody ").html('<tr id="endereco-null-palestrante"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
                     }
                 }
-                if(rel = "contratual") {
+                if (rel = "contratual") {
                     if ($('#tblEnderecoContratual tbody tr').length <= 0) {
                         $("#tblEnderecoContratual tbody ").html('<tr id="endereco-null-contratual"><td colspan="3" class="text-center">Nenhum endereço registrado</td></tr>');
                     }
@@ -341,43 +347,6 @@ $(document).ready(function () {
             }
         });
     });
-    //Busca de CEP
-    // $("#nr_cep").focusout(function () {
-    //     $.ajax({
-    //         url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
-    //         dataType: 'json',
-    //         success: function (resposta) {
-    //             if (resposta.erro === true) {
-    //                 $('#nr_cep').addClass('is-invalid');
-    //                 $("#nm_endereco").prop('readonly', false);
-    //                 $("#nm_bairro").prop('readonly', false);
-    //                 $("#nm_cidade").prop('readonly', false);
-    //                 $("#nm_estado").prop('readonly', false);
-    //                 $("#nr_cep").focus();
-    //
-    //                 $("#nm_endereco").val("");
-    //                 $("#ds_complemento").val("");
-    //                 $("#nm_bairro").val("");
-    //                 $("#nm_cidade").val("");
-    //                 $("#nm_estado").val("");
-    //
-    //             } else {
-    //
-    //                , $('#nr_cep').removeClass('is-invalid');
-    //                 $("#nm_endereco").prop('readonly', true);
-    //                 $("#nm_bairro").prop('readonly', true);
-    //                 $("#nm_cidade").prop('readonly', true);
-    //                 $("#nm_estado").prop('readonly', true);
-    //                 $("#nm_endereco").val(resposta.logradouro);
-    //                 $("#ds_complemento").val(resposta.complemento);
-    //                 $("#nm_bairro").val(resposta.bairro);
-    //                 $("#nm_cidade").val(resposta.localidade);
-    //                 $("#nm_estado").val(resposta.uf);
-    //                 $("#nr_endereco").focus();
-    //             }
-    //         }
-    //     });
-    // });
 
     //Preencimento das tabelas
     function tabelaBanco(fields) {
@@ -437,7 +406,7 @@ $(document).ready(function () {
         linha += '<div class="panel-heading">';
         linha += '<div class="col-md-11 mt-1">';
         linha += '<a role="tab" id="heading-' + fields.id + '" data-toggle="collapse" data-parent="#accordion-assessor" href="#collapseAssessor-' + fields.id + '" aria-expanded="true" aria-controls="collapseAssessor-' + fields.id + '">';
-        linha += '<h4 class="panel-title">' + fields.nm_acessor + ' - '+ fields.nm_tp_acessor +'</h4>';
+        linha += '<h4 class="panel-title">' + fields.nm_acessor + ' - ' + fields.nm_tp_acessor + '</h4>';
         linha += '</a>';
         linha += '</div>';
         linha += '<div class="col-md-1">';
@@ -489,7 +458,7 @@ $(document).ready(function () {
         $("#valor-null").remove();
         var obs = fields.ds_observacao === null ? "Não Cadastrado" : fields.ds_observacao;
         var linha = "<tr id='" + fields.id_valor + "'>";
-        linha += "<td>" + fields.nm_cidade + " - "+ fields.ds_sg_estado  +"</td>";
+        linha += "<td>" + fields.nm_cidade + " - " + fields.ds_sg_estado + "</td>";
         linha += "<td>" + fields.nr_valor + "</td>";
         linha += "<td>" + obs + "</td>";
         linha += "<td>" + fields.nm_tipo_servico + "</td>";
@@ -521,7 +490,7 @@ $(document).ready(function () {
     }
 
     function tabelaEndereco(fields) {
-        if(fields.registro == 'palestrante') {
+        if (fields.registro == 'palestrante') {
             $("#endereco-null-palestrante").remove();
 
             var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
@@ -536,7 +505,7 @@ $(document).ready(function () {
 
             $("#tblEnderecoPalestrante tbody ").append(linha);
 
-        }else if(fields.registro == 'contratual') {
+        } else if (fields.registro == 'contratual') {
             $("#endereco-null-contratual").remove();
 
             var linha = "<tr id='endereco-" + fields.id_endereco + "'>";
@@ -550,7 +519,7 @@ $(document).ready(function () {
             linha += "</tr>";
 
             $("#tblEnderecoContratual tbody ").append(linha);
-        }else{
+        } else {
             return;
         }
     }
@@ -702,7 +671,7 @@ $(document).ready(function () {
     $('#nr_valor').mask('#.##0,00', {reverse: true});
     $('#vlr_total_proposta').mask('#.##0,00', {reverse: true});
     $('#vlr_verba_evento').mask('#.##0,00', {reverse: true});
-    
+
 
 //Enventos de Modal
     $('#frmDescricaoModal').on('show.bs.modal', function (event) {
@@ -785,6 +754,27 @@ $(document).ready(function () {
         $("#select2-id_pais-container").html('<span class="select2-selection__placeholder">Buscar</span>');
         $("#select2-id_estado-container").html('<span class="select2-selection__placeholder">Buscar</span>');
         $("#select2-id_cidade-container").html('<span class="select2-selection__placeholder">Buscar</span>');
+    });
+    $('#frmContatoModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var acao = button.data("acao");
+        var rel = button.data("rel");
+        var modal = $(this);
+
+        if(acao == "editar"){
+            $("#frmContatoModalLabel").html("Editar Contato");
+            var id = button.data("id"),
+                contato = button.data("contato"),
+                id_tipo = button.data("tipo");
+
+            modal.find('.modal-body input[name="id"]').val(id);
+            modal.find('.modal-body input[name="ds_contato"]').val(contato);
+            modal.find('.modal-body select[name="id_tp_contato"]').val(id_tipo);
+        }else{
+            $("#frmContatoModalLabel").html("Cadastrar Contato");
+            $('#frmContato')[0].reset();
+        }
+        modal.find('.modal-body input[name="rel"]').val(rel);
     });
     $('#modalEstados').on('show.bs.modal', function (event) {
         let tblEstado = $("#tblListaEstado tbody");

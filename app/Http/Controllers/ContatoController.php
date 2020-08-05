@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contato;
+use App\DadosContratuais;
 use App\TipoContato;
 use Illuminate\Http\Request;
+use Psr\Log\NullLogger;
 
 class ContatoController extends Controller
 {
@@ -36,14 +38,31 @@ class ContatoController extends Controller
      */
     public function store(Request $request)
     {
-        $contato = Contato::create($request->all());
+        $contato = Contato::where('id_palestrante', $request->id_palestrante)
+                            ->where('ds_contato', $request->ds_contato)->first() == NULL
+            ? (Contato::where('id_acessor', $request->id_acessor)
+                ->where('ds_contato', $request->ds_contato)->first()  == NULL
+                ? (Contato::where('id_cliente', $request->id_cliente)
+                            ->where('ds_contato', $request->ds_contato)->first()  == NULL
+                    ? (Contato::where('id_proposta', $request->id_proposta)
+                                ->where('ds_contato', $request->ds_contato)->first() == NULL
+                        ? new Contato() : Contato::where('id_proposta', $request->id_proposta)
+                                                    ->where('ds_contato', $request->ds_contato)->first())
+                    : Contato::where('id_cliente', $request->id_cliente)
+                                ->where('ds_contato', $request->ds_contato)->first())
+                : Contato::where('id_acessor', $request->id_acessor)
+                        ->where('ds_contato', $request->ds_contato)->first())
+            : Contato::where('id_palestrante', $request->id_palestrante)
+                ->where('ds_contato', $request->ds_contato)->first();
+//        $contato = Contato::create($request->all());
+
+//        var_dump($contato);
         $contatoReturn = array(
             'id_contato' => $contato->id,
             'nm_tipo_contato' => TipoContato::find($contato->id_tp_contato)->nm_tipo_contato,
             'ds_contato' => $contato->ds_contato
         );
-
-        return response(json_encode($contatoReturn), 200)
+        return response(json_encode($contato), 500)
             ->header('Content-Type', 'application/json');
     }
 

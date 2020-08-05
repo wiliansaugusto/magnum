@@ -44,13 +44,8 @@ class EnderecoController extends Controller
 
         if($request->id_relacao == "dadosContratuais"){
             $dadosContratuais = DadosContratuais::where('id_palestrante', $request->id_palestrante)->first() == NULL
-                ? new DadosContratuais()
+                ? DadosContratuais::create(["id_palestrante" => $request->id_palestrante])
                 : DadosContratuais::where('id_palestrante', $request->id_palestrante)->first();
-
-            if($dadosContratuais->id_palestrante != $request->id_palestrante){
-                $dadosContratuais->id_palestrante = $request->id_palestrante;
-                $dadosContratuais = $dadosContratuais->save();
-            }
 
             $endereco = Endereco::create([
                 "nm_endereco"           => $request->nm_endereco,
@@ -126,7 +121,7 @@ class EnderecoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

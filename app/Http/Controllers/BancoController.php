@@ -97,4 +97,27 @@ class BancoController extends Controller
 
         return response(null, 204)
             ->header('Content-Type', 'application/json');
-    }}
+    }
+
+    public function salvarAgencia(Request $request){
+        try {
+            NomeBanco::create([
+                'nm_banco'=> $request->nm_banco,
+                'cd_banco'=> $request->cd_banco,
+            ]);
+
+            return redirect('dashboard/config');
+        }catch (\Exception $ex){
+            return redirect('dashboard/erro')->with('erro', $ex);
+        }
+    }
+    public function excluirAgencia($id){
+        try {
+            NomeBanco::destroy($id);
+
+            return redirect('dashboard/config');
+        }catch (\Exception $ex){
+            return redirect('dashboard/erro')->with('erro', $ex);
+        }
+    }
+}

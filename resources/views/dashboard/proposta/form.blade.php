@@ -32,7 +32,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <input id="id_usuario" type="hidden" name="id_usuario"
                                        value="{{ Auth::user()->id }}"/>
-                                    
+
                                 <div class="col-md-12">
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -86,7 +86,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <div class="col-md-12 ">&nbsp&nbsp                                                   
+                                                <div class="col-md-12 ">&nbsp&nbsp
                                                     <input type="radio" name="status_proposta" value="1">Aberta &nbsp&nbsp
                                                     <input type="radio" name="status_proposta" value="2">Em Andamento &nbsp&nbsp
                                                     <input type="radio" name="status_proposta" value="3">Aguardando Retorno &nbsp&nbsp
@@ -94,7 +94,7 @@
                                                     <input type="radio" name="status_proposta" value="5">Reprovada
                                                 </div>
                                             </div>
-                                            <div class="form-group row d-flex justify-content-center">                                            
+                                            <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
                                                     <label for="nm_contratante">Contratante</label>
                                                     <input id="nm_contratante" type="text"
@@ -121,7 +121,7 @@
                                                 </div>
                                                 <div class="col-md-10">
                                                     <div class="accordion" id="accordion-solicitante"
-                                                            role="tablist" aria-multiselectable="true">   
+                                                            role="tablist" aria-multiselectable="true">
                                                             @if (sizeof($data->solicitante) > 0)
                                                             @foreach($data->solicitantes as $solicitante)
                                                                 @php
@@ -215,16 +215,16 @@
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                    @endif                                                 
+                                                    @endif
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
-                                                <div class="col-md-12" >    
+                                                <div class="col-md-12" >
                                                     <label for='mensagem_proposta'>Mensagem Proposta</label>
                                                     <textarea class="form-control form-control-sm">{{$data->mensagem_proposta}}</textarea>
                                                 </div>
-                                            </div>                                            
+                                            </div>
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-8">
                                                     <label for='obs_proposta'>Obeservação</label>
@@ -233,20 +233,20 @@
                                                 <div class="col-md-4">
                                                     <label for='vlr_total_proposta'>Total R$</label>
                                                     <input id='vlr_total_proposta' class="form-control form-control-sm" type='text' name='vlr_total_proposta' value='{{$data->vlr_total_proposta}}'/>
-                                                </div>  
+                                                </div>
                                             </div>
-                                            
-                                    </div>                      
+
+                                    </div>
                                         <div class="tab-pane fade" id="nav-evento" role="tabpanel"
                                              aria-labelledby="nav-evento-tab">
                                             <div class="form-group row d-flex justify-content-center">
-                                               
+                                               <div class="col-md-12">
+                                                    <label for="id_evento">ID Evento</label>
+                                                    <input id="id_evento" type="text"
+                                                           class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
+                                                           name="id_evento" value="{{ $data->id }}"/>
+                                                </div>
                                                 <div class="col-md-12">
-                                                    <label for="nm_evento"> ID Evento</label>
-                                                    <input id="id_evento" type="text" name="id_evento" value='{{$data->id_evento}}'></input>
-                                                    <label for="nm_evento">ID Usuário</label>
-                                                    <input id="id_usuario" type="text" name="id_evento" value='{{$data->id_usuario}}'></input>
-                                                    
                                                     <label for="nm_evento">Nome do Evento</label>
                                                     <input id="nm_evento" type="text"
                                                            class="form-control form-control-sm {{ $errors->has('nm_evento') ? 'is-invalid' : '' }}"
@@ -255,7 +255,7 @@
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('nm_evento') }}</strong>
                                                         </span>
-                                                    @endif                                                    
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="tema_evento">Tema do Evento</label>
@@ -315,7 +315,7 @@
                                                             <strong>{{ $errors->first('tm_duracao') }}</strong>
                                                         </span>
                                                     @endif
-                                                </div>                                                
+                                                </div>
                                             </div>
                                             <div class="form-group row d-flex justify-content-center">
                                                 <div class="col-md-12">
@@ -336,11 +336,11 @@
                                                     <label for="id_pais">País</label>
                                                     @php
                                                         $paises = App\Pais::all();
-                                                    @endphp   
+                                                    @endphp
                                                     <select id="id_pais"
                                                            class="form-control form-control-sm select-find {{ $errors->has('id_pais') ? 'is-invalid' : '' }}"
                                                            name="id_pais" style="width: 100%">
-                                                           
+
                                                         <option></option>
                                                         @foreach ($paises as $pais)
                                                             <option value="{{$pais->id}}">
@@ -418,11 +418,11 @@
                                                 <label for="id_pais">Perfil Publico</label>
                                                     @php
                                                         $perfilpublicos = App\PerfilPublico::all();
-                                                    @endphp   
+                                                    @endphp
                                                     <select id="id_perfilpublico"
                                                            class="form-control form-control-sm select-find {{ $errors->has('id_perfilpublico') ? 'is-invalid' : '' }}"
                                                            name="id_perfilpublico" style="width: 100%">
-                                                           
+
                                                         <option></option>
                                                         @foreach ($perfilpublicos as $perfilpublico)
                                                             <option value="{{$perfilpublico->id}}">
@@ -436,65 +436,32 @@
                                                         </span>
                                                     @endif
                                                 </div>
-                                            </div>                                            
-                                        </div>
-                                    <div class="tab-pane fade show active" id="nav-propostaItem"
-                                            role="tabpanel" aria-labelledby="nav-propostaItem-tab">
-                                        <div class="form-group row d-flex justify-content-center">
-                                            <div class="col-md-2">
-                                                <div class="form-check form-check-inline">
-                                                    <button type="button"
-                                                            class="btn btn-primary btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#frmPropostaItemModal">
-                                                        <i class="fa fa-plus"></i> Item Proposta
-                                                    </button>
-                                                </div>
                                             </div>
-                                            <div class="col-md-10">
-                                                <div class="accordion" id="accordion-itemProposta"
-                                                        role="tablist" aria-multiselectable="true">
-                                                    @if (sizeof($data->solicitante) > 0)
-                                                        @foreach($data->solicitantes as $solicitante)
-                                                    <div class="panel" id="painel-propostaItem-{{$propostaItem->id}}">
-                                                        <div class="panel-heading">
-                                                            <div class="col-md-11 mt-1">
-                                                                <a role="tab"
-                                                                    id="heading-{{$propostaItem->id}}"
-                                                                    data-toggle="collapse"
-                                                                    data-parent="#accordion-propostaItem"
-                                                                    href="#collapsePropostaItem-{{$propostaItem->id}}"
-                                                                    aria-expanded="true"
-                                                                    aria-controls="collapsePropostaItem-{{$propostaItem->id}}">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <button id='excluirPropostaItem'
-                                                                    type='button'
-                                                                    class='btn btn-danger btn-sm'
-                                                                    data-id="{{$PropostaItem->id}}"
-                                                                    data-toggle='modal'
-                                                                    data-target='#frmRemoverPropostaItemModal'>
-                                                                    <i class='fa fa-trash'></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                        <div
-                                                                id="collapseSolicitante-{{$solicitante->id}}"
-                                                                class="panel-collapse collapse in"
-                                                                role="tabpanel"
-                                                                aria-labelledby="heading-{{$propostaItem->id}}">
-                                                                <div class="panel-body p-3">
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endforeach
-                                                    @else
+                                            <div class="form-group row d-flex justify-content-center">
+                                                <textarea class="col-md-12">{{$data}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade show active" id="nav-propostaItem"
+                                             role="tabpanel"
+                                             aria-labelledby="nav-propostaItem-tab">
+                                             <div class="form-group row d-flex justify-content-center">
+                                                <div class="col-md-2">
+                                                    <div class="form-check form-check-inline">
+                                                        <button type="button"
+                                                                class="btn btn-primary btn-sm"
+                                                                data-toggle="modal"
+                                                                data-target="#frmItemPropostaModal">
+                                                            <i class="fa fa-plus"></i> Item Proposta
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="accordion" id="accordion-itemProposta"
+                                                            role="tablist" aria-multiselectable="true">
+
                                                         <table class="table table-sm table-striped"
-                                                                id="tblPorpostaItem">
-                                                            <tr id="PorpostaItem-null">
+                                                                id="tblItemProposta">
+                                                            <tr id="itemProposta-null">
                                                                 <td colspan="2" class="text-center">
                                                                     Nenhum
                                                                     Item
@@ -502,15 +469,16 @@
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                    @endif                                                 
-                                                    </div>                                                                                                        
+                                                    </div>
+                                                    @endif
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
-                                       
-                                    <div class="row">
-                                    </div>
+
                                     <div class="ln_solid"></div>
+                                    <div class="row">
                                         <div class="col-md-12 col-sm-12 text-right">
                                             <button type="submit" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-save"></i> Salvar
@@ -529,12 +497,12 @@
         </div>
     </div>
     @include("dashboard.proposta.create")
-    @include("dashboard.propostaItem.create")
     @include('dashboard.contato.create')
     @include('dashboard.endereco.create')
     @include('dashboard.descricao.form')
     @include('dashboard.solicitante.create')
 
+    @include('dashboard.contato.remover')
     @include('dashboard.endereco.remover')
     @include('dashboard.descricao.remover')
     @include('dashboard.solicitante.remover')

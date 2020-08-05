@@ -20,7 +20,7 @@ class AberturaPropostaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.proposta.form');
+        return view('dashboard.proposta.abertura.form');
     }
 
     /**
@@ -44,7 +44,7 @@ class AberturaPropostaController extends Controller
     public function store(Request $request)
     {
         //
-        
+
     }
 
     /**

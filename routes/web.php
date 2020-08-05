@@ -28,6 +28,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::get('palestrante/{id}', 'PalestranteController@show');
 
     Route::post('proposta/abertura/','AberturaPropostaController@salvarProposta');
+    Route::get('proposta/abertura/','AberturaPropostaController@index');
     Route::resource('proposta/', 'PropostaController');
     Route::get('proposta/', 'PropostaController@index');
     Route::get('proposta/{id}/novo', 'PropostaController@create');
@@ -57,6 +58,8 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 
     Route::resource('banco/', 'BancoController');
     Route::post('banco/delete/{id}', 'BancoController@destroy');
+    Route::post('banco/agencia', 'BancoController@salvarAgencia');
+    Route::delete('banco/agencia/{id}', 'BancoController@excluirAgencia');
     Route::post('contato/delete/{id}', 'ContatoController@destroy');
     Route::post('endereco/delete/{id}', 'EnderecoController@destroy');
 
