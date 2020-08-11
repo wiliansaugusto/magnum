@@ -11,7 +11,7 @@ class Evento extends Model
     protected $fillable = [
         "id",
         "id_usuario",
-        'id_proposta',
+        "id_proposta",
         "nm_evento",
         "tema_evento",
         "tema_palestra",
@@ -31,13 +31,10 @@ class Evento extends Model
         return $this->hasMany('App\Endereco', 'id_evento');
     }
 
-    public function propostas()
+    public function proposta()
     {
-        return $this->belongsToMany('App\Proposta', 'id_proposta', 'id');
+        return $this->hasOne(Proposta::class, 'id_proposta', 'id_proposta');
     }
-    
-    public function eventoProposta()
-    {
-        return $this->hasMany(Proposta::class, 'id_evento');
-    }
+
+
 }

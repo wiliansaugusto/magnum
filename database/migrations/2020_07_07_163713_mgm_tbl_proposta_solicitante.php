@@ -30,7 +30,15 @@ class MgmTblPropostaSolicitante extends Migration
 
         Schema::table('mgm_tbl_evento', function (Blueprint $table) {
             // Adicionando campo de verba do evento
-            $table->string('vlr_verba_evento');
+            $table->string('vlr_verba_evento')->nullalbe($value = true);
+            $table->unsignedBigInteger('id_proposta')->nullable($value = true);
+            $table->foreign('id_proposta')->references('id')->on('mgm_tbl_proposta');
+        });
+
+        Schema::table('mgm_tbl_proposta', function (Blueprint $table) {
+            //Retirando chave da tabela proposta e campo id_evento
+            $table->dropForeign('mgm_tbl_proposta_id_evento_foreign');
+            $table->dropColumn('id_evento');
         });
     }
 
@@ -44,5 +52,6 @@ class MgmTblPropostaSolicitante extends Migration
         Schema::table('mgm_tbl_proposta_solicitante', function (Blueprint $table) {
             //
         });
+       
     }
 }

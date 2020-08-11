@@ -83,7 +83,7 @@ class PropostaController extends Controller
         $evento = Evento::where('id_proposta', $id_proposta)->first() == NULL ? new Evento()
             : Evento::where('id_proposta', $id_proposta)->first();
         
-        //dd($proposta);
+        //dd($request);
 
         $id_evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
