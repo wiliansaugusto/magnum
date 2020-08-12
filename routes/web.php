@@ -73,6 +73,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::resource('config/', 'ConfigurationController');
     Route::post('register/', 'ConfigurationController@register');
     Route::delete('usuario/{id}', 'ConfigurationController@deleteUsuario');
+    Route::post('usuario/edit/{id}', 'ConfigurationController@update');
 
     Route::delete('tiposerv/{id}','TipoServicoController@destroy');
     Route::post('createTpServ','TipoServicoController@store');

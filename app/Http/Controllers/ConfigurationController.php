@@ -75,9 +75,12 @@ class ConfigurationController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         //
+        $usuario = Usuario::find($id);
+        
+        dd($usuario);
     }
 
     /**
