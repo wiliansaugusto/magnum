@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <form id="frmPropostaItem" method="POST" action="/dashboard/propostaItem/">
-                <input id="num_item_proposta" type="hidden" name="num_item_proposta" value="000001" /> 
+                <input id="num_item_proposta" type="hidden" name="num_item_proposta" value="{{ $data->id_proposta }}" /> 
                 
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                 @csrf
@@ -11,11 +11,7 @@
                     <h4 style='color:red'>Proposta Nrº  {{$data->num_proposta}}</h4>
                 </div>
                 <div class="ln_solid"></div>
-                <div class="form-group row d-flex justify-content-center">
-                    <div class="col-md-12">
-                        <label for="nm_tipo_servico">   </label>                            
-                    </div>
-                </div>
+                
 
                 <div class="form-group row d-flex justify-content-center">
                     <div class="col-md-4">
