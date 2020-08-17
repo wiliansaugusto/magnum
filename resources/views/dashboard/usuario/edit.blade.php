@@ -13,7 +13,8 @@
                 </div>
                 <div class="modal-body text-center">
                     <h2 class="text-uppercase" style="font-weight: bold">{{$usuario->nm_usuario}}</h2>
-                    <textarea>{{$usuario}}</textarea>
+                    <label id="password">{{$usuario->password}}</label>
+                    
                     <input id="password" type="text"
                            class="form-control form-control-sm{{ $errors->has('$usuario->password') ? ' is-invalid' : '' }}"
                            name="password" value="{{ old('$usuario->password') }}" required autofocus

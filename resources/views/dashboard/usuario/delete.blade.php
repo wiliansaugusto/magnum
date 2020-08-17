@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <p>Tem certeza que você quer excluir o usuario:</p>
-                    <h2 class="text-uppercase" style="font-weight: bold">{{$usuario->nm_palestrante}}</h2>
+                    <h2 class="text-uppercase" style="font-weight: bold">{{$usuario->nm_usuario}}</h2>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-sm">

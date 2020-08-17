@@ -13,13 +13,14 @@
         <form method="POST" action="{{ url('dashboard/register') }}" aria-label="{{ __('Register') }}"
               enctype="multipart/form-data" autocomplete>
             @csrf
-            <div class="form-group row d-flex justify-content-center">
+            
+            <div class="form-group row d-flex align-content-right">
                 <div id="crop-avatar">
                     <img id="imgFoto" class="img-responsive avatar-view"
                          src="{{ asset('img/no-image.png')}}"
-                         alt="Avatar" title="Change the avatar" style="width: 100%">
+                         alt="Avatar" title="Change the avatar" style="width: 30%">
                 </div>
-                <div class="col-md-12 col-sm-12 text-center mt-2">
+                <div class="col-md-4 col-sm-4 text-left mt-2">
                     <input id="ds_foto" type="file"
                            class="form-control form-control-sm inputFoto"
                            name="ds_foto"/>
@@ -35,9 +36,8 @@
                     </p>
                 </div>
             </div>
-
-            <div class="form-group row d-flex justify-content-center">
-                <div class="col-md-12">
+            <div class="form-group row d-flex justify-content-top">
+                <div class="col-md-8">
                     <label for="name">{{ __('Nome do Usuário') }}</label>
                     <input id="name" type="text"
                            class="form-control form-control-sm{{ $errors->has('nm_usuario') ? ' is-invalid' : '' }}"
@@ -65,7 +65,8 @@
                     @endif
                 </div>
             </div>
-            <div class="form-group row d-flex justify-content-center">
+            
+            <div class="form-group row d-flex align-content-right">
                 <div class="col-md-12">
                     <label for="tipo_contato_usuario">Tipo Contato</label>
                     <select id="tipo_contato_usuario" name="id_tp_contato"
@@ -81,7 +82,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group row d-flex justify-content-center">
+            <div class="form-group row d-flex align-content-right">
                 <div id="nr_contatoUsuario" class="col-md-12">
                     <label for="contatoUsuario">Contato</label>
                     <input id="contatoUsuario" type="text"
@@ -91,7 +92,7 @@
                     <input type="hidden" name="id_usuario" id="id_usuario" value="{{Auth::user()->id}}">
                 </div>
             </div>
-            <div class="form-group row d-flex justify-content-center">
+            <div class="form-group row d-flex align-content-right">
                 <div class="col-md-12">
                     <label for="password">{{ __('Password') }}</label>
                     <input id="password" type="password"
