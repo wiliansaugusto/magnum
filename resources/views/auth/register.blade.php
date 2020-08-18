@@ -13,75 +13,71 @@
         <form method="POST" action="{{ url('dashboard/register') }}" aria-label="{{ __('Register') }}"
               enctype="multipart/form-data" autocomplete>
             @csrf
+            <div class="row">
+                <div class="col-md-4 col-sm-12 text-left mt-2">
+                    <div class="form-group justify-content-center">
+                        <div id="crop-avatar">
+                            <img id="imgFoto" class="img-responsive avatar-view"
+                                src="{{ asset('img/no-image.png')}}"
+                                alt="Avatar" title="Change the avatar" style="width: 100%">
+                        </div>
+                        
+                        <input id="ds_foto" type="file"
+                            class="form-control form-control-sm inputFoto"
+                            name="ds_foto"/>
+                        <label for="ds_foto" class="custom-upload-foto"
+                            style="width: 100%;word-break: break-all;">
+                            <i class="fa fa-cloud-upload"></i> Carregar foto
+                        </label>
+                        <p id="file_invalid" class="alert alert-error mt-3"
+                        style="display: none;">
+                            Formato
+                            de arquivo invalido! <br/>
+                            Aceito apenas imagens nos formatos .png, .jpeg, .jpg
+                        </p>
+                    </div>
+                </div>
             
-            <div class="form-group row d-flex align-content-right">
-                <div id="crop-avatar">
-                    <img id="imgFoto" class="img-responsive avatar-view"
-                         src="{{ asset('img/no-image.png')}}"
-                         alt="Avatar" title="Change the avatar" style="width: 30%">
-                </div>
-                <div class="col-md-4 col-sm-4 text-left mt-2">
-                    <input id="ds_foto" type="file"
-                           class="form-control form-control-sm inputFoto"
-                           name="ds_foto"/>
-                    <label for="ds_foto" class="custom-upload-foto"
-                           style="width: 100%;word-break: break-all;">
-                        <i class="fa fa-cloud-upload"></i> Carregar foto
-                    </label>
-                    <p id="file_invalid" class="alert alert-error mt-3"
-                       style="display: none;">
-                        Formato
-                        de arquivo invalido! <br/>
-                        Aceito apenas imagens nos formatos .png, .jpeg, .jpg
-                    </p>
-                </div>
-            </div>
-            <div class="form-group row d-flex justify-content-top">
-                <div class="col-md-8">
-                    <label for="name">{{ __('Nome do Usuário') }}</label>
-                    <input id="name" type="text"
-                           class="form-control form-control-sm{{ $errors->has('nm_usuario') ? ' is-invalid' : '' }}"
-                           name="nm_usuario" value="{{ old('nm_usuario') }}" required autofocus autocomplete="off"/>
+                <div class="col-md-8 col-sm-12 content-right mt-1">
+                    <div class="form-group justify-content-center">
+                        <label for="name">{{ __('Nome do Usuário') }}</label>
+                        <input id="name" type="text"
+                            class="form-control form-control-sm{{ $errors->has('nm_usuario') ? ' is-invalid' : '' }}"
+                            name="nm_usuario" value="{{ old('nm_usuario') }}" required autofocus autocomplete="off"/>
 
-                    @if ($errors->has('nm_usuario'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('nm_usuario') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
+                        @if ($errors->has('nm_usuario'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('nm_usuario') }}</strong>
+                            </span>
+                        @endif
 
-            <div class="form-group row d-flex justify-content-center">
-                <div class="col-md-12">
-                    <label for="email">{{ __('E-mail') }}</label>
-                    <input id="email" type="email"
-                           class="form-control form-control-sm{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                           name="email" value="{{ old('email') }}" required/>
+                        <label for="email">{{ __('E-mail') }}</label>
+                        <input id="email" type="email"
+                            class="form-control form-control-sm{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                            name="email" value="{{ old('email') }}" required/>
 
-                    @if ($errors->has('email'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-            
-            <div class="form-group row d-flex align-content-right">
-                <div class="col-md-12">
-                    <label for="tipo_contato_usuario">Tipo Contato</label>
-                    <select id="tipo_contato_usuario" name="id_tp_contato"
-                            class="form-control form-control-sm">
-                        <option selected disabled>Selecione Tipo de Contato</option>
-                        @php
-                            $tipoContato = new App\TipoContato();
-                            $result = $tipoContato::all();
-                        @endphp
-                        @foreach ( $result as $tipo)
-                            <option value="{{$tipo->id}}">{{$tipo->nm_tipo_contato}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+
+                        <label for="tipo_contato_usuario">Tipo Contato</label>
+                        <select id="tipo_contato_usuario" name="id_tp_contato"
+                                class="form-control form-control-sm">
+                            <option selected disabled>Selecione Tipo de Contato</option>
+                            @php
+                                $tipoContato = new App\TipoContato();
+                                $result = $tipoContato::all();
+                            @endphp
+                            @foreach ( $result as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->nm_tipo_contato}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>            
+            </div>          
+          
             <div class="form-group row d-flex align-content-right">
                 <div id="nr_contatoUsuario" class="col-md-12">
                     <label for="contatoUsuario">Contato</label>

@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <h2 class="text-uppercase" style="font-weight: bold">{{$usuario->nm_usuario}}</h2>
-                    <label id="password">{{$usuario->password}}</label>
+                    <label id="password" class="text-left">Digite a nova senha.</label>
                     
                     <input id="password" type="text"
                            class="form-control form-control-sm{{ $errors->has('$usuario->password') ? ' is-invalid' : '' }}"
