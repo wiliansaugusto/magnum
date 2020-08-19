@@ -3,9 +3,8 @@
     <div class=" modal-dialog modal-dialog-centered" role="dialog">
         <div class="modal-content">
             <form method="POST"
-                  action="/dashboard/usuario/{{$usuario->id}}">
+                  action="/dashboard/usuario/edit/{{$usuario->id}}">
                 @csrf
-                @method('UPDATE')
                 <div class="modal-header">
                     <h5 class="modal-title" id="UsuarioUpdate{{$usuario->id}}">
                         Alterar senha do Usuário
@@ -14,7 +13,7 @@
                 <div class="modal-body text-center">
                     <h2 class="text-uppercase" style="font-weight: bold">{{$usuario->nm_usuario}}</h2>
                     <label id="password" class="text-left">Digite a nova senha.</label>
-                    
+
                     <input id="password" type="text"
                            class="form-control form-control-sm{{ $errors->has('$usuario->password') ? ' is-invalid' : '' }}"
                            name="password" value="{{ old('$usuario->password') }}" required autofocus

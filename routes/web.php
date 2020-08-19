@@ -106,7 +106,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::get    ('cliente/{id}/novo', 'ClienteController@create');
     Route::get    ('cliente/{id}/edit', 'ClienteController@show');
     Route::delete ('cliente/{id}', 'ClienteController@destroy');
-//    Route::put    ('evento/update/{id}', 'EventoController@edit');
+//  Route::put    ('evento/update/{id}', 'EventoController@edit');
     Route::get    ('cliente/{id}', 'ClienteController@show');
 
     Route::post('createTpAcessor/','TipoAcessorController@store');
@@ -124,7 +124,6 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
      //rotas para itens do pdf
     Route::delete('formapgto/{id}','CamposPropostaController@destroy');
     Route::post('createformapgto','CamposPropostaController@salvarFormaPgto');
-
     Route::post('createequipamentos','CamposPropostaController@salvarEquipamentos');
 
 

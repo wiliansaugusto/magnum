@@ -75,12 +75,14 @@ class ConfigurationController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request , $id)
     {
         //
         $usuario = Usuario::find($id);
-        
-        dd($usuario);
+        $usuario->password = $request->password;
+        $usuario->save();
+
+        return redirect('dashboard/config');
     }
 
     /**
