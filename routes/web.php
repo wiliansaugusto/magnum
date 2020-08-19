@@ -127,6 +127,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 
      //rotas para itens do pdf
     Route::delete('formapgto/{id}','CamposPropostaController@destroy');
+    Route::post('formapgto/edit/{id}','CamposPropostaController@update');
     Route::post('createformapgto','CamposPropostaController@salvarFormaPgto');
     Route::post('createequipamentos','CamposPropostaController@salvarEquipamentos');
 

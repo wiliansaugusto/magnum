@@ -47,7 +47,7 @@
             <div class="col-md-6 col-sm-12  ">
                 <div class="page-title">
                     <div class="title_left" style="width: 100%">
-                        <h3>Configuração de Assesores</h3>
+                        <h3>Configuração de Assessores</h3>
                     </div>
                 </div>
                 @include('dashboard.tipoAcessor.create')

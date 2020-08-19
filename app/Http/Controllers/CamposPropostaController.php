@@ -25,4 +25,11 @@ class CamposPropostaController extends Controller
         return redirect('dashboard/config');
 
     }
+    public function update (Request $request, $id){
+        $formaPgto = CamposProposta::find($id);
+        $formaPgto->ds_campo = $request->ds_campo;
+        $formaPgto->save();        
+        return redirect('dashboard/config');
+        
+    }
 }

@@ -17,10 +17,10 @@
                 <div class="col-md-12">
                     <label for="name">{{ __('Forma de Pagamento') }}</label>
                     <input type="text" name="tp_campo" value="formapgto" hidden>
-                    <textarea class="form-control form-control-sm{{ $errors->has('ds_campo') ? ' is-invalid' : '' }}"
+                    <input class="form-control form-control-sm{{ $errors->has('ds_campo') ? ' is-invalid' : '' }}"
                               name="ds_campo" id="name" cols="30" rows="4" value="{{ old('nm_tipo_servico') }}" required
                               autofocus
-                              autocomplete="off"></textarea>
+                              autocomplete="off"></input>
                     @if ($errors->has('ds_campo'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('ds_campo') }}</strong>

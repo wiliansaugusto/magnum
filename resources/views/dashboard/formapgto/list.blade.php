@@ -28,11 +28,17 @@
                             <tr>
                                 <td>{{$formaPgto->ds_campo}}</td>
                                 <td class=" text-right">
+                                    <button type="button" class="btn btn-warning btn-sm ml-1"
+                                            data-toggle="modal"
+                                            data-target="#modalFormaPgtoUpdate{{$formaPgto->id}}"><i
+                                            class='fa fa-cog'></i>
+                                    </button>
                                     <button type="button" class="btn btn-danger btn-sm ml-1"
                                             data-toggle="modal"
                                             data-target="#modalFormaPgtoDel{{$formaPgto->id}}"><i
                                             class='fa fa-trash'></i></button>
-                                    @include('dashboard.formapgto.delete',['formaPgto'=>$formaPgto])
+                                        @include('dashboard.formapgto.edit',['formaPgto'=>$formaPgto])
+                                        @include('dashboard.formapgto.delete',['formaPgto'=>$formaPgto])
 
                                 </td>
                             </tr>

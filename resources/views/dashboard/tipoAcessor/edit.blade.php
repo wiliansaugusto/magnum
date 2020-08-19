@@ -12,7 +12,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <h2 class="text-uppercase" style="font-weight: bold">{{$acessor->nm_tp_acessor}}</h2>
-                    <p>OS os valores relacionados a esse tipo de assessor serão Aletrados</p>
+                    <p>OS valores relacionados a esse tipo de assessor serão Aletrados</p>
                     <input id="nm_tp_acessor" type="text"
                            class="form-control form-control-sm{{ $errors->has('$acessor->nm_tp_acessor') ? ' is-invalid' : '' }}"
                            name="nm_tp_acessor" value="{{ old('$acessor->nm_tp_acessor') }}" required autofocus
