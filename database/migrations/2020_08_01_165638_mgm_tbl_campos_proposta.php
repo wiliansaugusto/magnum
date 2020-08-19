@@ -14,7 +14,6 @@ class MgmTblCamposProposta extends Migration
     public function up()
     {
         Schema::create('mgm_tbl_campos_proposta', function (Blueprint $table) {
-            //
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('tp_campo',20)->nullable();

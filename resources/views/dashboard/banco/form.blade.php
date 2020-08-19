@@ -23,7 +23,7 @@
             </div>
             <div class="form-group row d-flex justify-content-center">
                 <div class="col-md-12">
-                    <label for="nm_banco">Codigo Banco</label>
+                    <label for="nm_banco">Nome Banco</label>
                     <input id="nm_banco" type="text"
                            class="form-control form-control-sm{{ $errors->has('nm_banco') ? ' is-invalid' : '' }}"
                            name="nm_banco" value="{{ old('nm_banco') }}" required autofocus

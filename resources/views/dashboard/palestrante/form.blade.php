@@ -486,7 +486,7 @@
                                                                     <button type="button" class="btn btn-primary btn-sm"
                                                                             data-toggle="modal"
                                                                             data-target="#frmContatoModal"
-                                                                            data-rel="palestrantre">
+                                                                            data-rel="palestrante-novo">
                                                                         <i class="fa fa-plus"></i> Contato
                                                                     </button>
                                                                 </div>
@@ -503,7 +503,7 @@
                                                                         <tbody>
                                                                         @if(sizeof($data->contatos) > 0)
                                                                             @foreach($data->contatos as $contato)
-                                                                                <tr id="{{$contato->id}}">
+                                                                                <tr id="contato-{{$contato->id}}">
                                                                                     <td>{{$contato->tiposContato->nm_tipo_contato}}</td>
                                                                                     <td>{{$contato->ds_contato}}</td>
                                                                                     <td class='text-right'>
@@ -515,7 +515,7 @@
                                                                                             data-tipo="{{$contato->tiposContato->id}}"
                                                                                             data-toggle='modal'
                                                                                             data-target="#frmContatoModal"
-                                                                                            data-rel="palestrantre">
+                                                                                            data-rel="contato-edicao">
                                                                                             <i class='fa fa-edit'></i>
                                                                                         </button>
                                                                                         <button

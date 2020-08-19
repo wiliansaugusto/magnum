@@ -6,7 +6,7 @@ $(document).ready(function () {
         var data = $('#frmContato').serialize(),
             rel = $("#rel").val();
 
-        if(rel === "palestrante"){
+        if(rel === "palestrante-novo"){
             data = data + "&id_palestrante=" + $("#id_palestrante").val()
         }
 
@@ -383,12 +383,24 @@ $(document).ready(function () {
 
     function tabelaContato(fields) {
         $("#contato-null").remove();
+        $('#tblContato tbody tr#contato-'+fields.id_contato).remove();
 
         var linha = "<tr id='contato-" + fields.id_contato + "'>";
         linha += "<td><input type='hidden' name='id_contato[]' value='" + fields.id_contato + "' />";
         linha += fields.nm_tipo_contato + "</td>";
         linha += "<td>" + fields.ds_contato + "</td>";
         linha += "<td class='text-right'>";
+        linha += '<button type="button"';
+        linha += 'class="btn btn-primary btn-sm ml-1"';
+        linha += 'data-acao="editar"';
+        linha += 'data-id="'+fields.id_contato+'"';
+        linha += 'data-contato="'+ fields.ds_contato+'"';
+        linha += 'data-tipo="'+ fields.id_tipo_contato+'"';
+        linha += "data-toggle='modal'";
+        linha += 'data-target="#frmContatoModal"';
+        linha += 'data-rel="palestrante">';
+        linha += "<i class='fa fa-edit'></i>";
+        linha += "</button>";
         linha += "<button id='excluirContato' type='button' class='btn btn-danger btn-sm' data-id='" + fields.id_contato + "' data-toggle='modal' data-target='#frmRemoverContatoModal'>";
         linha += "<i class='fa fa-trash'></i>";
         linha += "</button>";

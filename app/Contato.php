@@ -9,7 +9,6 @@ class Contato extends Model
     protected $table = 'mgm_tbl_contato';
 
     protected $fillable = [
-        'id',
         'ds_contato',
         'id_tp_contato',
         'id_palestrante',
