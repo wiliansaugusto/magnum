@@ -1,22 +1,22 @@
 <div class="modal fade" id="frmPropostaItemModal" tabindex="-1" role="dialog"
      aria-labelledby="frmNomePropostaItemModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <form id="frmPropostaItem" method="POST" action="/dashboard/propostaItem/">
-                <input id="num_item_proposta" type="hidden" name="num_item_proposta" value="000001" /> 
+                <input id="num_item_proposta" type="hidden" name="num_item_proposta" value="{{ $data->id_proposta }}" /> 
                 
                 <input id="id_usuario" type="hidden" name="id_usuario" value="{{ Auth::user()->id }}"/>
                 @csrf
+
                 <div class="title_center ">
                     <h4 style='color:red'>Proposta Nrº  {{$data->num_proposta}}</h4>
                 </div>
                 <div class="ln_solid"></div>
                 <div class="form-group row d-flex justify-content-center">
-                    <div class="col-md-12">
-                        <label for="nm_tipo_servico">   </label>                            
-                    </div>
+                    <h4>Cadastrar Item  </h4>
                 </div>
-
+                <div class="ln_solid"></div>
+                
                 <div class="form-group row d-flex justify-content-center">
                     <div class="col-md-4">
                         <label for="id_categoria">Categoria </label>
@@ -44,12 +44,23 @@
 
                     <div class="col-md-4">
                         <label for="id_sub_categoria">Sub Categoria </label>
+                        @php
+                            $subCategorias = App\SubCategoria::all();
+                           
+                            
+                        @endphp 
                           
                         <select id="id_sub_categoria"
                                 class="form-control form-control-sm select-find {{ $errors->has('id_sub_categoria') ? 'is-invalid' : '' }}"
                                 name="id_sub_categoria" style="width: 100%">
                                 
                             <option></option>
+                            
+                            @foreach ($subCategorias as $subCategoria)
+                                <option value="{{$subCategoria->id}}">
+                                    {{$subCategoria->nm_sub_cat}}
+                                </option>
+                            @endforeach
                             
                         </select>
                         @if ($errors->has('id_sub_categoria'))

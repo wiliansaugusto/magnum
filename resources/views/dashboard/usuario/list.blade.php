@@ -24,11 +24,18 @@
                                 <td>{{$usuario->nm_usuario}}</td>
                                 <td>{{date_format($usuario->created_at,"d/m/Y H:i:s")}}</td>
                                 <td class=" text-right">
+                                    <button type="button" class="btn btn-warning btn-sm ml-1"
+                                            data-toggle="modal"
+                                            data-target="#modalUsuarioUpdate{{$usuario->id}}"><i
+                                                class='fa fa-cog'></i>
+                                    </button>
                                     <button type="button" class="btn btn-danger btn-sm ml-1"
                                             data-toggle="modal"
                                             data-target="#modalUsuarioeDel{{$usuario->id}}"><i
-                                                class='fa fa-trash'></i></button>
+                                                class='fa fa-trash'></i>
+                                    </button>
                                     @include('dashboard.usuario.delete',['usuario'=>$usuario])
+                                    @include('dashboard.usuario.edit',['usuario'=>$usuario])
                                 </td>
                             </tr>
                         @endif

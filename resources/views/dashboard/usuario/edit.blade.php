@@ -1,19 +1,23 @@
-<div class="modal fade" id="modalUsuarioeDel{{$usuario->id}}" tabindex="-1" role="dialog"
-     aria-labelledby="UsuarioDel{{$usuario->id}}" aria-hidden="true">
+<div class="modal fade" id="modalUsuarioUpdate{{$usuario->id}}" tabindex="-1" role="dialog"
+     aria-labelledby="UsuarioUpdate{{$usuario->id}}" aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered" role="dialog">
         <div class="modal-content">
             <form method="POST"
-                  action="/dashboard/usuario/{{$usuario->id}}">
+                  action="/dashboard/usuario/edit/{{$usuario->id}}">
                 @csrf
-                @method('DELETE')
                 <div class="modal-header">
-                    <h5 class="modal-title" id="UsuarioDel{{$usuario->id}}">
-                        Excluir Usuário
+                    <h5 class="modal-title" id="UsuarioUpdate{{$usuario->id}}">
+                        Alterar senha do Usuário
                     </h5>
                 </div>
                 <div class="modal-body text-center">
-                    <p>Tem certeza que você quer excluir o usuario:</p>
                     <h2 class="text-uppercase" style="font-weight: bold">{{$usuario->nm_usuario}}</h2>
+                    <label id="password" class="text-left">Digite a nova senha.</label>
+
+                    <input id="password" type="text"
+                           class="form-control form-control-sm{{ $errors->has('$usuario->password') ? ' is-invalid' : '' }}"
+                           name="password" value="{{ old('$usuario->password') }}" required autofocus
+                           autocomplete="off"/>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-sm">

@@ -58,6 +58,7 @@
                                 </li>
                                 <li><a href="/dashboard/palestrantepdf"><i class="fa fa-file-pdf-o"></i> Gerar Pdf </a>
                                 </li>
+                                 -->
                             </ul>
                         </div>
                         <div class="menu_section">

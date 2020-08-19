@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriaTableSeeder::class);
         $this->call(SubCategoriaTableSeeder::class);
         $this->call(PerfilPublicoTableSeeder::class);
-        $this->calls(TipoAssessorTableSeeder::class);
+        $this->calls(TipoAcessorTableSeeder::class);
     }
 }

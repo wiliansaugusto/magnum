@@ -43,11 +43,8 @@ class PropostaController extends Controller
 
     public function salvarProposta(Request $request)
     {
-        $data = Evento::salvarEvento($request->all());
-        $data->id_evento = $data->id;
-        //dd($data);
         $data = Proposta::create($request->all());
-        dd($data);
+        
         $data->num_proposta =  str_pad($data->id, 7, "0", STR_PAD_LEFT);
         $data->save();
         //dd($data->nm_solicitante, $request, $data->id, $data->num_proposta);
@@ -63,9 +60,9 @@ class PropostaController extends Controller
      */
     public function store(Request $request)
     {
-        
+                        
         //dd($request);
-        $proposta = $request->all()['id_proposta'];
+        $id_proposta = $request->all()['id_proposta'];
         $proposta = Proposta::find($request->id_proposta);
         $proposta->status_proposta = $request->status_proposta;
         $proposta->nm_contratante = $request->nm_contratante;
@@ -80,20 +77,17 @@ class PropostaController extends Controller
         $proposta->mensagem_proposta = $request->mensagem_proposta;
         $proposta->nm_solicitante = $request->nm_solicitante;
         $proposta->save();
-
-
-        if($proposta->id_evento == null){
-            $proposta->id_evento = Evento::create([
-                'id_usuario' => '$request->id_usuario'
-            ]);
-            dd($proposta);
-            $proposta->save();
-        }
-        //$enunciado->questionario()->associate($questionario);
-        //dd($request->all());
+      
+        //dd($request);
         
-        $evento = $request->all()['id_evento'];
+        $evento = Evento::where('id_proposta', $id_proposta)->first() == NULL ? new Evento()
+            : Evento::where('id_proposta', $id_proposta)->first();
+        
+        //dd($request);
+
+        $id_evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
+        $evento->id_proposta = $request->id_proposta;
         $evento->id_usuario = $request->id_usuario;
         $evento->nm_evento = $request->nm_evento;
         $evento->tema_evento = $request->tema_evento;
@@ -106,8 +100,10 @@ class PropostaController extends Controller
         $evento->qtd_participantes_evento = $request->qtd_participantes_evento;
         $evento->perfil_participante_evento = $request->perfil_participante_evento;
         $evento->objetivo_evento = $request->objetivo_evento;
-        $evento->vlr_verba_evento = $request->vlr_verba_evento;
+        $evento->vlr_verba_evento = $request->vlr_verba_evento;     
+        
         $evento->save();
+    
 
         /*
         $cliente = $request->all()['id_cliente'];
@@ -168,6 +164,7 @@ class PropostaController extends Controller
         $proposta->mensagem_proposta = $request->mensagem_proposta;
         $proposta->save();
 
+       /*
         if($proposta->id_evento == null){
             $proposta->id_evento = Evento::create([
                 'id_usuario' => ' $request->id_usuario '
@@ -175,8 +172,8 @@ class PropostaController extends Controller
             //dd($proposta);
             $proposta->save();
         }
-
-        dd($request);
+        */
+        //dd($request);
         $evento = $request->all()['id_evento'];
         $evento = Evento::find($request->id_evento);
         $evento->nm_evento = $request->nm_evento;

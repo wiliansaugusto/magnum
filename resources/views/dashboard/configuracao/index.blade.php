@@ -52,7 +52,7 @@
                 </div>
                 @include('dashboard.tipoAcessor.create')
             </div>
-            <div class="col-md-6 col-sm-12  ">
+            <div class="col-md-6 col-sm-12">
                 <div class="page-title">
                     <div class="title_left" style="width: 100%">
                         <h3>Configuração de Bancos</h3>
