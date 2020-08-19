@@ -17,7 +17,7 @@
             <div class=" col-md-6 col-sm-12 ">
                 <div class="page-title">
                     <div class="title_left" style="width: 100%">
-                        <h3>Configuração de Valores</h3>
+                        <h3>Configuração de Serviços</h3>
                     </div>
                 </div>
                 @include('dashboard.tipoServico.create')

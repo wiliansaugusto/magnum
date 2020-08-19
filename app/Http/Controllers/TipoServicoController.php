@@ -73,6 +73,11 @@ class TipoServicoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $tipo = TiposDeServico::find($id);
+        $tipo->nm_tipo_servico = $request->nm_tipo_servico;
+        $tipo->save();
+        return redirect('dashboard/config');
+
     }
 
     /**
