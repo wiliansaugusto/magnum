@@ -28,10 +28,17 @@
                             <tr>
                                 <td>{{$acessor->nm_tp_acessor}}</td>
                                 <td class=" text-right">
+                                    <button type="button" class="btn btn-warning btn-sm ml-1"
+                                            data-toggle="modal"
+                                            data-target="#modalTipoAcessorUpdate{{$acessor->id}}"><i
+                                            class='fa fa-cog'></i>
+                                    </button>
                                     <button type="button" class="btn btn-danger btn-sm ml-1"
                                             data-toggle="modal"
                                             data-target="#modalTipoAcessorDel{{$acessor->id}}"><i
-                                            class='fa fa-trash'></i></button>
+                                            class='fa fa-trash'></i>
+                                    </button>
+                                    @include('dashboard.tipoAcessor.edit',['acessor'=>$acessor])
                                     @include('dashboard.tipoAcessor.delete',['acessor'=>$acessor])
 
                                 </td>

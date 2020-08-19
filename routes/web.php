@@ -114,7 +114,8 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
 
     Route::post('createTpAcessor/','TipoAcessorController@store');
     Route::delete('tipoacessor/{id}','TipoAcessorController@destroy');
-
+    Route::post('tipoacessor/edit/{id}', 'TipoAcessorController@update');
+    
     Route::post('solicitante/', 'SolicitanteController@store');
     Route::post('solicitante/delete/{id}','SolicitanteController@destroy');
 

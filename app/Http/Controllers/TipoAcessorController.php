@@ -72,6 +72,11 @@ class TipoAcessorController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $acessor = TipoAcessor::find($id);
+        $acessor->nm_tp_acessor = $request->nm_tp_acessor;
+        $acessor->save();
+
+        return redirect('dashboard/config');
     }
 
     /**

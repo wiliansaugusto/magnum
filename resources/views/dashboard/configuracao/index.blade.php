@@ -66,7 +66,7 @@
             <div class="col-md-6 col-sm-12  ">
                 <div class="page-title">
                     <div class="title_left" style="width: 100%">
-                        <h2>Configuração de Forma de Pagamento</h2>
+                        <h3>Configuração de Forma de Pagamento</h3>
                     </div>
                 </div>
                 @include('dashboard.formapgto.create')
@@ -74,7 +74,7 @@
             <div class="col-md-6 col-sm-12  ">
                 <div class="page-title">
                     <div class="title_left" style="width: 100%">
-                        <h2>Configuração de Equipamento Padrão</h2>
+                        <h3>Configuração de Equipamento Padrão</h3>
                     </div>
                 </div>
                 @include('dashboard.equipamentos.create')
