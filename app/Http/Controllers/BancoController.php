@@ -83,6 +83,12 @@ class BancoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $banco = NomeBanco::find($id);
+        $banco->nm_banco = $request->nm_banco;
+        $banco->cd_banco = $request->cd_banco;
+        $banco->save();
+
+        return redirect('dashboard/config');
     }
 
     /**

@@ -59,6 +59,7 @@ Route::group( ['middleware' => ['auth', 'active_user'], "prefix" => 'dashboard']
     Route::resource('banco/', 'BancoController');
     Route::post('banco/delete/{id}', 'BancoController@destroy');
     Route::post('banco/agencia', 'BancoController@salvarAgencia');
+    Route::post('banco/edit/{id}','BancoController@update');
     Route::delete('banco/agencia/{id}', 'BancoController@excluirAgencia');
     Route::post('contato/delete/{id}', 'ContatoController@destroy');
     Route::post('endereco/delete/{id}', 'EnderecoController@destroy');

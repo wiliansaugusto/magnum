@@ -28,10 +28,17 @@
                             <tr>
                                 <td>{{$equipamento->ds_campo}}</td>
                                 <td class=" text-right">
+                                    <button type="button" class="btn btn-warning btn-sm ml-1"
+                                            data-toggle="modal"
+                                            data-target="#modalEquipamentoUpdate{{$equipamento->id}}"><i
+                                            class='fa fa-cog'></i>
+                                    </button>
                                     <button type="button" class="btn btn-danger btn-sm ml-1"
                                             data-toggle="modal"
                                             data-target="#modalEquipamentoDel{{$equipamento->id}}"><i
-                                            class='fa fa-trash'></i></button>
+                                            class='fa fa-trash'></i>
+                                    </button>
+                                    @include('dashboard.equipamentos.edit',['equipamento'=>$equipamento])        
                                     @include('dashboard.equipamentos.delete',['equipamento'=>$equipamento])
 
                                 </td>
